@@ -1,0 +1,417 @@
+/* Style sheet for Toby Ziegler's pages */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: verdana, arial, sans-serif;
+}
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+header {
+    margin: 1rem;
+    color: darkgreen;
+    text-shadow: 3px 2px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+header h1 {
+    font-size: 3em;
+    font-weight: 800;
+}
+header h2 {
+    font-size: 2.25em;
+    font-weight: 600;
+}
+header h3 {
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+nav {
+    /*    padding: 0.5rem;*/
+    z-index: 1;
+}
+nav li {
+    display: inline-block;
+}
+nav a {
+    /*    position: relative;*/
+    /*    margin: .25rem;*/
+    padding: 0 1rem;
+}
+.button {
+    display: inline-block;
+    color: white;
+    /*    width: 6rem;*/
+    text-decoration: none;
+    border: none;
+    border-radius: .5rem;
+    font-family: verdana, arial, sans-serif;
+    font-weight: 900;
+    line-height: 1.875rem;
+    min-height: 1.5rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.button:hover {
+    transition: all 0.15s ease-in-out;
+    transform: scale(1.1) translate(0px, 0px);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+a:-webkit-any-link {
+    cursor: auto;
+}
+#contentArea {
+    margin: 1rem;
+    font-family: verdana, arial, sans-serif;
+}
+#contentArea h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+    margin: 0.75rem;
+    line-height: 125%;
+}
+.sidebox {
+    margin-bottom: 0.5rem;
+    min-width: 10rem;
+    padding: 0.25rem;
+    /*    border: 2px solid green;*/
+    border-radius: .5rem;
+    /*    background-color: lightgoldenrodyellow;*/
+}
+.goldgradient {
+    background: linear-gradient(150deg, #ffe8ba 0%, #ffcc66 100%);
+}
+.greengradient {
+    background: linear-gradient(150deg, #5ab20e 0%, #097c22 100%);
+}
+.greengradient:hover {
+    background: darkgreen;
+}
+.twittergradient {
+    background: linear-gradient(150deg, #CEEBFF 0%, #70C5FF 100%);
+}
+.twittergradient:hover {
+    background: #0099FF;
+}
+.facebookgradient {
+    background: linear-gradient(150deg, #7db9e8 0%, #1E5799 100%);
+}
+.facebookgradient:hover {
+    background: #004799;
+}
+.googlegradient {
+    background: linear-gradient(150deg, #f4c20d 25%, #3cba54 50%, #db3236 75%);
+}
+.googlegradient:hover {
+    background: #BF0003;
+}
+.emailgradient {
+    background: linear-gradient(150deg, #f3e2c7 0%, #b68d4c 100%);
+}
+.emailgradient:hover {
+    background: #B56C00;
+}
+.toprightfloat {
+    position: static;
+    float: right;
+    top: 1rem;
+    margin-left: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+.topleftfloat {
+    position: static;
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+.bottomrightfloat {
+    position: static;
+    float: right;
+    bottom: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 0.25rem;
+}
+.third {
+    width: 33%;
+}
+.quarter {
+    width: 25%;
+}
+.eighth {
+    width: 12.5%;
+}
+.photocontainer {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 4rem;
+}
+.photocontainer:before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    /*            opacity: 0.9;*/
+    background-repeat: no-repeat;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.photocontainer:after {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    /*    opacity: .2;*/
+    /*    background: white;*/
+    background: rgba(255, 255, 255, 0.2);
+}
+.fadebox {
+    margin: 1rem 2rem;
+    padding: 1rem;
+    /*            background-color: white;*/
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5rem;
+    min-width: 15rem;
+    min-height: 100%;
+    /*            opacity: 0.4;*/
+    display: inline-block;
+    -moz-box-shadow: 0 0 2rem rgba(255, 255, 255, .7);
+    -webkit-box-shadow: 0 0 2rem rgba(255, 255, 255, .7);
+    box-shadow: 0 0 2rem rgba(255, 255, 255, .7);
+}
+.flexcolumn {
+    column-width: 50rem;
+}
+.standout {
+    margin: 1rem 2rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    /*            width: 40rem;*/
+    min-width: 15rem;
+    opacity: 0.5;
+    display: inline-block;
+}
+.caption {
+    font-family: serif;
+    font-style: italic;
+    font-size: 90%;
+}
+.portfolioitem {
+    display: inline-block;
+    width: 15rem;
+    text-align: center;
+}
+.portfolioitem img {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.portfolioitem:hover img {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.portfoliobutton {
+    /*    display: block;*/
+    /*    color: black;*/
+    width: 12rem;
+    /*    text-decoration: none;*/
+    padding: .25rem;
+    /*    border: none;*/
+    border-radius: .5rem;
+    /*    font-family: verdana, arial, sans-serif;*/
+    min-height: 1.5rem;
+    text-align: center;
+    background: linear-gradient(150deg, #CEEBFF 0%, #70C5FF 100%);
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.portfoliobutton a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    line-height: 100%;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+.portfoliobutton:hover {
+    background: #0099FF;
+    transition: all 0.15s ease-in-out;
+    transform: scale(1.1) translate(0px, 0px);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.portfoliobutton:hover a {
+    color: white;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /*    width: 100%;*/
+    min-height: 4rem;
+    /*    margin: 1rem 1rem 0.5rem 1rem;*/
+    text-align: center;
+}
+footer li {
+    display: inline-block;
+}
+footer p {
+    margin-top: 0.25rem
+}
+.copyright {
+    font-size: .75rem;
+    text-decoration: none;
+    text-shadow: 0 0 2rem white;
+}
+.copyright a {
+    text-decoration: none;
+}
+.attribution {
+    margin: 0.25rem 0.5rem;
+    padding: 0;
+}
+.attribution p {
+    margin: 0.15rem;
+    font-size: 0.4rem;
+}
+
+/*clickable droptext styles*/
+
+.droptext {
+    margin: 1rem 0;
+    position: relative;
+}
+.droptext p {
+    display: none;
+}
+
+/*check-bar*/
+
+.droptext input {
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+    display: none\9;
+    /* IE8 and below */
+    margin: 0;
+    width: 100%;
+    height: 36px;
+}
+
+/*preview text (before click)*/
+
+.droptext label+p {
+    display: block;
+    color: #999;
+    font-size: 1rem;
+    -webkit-transition: all .15s ease-out;
+    -moz-transition: all .15s ease-out;
+    -ms-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+    /* Clipping text */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*text after click*/
+
+.droptext input[type=checkbox]:checked~p {
+    display: block;
+    color: darkslategray;
+    font-size: 1em;
+    /* restore clipping defaults */
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+    text-overflow: clip;
+    white-space: normal;
+    overflow: visible;
+}
+
+/*label before click*/
+
+.droptext label {
+    font-size: 1.2em;
+    border-radius: 0.5rem;
+    background: #eee;
+    display: block;
+    position: relative;
+    box-sizing: inherit;
+    padding: 0.5rem;
+    padding-right: 3rem;
+    font-weight: bold;
+    border: 0.1rem solid #ddd;
+    border-left: 0.75rem solid #888;
+    /*          text-shadow: 0 1px 0 rgba(255, 255, 255, .5);*/
+    -webkit-transition: all .15s ease-out;
+    -moz-transition: all .15s ease-out;
+    -ms-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+}
+.droptext label::-moz-selection {
+    /* remove text selection when toggle-ing */
+    background: none;
+}
+.droptext label::selection {
+    background: none;
+}
+.droptext label:hover {
+    background: #f5f5f5;
+}
+
+/*label after click*/
+
+.droptext input[type=checkbox]:checked~label {
+    border-color: #ff7f50;
+    border-radius: 0.5rem;
+    background: #f5deb4;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f5deb4));
+    background-image: -webkit-linear-gradient(top, #fff, #f5deb4);
+    background-image: -moz-linear-gradient(top, #fff, #f5deb4);
+    background-image: -ms-linear-gradient(top, #fff, #f5deb4);
+    background-image: -o-linear-gradient(top, #fff, #f5deb4);
+    background-image: linear-gradient(to bottom, #fff, #f5deb4);
+    -moz-box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, .4);
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, .4);
+}
+
+/*arrow before click*/
+
+.droptext label::before {
+    content: '';
+    position: absolute;
+    right: 0.5rem;
+    top: 25%;
+    border: 0.5rem solid transparent;
+    border-left-color: inherit;
+}
+
+/*arrow after click*/
+
+.droptext input[type=checkbox]:checked~label::before {
+    position: absolute;
+    right: 0.5rem;
+    top: 40%;
+    border: 0.5rem solid transparent;
+    border-top-color: inherit;
+}
+.myHiddenText {
+    display: none;
+}

@@ -1,0 +1,108 @@
+/* Style sheet for periodicTable.html*/
+
+/* Toby Ziegler */
+/* Originally developed for OTC 14SP-CIS-130-W01-WEB SITE DEVELOPMENT I */
+/* Midterm Periodic Table Independent Project - Graphics, Tables & CSS 3 Module */
+/* Assignment Due March 20th, 2014 */
+
+body
+{
+margin: 0px;
+padding: 0px;
+border: 0px;
+color: black;
+/* Background gradient courtesy Ultimate CSS Gradient Generator, http://www.colorzilla.com/gradient-editor/ */
+/* While I am grateful, these lines produce 5 warnings from the CSS validator at http://jigsaw.w3.org/css-validator/validator */
+background: #7d7e7d; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+background: linear-gradient(135deg,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+html, body, p, th, td, li, dd, dt {
+ font: 1em Arial, Helvetica, sans-serif;
+ }
+
+h1, h2, h3, h4, h5, h6 { color: white; }
+h1 { font-size: 2em; text-align:center; }
+h2 { font-size: 1.5em; text-align:left; }
+h3 { font-size: 1.2em ; text-align:left; }
+h4 { font-size: 1.0em; text-align:center; }
+h5 { font-size: 0.9em; }
+h6 { font-size: 0.8em; }
+
+a:link { color: blue; }
+a:visited { color: darkblue; }
+a:hover { color: lightblue; }
+a:active { color: azure; }
+
+table { width:98%; }
+table, th, td {
+	border-style: none;
+	border-spacing: 5px;
+}
+tr { text-align: center; }
+th, td {
+	border-radius: 10px;
+	color: black;
+	padding: 5px;
+}
+
+.alkali {
+	background-color:lightsteelblue;
+	-moz-box-shadow:    inset 0px 0px 8px darkblue, 2px 2px 2px 1px black;
+	-webkit-box-shadow: inset 0px 0px 8px darkblue, 2px 2px 2px 1px black;
+	box-shadow:         inset 0px 0px 8px darkblue, 2px 2px 2px 1px black;
+}
+.earth {
+	background-color:lightgreen;
+	-moz-box-shadow:    inset 0px 0px 12px darkgreen, 2px 2px 2px 1px black;
+	-webkit-box-shadow: inset 0px 0px 12px darkgreen, 2px 2px 2px 1px black;
+	box-shadow:         inset 0px 0px 12px darkgreen, 2px 2px 2px 1px black;
+}
+.transitional {
+	background-color:lightyellow;
+	-moz-box-shadow:    inset 0px 0px 8px yellow, 2px 2px 2px 1px black;
+	-webkit-box-shadow: inset 0px 0px 8px yellow, 2px 2px 2px 1px black;
+	box-shadow:         inset 0px 0px 8px yellow, 2px 2px 2px 1px black;
+}
+.inner {
+	background-color:lightpink;
+	-moz-box-shadow:    inset 0px 0px 6px red, 2px 2px 2px 1px black;
+	-webkit-box-shadow: inset 0px 0px 6px red, 2px 2px 2px 1px black;
+	box-shadow:         inset 0px 0px 6px red, 2px 2px 2px 1px black;
+}
+.nonmetal {
+	background-color:lightskyblue;
+	-moz-box-shadow:    inset 0px 0px 6px blue, 2px 2px 2px 1px black;
+	-webkit-box-shadow: inset 0px 0px 6px blue, 2px 2px 2px 1px black;
+	box-shadow:         inset 0px 0px 6px blue, 2px 2px 2px 1px black;
+}
+.noble {
+	background-color:lightsalmon;
+	-moz-box-shadow:    inset 0px 0px 8px red, 2px 2px 2px 1px black;
+	-webkit-box-shadow: inset 0px 0px 8px red, 2px 2px 2px 1px black;
+	box-shadow:         inset 0px 0px 8px red, 2px 2px 2px 1px black;
+}
+
+.number { font-weight: 700; float: left; }
+.weight { font-size: 50%;  }
+.symbol { font-size: 200%; font-weight: 700;}
+.name { font-size: 60%;} 
+.year { font-size: 50%; }
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.center
+{
+margin-left: auto;
+margin-right: auto;
+}
