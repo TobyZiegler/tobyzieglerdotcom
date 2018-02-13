@@ -143,7 +143,7 @@
     </div>
 </body>
 <script>
-    var deadline = 'May 9 2017 23:59:59 GMT-0500';
+    var deadline = 'February 28 2018 23:59:59 GMT-0500';
 
     function time_remaining(endtime) {
         var timecalc = Date.parse(endtime) - Date.parse(new Date());
