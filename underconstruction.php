@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Toby, Ziegler, Toby Ziegler, TobyZiegler, designer, developer, programmer, graphic, graphics, construction, under construction, underconstruction, remodeling" />
     <title>Counting Down...</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="/css/reset.css">
     <!--    <link rel="stylesheet" href="css/navbarstyle.css">-->
     <!--    <link rel="stylesheet" href="css/socialstyles.css">-->
-    <link rel="stylesheet" href="css/tobystyles.css">
+    <link rel="stylesheet" href="/css/tobystyles.css">
     <style>
         body {
             text-align: center;
@@ -33,7 +33,7 @@
             height: 100%;
             z-index: -1;
             opacity: 0.8;
-            background-image: url('images/backgrounds/NationalMuseumUSAF2014lt.jpg');
+            background-image: url('/images/backgrounds/NationalMuseumUSAF2014lt.jpg');
             background-repeat: no-repeat;
             -ms-background-size: cover;
             -o-background-size: cover;
@@ -101,7 +101,7 @@
     <div class="photocontainer">
         <div></div>
         <nav>
-            <?php include("pages/templates/navbar.php");?>
+            <?php include("/pages/templates/navbar.php");?>
         </nav>
         <!-- page content -->
         <h1>UNDER CONSTRUCTION</h1>
@@ -128,7 +128,7 @@
         </div>
         <footer>
             <div>
-                <?php include("pages/templates/socialicons.php");?>
+                <?php include("/pages/templates/socialicons.php");?>
             </div>
             <p class="copyright">&copy; 2017 <a href=http://tobyziegler.com>Toby Ziegler</a>, all rights reserved.</p>
         </footer>
