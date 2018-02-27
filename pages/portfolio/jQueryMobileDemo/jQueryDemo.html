@@ -12,10 +12,10 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <style type="text/css" media="screen">
+    
         .hidden {
             display: none;
         }
-
         /* allows hidden at start */
 
         .loremipsum a:link,
@@ -30,6 +30,8 @@
         .loremipsum a:active {
             color: #0000ff
         }
+        /* formats and allows clicking entire lorem ipsum text */
+
     </style>
 
     <title>jQuery Demo</title>
@@ -67,23 +69,18 @@
                 <p>This was originally a lorem ipsum placeholder text, but I thought it would be more useful if it described
                     the project. If you would rather just see the lorem ipsum, it is just a
                     <a href="#" class="loremclickhome">click</a> away.</p>
-                <p>This page was an assignment for Advanced Web Development as an example jQuery demonstration. The criteria
-                    were as follows:</p>
-                <p>Build a two-page jQuery Mobile site. If possible, try testing the site from a mobile device or emulator.</p>
+                <p>The point of this demonstration was to build a two-page jQuery Mobile site. Fairly straightforward, but definitely a demonstration of the capabilities of jQuery. You might notice:</p>
                 <a href="#popupAssignment" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="/pages/portfolio/jQueryMobileDemo/jQueryMobileAssignment.gif" alt="Assignment, original" style="max-width:128px; float: right;"></a>
                 <ol>
-                    <li>Add a page for "Home" and a page for "Contact".</li>
-                    <li>For each page, add an appropriate header, content area, and footer, with some sample content.</li>
-                    <li>Add a navbar for each header, with appropriate links to each of the two pages; add classes to ensure
-                        the appropriate nav item shows as active on each page.</li>
-                    <li>Add a paragraph of text at the bottom of each page's content area.</li>
-                    <li>At the bottom of the page, add an event handler: set the text of each .orientation paragraph to the appropriate
-                        value ("portrait" or "landscape"); note that the orientationchange event is called on page load,
-                        to set the text when the page first loads.</li>
-                    <li>Visit the jQuery Mobile website to find one other UI element or event to add to your site. </li>
+                    <li>Within the single html file, a page exists for "Home" and another page for "Contact".</li>
+                    <li>Each page is divided into a corresponding header, content area, and footer, with some sample content. You can switch between this practical content by <a href="#" class="loremclickhome">clicking</a> on the provided links, or on the lorem ipsum text itself.</li>
+                    <li>A navbar has been provided for each header, with appropriate links to each of the two pages. The appropriate nav item shows as active on each page by user interface (ui) active and persist classes.</li>
+                    <li>A reversed text at the bottom of each page shows the address on Fake Street.</li>
+                    <li>At the bottom of the page, an event handler sets the text to display the appropriate value ("portrait" or "landscape") of the current orientation.</li>
+                    <li>Just above the bottom of the page, buttons are provided to navigate back to the home page, or just back to the portfolio section.</li>
+                    <li>The screen graphic inspiration for this project is a popup with a reduced graphic floating to the right.</li>
                 </ol>
-                <p>For the final requirement (number six), I made the lorem ipsum text and this extended explanation text swap out with a click. I also created a couple of buttons on the bottom to navigate back to the home page of the hosting site, or just back to the portfolio section.</p>
-                <p>One final bonus: I included the screen example from the assignment as a popup graphic.</p>
+                <p>I enjoyed building this jQuery Mobile demonstration, I hope you like it too!</p>
                 <div data-role="popup" id="popupAssignment" data-overlay-theme="b" data-theme="b" data-corners="false">
                         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/pages/portfolio/jQueryMobileDemo/jQueryMobileAssignment.gif" style="max-height:150%;" alt="Assignment, original">
                     </div>
@@ -135,7 +132,7 @@
         <div data-role="content">
             <div id="nonloremcontact" class="hidden">
                 <p>So, you would like to know more? If not, it's easy to go
-                    <a href="#" class="loremclickcontact">back</a>.</p>
+                    <a href="#" class="loremclickcontact">back</a> to the lorem ipsum.</p>
                 <p>How about this tidbit: I lost many hours of work over the course of about a week trying to get the styles
                     to just plain work. I ripped the code apart and rebuilt it. I checked for typos, letter by letter. I
                     pulled out hair. I did something else and came back again. I read some more. I studied some more. I found
