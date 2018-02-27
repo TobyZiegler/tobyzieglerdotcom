@@ -24,5 +24,5 @@
     </ul>
 </div>
 
-<p class="copyright">&copy; 2017 <a href=http://tobyziegler.com>Toby Ziegler</a>, all rights reserved.</p>
+<p class="copyright">&copy; 2018 <a href=http://tobyziegler.com>Toby Ziegler</a>, all rights reserved.</p>
 <!--linkedin code: -->
