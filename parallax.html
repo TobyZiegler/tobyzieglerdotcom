@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="Toby, Ziegler, Toby Ziegler, TobyZiegler, designer, developer, programmer, graphic, graphics, manager, project manager, technology manager">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Toby Ziegler">
+
+  <title>Toby's Home</title>
+  <meta name="description" content="The home page for Toby Zieger's personal site.">
+
+  <!-- Favicons courtesy xxx -->
+  <link rel="icon" href="images/favicons/greenapple/favicon.ico">
+
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!-- Bootstrap links found on the home page of https://getbootstrap.com/ -->
+
+  <style>
+    /* Parallax base styles
+    ...many thanks to Kieth Clark and his parallax blog post at
+    https://keithclark.co.uk/articles/pure-css-parallax-websites/
+  --------------------------------------------- */
+
+    .parallax {
+      height: 500px;
+      /* fallback for older browsers */
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-perspective: 300px;
+      perspective: 300px;
+    }
+
+    .parallaxpart {
+      position: relative;
+      height: 500px;
+      /* fallback for older browsers */
+      height: 100vh;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
+
+    .parallaxlayer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .parallaxlayerfore {
+      -webkit-transform: translateZ(90px) scale(.7);
+      transform: translateZ(90px) scale(.7);
+      z-index: 1;
+    }
+
+    .parallaxlayerbase {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      z-index: 4;
+    }
+
+    .parallaxlayerback {
+      -webkit-transform: translateZ(-300px) scale(2);
+      transform: translateZ(-300px) scale(2);
+      z-index: 3;
+    }
+
+    .parallaxlayerdeep {
+      -webkit-transform: translateZ(-600px) scale(3);
+      transform: translateZ(-600px) scale(3);
+      z-index: 2;
+    }
+
+
+    /* Debugger parallax styles - used to show layer relationships
+  --------------------------------------------- */
+
+    .debug {
+      position: fixed;
+      top: 0;
+      left: .5em;
+      z-index: 999;
+      background: rgba(0, 0, 0, .85);
+      color: #fff;
+      padding: .5em;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .debug-on .parallaxpart {
+      -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
+      transform: translate3d(700px, 0, -800px) rotateY(30deg);
+    }
+
+    .debug-on .parallaxlayer {
+      box-shadow: 0 0 0 2px #000;
+      opacity: 0.9;
+    }
+
+    .parallaxpart {
+      -webkit-transition: -webkit-transform 0.5s;
+      transition: transform 0.5s;
+    }
+
+
+
+    /* parallax part styles
+  --------------------------------------------- */
+
+    #part1 {
+      z-index: 5;
+      /* slide over part 2 */
+    }
+
+    #part1 .parallaxlayerbase {
+      /* background: rgba(102, 204, 102, 0.6); */
+      background: url('images/backgrounds/eveningcloudscape.jpg');
+      /* opacity: 0.6; */
+    }
+
+    #part2 {
+      z-index: 3;
+      /* slide under parts 1 and 3 */
+    }
+
+    #part2 .parallaxlayerback {
+      background: rgba(123, 210, 102, 0.6);
+    }
+
+    #part3 {
+      z-index: 4;
+      /* slide over part 2 and 4 */
+    }
+
+    #part3 .parallaxlayerbase {
+      background: rgba(153, 216, 101, 0.6);
+    }
+
+    #part4 {
+      z-index: 2;
+      /* slide under part 3 and 5 */
+    }
+
+    #part4 .parallaxlayerdeep {
+      /* background: rgba(184, 223, 101, 0.6); */
+      background: url('images/backgrounds/cloudscape.jpg');
+    }
+
+    #part5 {
+      z-index: 3;
+      /* slide over part 4 and 6 */
+    }
+
+    #part5 .parallaxlayerbase {
+      background: rgba(214, 229, 100, 0.6);
+    }
+
+    #part6 {
+      z-index: 2;
+      /* slide under part 5 and 7 */
+    }
+
+    #part6 .parallaxlayerback {
+      background: rgba(245, 235, 100, 0.6);
+    }
+
+    #part7 {
+      z-index: 3;
+      /* slide over part 7 */
+    }
+
+    #part7 .parallaxlayerbase {
+      background: rgba(255, 241, 100, 0.6);
+    }
+
+    /* styles
+  --------------------------------------------- */
+
+    body,
+    html {
+      overflow: hidden;
+    }
+
+    body {
+      font: 100% / 1.5 Arial;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .parallax {
+      font-size: 200%;
+    }
+
+    /* centre the content in the parallax layers */
+
+    .title {
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .navbar {
+      opacity: 0.8;
+      /* background-color: transparent; */
+    }
+
+    .nav-link.disabled {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="debug">
+    <label>
+      <input type="checkbox"> Debug Layers</label>
+  </div>
+
+  <div class="parallax">
+    <div id="part1" class="parallaxpart">
+      <h1 class="align-middle mx-auto text-light p-2">before base layer</h1>
+      <div class="parallaxlayer parallaxlayerbase">
+        <section class="container-fluid">
+          <div class="container text-light pb-sm-3">
+            <h1 class="display-3 font-weight-bold">Welcome</h1>
+            <p>
+              <em>This is Toby Ziegler's online place. Enjoy your visit!</em>
+            </p>
+            <!-- <p>
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
+                    </p> -->
+          </div>
+
+          <nav class="navbar navbar-expand-md navbar-dark sticky-top align-bottom">
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <!-- <a class="navbar-brand" href="#">Toby's</a> -->
+              <a class="nav-link btn btn-success mx-2 disabled" href="index.php">Home</a>
+              <a class="nav-link btn btn-success mx-2" href="pages/notes/notesindex.php">Features</a>
+              <a class="nav-link btn btn-success mx-2" href="pages/portfolio/portfolioindex.php">Portfolio</a>
+              <a class="nav-link btn btn-success mx-2" href="pages/bio/bio.php">About</a>
+              <a class="nav-link btn btn-success mx-2" href="underconstruction.php">Contact</a>
+            </div>
+          </nav>
+        </section>
+      </div>
+      <h1 class="align-middle mx-auto text-light p-4">after base layer</h1>
+    </div>
+    <div id="part2" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerbase">
+        <div class="title">Base Layer</div>
+      </div>
+      <div class="parallaxlayer parallaxlayerback">
+        <div class="title">Background Layer</div>
+      </div>
+    </div>
+    <div id="part3" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerfore">
+        <div class="title">Foreground Layer</div>
+      </div>
+      <div class="parallaxlayer parallaxlayerbase">
+        <div class="title">Base Layer</div>
+      </div>
+    </div>
+    <div id="part4" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerbase">
+        <div class="title">Base Layer</div>
+      </div>
+      <div class="parallaxlayer parallaxlayerback">
+        <div class="title">Background Layer</div>
+      </div>
+      <div class="parallaxlayer parallaxlayerdeep">
+        <div class="title">Deep Background Layer</div>
+      </div>
+    </div>
+    <div id="part5" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerfore">
+        <div class="title">Foreground Layer</div>
+      </div>
+      <div class="parallaxlayer parallaxlayerbase">
+        <div class="title">Base Layer</div>
+      </div>
+    </div>
+    <div id="part6" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerback">
+        <div class="title">Background Layer</div>
+      </div>
+      <div class="parallaxlayer parallaxlayerbase">
+        <div class="title">Base Layer</div>
+      </div>
+    </div>
+    <div id="part7" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerbase">
+        <div class="title">Base Layer</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var debugInput = document.querySelector("input");
+    function updateDebugState() {
+      document.body.classList.toggle('debug-on', debugInput.checked);
+    }
+    debugInput.addEventListener("click", updateDebugState);
+    updateDebugState();
+  </script>
+
+</body>
+
+</html>
