@@ -78,12 +78,13 @@
 
 
     /* Debugger parallax styles - used to show layer relationships
+        ...thanks Keith Clark, way cool!
   --------------------------------------------- */
 
     .debug {
       position: fixed;
       top: 0;
-      left: .5em;
+      right: .5em;
       z-index: 999;
       background: rgba(0, 0, 0, .85);
       color: #fff;
@@ -128,7 +129,8 @@
     }
 
     #part2 .parallaxlayerback {
-      background: rgba(123, 210, 102, 0.6);
+      /* background: rgba(123, 210, 102, 0.6); */
+      background: rgba(0, 0, 0, 0);
     }
 
     #part3 {
@@ -211,7 +213,8 @@
 
     .navbar {
       opacity: 0.8;
-      /* background-color: transparent; */
+      position: absolute;
+      bottom: 0;
     }
 
     .nav-link.disabled {
@@ -228,12 +231,16 @@
   </div>
 
   <div class="parallax">
+    <!-- putting a div here comes completely before the jumbotron -->
     <div id="part1" class="parallaxpart">
-      <h1 class="align-middle mx-auto text-light p-2">before base layer</h1>
-      <div class="parallaxlayer parallaxlayerbase">
-        <section class="container-fluid">
-          <div class="container text-light pb-sm-3">
-            <h1 class="display-3 font-weight-bold">Welcome</h1>
+      <!-- putting a div here is completely covered by the jumbotron -->
+        <div class="parallaxlayer parallaxlayerbase">
+          <!-- putting a div here shows up in the upper corner 0 left, about 8px down - no idea why -->
+            <section class="container-fluid">
+              <!-- putting a div here moves it inside the section padding, 15 left, same 8px down -->
+                <div class="container text-light pb-sm-3">
+                  <!-- a div here moves it more to the right, aligned with the Welcome header below -->
+                    <h1 class="display-3 font-weight-bold">Welcome</h1>
             <p>
               <em>This is Toby Ziegler's online place. Enjoy your visit!</em>
             </p>
@@ -241,15 +248,16 @@
                         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
                     </p> -->
           </div>
+          <!-- <div class="btn btn-warning">Put it here?</div> -->
 
-          <nav class="navbar navbar-expand-md navbar-dark sticky-top align-bottom">
+          <nav class="navbar navbar-expand-md navbar-dark sticky-top">
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse align-bottom" id="collapsibleNavbar">
               <!-- <a class="navbar-brand" href="#">Toby's</a> -->
               <a class="nav-link btn btn-success mx-2 disabled" href="index.php">Home</a>
               <a class="nav-link btn btn-success mx-2" href="pages/notes/notesindex.php">Features</a>
@@ -260,7 +268,6 @@
           </nav>
         </section>
       </div>
-      <h1 class="align-middle mx-auto text-light p-4">after base layer</h1>
     </div>
     <div id="part2" class="parallaxpart">
       <div class="parallaxlayer parallaxlayerbase">
