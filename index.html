@@ -3,15 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="keywords" content="Toby, Ziegler, Toby Ziegler, TobyZiegler, designer, developer, programmer, graphic, graphics, manager, project manager, technology manager">
+  <meta name="keywords" content="Toby, Ziegler, Toby Ziegler, TobyZiegler, designer, developer, programmer, graphic, graphics, manager, project manager, technology manager, parallax">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
   <meta name="author" content="Toby Ziegler">
 
   <title>Toby's Home</title>
-  <meta name="description" content="The home page for Toby Zieger's personal site.">
+  <meta name="description" content="The home page for Toby Zieger's personal site, done in parallax style.">
 
-  <!-- Favicons courtesy xxx -->
+  <!-- Favicons courtesy https://www.freefavicon.com/ Thank you! -->
   <link rel="icon" href="images/favicons/greenapple/favicon.ico">
 
   <!-- Bootstrap css -->
@@ -63,7 +62,7 @@
     .parallaxlayerbase {
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
-      z-index: 4;
+      z-index: 2;
     }
 
     .parallaxlayerback {
@@ -200,11 +199,20 @@
     body {
       font-family: Verdana, Tahoma, Geneva, sans-serif;
     }
-    .display-1, .display-2, .display-3, .display-4 {
+
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4 {
       font-weight: bolder;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-weight: bold;
     }
 
@@ -281,17 +289,17 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <!-- <a class="navbar-brand" href="#">Toby's</a> -->
       <a class="nav-link btn btn-success mx-2 disabled" href="index.html">Home</a>
-      <a class="nav-link btn btn-success mx-2" href="pages/portfolio/portfolioindex.php">Portfolio</a>
-      <a class="nav-link btn btn-success mx-2" href="pages/notes/notesindex.php">Notes</a>
-      <a class="nav-link btn btn-success mx-2" href="pages/bio/bio.php">Bio</a>
-      <a class="nav-link btn btn-success mx-2" href="underconstruction.php">Contact</a>
+      <a class="nav-link btn btn-success mx-2 disabled" href="pages/portfolio/portfolioindex.php">Portfolio</a>
+      <a class="nav-link btn btn-success mx-2 disabled" href="pages/notes/notesindex.php">Notes</a>
+      <a class="nav-link btn btn-success mx-2 disabled" href="pages/bio/bio.php">Bio</a>
+      <a class="nav-link btn btn-success mx-2 disabled" href="underconstruction.php">Contact</a>
     </div>
   </nav>
 
-  <div class="debug">
+  <!-- <div class="debug">
     <label>
       <input type="checkbox"> Debug Layers</label>
-  </div>
+  </div> -->
 
   <div class="parallax">
     <!-- putting a div here comes completely before the jumbotron -->
@@ -451,61 +459,58 @@
     </div>
 
     <div id="part4" class="parallaxpart">
-        <div class="parallaxlayer parallaxlayerbase">
-            <div class="textbox horicenter m-1 m-3-sm m-5-lg p-1 p-3-sm p-5-lg">
-                <div class="row p-4 mb-2">
-                  <div class="col text-center">
-                    <h3>
-                      About this layout...
-                    </h3>
-                  </div>
-                </div>
-                <div class="row px-4">
-                  <div class="col-sm">
-                    <p>Parallax.</p>
-                    <p>I have been avoiding building in parallax. Mostly because I am not one to jump on the latest trend
-                      <em>just</em> because it is trendy. Just because everyone is doing it, doesn't make it right.</p>
-                    <p>It doesn't make it
-                      <em>wrong</em>, either.</p>
-                    <p>So, I found a
-                      <a href="https://keithclark.co.uk/articles/pure-css-parallax-websites/">pure css parallax example</a> by 
-                      <a href="https://twitter.com/keithclarkcouk">Keith Clark</a> to use as my starting point. Keith did a great job of laying out the basics and explaining the
-                      whys and hows. Thanks, Keith.</p>
-                    <p>Then I slapped in some placeholder images and some lorem ipsum text. That's when the experiments began.</p>
-                    <p>I have learned over the years to make a small change and look at the result. Over and over again, just make
-                      the smallest change, then look what happened. Save your progress. Commit changes as you get each new feature
-                      worked out. Work on one thing at a time.</p>
-                    <p>That's what I have learned. Of course, I don't always keep strictly to that process, but I have noticed my
-                      world works more smoothly when I do.</p>
-                      </div>
-                      <div class="col-sm">
-                          <p>Even when I am following my own advice, though, a seemingly innocent, perfectly harmless change can cause
-                      horrible amounts of headscratching consternation.</p>
-                    <p>While typing the text for this little section, the flow was not working out well. One small re-arrangement
-                      of a div, and suddenly the whole section was hidden behind the background. Why in the world? Nothing I
-                      did
-                      <em>should</em> have done anything of the sort. So much for should.</p>
-                    <p>I usually figure out eventually what the problem was. Sometimes I just have to celbrate the fix and move
-                      on with no further questions. Kind of a "let sleeping dogs lie" sort of an approach.</p>
-                    <p>These are the challenges of developing code in general, whether it be web pages, phone apps or giant applications.
-                      I love it. The good, the bad, and the ugly.</p>
-                    <p>So, maybe you like this parallax page, maybe you don't. Either way, it won't last forever, and I have enjoyed
-                      exploring the process of putting it all together.</p>
-                  </div>
-                </div>
+      <div class="parallaxlayer parallaxlayerbase">
+        <div class="textbox horicenter m-1 m-3-sm m-5-lg p-1 p-3-sm p-5-lg">
+          <div class="row p-4 mb-2">
+            <div class="col text-center">
+              <h3>
+                About this layout...
+              </h3>
             </div>
           </div>
-          <div class="parallaxlayer parallaxlayerdeep"></div>
+          <div class="row px-4">
+            <div class="col-sm">
+              <p>Parallax.</p>
+              <p>I have been avoiding building in parallax. Mostly because I am not one to jump on the latest trend
+                <em>just</em> because it is trendy. Just because everyone is doing it, doesn't make it right.</p>
+              <p>It doesn't make it
+                <em>wrong</em>, either.</p>
+              <p>So, I found a
+                <a href="https://keithclark.co.uk/articles/pure-css-parallax-websites/">pure css parallax example</a> by
+                <a href="https://twitter.com/keithclarkcouk">Keith Clark</a> to use as my starting point. Keith did a great job of laying out the basics and explaining
+                the whys and hows. Thanks, Keith.</p>
+              <p>Then I slapped in some placeholder images and some lorem ipsum text. That's when the experiments began.</p>
+              <p>I have learned over the years to make a small change and look at the result. Over and over again, just make
+                the smallest change, then look what happened. Save your progress. Commit changes as you get each new feature
+                worked out. Work on one thing at a time.</p>
+              <p>That's what I have learned. Of course, I don't always keep strictly to that process, but I have noticed my
+                world works more smoothly when I do.</p>
+            </div>
+            <div class="col-sm">
+              <p>Even when I am following my own advice, though, a seemingly innocent, perfectly harmless change can cause horrible
+                amounts of headscratching consternation.</p>
+              <p>While typing the text for this little section, the flow was not working out well. One small re-arrangement
+                of a div, and suddenly the whole section was hidden behind the background. Why in the world? Nothing I did
+                <em>should</em> have done anything of the sort. So much for should.</p>
+              <p>I usually figure out eventually what the problem was. Sometimes I just have to celbrate the fix and move on
+                with no further questions. Kind of a "let sleeping dogs lie" sort of an approach.</p>
+              <p>These are the challenges of developing code in general, whether it be web pages, phone apps or giant applications.
+                I love it. The good, the bad, and the ugly.</p>
+              <p>As of this writing, after hours of tweaking code, these sections (especially the one you are reading now)
+                <em>still</em> are not quite behaving as I would like.</p>
+              <p>So, maybe you like this parallax page, maybe you don't. Either way, it won't last forever, and I have enjoyed
+                exploring the process of putting it all together.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallaxlayer parallaxlayerdeep"></div>
     </div>
 
     <!-- <div id="part5" class="parallaxpart">
     </div> -->
 
     <!-- <div id="part6" class="parallaxpart">
-        <div class="parallaxlayer parallaxlayerback">
-        </div>
-        <div class="parallaxlayer parallaxlayerbase">
-        </div>
       </div> -->
 
     <div id="part7" class="parallaxpart">
@@ -517,25 +522,25 @@
               <p>
                 <em>Cool.</em>
               </p>
-              </div>
-              </div>
-              <div class="row px-4">
-                <div class="col-sm">
+            </div>
+          </div>
+          <div class="row px-4">
+            <div class="col-sm">
               <p>I hope you've enjoyed the thoughts I have shared, ranting or otherwise. I also hope you enjoy the rest of these
                 pages. I am always changing something, or trying to get around to changing something, at least. Juggling
                 time and effort among the many projects shouting for attention is always a struggle. It is a good thing I
                 enjoy the concept of "labor of love."</p>
-                </div>
-                <div class="col-sm">
-                    <p>Anyway, feel free to drop me a line, if you are so inclined. I accept all suggestions in the spirit with which
+            </div>
+            <div class="col-sm">
+              <p>Anyway, feel free to drop me a line, if you are so inclined. I accept all suggestions in the spirit with which
                 they are suggested, though I make no promises and offer only my sincere thanks.</p>
-                </div>
-                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

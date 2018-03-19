@@ -1,10 +1,47 @@
 @charset "utf-8";
 /* CSS Document */
+
+body {
+    font-family: Verdana, Tahoma, Geneva, sans-serif;
+  }
+  .display-1, .display-2, .display-3, .display-4 {
+    font-weight: bolder;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+  }
+
+  .horicenter {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  .verticenter {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+
+  .centertext {
+    text-align: center;
+  }
+
+  .textbox {
+    width: 80%;
+    padding: 5%;
+    border-radius: 1rem;
+    background: rgba(240, 230, 220, .7);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, .7);
+  }
+
 .navbar a, .navbar a:visited, .navbar a:hover {
     text-decoration: none;
 }
 
 .selfbutton {
-    background-color: #788a7c;
-    
+    background-color: #788a7c;   
 }
