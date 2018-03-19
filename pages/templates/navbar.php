@@ -7,28 +7,25 @@
 
 <div class="collapse navbar-collapse" id="collapsibleNavbar">
   <!-- <a class="navbar-brand" href="#">Toby's</a> -->
-  <a class="nav-link btn btn-success mx-2 disabled" href="/index.html">Home</a>
-  <a class="nav-link btn btn-success mx-2" href="/pages/notes/notesindex.php">Features</a>
-  <a class="nav-link btn btn-success mx-2" href="/pages/portfolio/portfolioindex.php">Portfolio</a>
-  <a class="nav-link btn btn-success mx-2" href="/pages/bio/bio.php">About</a>
-  <a class="nav-link btn btn-success mx-2" href="/underconstruction.php">Contact</a>
+  <a id="indexbutton" class="nav-link btn btn-success mx-2" href="<?php echo ($path . 'index.html')?>">Home</a>
+  <a class="nav-link btn btn-success mx-2" id="notesindexbutton" href="<?php echo ($path . 'pages/notes/notesindex.php')?>">Notes</a>
+  <a class="nav-link btn btn-success mx-2" id="portfolioindexbutton" href="<?php echo ($path . 'pages/portfolio/portfolioindex.php')?>">Portfolio</a>
+  <a class="nav-link btn btn-success mx-2" id="biobutton" href="<?php echo ($path . 'pages/bio/bio.php')?>">Bio</a>
+  <a class="nav-link btn btn-success mx-2" id="contactbutton" href="<?php echo ($path . 'underconstruction.php')?>">Contact</a>
 </div>
+<p id="demo"></p>
+<p id="buttoncheck"></p>
 </nav>
 
-
-
-
-<!-- <nav class="container">
-                  <a class="btn btn-success" href="/index.php">Home</a>
-                  <a class="btn btn-success" href="/pages/portfolio/portfolioindex.php">Portfolio</a>
-                  <a class="btn btn-success" href="/pages/notes/notesindex.php">Notes</a>
-                  <a class="btn btn-success" href="/pages/bio/bio.php">Bio</a>
-                  <a class="btn btn-success" href="/underconstruction.php">Contact</a>
-                </nav>
-
 <script>
-    function goBack() {
-        window.history.back();
-    }
-
-</script> -->
+    var pagename = document.body.id;
+    document.getElementById("demo").innerHTML = pagename;
+  function buttontoggle() {
+    var buttonshift = document.getElementById(pagename + "button");
+    buttonshift.classList.add("selfbutton");
+    document.getElementById("buttoncheck").innerHTML = buttonshift;
+  }
+  function buttonrefresh () {
+    onclick="location.reload();"
+  }
+</script>
