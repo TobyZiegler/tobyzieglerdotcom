@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+.navbar a, .navbar a:visited, .navbar a:hover {
+    text-decoration: none;
+}
+
+.selfbutton {
+    background-color: #788a7c;
+    
+}
