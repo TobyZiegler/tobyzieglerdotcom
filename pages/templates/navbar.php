@@ -7,18 +7,18 @@
 
 <div class="collapse navbar-collapse" id="collapsibleNavbar">
   <!-- <a class="navbar-brand" href="#">Toby's</a> -->
-  <a id="indexbutton" class="nav-link btn btn-success mx-2" href="../../index.html">Home</a>
-  <a class="nav-link btn btn-success mx-2" id="notesindexbutton" href="../../pages/notes/notesindex.php">Notes</a>
-  <a class="nav-link btn btn-success mx-2" id="portfolioindexbutton" href="../../pages/portfolio/portfolioindex.php">Portfolio</a>
-  <a class="nav-link btn btn-success mx-2" id="biobutton" href="../../pages/bio/bio.php">Bio</a>
-  <a class="nav-link btn btn-success mx-2" id="contactbutton" href="../../underconstruction.php">Contact</a>
+  <a class="nav-link btn btn-success mx-2" id="indexbutton" href="<?php echo ($path . 'index.html')?>">Home</a>
+  <a class="nav-link btn btn-success mx-2" id="notesindexbutton" href="<?php echo ($path . 'pages/notes/notesindex.php')?>">Notes</a>
+  <a class="nav-link btn btn-success mx-2" id="portfolioindexbutton" href="<?php echo ($path . 'pages/portfolio/portfolioindex.php')?>">Portfolio</a>
+  <a class="nav-link btn btn-success mx-2" id="biobutton" href="<?php echo ($path . 'pages/bio/bio.php')?>">Bio</a>
+  <a class="nav-link btn btn-success mx-2" id="contactbutton" href="<?php echo ($path . 'underconstruction.php')?>">Contact</a>
 </div>
 </nav>
 <!-- begin self-diagnosis html -->
-<p id="demo"></p>
-<p id="buttoncheck"></p>
-<p id="pathcheck"></p>
-<p id="linkcheck"></p>
+<!-- <p id="demo"></p> -->
+<!-- <p id="buttoncheck"></p> -->
+<!-- <p id="pathcheck"></p> -->
+<!-- <p id="linkcheck"></p> -->
 <!-- end self-diagnosis html -->
 
 <script>
@@ -27,12 +27,12 @@
     var button_dim = pagename + "button";
 
   // begin self-diagnosis js
-    var dapath = "<?php echo $path ?>";
-    var dalink = "<?php echo ($path . 'css/xtrastyles.css')?>";
-    document.getElementById("demo").innerHTML = button_dim;
-    document.getElementById("buttoncheck").innerHTML = pagename;
-    document.getElementById("pathcheck").innerHTML = dapath;
-    document.getElementById("linkcheck").innerHTML = dalink;
+    // var dapath = "<?php echo $path ?>";
+    // var dalink = "<?php echo ($path . 'css/xtrastyles.css')?>";
+    // document.getElementById("demo").innerHTML = button_dim;
+    // document.getElementById("buttoncheck").innerHTML = pagename;
+    // document.getElementById("pathcheck").innerHTML = dapath;
+    // document.getElementById("linkcheck").innerHTML = dalink;
   // end self-diagnosis js
 
   function buttontoggle() {

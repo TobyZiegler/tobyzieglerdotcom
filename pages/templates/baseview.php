@@ -11,16 +11,29 @@
     </title>
 
     <?php
-    $path = "/";
+    // $path = "http://localhost:8888/tobyzieglerdotcom/";
+    $path = "";
+    $httpspath = $_SERVER['HTTPS'];
+    $httpath = $_SERVER['HTTP_HOST'];
+    $pagepath = dirname($_SERVER['PHP_SELF']);
+    $filename = basename($_SERVER['PHP_SELF']);
+    $pageid = str_replace(".php", "", $filename);
     $server = $_SERVER['SERVER_NAME'];
-    if ($server == "localhost") $path = "../../";
+    if ($httpspath) {
+        $path = "https://".$httpath.$pagepath."/";
+    }
+    elseif ($server == "localhost") {
+        $path = "http://".$httpath.$pagepath."/";
+    }
     ?>
 
+    <!-- <base href="https://www.w3schools.com/images/" target="_blank"> -->
+
     <?php include("favicon.php");?>
-        <link rel="stylesheet" href="../../css/reset.css">
-        <link rel="stylesheet" href="../../css/xtrastyles.css">
-        <!-- <link rel="stylesheet" href="<?php echo ($path . 'css/reset.css')?>"> -->
-        <!-- <link rel="stylesheet" href="<?php echo ($path . 'css/xtrastyles.css')?>"> -->
+        <!-- <link rel="stylesheet" href="../../css/reset.css"> -->
+        <!-- <link rel="stylesheet" href="../../css/xtrastyles.css"> -->
+        <link rel="stylesheet" href="<?php echo ($path . 'css/reset.css')?>">
+        <link rel="stylesheet" href="<?php echo ($path . 'css/xtrastyles.css')?>">
 
         <!-- Bootstrap css -->
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -51,7 +64,21 @@
             <?php echo $header; ?>
         </header>
         <div id="contentArea">
-            <?php include $content; ?>
+
+
+        <!-- Begin Test Code Area -->
+
+        <!-- <p>HTTPS value = <?php echo $httpspath?></p>
+        <p>HTTP path = <?php echo $httpath?></p>
+        <p>Page path = <?php echo $pagepath?></p>
+        <p>File name = <?php echo $filename?></p>
+        <p>Page ID = <?php echo $pageid?></p>
+        <p>Server name = <?php echo $server?></p>
+        <p>Final base path = <?php echo $path?></p> -->
+
+        <!-- End Test Code Area -->
+
+        <?php include $content; ?>
         </div>
         <footer>
     <?php include("socialicons.php");?>
