@@ -4,5 +4,6 @@
     $title = "Home Page";
     $header = "<h2>Hello, and welcome to Toby Ziegler's site.</h2>";
     $content = ('pages/homecontent.php');
+    include('sitepath.php');
     include('pages/templates/baseview.php');
 ?>
