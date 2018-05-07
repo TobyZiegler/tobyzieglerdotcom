@@ -3,70 +3,103 @@
 
 body {
     font-family: Verdana, Tahoma, Geneva, sans-serif;
-  }
-  .display-1, .display-2, .display-3, .display-4 {
+}
+
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
     font-weight: bolder;
-  }
+}
 
-  h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: bold;
-  }
+}
 
-  .horicenter {
+.horicenter {
     position: absolute;
     left: 50%;
-    -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-  }
+}
 
-  .verticenter {
+.verticenter {
     position: absolute;
     top: 50%;
-    -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
-  }
+}
 
-  .centertext {
+.centertext {
     text-align: center;
-  }
+}
 
-  .textbox {
+.textbox {
     width: 80%;
     padding: 5%;
     border-radius: 1rem;
     background: rgba(240, 230, 220, .7);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, .7);
-  }
+}
 
-.navbar a, .navbar a:visited, .navbar a:hover {
+.navbar {
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+}
+
+.nav-link.disabled {
+    color: white;
+}
+
+.navbar a,
+.navbar a:visited,
+.navbar a:hover {
     text-decoration: none;
 }
 
 .selfbutton {
-    background-color: #788a7c;   
+    background-color: #788a7c;
 }
 
 .social-svg a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .social-svg svg[role="img"] {
-  width: 4.0rem;
-  height: 4.0rem;
-  border-radius: 20%;
-  fill: white;
-  margin: 1.0rem;
+    width: 4.0rem;
+    height: 4.0rem;
+    border-radius: 20%;
+    fill: white;
+    margin: 1.0rem;
 }
-svg[aria-label="Facebook"] { background: #3b5998; }
-svg[aria-label="Twitter"] { background: #55acee; }
-svg[aria-label="Linkedin"] { background: #006699; }
-svg[aria-label="Google+"] { background: #DC4A38; }
+
+svg[aria-label="Facebook"] {
+    background: #3b5998;
+}
+
+svg[aria-label="Twitter"] {
+    background: #55acee;
+}
+
+svg[aria-label="Linkedin"] {
+    background: #006699;
+}
+
+svg[aria-label="Google+"] {
+    background: #DC4A38;
+}
 
 .copyright {
-  font-size: .75rem;
-  text-decoration: none;
-  text-shadow: 0 0 2rem white;
+    font-size: .75rem;
+    text-decoration: none;
+    text-shadow: 0 0 2rem white;
 }
+
 .copyright a {
-  text-decoration: none;
+    text-decoration: none;
 }
