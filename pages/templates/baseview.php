@@ -68,7 +68,7 @@
         <?php include $content; ?>
         </div>
         <footer>
-    <?php include("socialicons.php");?>
+    <!-- <?php include("socialicons.php");?> -->
             <?php include("footer.php");?>
         </footer>
         </div>
