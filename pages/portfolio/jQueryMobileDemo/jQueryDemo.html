@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--jQuery-->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style type="text/css" media="screen">
+        .hidden {
+            display: none;
+        }
+
+        /* allows hidden at start */
+
+        .loremipsum a:link,
+        .loremipsum a:visited {
+            font-weight: normal;
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .loremipsum a:hover,
+        .loremipsum a:active {
+            color: #0000ff
+        }
+
+        /* formats and allows clicking entire lorem ipsum text */
+    </style>
+
+    <title>jQuery Demo</title>
+</head>
+
+<body>
+    <!--Hello World!-->
+
+    <!--the home page section-->
+    <div data-role="page" id="home">
+
+        <!--home page header-->
+        <div data-role="header" data-theme="b">
+            <h1>Home</h1>
+
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#home" data-icon="home" class="ui-btn-active ui-state-persist">Home</a>
+                    </li>
+                    <li>
+                        <a href="#contact" data-icon="grid">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /header -->
+        <!--end home page header-->
+
+        <!--home page content-->
+        <div data-role="content">
+            <div id="nonloremhome">
+                <p>Lorem ipsum... aw, let's nevermind that.</p>
+                <p>This was originally a lorem ipsum placeholder text, but I thought it would be more useful if it described the project. If you would rather just see the lorem ipsum, it is just a
+                    <a href="#" class="loremclickhome">click</a> away.</p>
+                <p>The point of this demonstration was to build a two-page jQuery Mobile site. Fairly straightforward, but definitely a demonstration of the capabilities of jQuery. You might notice:</p>
+                <a href="#popupAssignment" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="/pages/portfolio/jQueryMobileDemo/jQueryMobileAssignment.gif" alt="Assignment, original" style="max-width:128px; float: right;"></a>
+                <ol>
+                    <li>Within the single html file, a page exists for "Home" and another page for "Contact".</li>
+                    <li>Each page is divided into a corresponding header, content area, and footer, with some sample content. You can switch between this practical content by <a href="#" class="loremclickhome">clicking</a> on the provided links, or on the
+                        lorem ipsum text itself.</li>
+                    <li>A navbar has been provided for each header, with appropriate links to each of the two pages. The appropriate nav item shows as active on each page by user interface (ui) active and persist classes.</li>
+                    <li>A reversed text at the bottom of each page shows the address on Fake Street.</li>
+                    <li>At the bottom of the page, an event handler sets the text to display the appropriate value ("portrait" or "landscape") of the current orientation.</li>
+                    <li>Just above the bottom of the page, buttons are provided to navigate back to the home page, or just back to the portfolio section.</li>
+                    <li>The screen graphic inspiration for this project is a popup with a reduced graphic floating to the right.</li>
+                </ol>
+                <p>I enjoyed building this jQuery Mobile demonstration, I hope you like it too!</p>
+                <div data-role="popup" id="popupAssignment" data-overlay-theme="b" data-theme="b" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/pages/portfolio/jQueryMobileDemo/jQueryMobileAssignment.gif" style="max-height:150%;"
+                        alt="Assignment, original">
+                </div>
+            </div>
+            <div id="loremipsumhome" class="loremipsum hidden">
+                <p><a href="#" class="loremclickhome">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a></p>
+                <p><a href="#" class="loremclickhome">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</a></p>
+
+            </div>
+            <p class="orientation"></p>
+            <a href="/index.php" data-role="button" class="ui-btn ui-icon-home ui-btn-icon-left ui-btn-inline ui-shadow ui-corner-all">Home</a>
+            <a href="/pages/portfolio/portfolioindex.php" data-role="button" class="ui-btn ui-icon-camera ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all">Portfolio</a>
+        </div>
+        <!--end home page content-->
+
+
+        <!--home page footer-->
+        <div data-role="footer" data-theme="b">
+            <h5>123 Fake St. Anywhere USA</h5>
+        </div>
+        <!--end home page footer-->
+
+    </div>
+    <!--end home page section-->
+
+    <!--the contact page section-->
+    <div data-role="page" id="contact">
+
+        <!--contact page header-->
+        <div data-role="header" data-theme="b">
+            <h1>Contact</h1>
+
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#home" data-icon="home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#contact" data-icon="grid" class="ui-btn-active ui-state-persist">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+
+        </div>
+        <!--end contact page header-->
+
+        <!--contact page content-->
+        <div data-role="content">
+            <div id="nonloremcontact" class="hidden">
+                <p>So, you would like to know more? If not, it's easy to go
+                    <a href="#" class="loremclickcontact">back</a> to the lorem ipsum.</p>
+                <p>How about this tidbit: I lost many hours of work over the course of about a week trying to get the styles to just plain work. I ripped the code apart and rebuilt it. I checked for typos, letter by letter. I pulled out hair. I did something
+                    else and came back again. I read some more. I studied some more. I found examples. I tried again.</p>
+                <p>Nothing styled. Just plain html, no matter what. Even when I eventually directly copied an example into a blank page: Nothing.</p>
+                <p>That did give me an idea, though. I was using the fun and cool <a href="#">Cloud9</a> IDE. I like it and it is completely online, but maybe the problem might be the IDE and not me? Surely not.</p>
+                <p>That was it. When I moved the page to a local drive and viewed it through my local servers, the buttons and divisions and backgrounds just popped right into place.</p>
+                <p>Sheesh.</p>
+                <p>I guess I will just chock this one up to "lesson learned".</p>
+            </div>
+            <div id="loremipsumcontact" class="loremipsum">
+                <p><a href="#" class="loremclickcontact">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</a></p>
+
+            </div>
+            <p class="orientation"></p>
+            <a href="/index.php" data-role="button" class="ui-btn ui-icon-home ui-btn-icon-left ui-btn-inline ui-shadow ui-corner-all">Home</a>
+            <a href="/pages/portfolio/portfolioindex.php" data-role="button" class="ui-btn ui-icon-camera ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all">Portfolio</a>
+        </div>
+        <!--end contact page content-->
+
+
+        <!--contact page footer-->
+        <div data-role="footer" data-theme="b">
+            <h5>123 Fake St. Anywhere USA</h5>
+        </div>
+        <!--end contact page footer-->
+
+    </div>
+    <!--end contact page section-->
+
+    <!--orientation handler-->
+    <script>
+        $(window).on('orientationchange', function(event) {
+            $('.orientation').html('You are in <em>' + event.orientation + '</em> mode.');
+        });
+        $(window).orientationchange();
+    </script>
+    <!-- end orientation handler -->
+
+    <!-- lorem ipsum toggle -->
+    <script>
+        $(document).ready(function() {
+            $('.loremclickhome').click(function() {
+                $('#nonloremhome').toggle();
+                $('#loremipsumhome').toggle();
+            });
+            $('.loremclickcontact').click(function() {
+                $('#nonloremcontact').toggle();
+                $('#loremipsumcontact').toggle();
+            });
+        });
+    </script>
+    <!-- end lorem ipsum toggle -->
+
+    <!-- max height limiter -->
+    <script>
+        $('#popupAssignment').on({
+            popupbeforeposition: function() {
+                var maxHeight = $(window).height() - 30;
+                $('#popupAssignment').css('max-height', maxHeight + 'px');
+            }
+        })
+    </script>
+</body>
+
+</html>

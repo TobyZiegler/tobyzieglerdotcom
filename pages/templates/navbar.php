@@ -1,14 +1,34 @@
-<ul>
-    <li><a href=# onclick="goBack()" class="button greengradient">Back</a></li>
-    <li><a href="/index.php" class="button greengradient">Home</a></li>
-    <li><a href="/pages/portfolio/portfolioindex.php" class="button greengradient">Portfolio</a></li>
-    <li><a href="/pages/notes/notesindex.php" class="button greengradient">Notes</a></li>
-    <li><a href="/pages/bio/bio.php" class="button greengradient">Bio</a></li>
-    <li><a href="/underconstruction.php" class="button greengradient">Contact</a></li>
-</ul>
+<nav class="navbar navbar-expand-md navbar-dark">
+
+<!-- Toggler/collapsibe Button -->
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <!-- <a class="navbar-brand" href="#">Toby's</a> -->
+  <a class="nav-link btn btn-success mx-2 disabled" href="/index.html">Home</a>
+  <a class="nav-link btn btn-success mx-2" href="/pages/notes/notesindex.php">Features</a>
+  <a class="nav-link btn btn-success mx-2" href="/pages/portfolio/portfolioindex.php">Portfolio</a>
+  <a class="nav-link btn btn-success mx-2" href="/pages/bio/bio.php">About</a>
+  <a class="nav-link btn btn-success mx-2" href="/underconstruction.php">Contact</a>
+</div>
+</nav>
+
+
+
+
+<!-- <nav class="container">
+                  <a class="btn btn-success" href="/index.php">Home</a>
+                  <a class="btn btn-success" href="/pages/portfolio/portfolioindex.php">Portfolio</a>
+                  <a class="btn btn-success" href="/pages/notes/notesindex.php">Notes</a>
+                  <a class="btn btn-success" href="/pages/bio/bio.php">Bio</a>
+                  <a class="btn btn-success" href="/underconstruction.php">Contact</a>
+                </nav>
+
 <script>
     function goBack() {
         window.history.back();
     }
 
-</script>
+</script> -->
