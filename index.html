@@ -10,7 +10,7 @@
   <title>Toby's Home</title>
   <meta name="description" content="The home page for Toby Zieger's personal site, done in parallax style.">
 
-  <!-- Favicons courtesy https://www.freefavicon.com/ Thank you! -->
+  <!-- Favicons courtesy freefavicon, https://www.freefavicon.com/freefavicons/food/iconinfo/green-apple-152-238164.html -->
   <link rel="icon" href="images/favicons/greenapple/favicon.ico">
 
   <!-- Bootstrap css -->
@@ -27,23 +27,567 @@
   <!-- local JavaScript -->
   <script src="js/navApp.module.js"></script>
 
+    .parallaxlayer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* display: block; */
+      /* overflow-y: visible; */
+    }
+
+    .parallaxlayerfore {
+      -webkit-transform: translateZ(90px) scale(.7);
+      transform: translateZ(90px) scale(.7);
+      z-index: 1;
+    }
+
+    .parallaxlayerbase {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      z-index: 2;
+    }
+
+    .parallaxlayerback {
+      -webkit-transform: translateZ(-300px) scale(2);
+      transform: translateZ(-300px) scale(2);
+      z-index: 3;
+    }
+
+    .parallaxlayerdeep {
+      -webkit-transform: translateZ(-600px) scale(3);
+      transform: translateZ(-600px) scale(3);
+      z-index: 4;
+    }
+
+
+    /* Debugger parallax styles - used to show layer relationships
+        ...thanks Keith Clark, way cool!
+  --------------------------------------------- */
+
+    .debug {
+      position: fixed;
+      top: 0;
+      right: .5em;
+      z-index: 999;
+      background: rgba(0, 0, 0, .85);
+      color: #fff;
+      padding: .5em;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .debug-on .parallaxpart {
+      -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
+      transform: translate3d(700px, 0, -800px) rotateY(30deg);
+    }
+
+    .debug-on .parallaxlayer {
+      box-shadow: 0 0 0 2px #000;
+      opacity: 0.9;
+    }
+
+    .parallaxpart {
+      -webkit-transition: -webkit-transform 0.5s;
+      transition: transform 0.5s;
+    }
+
+
+
+    /* parallax part styles
+  --------------------------------------------- */
+
+    #part1 {
+      z-index: 5;
+      /* slide over part 2 */
+      background: url('images/backgrounds/eveningcloudscape.jpg');
+      background-size: cover;
+    }
+
+    #part1 .parallaxlayerbase {
+      background: rgba(0, 0, 0, 0.4);
+      /* darken the background to ensure legible header text */
+    }
+
+    #part2 {
+      z-index: 3;
+      /* slide under parts 1 and 3 */
+      background: rgba(255, 255, 255, 0);
+    }
+
+    #part2 .parallaxlayerback {
+      /* background: rgba(123, 210, 102, 0.6); */
+      background: url('images/backgrounds/valentine2018flowers.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #part3 {
+      z-index: 4;
+      /* slide over part 2 and 4 */
+      background: rgba(0, 0, 255, 0);
+    }
+
+    #part3 .parallaxlayerbase {
+      /* background: rgba(153, 216, 101, 0.6); */
+      background: rgba(255, 0, 0, 0);
+    }
+
+    #part4 {
+      z-index: 2;
+      /* slide under part 3 and 5 */
+      /* height: 200%;
+      background: url('images/backgrounds/cloudscape.jpg');
+      background-repeat: no-repeat;
+      background-size: cover; */
+    }
+
+    #part4 .parallaxlayerdeep {
+      /* background: rgba(184, 223, 101, 0.6); */
+      /* background: url('images/backgrounds/cloudscape.jpg'); */
+      position: fixed;
+      background: url('images/backgrounds/cloudscape.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #part5 {
+      z-index: 3;
+      /* slide over part 4 and 6 */
+    }
+
+    #part5 .parallaxlayerbase {
+      background: rgba(100, 100, 200, 0.2);
+    }
+
+    #part6 {
+      z-index: 2;
+      /* slide under part 5 and 7 */
+    }
+
+    #part6 .parallaxlayerback {
+      background: rgba(255, 100, 100, 0.2);
+    }
+
+    #part7 {
+      z-index: 3;
+      /* slide over part 6 */
+      background: url('images/backgrounds/cardinalstarwarsnite.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #part7 .parallaxlayerbase {
+      background: rgba(255, 255, 255, 0);
+    }
+
+    /* styles
+  --------------------------------------------- */
+
+    body,
+    html {
+      /* overflow: hidden; */
+      overflow-x: hidden;
+      overflow-y: visible;
+      
+    }
+
+    body {
+      /* font-size: 100%; */
+      font-family: Verdana, Tahoma, Geneva, sans-serif;
+      /* height: 100vh; */
+
+      /* height: 200%;
+      background: url('images/backgrounds/cloudscape.jpg');
+      background-repeat: no-repeat;
+      background-size: cover; */
+
+    }
+
+    /* * {
+      margin: 0;
+      padding: 0;
+    } */
+
+    /* .parallax { */
+
+    /* font-size: 200%; */
+
+    /* } */
+
+    /* centre the content in the parallax layers */
+
+    .middleplace {
+      /* text-align: center; */
+      /* margin: auto; */
+      /* width: 80%; */
+      /* position: absolute; */
+      /* left: 50%; */
+      /* top: 50%; */
+      /* -webkit-transform: translate(-50%, -50%); */
+      /* transform: translate(-50%, -50%); */
+      /* padding: 10%; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .horicenter {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+    .verticenter {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+
+    .doublecenter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .centertext {
+      text-align: center;
+    }
+
+    .navbar {
+      opacity: 0.8;
+      position: absolute;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-link.disabled {
+      color: white;
+    }
+
+    /* carousel customization */
+
+    .carousel-indicators active {
+      background-color: rgba(0, 0, 255, .3);
+    }
+
+    .carousel-indicators li {
+      background-color: rgba(0, 0, 255, .6);
+    }
+
+    .carousel-item {
+      margin-bottom: 9rem;
+    }
+
+    .carousel-caption {
+      color: blue;
+      bottom: -9rem;
+    }
+
+    .carousel-caption h3 {
+      font-weight: bold;
+    }
+
+    .textbox {
+      width: 80%;
+      padding: 5%;
+      border-radius: 1rem;
+      background: rgba(240, 230, 220, .7);
+      box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+    }
+  </style>
 </head>
 
-<body ng-app="navApp" ng-controller="PageController as page">
-  <!-- navbar -->
-  <div ng-include="'partials/navbar.html'"></div>
+<body>
 
-  <!-- main body -->
-  <div ng-view></div>
-  <!-- https://docs.angularjs.org/api/ngRoute/directive/ngView -->
-  <div class="textbox">
-    <pre>$location.path() = {{page.$location.path()}}</pre>
-    <pre>$route.current.templateUrl = {{page.$route.current.templateUrl}}</pre>
-    <pre>$route.current.params = {{page.$route.current.params}}</pre>
-    <pre>$routeParams = {{page.$routeParams}}</pre>
+  <!-- Navbar temporarily disabled while site is under construction -->
+  <!-- <nav class="navbar navbar-expand-md navbar-dark"> -->
+
+    <!-- Toggler/collapsibe Button -->
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+
+    <!-- <div class="collapse navbar-collapse" id="collapsibleNavbar"> -->
+      <!-- <a class="navbar-brand" href="#">Toby's</a> -->
+      <!-- <a class="nav-link btn btn-success mx-2 disabled" href="index.html">Home</a> -->
+      <!-- <a class="nav-link btn btn-success mx-2" href="pages/notes/notesindex.php">Features</a> -->
+      <!-- <a class="nav-link btn btn-success mx-2" href="pages/portfolio/portfolioindex.php">Portfolio</a> -->
+      <!-- <a class="nav-link btn btn-success mx-2" href="pages/bio/bio.php">About</a> -->
+      <!-- <a class="nav-link btn btn-success mx-2" href="underconstruction.php">Contact</a> -->
+    <!-- </div> -->
+  <!-- </nav> -->
+
+  <div class="debug">
+    <label>
+      <input type="checkbox"> Debug Layers</label>
   </div>
 
-  <!-- footer -->
+  <div class="parallax">
+    <!-- putting a div here comes completely before the jumbotron -->
+    <div id="part1" class="parallaxpart">
+      <!-- putting a div here is completely covered by the jumbotron -->
+      <div class="parallaxlayer parallaxlayerbase">
+        <!-- putting a div here shows up in the upper corner 0 left, about 8px down - no idea why -->
+        <section class="verticenter container-fluid text-left">
+          <!-- putting a div here moves it inside the section padding, 15 left, same 8px down -->
+          <div class="container text-light pb-sm-3">
+            <!-- a div here moves it more to the right, aligned with the Welcome header below -->
+            <h1 class="display-3 font-weight-bold">Welcome</h1>
+            <p>
+              <em>This is Toby Ziegler's online place. Enjoy your visit!</em>
+            </p>
+            <!-- <p>
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
+                    </p> -->
+          </div>
+          <!-- <div class="btn btn-warning">Put it here?</div> -->
+
+        </section>
+      </div>
+    </div>
+
+    <div id="part2" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerfore">
+        <div class="textbox doublecenter  m-1 m-3-sm m-5-lg p-1 p-3-sm p-5-lg">
+          <div class="row p-4 mb-2">
+            <div class="col text-center">
+              <p>
+                <em>I have been calling this project:</em>
+              </p>
+              <h1 class="mb-2">
+                <strong>Pride Goeth Before the Rebuild</strong>
+              </h1>
+            </div>
+          </div>
+          <div class="row px-4">
+            <div class="col-sm-6">
+              <!-- <p>I guess I will start with what I mean by pride.</p> -->
+              <p>I had built these pages with pride. I had built these pages with care. I did it all by myself.</p>
+              <p>Now I just can't stand them. They've got to go. You are looking at the first page of tbe new
+                replacements.</p>
+              <p>I had carefully hand-crafted every line of code. Raw HTML, CSS, JavaScript and PHP. No dependencies.
+                Everything
+                from scratch. Often inspired by others, but always worked out and implemented by me, myself and I.</p>
+              <p>I spent
+                <em>so</em> much time getting everything right, functionally, visually, you name it -- that I didn't
+                ever get
+                to add but a fraction of the actual content I wanted to show here.</p>
+            </div>
+            <div class="col-sm-6">
+              <p>So it has to go. I am bringing in Bootstrap, jQuery, Angular, and every other dependency I once
+                eschewed. Well,
+                the ones which will make things go faster and allow me to focus more on the content and style of these
+                pages,
+                instead of just the mechanics.</p>
+              <!-- <p>Right now the pages you are viewing have broken bits. Places where I have stripped away some component in preparation
+                for the new way, the better way. I have opted to provide content, even partially non-functional content,
+                over leaving the old sit operational until I could finish its replacement.</p> -->
+              <p>Getting mechanics right is fine, and I love doing so. Unfortunately, unless I point out those bits in
+                code
+                snippets, almost no one is going to be able to appreciate them but the afore-mentioned me, myself and
+                I.
+                While I don't need anyone else's approval, explicit or otherwise, one of the primary reasons I am
+                putting
+                this here is to share.</p>
+              <!-- <p>Since these pages are undergoing a complete rebuild from scratch, so you are likely to encounter the
+                <a href="/underconstruction.php">under construction</a> page as you look around. Don't worry, it will be encountered less and less frequently
+                as time goes on. You are also going to encounter the dreaded, "dead link" or two. Not for long, though.</p> -->
+              <p>Enjoy looking around while I eat a tremendous slice of humble pie.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallaxlayer parallaxlayerback">
+      </div>
+    </div>
+
+    <div id="part3" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerfore doublecenter">
+        <div class="m-1 m-3-sm m-5-lg p-1 p-3-sm p-5-lg">
+          <div class="horicenter textbox">
+            <div class="row">
+              <div class="col">
+                <div class="p-2 d-block">
+                  <h3><strong>I am not too bad with a camera...</strong></h3>
+                  <!-- <p>At least that is my opinion. Some of my photos I would even consider something like art. You be the judge:</p> -->
+                  <p>All of the photos on this page, background and slideshow, were taken by me. I think they're pretty
+                    good, but you be the judge:</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <!-- carousel courtesy Bootstrap 4 team, https://v4-alpha.getbootstrap.com/components/carousel/ -->
+                <div id="artphotocarousel" class="carousel slide d-block" data-ride="carousel" data-keyboard="true"
+                  data-wrap="true" data-pause="hover">
+                  <ol class="carousel-indicators">
+                    <li data-target="#artphotocarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#artphotocarousel" data-slide-to="1" class=""></li>
+                    <li data-target="#artphotocarousel" data-slide-to="2" class=""></li>
+                    <li data-target="#artphotocarousel" data-slide-to="3" class=""></li>
+                    <li data-target="#artphotocarousel" data-slide-to="4" class=""></li>
+                    <li data-target="#artphotocarousel" data-slide-to="5" class=""></li>
+                  </ol>
+                  <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                      <img class="d-block img-fluid" data-src="" alt="Tracye at Sea" src="images/artphotos/tracye2007-10-24.jpg"
+                        data-holder-rendered="true">
+                      <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h3>My Beautiful Wife</h3>
+                        <p>Taken in the middle of the Pacific Ocean on her birthday cruise to Hawaii</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid" data-src="" alt="Happy Son" src="images/artphotos/aidan2007-10-30.jpg"
+                        data-holder-rendered="true">
+                      <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h3>My Happy Son</h3>
+                        <p>A teenager now, that day he was ecstatic on the boat to Maui</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid" data-src="" alt="Luau Torch Show" src="images/artphotos/luaufire2007-10-30.jpg"
+                        data-holder-rendered="true">
+                      <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h3>Luau Lights</h3>
+                        <p>Spinning torches make an awesome night photo</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid" data-src="" alt="Atrium Ceiling" src="images/artphotos/atriumceiling2015-07-01.jpg"
+                        data-holder-rendered="true">
+                      <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h3>Looking up</h3>
+                        <p>Sometimes fascinating views are ever-present and still unseen</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid" data-src="" alt="Ray of Sunshine" src="images/artphotos/sunshineray2015-07-09.jpg"
+                        data-holder-rendered="true">
+                      <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h3>Beam of Sunshine</h3>
+                        <p>An amazing ray of light welcomed us home from our cruise</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid" data-src="" alt="No more photos" src="images/artphotos/aidan2007-10-24.jpg"
+                        data-holder-rendered="true">
+                      <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h3>No more!</h3>
+                        <p>Apparently I had taken enough photos that day</p>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#artphotocarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#artphotocarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+                <!-- /art photo carousel -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallaxlayer parallaxlayerbase">
+      </div>
+    </div>
+
+    <div id="part4" class="parallaxpart">
+      <div class="parallaxlayer parallaxlayerfore">
+        <div class="textbox doublecenter m-1 m-3-sm m-5-lg p-1 p-3-sm p-5-lg">
+          <div class="row p-4 mb-2">
+            <div class="col text-center">
+              <h1 class="mb-2">
+                <strong>About this layout...</strong>
+              </h1>
+              <p>
+                <em>Parallax</em>
+              </p>
+            </div>
+          </div>
+          <div class="row px-4">
+            <div class="col-sm-6">
+              <p>I have been avoiding building in parallax. Mostly because I am not one to jump on the latest trend
+                <em>just</em> because it is trendy. Just because everyone is doing it, doesn't make it right.</p>
+              <p>It doesn't make it <em>wrong</em>, either.</p>
+            </div>
+            <div class="col-sm-6">
+              <p>So, I found a
+                <a href="https://keithclark.co.uk/articles/pure-css-parallax-websites/">pure css parallax example</a>
+                by Keith Clark to use as my starting point. Keith did a great job of laying
+                out the basics and explaining the whys. Thanks, Keith.</p>
+              <p>So, maybe you like this parallax page, maybe you don't. Either way, it won't last forever, and I have
+                enjoyed
+                exploring the process of putting it all together.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallaxlayer parallaxlayerdeep">
+      </div>
+    </div>
+
+    <!-- <div id="part5" class="parallaxpart">
+        <div class="parallaxlayer parallaxlayerfore">
+          <div class="middleplace">Foreground Layer</div>
+        </div>
+        <div class="parallaxlayer parallaxlayerbase">
+          <div class="middleplace">Base Layer</div>
+        </div>
+      </div> -->
+
+    <!-- <div id="part6" class="parallaxpart">
+        <div class="parallaxlayer parallaxlayerback">
+          <div class="middleplace">Background Layer</div>
+        </div>
+        <div class="parallaxlayer parallaxlayerbase">
+          <div class="middleplace">Base Layer</div>
+        </div>
+      </div> -->
+
+    <div id="part7" class="parallaxpart">
+          <div class="parallaxlayer parallaxlayerfore doublecenter">
+              <div class="textbox horicenter m-1 m-3-sm m-5-lg p-1 p-3-sm p-5-lg">
+          <div class="row p-4 mb-2">
+            <div class="col text-center">
+              <h3>You've read through to the bottom?</h3>
+              <p>
+                <em>Cool.</em>
+              </p>
+              <!-- <p>I hope you've enjoyed the thoughts I have shared, ranting or otherwise. I also hope you enjoy the rest of these
+                pages. I am always changing something, or trying to get around to changing something, at least. Juggling
+                time and effort among the many projects shouting for attention is always a struggle. It is a good thing I
+                enjoy the concept of "labor of love."</p>
+              <p>Anyway, feel free to drop me a line, if you are so inclined. I accept all suggestions in the spirit with which
+                they are suggested, though I make no promises and offer only my sincere thanks.</p> -->
+              <p>I hope you've enjoyed my first attempt at parallax.</p>
+              <p>Look for more pages of all sorts soon!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="parallaxlayer parallaxlayerbase">
+        </div>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
