@@ -1,18 +1,42 @@
 // navigation common to entire site
 var app = angular.module('navApp', ['ngRoute', 'ngAnimate']);
 
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider) {
     $routeProvider
-        .when("/", { templateUrl: "partials/home.html", controller: "PageController", controllerAS: "page" })
-        .when("/portfolio", { templateUrl: "partials/portfolio.html", controller: "PageController", controllerAS: "page" })
-        .when("/notes", { templateUrl: "partials/notes.html", controller: "PageController", controllerAS: "page" })
-        .when("/bio", { templateUrl: "partials/bio.html", controller: "PageController", controllerAS: "page" })
-        .when("/contact", { templateUrl: "partials/contact.html", controller: "PageController", controllerAS: "page" })
-        .otherwise("/404", { templateUrl: "partials/404.html", controller: "PageController", controllerAS: "page" });
+        .when('/', {
+            templateUrl: 'partials/home.html',
+            controller: 'pageController'
+        })
+        .when('/Home', {
+            templateUrl: 'partials/home.html',
+            controller: 'pageController'
+        })
+        .when('/Portfolio', {
+            templateUrl: 'partials/portfolio.html',
+            controller: 'pageController'
+        })
+        .when('/Notes', {
+            templateUrl: 'partials/notes.html',
+            controller: 'pageController'
+        })
+        .when('/Bio', {
+            templateUrl: 'partials/bio.html',
+            controller: 'pageController'
+        })
+        .when('/Contact', {
+            templateUrl: 'partials/contact.html',
+            controller: 'pageController'
+        })
+        .when('/Resume', {
+            templateUrl: 'partials/resume.html',
+            controller: 'pageController'
+        })
+        .otherwise({
+            redirectTo: '/Home'
+        })
+});
 
-    $locationProvider.html5Mode(true);
-}]);
-
-app.controller('PageController', ['$routeParams', function PageController($routeParams, $scope, $location, $http) {
+app.controller('pageController', function ($scope) {
+    $scope.message = "Welcome to Toby's pages";
     console.log("Page Controller reporting for duty.");
-}]);
+});
