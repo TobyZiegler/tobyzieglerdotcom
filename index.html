@@ -3,31 +3,31 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="keywords" content="Toby, Ziegler, Toby Ziegler, TobyZiegler, designer, developer, programmer, graphic, graphics, manager, project manager, technology manager, parallax">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="Toby, Ziegler, Toby Ziegler, TobyZiegler, designer, developer, programmer, graphic, graphics, manager, project manager, technology manager, parallax">
   <meta name="author" content="Toby Ziegler">
+  <meta name="description" content="The home page for Toby Zieger's personal site, done in angularJS style.">
 
-  <title>Toby's Home</title>
-  <meta name="description" content="The home page for Toby Zieger's personal site, done in parallax style.">
+  <!-- <base href="" /> -->
 
   <!-- Favicons courtesy freefavicon, https://www.freefavicon.com/freefavicons/food/iconinfo/green-apple-152-238164.html -->
   <link rel="icon" href="images/favicons/greenapple/favicon.ico">
 
-  <!-- Bootstrap css -->
+  <!-- Bootstrap css, links found on the home page of https://getbootstrap.com/  -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-  <!-- Bootstrap links found on the home page of https://getbootstrap.com/ -->
+  <!-- css styling -->
+  <link rel="stylesheet" href="css/xtrastyles.css">
 
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-route.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-animate.min.js"></script>
 
-  <!-- Insert Custom CSS here -->
-  <link rel="stylesheet" href="css/xtrastyles.css">
-
-  <!-- local JavaScript -->
+  <!-- JavaScript -->
   <script src="js/navApp.module.js"></script>
+
+  <title>Toby's Home</title>
 
 </head>
 
@@ -40,6 +40,23 @@
   <div id="main">
     <div ng-view></div>
 
+<!-- <body ng-app="siteModule" ng-controller="SiteController"> -->
+
+  <p>Test variable: {{ sayHello }}</p>
+
+  <!-- navbar -->
+  <div ng-include="'partials/navbar.html'"></div>
+
+  <!-- main body -->
+  <!-- <div ng-view></div> -->
+  <!-- https://docs.angularjs.org/api/ngRoute/directive/ngView -->
+
+  <div class="textbox">
+    <pre>$location.path() = {{ location.path() }} </pre>
+    <pre>$route.current.templateUrl = {{ route.current.templateUrl }}</pre>
+    <pre>$route.current.params = {{ route.current.params }}</pre>
+    <pre>$routeParams = {{ routeParams }}</pre>
+    <p>$routeParams = {{ routeParams }}</pre>
   </div>
 
   <!-- footer -->

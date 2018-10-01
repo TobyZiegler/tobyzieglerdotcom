@@ -10,23 +10,8 @@
         <?php echo $title; ?>
     </title>
 
-    <?php
-    // $path = "http://localhost:8888/tobyzieglerdotcom/";
-    $path = "";
-    $httpspath = $_SERVER['HTTPS'];
-    $httpath = $_SERVER['HTTP_HOST'];
-    $pagepath = dirname($_SERVER['PHP_SELF']);
-    $filename = basename($_SERVER['PHP_SELF']);
-    $pageid = str_replace(".php", "", $filename);
-    $server = $_SERVER['SERVER_NAME'];
-    if ($httpspath) {
-        $path = "https://".$httpath.$pagepath."/";
-    }
-    elseif ($server == "localhost") {
-        $path = "http://".$httpath.$pagepath."/";
-    }
-    ?>
 
+    <base href="<?php echo $path?>" target="_blank">
     <!-- <base href="https://www.w3schools.com/images/" target="_blank"> -->
 
     <?php include("favicon.php");?>
@@ -42,7 +27,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <link rel="../../assets/css/font-awesome.min.css">
+  <link rel="<?php echo ($path . 'assets/css/font-awesome.min.css')?>">
         <!-- <link rel="stylesheet" href="/css/tobystyles.css"> -->
         <!-- <link rel="stylesheet" href="<?php echo ($path . 'css/socialiconstyles.css')?>"> -->
         <!-- <link rel="stylesheet" href="<?php echo ($path . 'js/tobyscripts.js')?>"> -->
@@ -55,7 +40,8 @@
 
 </head>
 
-<body id="<?=basename($_SERVER['PHP_SELF'],'.php')?>">
+<!-- <body id="<?=basename($_SERVER['PHP_SELF'],'.php')?>"> -->
+<body id="<?php echo $pageid;?>">
 <div class="container">
         <nav>
             <?php include("navbar.php");?>
@@ -68,14 +54,15 @@
 
         <!-- Begin Test Code Area -->
 
-        <!-- <p>HTTPS value = <?php echo $httpspath?></p>
-        <p>HTTP path = <?php echo $httpath?></p>
-        <p>Page path = <?php echo $pagepath?></p>
-        <p>File name = <?php echo $filename?></p>
+        <!-- <p>HTTPS value = <?php echo $httpspath?></p> -->
+        <!-- <p>HTTP path = <?php echo $httpath?></p> -->
+        <!-- <p>Page path = <?php echo $pagepath?></p> -->
+        <!-- <p>File name = <?php echo $filename?></p> -->
         <p>Page ID = <?php echo $pageid?></p>
-        <p>Server name = <?php echo $server?></p>
-        <p>Final base path = <?php echo $path?></p> -->
+        <!-- <p>Server name = <?php echo $server?></p> -->
+        <p>Final base path = <?php echo $path?></p>
 
+        <!-- <?php include("testserver.php");?> -->
         <!-- End Test Code Area -->
 
         <?php include $content; ?>
