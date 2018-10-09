@@ -34,24 +34,16 @@
 <body ng-app="navApp" ng-controller="pageController">
 
   <!-- Navigation -->
-  <div ng-include="'partials/navbar.html'"></div>
+  <div class="pb-5" ng-include="'partials/navbar.html'"></div>
 
   <!-- homepage content -->
-  <div id="main">
+  <div id="main" class="m-4">
     <div ng-view></div>
+    </div>
 
-<!-- <body ng-app="siteModule" ng-controller="SiteController"> -->
+  <p><strong>Test variable:</strong><em> {{ sayHello }}</em></p>
 
-  <p>Test variable: {{ sayHello }}</p>
-
-  <!-- navbar -->
-  <div ng-include="'partials/navbar.html'"></div>
-
-  <!-- main body -->
-  <!-- <div ng-view></div> -->
-  <!-- https://docs.angularjs.org/api/ngRoute/directive/ngView -->
-
-  <div class="textbox">
+  <div class="textbox m-5">
     <pre>$location.path() = {{ location.path() }} </pre>
     <pre>$route.current.templateUrl = {{ route.current.templateUrl }}</pre>
     <pre>$route.current.params = {{ route.current.params }}</pre>

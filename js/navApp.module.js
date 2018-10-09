@@ -38,5 +38,6 @@ app.config(function ($routeProvider) {
 
 app.controller('pageController', function ($scope) {
     $scope.message = "Welcome to Toby's pages";
+    $scope.sayHello = 'pageController says, "Hello World."'
     console.log("Page Controller reporting for duty.");
 });
