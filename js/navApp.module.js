@@ -31,6 +31,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'partials/resume.html',
             controller: 'pageController'
         })
+        .when('/Holding', {
+            templateUrl: 'partials/holdingpage.html',
+            controller: 'pageController'
+        })
         .otherwise({
             redirectTo: '/Home'
         })
