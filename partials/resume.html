@@ -53,6 +53,7 @@
     }
 
     a:hover {
+        color: cornflowerblue;
         cursor: pointer;
     }
 
@@ -118,12 +119,6 @@
 <div class="docdimensions resumefont" id="resume">
     <h1>Toby Ziegler</h1>
     <div class="subtitle" id="contactBar">
-        <div id="subNode">
-            <!-- TODO: this div to be removed on successful obfuscation without document.write() -->
-            &nbsp;<a href="https://goo.gl/maps/rppF2KVEeYn" target="_blank">Springfield, Missouri</a>&nbsp;&bull;&nbsp;<a
-                href="mailto:Toby@TobyZiegler.com?Subject=Resume Inquiry">Toby@TobyZiegler.com</a>&nbsp;&bull;&nbsp;<a
-                href="https://www.linkedin.com/in/TobyZiegler" target="_blank">www.linkedin.com/in/TobyZiegler</a>
-        </div>
     </div>
     <h3>Summary</h3>
     <p>
@@ -227,7 +222,12 @@
         // obfuscated link to linkedin using btoa()
         var linkedinCode = "d3d3LmxpbmtlZGluLmNvbS9pbi9Ub2J5WmllZ2xlcg==";
         var linkedinAddress = atob(linkedinCode);
-        var linkedinContent = ("<" + "a href=\u0022https://" + linkedinAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + linkedinAddress + "</" + "a>");
+        var linkedinContent = ("<" + "a href=\u0022https://" + linkedinAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "linkedin.com" + "</" + "a>");
+
+// obfuscated link to home page
+        var homeSiteCode = "VG9ieVppZWdsZXIuY29t";
+        var homeSiteAddress = atob(homeSiteCode);
+        var homeSiteContent = ("<" + "a href=\u0022https://" + homeSiteAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "www." + homeSiteAddress + "</" + "a>");
 
         var bulletSpace = "&nbsp;&bull;&nbsp;";
 
@@ -235,33 +235,10 @@
         var cityState = ("&nbsp;" + "<" + "a href=\u0022https://" + "goo.gl/maps/rppF2KVEeYn\u0022\u0020" + "\u0020target=\u0022_blank\u0022" + ">" + "Springfield, Missouri" + "</" + "a>");
 
         // build contact bar contents
-        var contactBarContent = cityState + bulletSpace + mailContent + bulletSpace + linkedinContent;
+        var contactBarContent = cityState + bulletSpace + mailContent + bulletSpace + linkedinContent + bulletSpace + homeSiteContent;
 
-        // create a new div element 
-        // var newDiv = document.createElement("span");
-        // newDiv.async = true;
-        // create a text node with new content
-        // var newContent = document.createTextNode(contactBarContent);
-        // add the text node to the newly created div
-        // newDiv.appendChild(newContent);
-
-        // newDiv.appendChild(contactBarContent);
-
-        // add the newly created element and its content into the DOM 
-        // var currentSpan = document.getElementById("contactBar");
-        // document.body.insertBefore(newDiv, currentDiv);
-        // document.body.insertBefore(currentSpan,newDiv);
-        // document.body.insertAdjacentHTML("beforeend",contactBarContent);
-        // document.body.insertAdjacentElement("beforeend",contactBarContent);
-        // currentSpan.insertAdjacentElement("beforeend", newDiv);
-
-        var newBar = document.createElement("span");
-        newBar.id = "contactContent";
-        newBar.async = true;
-        var addContent = document.createTextNode(contactBarContent);
-        newBar.appendChild(addContent);
-        var currentSpan = document.getElementById("subNode");
-        // document.insertBefore(newBar, currentSpan);
-        currentSpan.insertAdjacentElement("beforeend", newBar);
+        // get element for insertion and insert after id element
+        var currentSpan = document.getElementById("contactBar");
+        currentSpan.insertAdjacentHTML("beforeend",contactBarContent);
     }
 </script>
