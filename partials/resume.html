@@ -53,6 +53,7 @@
     }
 
     a:hover {
+        color: cornflowerblue;
         cursor: pointer;
     }
 
@@ -115,30 +116,15 @@
     }
 </style>
 
-<div class="docdimensions resumefont">
+<div class="docdimensions resumefont" id="resume">
     <h1>Toby Ziegler</h1>
-    <div class="subtitle">
-        &nbsp;
-        <a href="https://goo.gl/maps/rppF2KVEeYn" target="_blank">Springfield, Missouri</a>
-        &nbsp;&bull;&nbsp;
-        <!-- js inspired by https://www.the-art-of-web.com/javascript/mailto/ -->
-        <span>
-            <script type="text/javascript">
-                document.write("<a href=\"mail" + "to:" + new Array("Toby", "TobyZiegler.com").join("@") + "\">" + new Array("Toby", "TobyZiegler.com").join("@") + "</" + "a>");
-            </script>
-        </span>
-        &nbsp;&bull;&nbsp;
-        <span>
-            <script type="text/javascript">
-                document.write("<a href=\"https://" + new Array("www.linkedin.com", "tobyziegler").join("/in/") + "\"" + " target=\"_blank\" " + ">" + new Array("www.linkedin.com", "TobyZiegler").join("/in/") + "</" + "a>");
-            </script>
-        </span>
+    <div class="subtitle" id="contactBar">
     </div>
     <h3>Summary</h3>
     <p>
-        Twenty-five years of graphic design and process management experience are ready to leverage new degrees and
-        a talent for understanding user perspective. Capable with software and with people, while always
-        emphasizing world class experiences and interaction satisfaction.
+        Years of graphic design and process management experience are ready to leverage new degrees and a knack for
+        understanding user perspectives. Capable with software and with people, always emphasizing world class
+        experiences and customer satisfaction.
     </p>
     <h3>Skills</h3>
     <table>
@@ -170,13 +156,13 @@
         Missouri State University, <em>Springfield, Missouri</em>
     </p>
     <p class="indent">
-        Bachelor of Applied Science in Technology Management, <em>Fall 2018</em>
+        Bachelor of Applied Science in Technology Management, <em>December 2018</em>
     </p>
     <p class="indent2">
-        Minor in Computer Science, <em>Earned Spring 2017</em>
+        Minor in Computer Science, <em>21 Credit Hours</em>
     </p>
     <p class="indent2">
-        Minor in Web Development, <em>Earn in Fall 2018</em>
+        Minor in Web Application Development, <em>18 Credit Hours</em>
     </p>
     <p class="indent">
         Master of Science in Project Management, <em>Spring 2020</em>
@@ -218,6 +204,41 @@
         <li>Created Document Management policy for entire organization</li>
         <li>Coordinated projects with multiple departments, vendors and contractors</li>
         <li>Created and modified thousands of digital projects</li>
-        <li>Spearheaded transition from mostly analog to all-digital workflow</li>
+        <li>Spearheaded transition from fully analog to all-digital workflow</li>
     </ul>
 </div>
+
+<script>
+    document.body.onload = addElement;
+
+    function addElement() {
+
+        // obfuscated email using btoa()
+        var sendDomain = "VG9ieVppZWdsZXIuY29t";
+        var sendTo = "VG9ieUA=";
+        var address = atob(sendTo) + atob(sendDomain);
+        var mailContent = ("<a href=\"mail" + "to:" + address + "?Subject=Resume\u0020Inquiry" + "\">" + address + "</" + "a>");
+
+        // obfuscated link to linkedin using btoa()
+        var linkedinCode = "d3d3LmxpbmtlZGluLmNvbS9pbi9Ub2J5WmllZ2xlcg==";
+        var linkedinAddress = atob(linkedinCode);
+        var linkedinContent = ("<" + "a href=\u0022https://" + linkedinAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "linkedin.com" + "</" + "a>");
+
+// obfuscated link to home page
+        var homeSiteCode = "VG9ieVppZWdsZXIuY29t";
+        var homeSiteAddress = atob(homeSiteCode);
+        var homeSiteContent = ("<" + "a href=\u0022https://" + homeSiteAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "www." + homeSiteAddress + "</" + "a>");
+
+        var bulletSpace = "&nbsp;&bull;&nbsp;";
+
+        // not obfuscated
+        var cityState = ("&nbsp;" + "<" + "a href=\u0022https://" + "goo.gl/maps/rppF2KVEeYn\u0022\u0020" + "\u0020target=\u0022_blank\u0022" + ">" + "Springfield, Missouri" + "</" + "a>");
+
+        // build contact bar contents
+        var contactBarContent = cityState + bulletSpace + mailContent + bulletSpace + linkedinContent + bulletSpace + homeSiteContent;
+
+        // get element for insertion and insert after id element
+        var currentSpan = document.getElementById("contactBar");
+        currentSpan.insertAdjacentHTML("beforeend",contactBarContent);
+    }
+</script>
