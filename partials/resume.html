@@ -209,9 +209,10 @@
 </div>
 
 <script>
-    document.body.onload = addElement;
+    // document.body.onload = addElement;
+    document.getElementById("resume").onload.addContactBar();
 
-    function addElement() {
+    function addContactBar() {
 
         // obfuscated email using btoa()
         var sendDomain = "VG9ieVppZWdsZXIuY29t";
@@ -224,7 +225,7 @@
         var linkedinAddress = atob(linkedinCode);
         var linkedinContent = ("<" + "a href=\u0022https://" + linkedinAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "linkedin.com" + "</" + "a>");
 
-// obfuscated link to home page
+        // obfuscated link to home page
         var homeSiteCode = "VG9ieVppZWdsZXIuY29t";
         var homeSiteAddress = atob(homeSiteCode);
         var homeSiteContent = ("<" + "a href=\u0022https://" + homeSiteAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "www." + homeSiteAddress + "</" + "a>");
@@ -239,6 +240,6 @@
 
         // get element for insertion and insert after id element
         var currentSpan = document.getElementById("contactBar");
-        currentSpan.insertAdjacentHTML("beforeend",contactBarContent);
+        currentSpan.insertAdjacentHTML("beforeend", contactBarContent);
     }
 </script>
