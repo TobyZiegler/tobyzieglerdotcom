@@ -1,5 +1,10 @@
 <div>
   <style>
+    :root {
+      --message01-length: {{ message01.length }};
+      --message02-length: {{ message02.length }};
+      --message03-length: {{ message03.length }};
+    }
     body {
       background-color: dimgray;
       padding: 05vw;
@@ -74,10 +79,10 @@
     }
 
     .line1 {
-      -webkit-animation: type .5s 1s steps(20, end) forwards;
-      -moz-animation: type .5s 1s steps(20, end) forwards;
-      -o-animation: type .5s 1s steps(20, end) forwards;
-      animation: type .5s 1s steps(20, end) forwards;
+      -webkit-animation: type .5s 1s steps(var(--message01-length), end) forwards;
+      -moz-animation: type .5s 1s steps(var(--message01-length), end) forwards;
+      -o-animation: type .5s 1s steps(var(--message01-length), end) forwards;
+      animation: type .5s 1s steps(var(--message01-length), end) forwards;
     }
 
     .cursor1 {
@@ -88,10 +93,10 @@
     }
 
     .line2 {
-      -webkit-animation: type .5s 4.25s steps(20, end) forwards;
-      -moz-animation: type .5s 4.25s steps(20, end) forwards;
-      -o-animation: type .5s 4.25s steps(20, end) forwards;
-      animation: type .5s 4.25s steps(20, end) forwards;
+      -webkit-animation: type .5s 4.25s steps(var(--message02-length), end) forwards;
+      -moz-animation: type .5s 4.25s steps(var(--message02-length), end) forwards;
+      -o-animation: type .5s 4.25s steps(var(--message02-length), end) forwards;
+      animation: type .5s 4.25s steps(var(--message02-length), end) forwards;
     }
 
     .cursor2 {
@@ -102,10 +107,10 @@
     }
 
     .line3 {
-      -webkit-animation: type .5s 7.5s steps(20, end) forwards;
-      -moz-animation: type .5s 7.5s steps(20, end) forwards;
-      -o-animation: type .5s 7.5s steps(20, end) forwards;
-      animation: type .5s 7.5s steps(20, end) forwards;
+      -webkit-animation: type .5s 7.5s steps(var(--message03-length), end) forwards;
+      -moz-animation: type .5s 7.5s steps(var(--message03-length), end) forwards;
+      -o-animation: type .5s 7.5s steps(var(--message03-length), end) forwards;
+      animation: type .5s 7.5s steps(var(--message03-length), end) forwards;
     }
 
     .cursor3 {
@@ -116,10 +121,10 @@
     }
 
     .line4 {
-      -webkit-animation: type .5s 10.75s steps(20, end) forwards;
-      -moz-animation: type .5s 10.75s steps(20, end) forwards;
-      -o-animation: type .5s 10.75s steps(20, end) forwards;
-      animation: type .5s 10.75s steps(20, end) forwards;
+      -webkit-animation: type .5s 10.75s steps(2, end) forwards;
+      -moz-animation: type .5s 10.75s steps(2, end) forwards;
+      -o-animation: type .5s 10.75s steps(2, end) forwards;
+      animation: type .5s 10.75s steps(2, end) forwards;
     }
 
     .cursor4 {
@@ -173,9 +178,9 @@
       <a href="javascript:goBack()" class="fakeButton fakeZoom" role="button"></a>
     </div>
     <div class="fakeScreen">
-      <p class="line1">&nbsp;&nbsp;In progress page.<span class="cursor1">_</span></p>
-      <p class="line2">&nbsp;&nbsp;Launching soon.<span class="cursor2">_</span></p>
-      <p class="line3">&nbsp;&nbsp;Like a boss.<span class="cursor3">_</span></p>
+      <p class="line1">{{ message01 }}<span class="cursor1">_</span></p>
+      <p class="line2">{{ message02 }}<span class="cursor2">_</span></p>
+      <p class="line3">{{ message03 }}<span class="cursor3">_</span></p>
       <p class="line4">><span class="cursor4">_</span></p>
     </div>
   </div>
