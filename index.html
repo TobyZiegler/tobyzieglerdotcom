@@ -8,6 +8,10 @@
   <meta name="author" content="Toby Ziegler">
   <meta name="description" content="The home page for Toby Zieger's personal site, done in angularJS style.">
 
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- <base href="" /> -->
 
   <!-- Favicons courtesy freefavicon, https://www.freefavicon.com/freefavicons/food/iconinfo/green-apple-152-238164.html -->
@@ -24,62 +28,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-route.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-animate.min.js"></script>
 
-  <!-- JavaScript -->
-  <script src="js/navApp.module.js"></script>
-
   <title>Toby's Home</title>
 
 </head>
 
 <body ng-app="navApp" ng-controller="pageController">
 
+  <h2 class="w3-center">Identify: Index Page</h2>
+
   <!-- Navigation -->
-  <div class="pb-5" ng-include="'partials/navbar.html'"></div>
+  <div ng-include="'partials/navbar.html'"></div>
 
   <!-- homepage content -->
-  <div id="main" class="m-4">
+  <div id="main" class="m-4 pt-4">
     <div ng-view></div>
-    </div>
-
-  <p><strong>Test variable:</strong><em> {{ sayHello }}</em></p>
-
-  <div class="textbox m-5">
-    <pre>$location.path() = {{ $location.path() }} • {{ locationPath }}</pre>
-    <pre>$route.current.templateUrl = {{ $route.current.templateUrl }} • {{ currentTemplate }}</pre>
-    <pre>$route.current.params = {{ $route.current.params }} • {{ routeParameters }}</pre>
-    <pre>$routeParams = {{ $routeParams }} • {{ justParameters }}</pre>
-    <p>$routeParams = {{ routeParams }}</p>
-  </div>
-
-  <div class="textbox m-5">
-    $location.protocol() = <span ng-bind="$location.protocol()"></span> <br>
-    $location.host() = <span ng-bind="$location.host()"></span> <br>
-    $location.port() = <span ng-bind="$location.port()"></span> <br>
-    $location.path() = <span ng-bind="$location.path()"></span> <br>
-    $location.search() = <span ng-bind="$location.search()"></span> <br>
-    $location.hash() = <span ng-bind="$location.hash()"></span> <br>
-  </div>
-
-  <div ng-controller="LocationController">
-    <div ng-address-bar></div><br><br>
-    <div>
-      $location.protocol() = <span ng-bind="$location.protocol()"></span> <br>
-      $location.host() = <span ng-bind="$location.host()"></span> <br>
-      $location.port() = <span ng-bind="$location.port()"></span> <br>
-      $location.path() = <span ng-bind="$location.path()"></span> <br>
-      $location.search() = <span ng-bind="$location.search()"></span> <br>
-      $location.hash() = <span ng-bind="$location.hash()"></span> <br>
-    </div>
-    <div id="navigation">
-      <a href="http://www.example.com/base/first?a=b">/base/first?a=b</a> |
-      <a href="http://www.example.com/base/sec/ond?flag#hash">sec/ond?flag#hash</a> |
-      <a href="/other-base/another?search">external</a>
-    </div>
   </div>
 
   <!-- footer -->
   <div ng-include="'partials/footer.html'"></div>
 
+
+  <!-- JavaScript -->
+  <script src="js/navApp.module.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -87,6 +57,8 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+  <script src="js/tobyscripts.js"></script>
 
 </body>
 

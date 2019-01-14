@@ -1,3 +1,12 @@
+<h2 class="w3-center">Identify: Home Page</h2>
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><span class="w3-hide-small">{{
+                plusName }}</span>{{ shortName }}</span>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-sm-9">
         <br />
@@ -28,7 +37,26 @@
             <a href="#!Progress"><img class="float-sm-right" src="images/thumbnails/RichardSchiff2009thumb.png" width="100"
                     height="100" alt="Richard Schiff"></a>
             If you're here looking for Toby Ziegler from the West Wing television series played by Richard Schiff,
-            I have a <a href="#!Progress">page</a> of links to help you out! </p>
+            I have a <a href="#!Progress">Toby Ziegler page</a> of links to help you out! </p>
 
     </div>
 </div>
+
+<!-- <p><strong>Test variable:</strong><em> {{ sayHello }}</em></p> -->
+
+<div ng-controller="LocationController">
+    <!-- <div ng-address-bar></div><br><br> -->
+    <div>
+        $location.protocol() = <span ng-bind="$location.protocol()"></span><br>
+        $location.host() = <span ng-bind="$location.host()"></span><br>
+        $location.port() = <span ng-bind="$location.port()"></span><br>
+        $location.path() = <span ng-bind="$location.path()"></span><br>
+        $location.search() = <span ng-bind="$location.search()"></span><br>
+        $location.hash() = <span ng-bind="$location.hash()"></span><br>
+    </div>
+</div>
+
+<div ng-include="'partials/about.html'"></div>
+<div ng-include="'partials/portfolio.html'"></div>
+<div ng-include="'partials/resume.html'"></div>
+<div ng-include="'partials/contact.html'"></div>

@@ -1,24 +1,54 @@
-<nav class="navbar navbar-expand-sm bg-none navbar-light">
-        <!-- <nav class="navbar navbar-expand-sm bg-light navbar-light"> -->
+<!-- <nav class="navbar navbar-expand-sm bg-none navbar-light"> -->
+<!-- <nav class="navbar navbar-expand-sm bg-light navbar-light"> -->
 
-    <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- Toggler/collapsibe Button -->
+<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"> -->
+<!-- <span class="navbar-toggler-icon"></span> -->
+<!-- </button> -->
 
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <!-- <a class="navbar-brand" href="#">Toby's</a> -->
-        <a class="nav-link btn btn-success mx-2" href="#!Home">Home</a>
-        <a class="nav-link btn btn-success mx-2" href="#!Portfolio">Portfolio</a>
-        <a class="nav-link btn btn-success mx-2" href="#!About">About</a>
-        <a class="nav-link btn btn-success mx-2" href="#!Bio">Bio</a>
-        <a class="nav-link btn btn-success mx-2" href="#!Contact">Contact</a>
-        <a class="nav-link btn btn-success mx-2" href="#!Resume">Resume</a>
-        <a class="nav-link btn btn-success mx-2" href="javascript:toggleButtonSize()">&#8597;</a>
+<!-- <div class="collapse navbar-collapse" id="collapsibleNavbar"> -->
+<!-- <a class="navbar-brand" href="#">Toby's</a> -->
+<!-- <a class="nav-link btn btn-success mx-2" href="#!Home">Home</a> -->
+<!-- <a class="nav-link btn btn-success mx-2" href="#!Portfolio">Portfolio</a> -->
+<!-- <a class="nav-link btn btn-success mx-2" href="#!About">About</a> -->
+<!-- <a class="nav-link btn btn-success mx-2" href="#!Bio">Bio</a> -->
+<!-- <a class="nav-link btn btn-success mx-2" href="#!Contact">Contact</a> -->
+<!-- <a class="nav-link btn btn-success mx-2" href="#!Resume">Resume</a> -->
+<!-- <a class="nav-link btn btn-success mx-2" href="javascript:toggleButtonSize()">&#8597;</a> -->
+<!-- </div> -->
+
+<!-- Navbar (sit on top, w3 version) -->
+<nav class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
+            onclick="toggleFunction()" title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a href="#!Home" class="w3-bar-item w3-button">Home</a>
+        <a href="#!About" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>About</a>
+        <a href="#!Portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Portfolio</a>
+        <a href="#!Resume" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Resume</a>
+        <a href="#!Contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i>Contact</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+            <i class="fa fa-search"></i>
+        </a>
     </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+        <a href="#!About" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+        <a href="#!Portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">Portfolio</a>
+        <a href="#!Resume" class="w3-bar-item w3-button" onclick="toggleFunction()">Resume</a>
+        <a href="#!Contact" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+        <a href="#" class="w3-bar-item w3-button">Search</a>
+    </div>
+    </div>
+
+
     <script>
-        function toggleButtonSize() {
-            // toggle button size here
-        }
+
+    //     function toggleButtonSize() {
+    //         // toggle button size here
+    //     }
     </script>
 </nav>
