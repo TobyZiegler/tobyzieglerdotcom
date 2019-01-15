@@ -8,8 +8,9 @@
     }
 
     .docdimensions {
-        max-width: 42rem;
-        padding: 3rem
+        max-width: 56rem;
+        padding: 3rem;
+        margin: auto;
     }
 
     table {
@@ -85,7 +86,7 @@
     }
 
     li:before {
-        content: "\0025cf  "
+        /* content: "\0025cf  " */
     }
 
     p {
@@ -115,6 +116,13 @@
         margin-bottom: 0.5rem;
     }
 </style>
+
+<!-- Parallax Image with Resume Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+    <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-white w3-wide">Resume</span>
+    </div>
+</div>
 
 <div class="docdimensions resumefont" id="resume">
     <h1>Toby Ziegler</h1>
@@ -208,38 +216,4 @@
     </ul>
 </div>
 
-<script>
-    // document.body.onload = addElement;
-    document.getElementById("resume").onload.addContactBar();
-
-    function addContactBar() {
-
-        // obfuscated email using btoa()
-        var sendDomain = "VG9ieVppZWdsZXIuY29t";
-        var sendTo = "VG9ieUA=";
-        var address = atob(sendTo) + atob(sendDomain);
-        var mailContent = ("<a href=\"mail" + "to:" + address + "?Subject=Resume\u0020Inquiry" + "\">" + address + "</" + "a>");
-
-        // obfuscated link to linkedin using btoa()
-        var linkedinCode = "d3d3LmxpbmtlZGluLmNvbS9pbi9Ub2J5WmllZ2xlcg==";
-        var linkedinAddress = atob(linkedinCode);
-        var linkedinContent = ("<" + "a href=\u0022https://" + linkedinAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "linkedin.com" + "</" + "a>");
-
-        // obfuscated link to home page
-        var homeSiteCode = "VG9ieVppZWdsZXIuY29t";
-        var homeSiteAddress = atob(homeSiteCode);
-        var homeSiteContent = ("<" + "a href=\u0022https://" + homeSiteAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "www." + homeSiteAddress + "</" + "a>");
-
-        var bulletSpace = "&nbsp;&bull;&nbsp;";
-
-        // not obfuscated
-        var cityState = ("&nbsp;" + "<" + "a href=\u0022https://" + "goo.gl/maps/rppF2KVEeYn\u0022\u0020" + "\u0020target=\u0022_blank\u0022" + ">" + "Springfield, Missouri" + "</" + "a>");
-
-        // build contact bar contents
-        var contactBarContent = cityState + bulletSpace + mailContent + bulletSpace + linkedinContent + bulletSpace + homeSiteContent;
-
-        // get element for insertion and insert after id element
-        var currentSpan = document.getElementById("contactBar");
-        currentSpan.insertAdjacentHTML("beforeend", contactBarContent);
-    }
-</script>
+<script src="/js/tobyscripts.js">document.getElementById("contactBar").addContactBar();</script>

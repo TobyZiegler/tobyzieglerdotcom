@@ -9,8 +9,8 @@
   <meta name="description" content="The home page for Toby Zieger's personal site, done in angularJS style.">
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <!-- <base href="" /> -->
 
@@ -34,13 +34,11 @@
 
 <body ng-app="navApp" ng-controller="pageController">
 
-  <h2 class="w3-center">Identify: Index Page</h2>
-
   <!-- Navigation -->
   <div ng-include="'partials/navbar.html'"></div>
 
   <!-- homepage content -->
-  <div id="main" class="m-4 pt-4">
+  <div id="main" class="w3-padding">
     <div ng-view></div>
   </div>
 

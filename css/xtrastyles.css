@@ -115,7 +115,7 @@ svg[aria-label="Google+"] {
       /* First image (Logo. Full height) */
       .bgimg-1 {
         background-image: url('/images/backgrounds/cloudscape.jpg');
-        min-height: 100%;
+        min-height: 25rem;
       }
       
       /* Second image (Portfolio) */
