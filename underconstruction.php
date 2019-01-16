@@ -138,12 +138,12 @@
             <p>This page is intended as a placeholder during times of change on the site.</p>
             <p>As such, most of the page is coded without dependencies to the rest of the site. If the site's styles need to change, this page will stay independent.</p>
             <p>The exceptions are the navigation bar at the top, and the footer with social media and copyright at the bottom. Both of these are loaded with php require calls and styled with the site's stylesheets.</p>
-            <p>note to self: add atribution</p>
+            <p>note to self: add attribution</p>
         </div>
     </div>
 </body>
 <script>
-    var deadline = 'February 28 2018 23:59:59 GMT-0500';
+    var deadline = 'April 1 2018 23:59:59 GMT-0500';
 
     function time_remaining(endtime) {
         var timecalc = Date.parse(endtime) - Date.parse(new Date());
