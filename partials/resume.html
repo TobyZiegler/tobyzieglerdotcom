@@ -1,4 +1,11 @@
 <style type="text/css">
+    /* resume styles are included with the resume html for portability and maximum compatibility */
+    .docdimensions {
+        max-width: 50rem;
+        padding: 3rem;
+        margin: auto;
+    }
+
     .resumefont {
         color: black;
         font-size: medium;
@@ -7,32 +14,17 @@
         text-align: left
     }
 
-    .docdimensions {
-        max-width: 56rem;
-        padding: 3rem;
-        margin: auto;
-    }
-
-    table {
+    .resumefont table {
         margin-top: 0rem;
         margin-left: 1.5rem;
         width: 100%
     }
 
-    table td,
-    table th {
+    .resumefont table td,
+    .resumefont table th {
         padding-left: 0.25rem;
         padding-top: 0.1rem;
         padding-bottom: 0.1rem
-    }
-
-
-    .maintitle {
-        color: black;
-        font-weight: 700;
-        text-decoration: none;
-        vertical-align: baseline;
-        font-size: xx-large;
     }
 
     .subtitle {
@@ -45,15 +37,15 @@
         page-break-after: avoid
     }
 
-    a,
-    a:hover,
-    a:active,
-    a:visited {
+    .resumefont a,
+    .resumefont a:hover,
+    .resumefont a:active,
+    .resumefont a:visited {
         color: white;
         text-decoration: none;
     }
 
-    a:hover {
+    .resumefont a:hover {
         color: cornflowerblue;
         cursor: pointer;
     }
@@ -74,22 +66,22 @@
         font-size: smaller
     }
 
-    ul {
+    .resumefont ul {
         padding: 0;
         margin: 0
     }
 
-    li {
+    .resumefont li {
         list-style: none;
         padding-left: 2rem;
         padding-bottom: 0.4rem;
     }
 
-    li:before {
-        /* content: "\0025cf  " */
+    .resumefont li:before {
+        content: "\0025cf  "
     }
 
-    p {
+    .resumefont p {
         margin-left: 3.0rem;
         text-indent: -1.5rem;
         margin-top: 0.5rem;
@@ -100,7 +92,7 @@
         widows: 2;
     }
 
-    h1 {
+    .resumefont h1 {
         font-weight: 700;
         font-size: xx-large;
         page-break-after: avoid;
@@ -108,7 +100,7 @@
         margin-top: -1.0rem
     }
 
-    h3 {
+    .resumefont h3 {
         font-weight: 700;
         font-size: large;
         page-break-after: avoid;
@@ -118,9 +110,9 @@
 </style>
 
 <!-- Parallax Image with Resume Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-    <div class="w3-display-middle">
-        <span class="w3-xxlarge w3-text-white w3-wide">Resume</span>
+<div class="bgimg-portfolio w3-display-container w3-opacity-min">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-text-white w3-gray w3-xlarge w3-wide w3-animate-opacity">Resume</span>
     </div>
 </div>
 
@@ -157,7 +149,7 @@
                 coding</em></span>
         <br>
         </span>
-        <span class="c3">Java | PHP | HTML | CSS | JavaScript | AppleScript | Linux Shell</span>
+        <span class="c3">Java | PHP | C# | HTML | CSS | JavaScript | AppleScript | Linux Shell</span>
     </p>
     <h3>Education</h3>
     <p>
@@ -210,8 +202,8 @@
     <ul>
         <li>Chair of Document Control Oversight Committee, Lead of Document Management</li>
         <li>Created Document Management policy for entire organization</li>
-        <li>Coordinated projects with multiple departments, vendors and contractors</li>
-        <li>Created and modified thousands of digital projects</li>
+        <li>Coordinated projects across over 300 departments, plus vendors and contractors</li>
+        <li>Tracked, maintained and managed over 10,000 active files</li>
         <li>Spearheaded transition from fully analog to all-digital workflow</li>
     </ul>
 </div>

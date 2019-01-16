@@ -105,29 +105,32 @@ svg[aria-label="Google+"] {
 }
 
     /* Create a Parallax Effect */
-    .bgimg-1, .bgimg-2, .bgimg-3 {
+    .bgimg-primary, .bgimg-aboutme, .bgimg-portfolio, .bgimg-contact {
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        min-height: 50vh;
       }
       
       /* First image (Logo. Full height) */
-      .bgimg-1 {
+      .bgimg-primary {
         background-image: url('/images/backgrounds/cloudscape.jpg');
-        min-height: 25rem;
       }
       
-      /* Second image (Portfolio) */
-      .bgimg-2 {
-        background-image: url('/images/backgrounds/cloudscape.jpg');
-        min-height: 25rem;
+      /* Second image (About Me) */
+      .bgimg-aboutme {
+        background-image: url('/images/backgrounds/cardinalstarwarsnite.jpg');
+      }
+      
+      /* Third image (Portfolio) */
+      .bgimg-portfolio {
+        background-image: url('/images/backgrounds/drivecircuitboards.jpg');
       }
       
       /* Third image (Contact) */
-      .bgimg-3 {
-        background-image: url('/images/backgrounds/cloudscape.jpg');
-        min-height: 25rem;
+      .bgimg-contact {
+        background-image: url('/images/backgrounds/greenhousestatesunset.jpg');
       }
       
       .w3-wide {letter-spacing: 0.6rem;}
@@ -135,9 +138,8 @@ svg[aria-label="Google+"] {
       
       /* Turn off parallax scrolling for tablets and phones */
       @media only screen and (max-device-width: 1600px) {
-        .bgimg-1, .bgimg-2, .bgimg-3 {
+        .bgimg-primary, .bgimg-aboutme, .bgimg-portfolio, .bgimg-contact {
           background-attachment: scroll;
-          min-height: 25rem;
         }
       }
   
