@@ -110,7 +110,7 @@ svg[aria-label="Google+"] {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        min-height: 50vh;
+        min-height: 50vmin;
       }
       
       /* First image (Logo. Full height) */
