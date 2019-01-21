@@ -1,11 +1,10 @@
 <!-- Parallax Image with Intro Text -->
-<div class="bgimg-primary w3-display-container w3-opacity-min" id="home">
-    <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><span class="w3-hide-small">{{
-                plusName }}</span>{{ shortName }}</span>
+<div class="w3-display-container" style="min-height: 5rem;">
+    <div class="w3-display-middle titlebar" style="white-space:nowrap;">
+        <span class="titlebartext"><span class="w3-hide-small">{{ plusName }}</span>{{ shortName }}</span>
     </div>
     <div class="w3-display-topright w3-margin w3-hide-small">
-        <div class="w3-card-4 w3-padding w3-light-gray" style="width: 25rem">
+        <div class="w3-card-4 w3-padding w3-light-gray" style="width: 18rem">
             <a href="#!Progress"><img class="w3-image w3-left w3-margin" src="images/thumbnails/RichardSchiff2009thumb.png"
                     width="100" height="100" alt="Richard Schiff"></a>
             <p>If you're here looking for Toby Ziegler from the West Wing television series played by
@@ -15,43 +14,61 @@
     </div>
 </div>
 
-<article class="w3-container">
-    <h4>Toby's Home on the Web</h4>
-    <div class="w3-row-padding">
-        <section class="w3-col l3 m6">
-            <p>Hi! I'm Toby Ziegler. Welcome to my pages.</p>
-            <p>I have built and rebuilt and destroyed and broken and fixed these pages over and over since about
-                1995.</p>
-            <p>For the latest version you see now, I started saying, "Pride Goeth Before the Rebuild"...</p>
-            <p>I had built my pages with pride. I had built my pages with care. I had done it all by myself.</p>
-        </section>
-        <section class="w3-col l3 m6">
-            <p>Suddenly, I just couldn't stand them. They had to go.</p>
-            <p>I carefully hand-crafted every line of code. No dependencies. Everything from scratch. Often
-                inspired by others, but always worked out and implemented by me, myself and I.</p>
-            <p>I spent <strong><em>so</em></strong> much time getting everything right, functionally, visually, you
-                name it -- that I didn't
-                ever get to add but a fraction of the actual content I wanted to show here.</p>
-        </section>
-        <section class="w3-col l3 m6">
-            <p>So it has to go. I am bringing in Bootstrap, jQuery, Angular, and every other dependency I once
-                eschewed.
-                Well, at least the ones which will make things go faster and allow me to focus more on the content and style
-                of these pages, instead of just the mechanics.</p>
-            <p>The mechanics are fine, and I love them. Unfortunately, unless I point them out in code snippets,
-                almost noone is going to be able to appreciate them but the afore-mentioned me, myself and I. While I
-                don't need anyone else's approval, explicit or otherwise, one of the primary reasons I am putting this here is
-                to share.</p>
-        </section>
-        <section class="w3-col l3 m6">
-            <p>Here you will find a tiny sliver of my work. I took every photo and composed every phrase.</p>
-            <p>Since these pages are undergoing a complete rebuild from scratch, so you are likely to encounter the
-                <a href="#!Progress">"in
-                    progress" page</a> as you look around. Don't worry, it will be
-                encountered less and less frequently as time goes on.</p>
-        </section>
-    </div>
-</article>
+<div class="w3-content w3-container w3-padding">
+    <article class="w3-container textbox" id="home">
+        <h3>Toby's Home on the Web</h3>
+        <p>Instead of having everything open in a long scrolling list of fascinating information to glaze your eyes immediately, I've chosen to start with just the categories and let you click what sounds most interesting to you first. Enjoy!</p>
+        <button onclick="collapsible('collapseHome01')" class="w3-button w3-block w3-left-align">
+            <h5>Hi! I'm Toby Ziegler.</h5>
+        </button>
+        <div id="collapseHome01" class="w3-show w3-animate-opacity">
+
+            <div class="w3-row-padding">
+                <section class="w3-col l3 m6">
+                    <p>Welcome to my pages.</p>
+                    <p>I have built and rebuilt and destroyed and broken and fixed these pages over and over since
+                        about
+                        1995.</p>
+                    <p>For the latest version you see now, I started saying, "Pride Goeth Before the Rebuild"...</p>
+                    <p>I had built my pages with pride. I had built my pages with care. I had done it all by myself.</p>
+                </section>
+                <section class="w3-col l3 m6">
+                    <p>Suddenly, I just couldn't stand them. They had to go.</p>
+                    <p>I carefully hand-crafted every line of code. No dependencies. Everything from scratch. Often
+                        inspired by others, but always worked out and implemented by me, myself and I.</p>
+                    <p>I spent <strong><em>so</em></strong> much time getting everything right, functionally, visually,
+                        you
+                        name it -- that I didn't
+                        ever get to add but a fraction of the actual content I wanted to show here.</p>
+                </section>
+                <section class="w3-col l3 m6">
+                    <p>So it has to go. I am bringing in Bootstrap, jQuery, Angular, and every other dependency I once
+                        eschewed.
+                        Well, at least the ones which will make things go faster and allow me to focus more on the
+                        content and style
+                        of these pages, instead of just the mechanics.</p>
+                    <p>The mechanics are fine, and I love them. Unfortunately, unless I point them out in code
+                        snippets,
+                        almost no one is going to be able to appreciate them but the afore-mentioned me, myself and I.
+                        While I
+                        don't need anyone else's approval, explicit or otherwise, one of the primary reasons I am
+                        putting this here is
+                        to share.</p>
+                </section>
+                <section class="w3-col l3 m6">
+                    <p>Here you will find a tiny sliver of my work. I took every photo and composed every phrase.</p>
+                    <p>Since these pages are undergoing a complete rebuild from scratch, so you are likely to encounter
+                        the
+                        <a href="#!Progress">"in
+                            progress" page</a> as you look around. Don't worry, it will be
+                        encountered less and less frequently as time goes on.</p>
+                    <p><span id="testme">testvalue</span></p>
+                    <script>document.getElementById("testme").innerHTML.addContact(mailto);</script>
+                </section>
+            </div>
+        </div>
+    </article>
+</div>
 <!-- right column shifts to bottom at sm -->
 
 <!-- <p><strong>Test variable:</strong><em> {{ sayHello }}</em></p> -->
@@ -68,7 +85,19 @@
     </div>
 </div>
 
+<div ng-controller="aboutController">
+<div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/about.html'"></div>
+</div>
+<div ng-controller="portfolioController">
+    <div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/portfolio.html'"></div>
+</div>
+<div ng-controller="resumeController">
+<div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/resume.html'"></div>
+</div>
+<div ng-controller="contactController">
+<div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/contact.html'"></div>
+</div>

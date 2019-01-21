@@ -2,7 +2,7 @@
 Modal Image Gallery code courtesy w3schools
 https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_parallax&stacked=h
 */
-function onClick(element) {
+function modalClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
@@ -55,33 +55,71 @@ function reveal(id) {
   }
 }
 
-function addContactBar() {
-
-  // obfuscated email using btoa()
-  var sendDomain = "VG9ieVppZWdsZXIuY29t";
-  var sendTo = "VG9ieUA=";
-  var address = atob(sendTo) + atob(sendDomain);
-  var mailContent = ("<a href=\"mail" + "to:" + address + "?Subject=Resume\u0020Inquiry" + "\">" + address + "</" + "a>");
-
-  // obfuscated link to linkedin using btoa()
-  var linkedinCode = "d3d3LmxpbmtlZGluLmNvbS9pbi9Ub2J5WmllZ2xlcg==";
-  var linkedinAddress = atob(linkedinCode);
-  var linkedinContent = ("<" + "a href=\u0022https://" + linkedinAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "linkedin.com" + "</" + "a>");
-
-  // obfuscated link to home page
-  var homeSiteCode = "VG9ieVppZWdsZXIuY29t";
-  var homeSiteAddress = atob(homeSiteCode);
-  var homeSiteContent = ("<" + "a href=\u0022https://" + homeSiteAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "www." + homeSiteAddress + "</" + "a>");
+function addContact(contact) {
 
   var bulletSpace = "&nbsp;&bull;&nbsp;";
 
-  // not obfuscated
-  var cityState = ("&nbsp;" + "<" + "a href=\u0022https://" + "goo.gl/maps/rppF2KVEeYn\u0022\u0020" + "\u0020target=\u0022_blank\u0022" + ">" + "Springfield, Missouri" + "</" + "a>");
+  switch (contact) {
+    case "mailto":
+      // obfuscated email using btoa()
+      var sendDomain = "VG9ieVppZWdsZXIuY29t";
+      var sendTo = "VG9ieUA=";
+      var address = atob(sendTo) + atob(sendDomain);
+      var mailContent = ("<a href=\"mail" + "to:" + address + "?Subject=Resume\u0020Inquiry" + "\">" + address + "</" + "a>");
+      return mailContent;
 
-  // build contact bar contents
-  var contactBarContent = cityState + bulletSpace + mailContent + bulletSpace + linkedinContent + bulletSpace + homeSiteContent;
+    case "linkedin":
+      // obfuscated link to linkedin using btoa()
+      var linkedinCode = "d3d3LmxpbmtlZGluLmNvbS9pbi9Ub2J5WmllZ2xlcg==";
+      var linkedinAddress = atob(linkedinCode);
+      var linkedinContent = ("<" + "a href=\u0022https://" + linkedinAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "linkedin.com" + "</" + "a>");
+      return linkedinContent;
 
+    case "homesite":
+      // obfuscated link to home page
+      var homeSiteCode = "VG9ieVppZWdsZXIuY29t";
+      var homeSiteAddress = atob(homeSiteCode);
+      var homeSiteContent = ("<" + "a href=\u0022https://" + homeSiteAddress + "\u0022\u0020" + "target=\u0022_blank\u0022" + ">" + "www." + homeSiteAddress + "</" + "a>");
+      return homeSiteContent;
+
+    case "maplink":
+      // not obfuscated
+      var cityState = ("&nbsp;" + "<" + "a href=\u0022https://" + "goo.gl/maps/rppF2KVEeYn\u0022\u0020" + "\u0020target=\u0022_blank\u0022" + ">" + "Springfield, Missouri" + "</" + "a>");
+      return cityState;
+
+    case "fullcontact":
+      // build contact bar contents
+      var contactBarContent = cityState + bulletSpace + mailContent + bulletSpace + linkedinContent + bulletSpace + homeSiteContent;
+      return contactBarContent;
+  }
   // get element for insertion and insert after id element
   var currentSpan = document.getElementById("contactBar");
   currentSpan.insertAdjacentHTML("beforeend", contactBarContent);
+};
+
+/*
+collapse code inspired by w3schools
+https://www.w3schools.com/w3css/w3css_accordions.asp
+*/
+function collapsible(id) {
+  var collapseMe = document.getElementById(id);
+  if (collapseMe.className.indexOf("w3-hide") == -1) {
+    if (collapseMe.className.indexOf("w3-show") == -1) {
+      collapseMe.className += " w3-hide";
+    }
+  } else if (collapseMe.className.indexOf("w3-show") == -1) {
+    collapseMe.className = collapseMe.className.replace(" w3-hide", " w3-show");
+  } else {
+    collapseMe.className = collapseMe.className.replace(" w3-show", " w3-hide");
+  }
+};
+
+function expandmessage(togglestate) {
+  var newstate = "";
+  if (togglestate) {
+    newstate = "expand";
+  } else {
+    newstate = "collapse";
+  }
+  return newstate;
 }
