@@ -96,3 +96,30 @@ function addContact(contact) {
   var currentSpan = document.getElementById("contactBar");
   currentSpan.insertAdjacentHTML("beforeend", contactBarContent);
 };
+
+/*
+collapse code inspired by w3schools
+https://www.w3schools.com/w3css/w3css_accordions.asp
+*/
+function collapsible(id) {
+  var collapseMe = document.getElementById(id);
+  if (collapseMe.className.indexOf("w3-hide") == -1) {
+    if (collapseMe.className.indexOf("w3-show") == -1) {
+      collapseMe.className += " w3-hide";
+    }
+  } else if (collapseMe.className.indexOf("w3-show") == -1) {
+    collapseMe.className = collapseMe.className.replace(" w3-hide", " w3-show");
+  } else {
+    collapseMe.className = collapseMe.className.replace(" w3-show", " w3-hide");
+  }
+};
+
+function expandmessage(togglestate) {
+  var newstate = "";
+  if (togglestate) {
+    newstate = "expand";
+  } else {
+    newstate = "collapse";
+  }
+  return newstate;
+}

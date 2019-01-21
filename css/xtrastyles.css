@@ -38,10 +38,10 @@ h6 {
 }
 
 .textbox {
-    width: 80%;
-    padding: 5%;
+    /* width: 80%; */
+    /* padding: 5%; */
     border-radius: 1rem;
-    background: rgba(240, 230, 220, .7);
+    background: rgba(240, 230, 220, .5);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, .7);
 }
 
@@ -104,42 +104,116 @@ svg[aria-label="Google+"] {
     text-decoration: none;
 }
 
-    /* Create a Parallax Effect */
-    .bgimg-primary, .bgimg-aboutme, .bgimg-portfolio, .bgimg-contact {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 50vmin;
-      }
-      
-      /* First image (Logo. Full height) */
-      .bgimg-primary {
-        background-image: url('/images/backgrounds/cloudscape.jpg');
-      }
-      
-      /* Second image (About Me) */
-      .bgimg-aboutme {
-        background-image: url('/images/backgrounds/cardinalstarwarsnite.jpg');
-      }
-      
-      /* Third image (Portfolio) */
-      .bgimg-portfolio {
-        background-image: url('/images/backgrounds/drivecircuitboards.jpg');
-      }
-      
-      /* Third image (Contact) */
-      .bgimg-contact {
-        background-image: url('/images/backgrounds/greenhousestatesunset.jpg');
-      }
-      
-      .w3-wide {letter-spacing: 0.6rem;}
-      .w3-hover-opacity {cursor: pointer;}
-      
-      /* Turn off parallax scrolling for tablets and phones */
-      @media only screen and (max-device-width: 1600px) {
-        .bgimg-primary, .bgimg-aboutme, .bgimg-portfolio, .bgimg-contact {
-          background-attachment: scroll;
+.titlebar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: black;
+    padding: 0.8rem 1.6rem;
+    text-align: center;
+    animation: opac 0.8s;
+    border-radius: 1rem;
+    color: white;
+    line-height: 1.0;
+}
+
+.titlebartext {
+    letter-spacing: 0.8rem;
+    font-size: 1.5rem;
+}
+
+.titlebarnote {
+    letter-spacing: 0.2rem;
+    font-size: 0.6rem;
+}
+
+/* Create a Parallax Effect */
+/* wrap it in a disabler for mobile/small screens */
+@media screen and (min-width: 30em) {
+    @supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
+        /* ... parallax styles ... */
+
+        .parallax {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+          }
+          .parallaxLayer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+          }
+          .parallaxLayerBase {
+            transform: translateZ(0);
+          }
+          .parallaxLayerBack {
+            transform: translateZ(-12px) scale(25);
+          }
+
+        .parallaxbackground {
+            background-image: url('/images/backgrounds/cloudscape.jpg');
+            /* background-size: 200vh; */
+            /* background-attachment: fixed; */
+            /* background-repeat: no-repeat; */
         }
-      }
-  
+    }
+}
+
+
+.bgimg-primary,
+.bgimg-aboutme,
+.bgimg-portfolio,
+.bgimg-contact {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 40vmin;
+}
+
+/* First image (Logo. Full height) */
+
+.bgimg-primary {
+    background-image: url('/images/backgrounds/cloudscape.jpg');
+}
+
+/* Second image (About Me) */
+
+.bgimg-aboutme {
+    background-image: url('/images/backgrounds/cardinalstarwarsnite.jpg');
+}
+
+/* Third image (Portfolio) */
+
+.bgimg-portfolio {
+    background-image: url('/images/backgrounds/drivecircuitboards.jpg');
+}
+
+/* Third image (Contact) */
+
+.bgimg-contact {
+    background-image: url('/images/backgrounds/greenhousestatesunset.jpg');
+}
+
+.w3-wide {
+    letter-spacing: 0.6rem;
+}
+
+.w3-hover-opacity {
+    cursor: pointer;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+
+@media only screen and (max-device-width: 1600px) {
+    .bgimg-primary,
+    .bgimg-aboutme,
+    .bgimg-portfolio,
+    .bgimg-contact {
+        background-attachment: scroll;
+    }
+}

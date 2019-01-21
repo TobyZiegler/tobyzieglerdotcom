@@ -1,68 +1,66 @@
-<!-- Parallax Image with Portfolio Text -->
-<div class="bgimg-portfolio w3-display-container w3-opacity-min" id="photographs">
-    <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-text-white w3-gray w3-xlarge w3-wide w3-animate-opacity">Portfolio</span>
-    </div>
-</div>
-
 <!-- Container (Photograph Section) -->
-<div class="w3-container w3-padding-64">
-    <h3 class="w3-center">My Photos</h3>
-    <p class="w3-center"><em>Here are some of my photographs.<br> Click on the images to make them
-            bigger</em></p><br>
+<div class="w3-container">
+    <button onclick="collapsible('collapsePortfolio01')" class="w3-button w3-block w3-center">
+        <h3>My Photos</h3>
+    </button>
+    <div id="collapsePortfolio01" class="w3-hide w3-animate-opacity">
 
-    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-    <div class="w3-row-padding w3-center">
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/backgrounds/valentine2018flowers.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="Valentine flowers">
-            <p class="caption">Valentine flowers</p>
+        <p class="w3-center"><em>Here are some of my photographs.<br> Click on the images to see them
+                larger</em></p><br>
+
+        <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+        <div class="w3-row-padding w3-center">
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/backgrounds/valentine2018flowers.jpg" style="width:100%" onclick="onClick(this)"
+                    class="w3-hover-opacity" alt="Valentine flowers">
+                <p class="caption">Valentine flowers</p>
+            </div>
+
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/artphotos/aidan2007-10-30.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Journey to Hawaii">
+                <p class="caption">On the way to Hawaii</p>
+            </div>
+
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/artphotos/atriumceiling2015-07-01.jpg" style="width:100%" onclick="onClick(this)"
+                    class="w3-hover-opacity" alt="Atrium ceiling">
+                <p class="caption">Looking up in the atrium</p>
+            </div>
+
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/artphotos/luaufire2007-10-30.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Luau fire">
+                <p class="caption">Luau night fire</p>
+            </div>
         </div>
 
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/artphotos/aidan2007-10-30.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="Journey to Hawaii">
-            <p class="caption">On the way to Hawaii</p>
-        </div>
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/artphotos/sunshineray2015-07-09.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Ray of sunshine">
+                <p class="caption">Ray of sunshine</p>
+            </div>
 
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/artphotos/atriumceiling2015-07-01.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="Atrium ceiling">
-            <p class="caption">Looking up in the atrium</p>
-        </div>
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/artphotos/tracye2007-10-24.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="My beloved wife">
+                <p class="caption">My beloved wife</p>
+            </div>
 
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/artphotos/luaufire2007-10-30.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="Luau fire">
-            <p class="caption">Luau night fire</p>
-        </div>
-    </div>
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/backgrounds/cardinalstarwarsnite.jpg" style="width:100%" onclick="onClick(this)"
+                    class="w3-hover-opacity" alt="Cardinals game">
+                <p class="caption">Star Wars night at the Cardinals</p>
+            </div>
 
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/artphotos/sunshineray2015-07-09.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="Ray of sunshine">
-            <p class="caption">Ray of sunshine</p>
+            <div class="w3-col l3 m6 w3-padding">
+                <img src="/images/artphotos/aidan2007-10-24.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="The End">
+                <p class="caption">Aidan says, "No more!"</p>
+            </div>
+            <!-- <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button> -->
         </div>
-
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/artphotos/tracye2007-10-24.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="My beloved wife">
-            <p class="caption">My beloved wife</p>
-        </div>
-
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/backgrounds/cardinalstarwarsnite.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="Cardinals game">
-            <p class="caption">Star Wars night at the Cardinals</p>
-        </div>
-
-        <div class="w3-col l3 m6 w3-padding">
-            <img src="/images/artphotos/aidan2007-10-24.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                alt="The End">
-            <p class="caption">Aidan says, "No more!"</p>
-        </div>
-        <!-- <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button> -->
     </div>
 </div>
 
@@ -76,87 +74,96 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-    <h3 class="w3-center">Some of my work</h3>
-    <p class="w3-center"><em>Here are some examples of the work I can actually share with the world, since most of it I
-            cannot.</em></p>
-</div>
+<div class="w3-container">
+    <button onclick="collapsible('collapsePortfolio02')" class="w3-button w3-block w3-center">
+        <h3>Some of my work</h3>
+    </button>
+    <div id="collapsePortfolio02" class="w3-hide w3-animate-opacity">
 
-<div class="w3-row-padding w3-center">
-    <div class="w3-col l3 m6">
-            <a href=#!Progress>
-                    <img src="/images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png" alt="jQuery Mobile Demo" height="200"
-                width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href="jQueryMobileDemo/jQueryDemo.html">jQuery Mobile Demo</a>
-        </p>
-        <p class="caption">a demonstration of jQuery Mobile</p>
-    </div>
-    <div class="w3-col l3 m6">
-            <a href=#!Progress>
-                    <img src="/pages/portfolio/Trikipedia/TrikiGlobeSmall.svg" alt="Trikipedia" height="200" width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href="Trikipedia/Main_Page.html">Trikipedia</a>
-        </p>
-        <p class="caption">a Bootstrap interpretation of Wikipedia</p>
-    </div>
-    <div class="w3-col l3 m6">
-            <a href=#!Progress>
+        <p class="w3-center"><em>Here are some examples of the work I can actually share with the world, since most of
+                it I cannot.</em></p>
+
+        <div class="w3-row-padding w3-center">
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
+                    <img src="/images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png" alt="jQuery Mobile Demo"
+                        height="200" width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href="jQueryMobileDemo/jQueryDemo.html">jQuery Mobile Demo</a>
+                </p>
+                <p class="caption">a demonstration of jQuery Mobile</p>
+            </div>
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
                     <img src="/images/thumbnails/portfoliothumbs/periodictablethumb.png" alt="Periodic Table" height="200"
-                width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href="periodicTable/periodicTable.php">Periodic Table of the Elements</a>
-        </p>
-        <p class="caption">a CSS and Tables school project</p>
-    </div>
-    <div class="w3-col l3 m6">
-        <a href=#!Progress>
-            <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Check Children" height="200" width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href=#!Progress>The Children of the Checks</a>
-        </p>
-        <p class="caption">for the Children's Miracle Network</p>
-    </div>
-</div>
-<div class="w3-row-padding w3-center">
-    <div class="w3-col l3 m6">
-        <a href=#!Progress>
-            <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Capstone Exercise" height="200" width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href=#!Progress>The Murphy Exercise</a>
-        </p>
-        <p class="caption">my OTC capstone presentation</p>
-    </div>
-    <div class="w3-col l3 m6">
-        <a href=#!Progress>
-            <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Jacks or Better Poker" height="200" width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href=#!Progress>Jacks or Better</a>
-        </p>
-        <p class="caption">poker game</p>
-    </div>
-    <div class="w3-col l3 m6">
-        <a href=#!Progress>
-            <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Lottery Numbers" height="200" width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href=#!Progress>Pick Your Numbers</a>
-        </p>
-        <p class="caption">lottery number generator</p>
-    </div>
-    <div class="w3-col l3 m6">
-        <a href=#!Progress>
-            <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Food Faces" height="200" width="200">
-        </a>
-        <p class="portfoliobutton">
-            <a href=#!Progress>The Food Faces</a>
-        </p>
-        <p class="caption">culinary creative challenge</p>
+                        width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href="periodicTable/periodicTable.php">Periodic Table of the Elements</a>
+                </p>
+                <p class="caption">a CSS and Tables school project</p>
+            </div>
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
+                    <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Trikipedia" height="200" width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href="Trikipedia/Main_Page.html">Trikipedia</a>
+                </p>
+                <p class="caption">a Bootstrap interpretation of Wikipedia</p>
+            </div>
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
+                    <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Check Children" height="200"
+                        width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href=#!Progress>The Children of the Checks</a>
+                </p>
+                <p class="caption">for the Children's Miracle Network</p>
+            </div>
+        </div>
+        <div class="w3-row-padding w3-center">
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
+                    <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Capstone Exercise" height="200"
+                        width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href=#!Progress>The Murphy Exercise</a>
+                </p>
+                <p class="caption">my OTC capstone presentation</p>
+            </div>
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
+                    <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Jacks or Better Poker" height="200"
+                        width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href=#!Progress>Jacks or Better</a>
+                </p>
+                <p class="caption">poker game</p>
+            </div>
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
+                    <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Lottery Numbers" height="200"
+                        width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href=#!Progress>Pick Your Numbers</a>
+                </p>
+                <p class="caption">lottery number generator</p>
+            </div>
+            <div class="w3-col l3 m6">
+                <a href=#!Progress>
+                    <img src="/images/thumbnails/portfoliothumbs/ComingSoon.png" alt="Food Faces" height="200" width="200">
+                </a>
+                <p class="portfoliobutton">
+                    <a href=#!Progress>The Food Faces</a>
+                </p>
+                <p class="caption">culinary creative challenge</p>
+            </div>
+        </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
     /* resume styles are included with the resume html for portability and maximum compatibility */
     .docdimensions {
         max-width: 50rem;
-        padding: 3rem;
+        /* padding: 3rem; */
         margin: auto;
     }
 
@@ -97,7 +97,7 @@
         font-size: xx-large;
         page-break-after: avoid;
         line-height: 0.5;
-        margin-top: -1.0rem
+        margin-top: 2.0rem
     }
 
     .resumefont h3 {
@@ -108,104 +108,124 @@
         margin-bottom: 0.5rem;
     }
 </style>
+<div class="w3-content w3-container">
+    <article class="w3-container textbox" id="resume">
 
-<!-- Parallax Image with Resume Text -->
-<div class="bgimg-portfolio w3-display-container w3-opacity-min">
-    <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-text-white w3-gray w3-xlarge w3-wide w3-animate-opacity">Resume</span>
-    </div>
-</div>
-
-<div class="docdimensions resumefont" id="resume">
-    <h1>Toby Ziegler</h1>
-    <div class="subtitle" id="contactBar">
-    </div>
-    <h3>Summary</h3>
-    <p>
-        Years of graphic design and process management experience are ready to leverage new degrees and a knack for
-        understanding user perspectives. Capable with software and with people, always emphasizing world class
-        experiences and customer satisfaction.
-    </p>
-    <h3>Skills</h3>
-    <table>
-        <tr>
-            <td>Concept development</td>
-            <td>Interface design</td>
-            <td>Print, vector and rastor design</td>
-        </tr>
-        <tr>
-            <td>Project planning</td>
-            <td>Experience design</td>
-            <td>Communication and presentation</td>
-        </tr>
-        <tr>
-            <td>Procedure analysis</td>
-            <td>Information gathering</td>
-            <td>Task and decision optimization</td>
-        </tr>
-    </table>
-    <p>
-        <span class="underline">Languages</span><span class="smalltext"><em>&nbsp;- representative of previous
-                coding</em></span>
-        <br>
-        </span>
-        <span class="c3">Java | PHP | C# | HTML | CSS | JavaScript | AppleScript | Linux Shell</span>
-    </p>
-    <h3>Education</h3>
-    <p>
-        Missouri State University, <em>Springfield, Missouri</em>
-    </p>
-    <p class="indent">
-        Bachelor of Applied Science in Technology Management, <em>December 2018</em>
-    </p>
-    <p class="indent2">
-        Minor in Computer Science, <em>21 Credit Hours</em>
-    </p>
-    <p class="indent2">
-        Minor in Web Application Development, <em>18 Credit Hours</em>
-    </p>
-    <p class="indent">
-        Master of Science in Project Management, <em>Spring 2020</em>
-    </p>
-    <p>
-        Ozarks Technical Community College, <em>Springfield, Missouri</em>
-    </p>
-    <p class="indent">
-        Associate in Applied Science in Computer Information Science, <em>December 2015</em>
-    </p>
-    <p class="indent">
-        Associate of Science in Engineering, <em>May 2015</em>
-        <br>
-        <em class="indent smalltext">(Qualified for both Mechanical Engineering Option and Electrical Engineering
-            Option)</em>
-    </p>
-    <p class="indent">
-        Associate of Arts, <em>May 2018</em>
-    </p>
-    <p class="indent">
-        Capstone Project: &nbsp;Provide OTC campus with customized Raspberry Pi digital signs using
-        locally cached, network driven content,<em>&nbsp;Fall 2015</em>
-    </p>
-    <p class="indent">
-        Computer Information Science Department Intern,<em>&nbsp;Fall 2015</em>
-    </p>
-    <p class="indent">
-        Certificate of Achievement in Computer Information Science,<em>&nbsp;December 2015</em>
-    </p>
-    <p class="indent">
-        Certificate of Specialization in Computer Programming, <em>&nbsp;August 2015</em>
-    </p>
-    <h3>Experience</h3>
-    <p>
-        Graphic Designer and Document Manager, CoxHealth, <em>&nbsp;February 2001 thru Present</em>
-    </p>
-    <ul>
-        <li>Chair of Document Control Oversight Committee, Lead of Document Management</li>
-        <li>Created Document Management policy for entire organization</li>
-        <li>Coordinated projects across over 300 departments, plus vendors and contractors</li>
-        <li>Tracked, maintained and managed over 10,000 active files</li>
-        <li>Spearheaded transition from fully analog to all-digital workflow</li>
-    </ul>
+        <div class="docdimensions resumefont">
+            <h1 class="w3-stretch">Toby Ziegler</h1>
+            <div class="subtitle" id="contactBar">
+            </div>
+            <button onclick="collapsible('collapseResume01')" class="w3-stretch w3-button w3-block w3-left-align">
+                <h3>Summary</h3>
+            </button>
+            <div id="collapseResume01" class="w3-hide w3-animate-opacity">
+                <div>
+                    Years of graphic design and process management experience are ready to leverage new degrees and a
+                    knack
+                    for
+                    understanding user perspectives. Capable with software and with people, always emphasizing world
+                    class
+                    experiences and customer satisfaction.
+                </div>
+            </div>
+            <button onclick="collapsible('collapseResume02')" class="w3-stretch w3-button w3-block w3-left-align">
+                <h3>Skills</h3>
+            </button>
+            <div id="collapseResume02" class="w3-hide w3-animate-opacity">
+                <table>
+                    <tr>
+                        <td>Concept development</td>
+                        <td>Interface design</td>
+                        <td>Print, vector and rastor design</td>
+                    </tr>
+                    <tr>
+                        <td>Project planning</td>
+                        <td>Experience design</td>
+                        <td>Communication and presentation</td>
+                    </tr>
+                    <tr>
+                        <td>Procedure analysis</td>
+                        <td>Information gathering</td>
+                        <td>Task and decision optimization</td>
+                    </tr>
+                </table>
+                <p>
+                    <span class="underline">Languages</span><span class="smalltext"><em>&nbsp;- representative of
+                            previous
+                            coding</em></span>
+                    <br>
+                    </span>
+                    <span class="c3">Java | PHP | C# | SQL | HTML | CSS | JavaScript | AppleScript | Shell</span>
+                </p>
+            </div>
+            <button onclick="collapsible('collapseResume03')" class="w3-stretch w3-button w3-block w3-left-align">
+                <h3>Education</h3>
+            </button>
+            <div id="collapseResume03" class="w3-hide w3-animate-opacity">
+                <p>
+                    Missouri State University, <em>Springfield, Missouri</em>
+                </p>
+                <p class="indent">
+                    Bachelor of Applied Science in Technology Management, <em>December 2018</em>
+                </p>
+                <p class="indent2">
+                    Minor in Computer Science, <em>21 Credit Hours</em>
+                </p>
+                <p class="indent2">
+                    Minor in Web Application Development, <em>18 Credit Hours</em>
+                </p>
+                <p class="indent">
+                    Master of Science in Project Management, <em>Spring 2020</em>
+                </p>
+                <p>
+                    Ozarks Technical Community College, <em>Springfield, Missouri</em>
+                </p>
+                <p class="indent">
+                    Associate in Applied Science in Computer Information Science, <em>December 2015</em>
+                </p>
+                <p class="indent">
+                    Associate of Science in Engineering, <em>May 2015</em>
+                    <br>
+                    <em class="indent smalltext">(Qualified for both Mechanical Engineering Option and Electrical
+                        Engineering
+                        Option)</em>
+                </p>
+                <p class="indent">
+                    Associate of Arts, <em>May 2018</em>
+                </p>
+                <p class="indent">
+                    Capstone Project: &nbsp;Provide OTC campus with customized Raspberry Pi digital signs using
+                    locally cached, network driven content,<em>&nbsp;Fall 2015</em>
+                </p>
+                <p class="indent">
+                    Computer Information Science Department Intern,<em>&nbsp;Fall 2015</em>
+                </p>
+                <p class="indent">
+                    Certificate of Achievement in Computer Information Science,<em>&nbsp;December 2015</em>
+                </p>
+                <p class="indent">
+                    Certificate of Specialization in Computer Programming, <em>&nbsp;August 2015</em>
+                </p>
+            </div>
+            <button onclick="collapsible('collapseResume04')" class="w3-stretch w3-button w3-block w3-left-align">
+                <h3>Experience</h3>
+            </button>
+            <div id="collapseResume04" class="w3-hide w3-animate-opacity">
+                <p>
+                    Graphic Designer and Document Manager, CoxHealth, <em>&nbsp;February 2001 thru Present</em>
+                </p>
+                <ul>
+                    <li>Chair of Document Control Oversight Committee</li>
+                    <li>Lead of Document Management</li>
+                    <li>Created Document Management policy for entire organization</li>
+                    <li>Coordinated projects across over 300 departments, plus vendors and contractors</li>
+                    <li>Tracked, maintained and managed over 10,000 active files</li>
+                    <li>Spearheaded transition from fully analog to all-digital workflow</li>
+                    <li>10+ years developing software for internal projects</li>
+                </ul>
+            </div>
+        </div>
+    </article>
 </div>
 
 <script src="/js/tobyscripts.js">document.getElementById("contactBar").addContactBar();</script>
