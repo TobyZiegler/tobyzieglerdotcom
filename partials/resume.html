@@ -96,7 +96,7 @@
         font-weight: 700;
         font-size: xx-large;
         page-break-after: avoid;
-        line-height: 0.5;
+        line-height: 0.8;
         margin-top: 2.0rem
     }
 
@@ -108,14 +108,14 @@
         margin-bottom: 0.5rem;
     }
 </style>
-<div class="w3-content w3-container">
+<div class="w3-content w3-container" ng-hide="subpart.toggle">
     <article class="w3-container textbox" id="resume">
 
         <div class="docdimensions resumefont">
             <h1 class="w3-stretch">Toby Ziegler</h1>
             <div class="subtitle" id="contactBar">
             </div>
-            <button onclick="collapsible('collapseResume01')" class="w3-stretch w3-button w3-block w3-left-align">
+            <!-- <button onclick="collapsible('collapseResume01')" class="w3-stretch w3-button w3-block w3-left-align">
                 <h3>Summary</h3>
             </button>
             <div id="collapseResume01" class="w3-hide w3-animate-opacity">
@@ -127,72 +127,87 @@
                     class
                     experiences and customer satisfaction.
                 </div>
+            </div> -->
+            <button onclick="collapsible('collapseResume01')" class="w3-stretch w3-button w3-block w3-left-align w3-gray">
+                <h3>Languages</h3>
+            </button>
+            <div id="collapseResume01" class="w3-show w3-animate-opacity">
+                <div class="w3-cell-row">
+                    <div class="w3-cell w3-mobile">
+                        <div>Java</div>
+                        <div>C#</div>
+                        <div>PHP</div>
+                    </div>
+                    <div class="w3-cell w3-mobile">
+                        <div>Python</div>
+                        <div>.NET</div>
+                        <div>SQL</div>
+                    </div>
+                    <div class="w3-cell w3-mobile">
+                        <div>JavaScript</div>
+                        <div>AngularJS</div>
+                        <div>jQuery</div>
+                    </div>
+                    <div class="w3-cell w3-mobile">
+                        <div>CSS3</div>
+                        <div>Bootstrap</div>
+                        <div>w3.CSS</div>
+                    </div>
+                    <div class="w3-cell w3-mobile">
+                        <div>HTML5</div>
+                        <div>XML</div>
+                        <div>Shell</div>
+                    </div>
+                </div>
             </div>
-            <button onclick="collapsible('collapseResume02')" class="w3-stretch w3-button w3-block w3-left-align">
+            <button onclick="collapsible('collapseResume02')" class="w3-stretch w3-button w3-block w3-left-align w3-gray">
                 <h3>Skills</h3>
             </button>
-            <div id="collapseResume02" class="w3-hide w3-animate-opacity">
-                <table>
-                    <tr>
-                        <td>Concept development</td>
-                        <td>Interface design</td>
-                        <td>Print, vector and rastor design</td>
-                    </tr>
-                    <tr>
-                        <td>Project planning</td>
-                        <td>Experience design</td>
-                        <td>Communication and presentation</td>
-                    </tr>
-                    <tr>
-                        <td>Procedure analysis</td>
-                        <td>Information gathering</td>
-                        <td>Task and decision optimization</td>
-                    </tr>
-                </table>
-                <p>
-                    <span class="underline">Languages</span><span class="smalltext"><em>&nbsp;- representative of
-                            previous
-                            coding</em></span>
-                    <br>
-                    </span>
-                    <span class="c3">Java | PHP | C# | SQL | HTML | CSS | JavaScript | AppleScript | Shell</span>
-                </p>
+            <div id="collapseResume02" class="w3-show w3-animate-opacity">
+                <div class="w3-cell-row">
+                    <div class="w3-cell w3-mobile">
+                        <div>Concept development</div>
+                        <div>Interface design</div>
+                        <div>Print, vector and rastor design</div>
+                    </div>
+                    <div class="w3-cell w3-mobile">
+                        <div>Project planning</div>
+                        <div>Experience design</div>
+                        <div>Communication and presentation</div>
+                    </div>
+                    <div class="w3-cell w3-mobile">
+                        <div>Procedure analysis</div>
+                        <div>Information gathering</div>
+                        <div>Task and decision optimization</div>
+                    </div>
+                </div>
             </div>
-            <button onclick="collapsible('collapseResume03')" class="w3-stretch w3-button w3-block w3-left-align">
+            <button onclick="collapsible('collapseResume03')" class="w3-stretch w3-button w3-block w3-left-align w3-gray">
                 <h3>Education</h3>
             </button>
-            <div id="collapseResume03" class="w3-hide w3-animate-opacity">
+            <div id="collapseResume03" class="w3-show w3-animate-opacity">
                 <p>
-                    Missouri State University, <em>Springfield, Missouri</em>
+                    <strong>Missouri State University,</strong> <em>Springfield, Missouri</em>
                 </p>
-                <p class="indent">
-                    Bachelor of Applied Science in Technology Management, <em>December 2018</em>
-                </p>
-                <p class="indent2">
-                    Minor in Computer Science, <em>21 Credit Hours</em>
-                </p>
-                <p class="indent2">
-                    Minor in Web Application Development, <em>18 Credit Hours</em>
-                </p>
-                <p class="indent">
-                    Master of Science in Project Management, <em>Spring 2020</em>
-                </p>
+                <ul>
+                    <li>MS.PM - Master of Science in Project Management, <em>December 2020</em></li>
+                    <li>BAS.TM - Bachelor of Applied Science in Technology Management, <em>December 2018</em></li>
+                    <ul>
+                        <li>Minor in Computer Science, <em>21 Credit Hours</em></li>
+                        <li>Minor in Web Application Development, <em>18 Credit Hours</em></li>
+                    </ul>
+                </ul>
                 <p>
-                    Ozarks Technical Community College, <em>Springfield, Missouri</em>
+                    <strong>Ozarks Technical Community College,</strong> <em>Springfield, Missouri</em>
                 </p>
-                <p class="indent">
-                    Associate in Applied Science in Computer Information Science, <em>December 2015</em>
-                </p>
-                <p class="indent">
-                    Associate of Science in Engineering, <em>May 2015</em>
-                    <br>
-                    <em class="indent smalltext">(Qualified for both Mechanical Engineering Option and Electrical
-                        Engineering
-                        Option)</em>
-                </p>
-                <p class="indent">
-                    Associate of Arts, <em>May 2018</em>
-                </p>
+                <ul>
+                    <li>AAS.CIS - Associate in Applied Science in Computer Information Science, <em>December 2015</em></li>
+                    <li>AS.EGR - Associate of Science in Engineering, Mechanical and Electrical,<em>May 2015</em></li>
+                    <li>AA - Associate of Arts, <em>May 2018</em></li>
+                    <li>CT.SP.CP - Certificate of Specialization in Computer Programming, <em>August 2015</em></li>
+                    <li>CT.CIS - Certificate of Achievement in Computer Information Science, <em>December 2015</em></li>
+                    <li>CT.EGR - Certificate of Achievement in Engineering, <em>December 2015</em></li>
+                </ul>
                 <p class="indent">
                     Capstone Project: &nbsp;Provide OTC campus with customized Raspberry Pi digital signs using
                     locally cached, network driven content,<em>&nbsp;Fall 2015</em>
@@ -200,17 +215,11 @@
                 <p class="indent">
                     Computer Information Science Department Intern,<em>&nbsp;Fall 2015</em>
                 </p>
-                <p class="indent">
-                    Certificate of Achievement in Computer Information Science,<em>&nbsp;December 2015</em>
-                </p>
-                <p class="indent">
-                    Certificate of Specialization in Computer Programming, <em>&nbsp;August 2015</em>
-                </p>
             </div>
-            <button onclick="collapsible('collapseResume04')" class="w3-stretch w3-button w3-block w3-left-align">
+            <button onclick="collapsible('collapseResume04')" class="w3-stretch w3-button w3-block w3-left-align w3-gray">
                 <h3>Experience</h3>
             </button>
-            <div id="collapseResume04" class="w3-hide w3-animate-opacity">
+            <div id="collapseResume04" class="w3-show w3-animate-opacity">
                 <p>
                     Graphic Designer and Document Manager, CoxHealth, <em>&nbsp;February 2001 thru Present</em>
                 </p>

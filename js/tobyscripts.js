@@ -2,7 +2,7 @@
 Modal Image Gallery code courtesy w3schools
 https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_parallax&stacked=h
 */
-function onClick(element) {
+function modalClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");

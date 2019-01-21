@@ -3,6 +3,7 @@
 
 body {
     font-family: Verdana, Tahoma, Geneva, sans-serif;
+    background-color: aliceblue;
 }
 
 .display-1,
@@ -108,7 +109,7 @@ svg[aria-label="Google+"] {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-color: black;
     padding: 0.8rem 1.6rem;
     text-align: center;
@@ -129,40 +130,40 @@ svg[aria-label="Google+"] {
 }
 
 /* Create a Parallax Effect */
+
 /* wrap it in a disabler for mobile/small screens */
+
 @media screen and (min-width: 30em) {
     @supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
         /* ... parallax styles ... */
-
         .parallax {
             perspective: 1px;
             height: 100vh;
             overflow-x: hidden;
             overflow-y: auto;
-          }
-          .parallaxLayer {
+        }
+        .parallaxLayer {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
-          }
-          .parallaxLayerBase {
+        }
+        .parallaxLayerBase {
             transform: translateZ(0);
-          }
-          .parallaxLayerBack {
+        }
+        .parallaxLayerBack {
             transform: translateZ(-12px) scale(25);
-          }
-
+        }
         .parallaxbackground {
             background-image: url('/images/backgrounds/cloudscape.jpg');
-            /* background-size: 200vh; */
+            background-size: 200vh;
             /* background-attachment: fixed; */
-            /* background-repeat: no-repeat; */
+            background-repeat: no-repeat;
+            /* background-size: cover; */
         }
     }
 }
-
 
 .bgimg-primary,
 .bgimg-aboutme,

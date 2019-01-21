@@ -1,5 +1,5 @@
 <!-- Parallax Image with Intro Text -->
-<div class="w3-display-container" style="min-height: 15vw;">
+<div class="w3-display-container" style="min-height: 5rem;">
     <div class="w3-display-middle titlebar" style="white-space:nowrap;">
         <span class="titlebartext"><span class="w3-hide-small">{{ plusName }}</span>{{ shortName }}</span>
     </div>
@@ -14,13 +14,14 @@
     </div>
 </div>
 
-<div class="w3-content w3-container w3-padding-64">
+<div class="w3-content w3-container w3-padding">
     <article class="w3-container textbox" id="home">
         <h3>Toby's Home on the Web</h3>
+        <p>Instead of having everything open in a long scrolling list of fascinating information to glaze your eyes immediately, I've chosen to start with just the categories and let you click what sounds most interesting to you first. Enjoy!</p>
         <button onclick="collapsible('collapseHome01')" class="w3-button w3-block w3-left-align">
             <h5>Hi! I'm Toby Ziegler.</h5>
         </button>
-        <div id="collapseHome01" class="w3-hide w3-animate-opacity">
+        <div id="collapseHome01" class="w3-show w3-animate-opacity">
 
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
@@ -84,11 +85,19 @@
     </div>
 </div>
 
-<div ng-include="'partials/titlebar.html'" ng-controller="aboutController"></div>
+<div ng-controller="aboutController">
+<div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/about.html'"></div>
-<div ng-include="'partials/titlebar.html'" ng-controller="portfolioController"></div>
+</div>
+<div ng-controller="portfolioController">
+    <div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/portfolio.html'"></div>
-<div ng-include="'partials/titlebar.html'" ng-controller="resumeController"></div>
+</div>
+<div ng-controller="resumeController">
+<div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/resume.html'"></div>
-<div ng-include="'partials/titlebar.html'" ng-controller="contactController"></div>
+</div>
+<div ng-controller="contactController">
+<div ng-include="'partials/titlebar.html'"></div>
 <div ng-include="'partials/contact.html'"></div>
+</div>

@@ -1,9 +1,10 @@
+<div ng-hide="subpart.toggle">
 <!-- Container (Photograph Section) -->
 <div class="w3-container">
     <button onclick="collapsible('collapsePortfolio01')" class="w3-button w3-block w3-center">
         <h3>My Photos</h3>
     </button>
-    <div id="collapsePortfolio01" class="w3-hide w3-animate-opacity">
+    <div id="collapsePortfolio01" class="w3-show w3-animate-opacity">
 
         <p class="w3-center"><em>Here are some of my photographs.<br> Click on the images to see them
                 larger</em></p><br>
@@ -11,25 +12,25 @@
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
         <div class="w3-row-padding w3-center">
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/backgrounds/valentine2018flowers.jpg" style="width:100%" onclick="onClick(this)"
+                <img src="/images/backgrounds/valentine2018flowers.jpg" style="width:100%" onclick="modalClick(this)"
                     class="w3-hover-opacity" alt="Valentine flowers">
                 <p class="caption">Valentine flowers</p>
             </div>
 
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/artphotos/aidan2007-10-30.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                <img src="/images/artphotos/aidan2007-10-30.jpg" style="width:100%" onclick="modalClick(this)" class="w3-hover-opacity"
                     alt="Journey to Hawaii">
                 <p class="caption">On the way to Hawaii</p>
             </div>
 
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/artphotos/atriumceiling2015-07-01.jpg" style="width:100%" onclick="onClick(this)"
+                <img src="/images/artphotos/atriumceiling2015-07-01.jpg" style="width:100%" onclick="modalClick(this)"
                     class="w3-hover-opacity" alt="Atrium ceiling">
                 <p class="caption">Looking up in the atrium</p>
             </div>
 
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/artphotos/luaufire2007-10-30.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                <img src="/images/artphotos/luaufire2007-10-30.jpg" style="width:100%" onclick="modalClick(this)" class="w3-hover-opacity"
                     alt="Luau fire">
                 <p class="caption">Luau night fire</p>
             </div>
@@ -37,25 +38,25 @@
 
         <div class="w3-row-padding w3-center w3-section">
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/artphotos/sunshineray2015-07-09.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                <img src="/images/artphotos/sunshineray2015-07-09.jpg" style="width:100%" onclick="modalClick(this)" class="w3-hover-opacity"
                     alt="Ray of sunshine">
                 <p class="caption">Ray of sunshine</p>
             </div>
 
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/artphotos/tracye2007-10-24.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                <img src="/images/artphotos/tracye2007-10-24.jpg" style="width:100%" onclick="modalClick(this)" class="w3-hover-opacity"
                     alt="My beloved wife">
                 <p class="caption">My beloved wife</p>
             </div>
 
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/backgrounds/cardinalstarwarsnite.jpg" style="width:100%" onclick="onClick(this)"
+                <img src="/images/backgrounds/cardinalstarwarsnite.jpg" style="width:100%" onclick="modalClick(this)"
                     class="w3-hover-opacity" alt="Cardinals game">
                 <p class="caption">Star Wars night at the Cardinals</p>
             </div>
 
             <div class="w3-col l3 m6 w3-padding">
-                <img src="/images/artphotos/aidan2007-10-24.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                <img src="/images/artphotos/aidan2007-10-24.jpg" style="width:100%" onclick="modalClick(this)" class="w3-hover-opacity"
                     alt="The End">
                 <p class="caption">Aidan says, "No more!"</p>
             </div>
@@ -65,9 +66,9 @@
 </div>
 
 <!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+<div id="modal01" class="w3-modal w3-black w3-animate-opacity" onclick="this.style.display='none'">
     <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <div class="w3-modal-content w3-animate-zoom w3-transparent w3-padding" onclick="this.style.display='none'">
         <img id="img01" class="w3-image">
         <p id="caption" class="w3-opacity w3-large"></p>
     </div>
@@ -78,7 +79,7 @@
     <button onclick="collapsible('collapsePortfolio02')" class="w3-button w3-block w3-center">
         <h3>Some of my work</h3>
     </button>
-    <div id="collapsePortfolio02" class="w3-hide w3-animate-opacity">
+    <div id="collapsePortfolio02" class="w3-show w3-animate-opacity">
 
         <p class="w3-center"><em>Here are some examples of the work I can actually share with the world, since most of
                 it I cannot.</em></p>
@@ -166,4 +167,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

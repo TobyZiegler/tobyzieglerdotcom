@@ -1,12 +1,12 @@
 <!-- Container (About Section) -->
-<div class="w3-content w3-display-container w3-padding">
-    <article class="w3-container textbox" id="about" ng-hide="subpart.toggle">
+<div class="w3-content w3-display-container w3-padding" ng-hide="subpart.toggle">
+    <article class="w3-container textbox" id="about">
         <h3 class="w3-center">About Me...</h3>
 
         <button onclick="collapsible('collapseAbout01')" class="w3-button w3-block w3-left-align">
             <h5>I am big on...</h5>
         </button>
-        <div id="collapseAbout01" class="w3-hide w3-animate-opacity">
+        <div id="collapseAbout01" class="w3-show w3-animate-opacity">
             <h6>I am big on family.</h6>
             <div class="w3-margin w3-left" style="max-width: 40vw">
                 <img src="/images/artphotos/familynpapaw.jpg" class="w3-round w3-image" alt="Family with Papaw" 
@@ -24,7 +24,7 @@
         <button onclick="collapsible('collapseAbout02')" class="w3-button w3-block w3-left-align">
             <h5>I have many passions...</h5>
         </button>
-        <div id="collapseAbout02" class="w3-hide w3-animate-opacity">
+        <div id="collapseAbout02" class="w3-show w3-animate-opacity">
             <h5 class="w3-center"><em>I have many passions.</em></h5>
             <p>Wow. My first thought when I started reviewing what I am passionate about was simply, "Wow." I doubt
                 anyone else would be impressed, though I could be wrong; I am quite probably my own harshest critic.</p>
@@ -55,7 +55,7 @@
         <button onclick="collapsible('collapseAbout03')" class="w3-button w3-block w3-left-align">
             <h5>I am really good at...</h5>
         </button>
-        <div id="collapseAbout03" class="w3-padding w3-hide w3-animate-opacity">
+        <div id="collapseAbout03" class="w3-padding w3-show w3-animate-opacity">
             <p class="w3-large w3-center w3-padding">I'm really good at:</p>
             <p class="w3-wide"><i class="fa fa-brain"></i>Problem Solving</p>
             <div class="w3-light-grey">
