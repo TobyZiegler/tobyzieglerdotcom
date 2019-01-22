@@ -28,9 +28,9 @@ Change style of navbar on scroll
 Navbar scroll code courtesy w3schools
 https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_parallax&stacked=h
 */
-window.onscroll = function () { myFunction() };
-function myFunction() {
-  var navbar = document.getElementById("myNavbar");
+window.onscroll = function () { headerFunction() };
+function headerFunction() {
+  var navbar = document.getElementById("theNavbar");
   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
     navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
   } else {
