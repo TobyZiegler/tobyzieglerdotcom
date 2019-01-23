@@ -4,35 +4,35 @@ var app = angular.module('navApp', ['ngRoute', 'ngAnimate']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'partials/home.html',
+            templateUrl: '/homeapp/home/home.html',
             controller: 'pageController'
         })
         .when('/Home', {
-            templateUrl: 'partials/home.html',
+            templateUrl: '/homeapp/home/home.html',
             controller: 'pageController'
         })
         .when('/Portfolio', {
-            templateUrl: 'partials/portfolio.html',
+            templateUrl: '/homeapp/portfolio/portfolio.html',
             controller: 'pageController'
         })
         .when('/About', {
-            templateUrl: 'partials/about.html',
+            templateUrl: '/homeapp/about/about.html',
             controller: 'pageController'
         })
         .when('/Bio', {
-            templateUrl: 'partials/bio.html',
+            templateUrl: '/homeapp/bio/bio.html',
             controller: 'pageController'
         })
         .when('/Contact', {
-            templateUrl: 'partials/contact.html',
+            templateUrl: '/homeapp/contact/contact.html',
             controller: 'pageController'
         })
         .when('/Resume', {
-            templateUrl: 'partials/resume.html',
+            templateUrl: '/homeapp/contact/resume.html',
             controller: 'pageController'
         })
         .when('/Progress', {
-            templateUrl: 'partials/inprogresspage.html',
+            templateUrl: '/homeapp/underconstruction/inprogresspage.html',
             controller: 'inprogressController'
         })
         .otherwise({
