@@ -1,17 +1,21 @@
-<!-- Richard Schiff / Toby Ziegler card -->
+<!-- Titlebar -->
 <div class="w3-display-container" style="min-height: 5rem;">
     <div class="w3-display-middle titlebar" style="white-space:nowrap;">
         <span class="titlebartext"><span class="w3-hide-small">{{ plusName }}</span>{{ shortName }}</span>
     </div>
-    <div class="w3-display-topright w3-margin w3-hide-small">
-        <div class="w3-card-4 w3-padding w3-light-gray" style="width: 18rem">
-            <a href="#!Progress"><img class="w3-image w3-left w3-margin" src="images/thumbnails/RichardSchiff2009thumb.png"
-                    width="100" height="100" alt="Richard Schiff"></a>
-            <p>If you're here looking for Toby Ziegler from the West Wing television series played by
-                Richard Schiff,
-                I have a <a href="#!Progress">Toby Ziegler page</a> of links to help you out! </p>
+    <!-- Richard Schiff / Toby Ziegler card -->
+    <script src="/homeapp/home/fadecard.js"></script>
+    <section onclick="fadecard('schiffcard')">
+        <div class="w3-display-topright w3-margin w3-hide-small" id="schiffcard">
+            <div class="w3-card-4 w3-padding w3-light-gray" style="width: 18rem">
+                <a href="#!WestWing"><img class="w3-image w3-left w3-margin" src="images/thumbnails/RichardSchiff2009thumb.png"
+                        width="100" height="100" alt="Richard Schiff"></a>
+                <p>If you're here looking for Toby Ziegler from the West Wing television series played by
+                    Richard Schiff, I have a <a href="#!WestWing">Tobias Zachary "Toby" Ziegler page</a> of links to
+                    help you out! </p>
+            </div>
         </div>
-    </div>
+    </section>
 </div>
 
 <!-- Main home content -->
@@ -24,7 +28,7 @@
         <button onclick="collapsible('collapseHome01')" class="w3-button w3-block w3-left-align">
             <h5>Hi! I'm Toby Ziegler.</h5>
         </button>
-        <div id="collapseHome01" class="w3-show w3-animate-opacity">
+        <div id="collapseHome01" class="w3-hide w3-animate-opacity">
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
                     <p>Welcome to my pages.</p>
@@ -48,10 +52,11 @@
                 </section>
             </div>
         </div>
+
         <button onclick="collapsible('collapseHome02')" class="w3-button w3-block w3-left-align">
             <h5>About these pages...</h5>
         </button>
-        <div id="collapseHome02" class="w3-show w3-animate-opacity">
+        <div id="collapseHome02" class="w3-hide w3-animate-opacity">
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
                     <p>This section is mostly for the geeky among us. If you don't care about how web pages are built,
@@ -81,7 +86,8 @@
                 </section>
                 <section class="w3-col l3 m6">
                     <p>Unfortunately, unless I point these mechanics out in&nbsp;
-                        <span class="w3-black w3-text-green">&nbsp;code snippets,&nbsp;</span>&nbsp;almost no one is going to be able to appreciate them but the
+                        <span class="w3-black w3-text-green">&nbsp;code snippets,&nbsp;</span>&nbsp;almost no one is
+                        going to be able to appreciate them but the
                         afore-mentioned me, myself and I. I don't need anyone else's approval, explicit or otherwise,
                         but life is about balance. I am just looking to stay a happy, healthy, well-balanced developer.</p>
                 </section>
@@ -106,23 +112,23 @@
 </div>
 
 <div ng-controller="aboutController">
-    <titlebar></titlebar>
-    <aboutpage></aboutpage>
-</div>
-
-<div ng-controller="aboutController">
-    <div ng-include="'partials/titlebar.html'"></div>
-    <div ng-include="'partials/about.html'"></div>
+    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
+    <div ng-include="'homeapp/about/about.html'"></div>
 </div>
 <div ng-controller="portfolioController">
-    <div ng-include="'partials/titlebar.html'"></div>
-    <div ng-include="'partials/portfolio.html'"></div>
+    <div ng-include="'homeapp/home/titlebar.html'"></div>
+    <div ng-include="'homeapp/portfolio/portfolio.html'"></div>
 </div>
 <div ng-controller="resumeController">
-    <div ng-include="'partials/titlebar.html'"></div>
-    <div ng-include="'partials/resume.html'"></div>
+    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
+    <div ng-include="'homeapp/resume/resume.html'"></div>
 </div>
 <div ng-controller="contactController">
-    <div ng-include="'partials/titlebar.html'"></div>
-    <div ng-include="'partials/contact.html'"></div>
+    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
+    <div ng-include="'homeapp/contact/contact.html'"></div>
 </div>
+<script src="/homeapp/about/about.controller.js"></script>
+<script src="/homeapp/about/about.directive.js"></script>
+<script src="/homeapp/portfolio/portfolio.controller.js"></script>
+<script src="/homeapp/resume/resume.controller.js"></script>
+<script src="/homeapp/contact/contact.controller.js"></script>
