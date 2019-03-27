@@ -1,5 +1,0 @@
-<ul>
-    <li><a target="_Blank" onclick="ga('send', 'event', { eventCategory: 'Share', eventAction: 'Click', eventLabel: 'Twitter'});" rel="nofollow" href="https://twitter.com/intent/tweet?text=Social Media Share Buttons’ Impact on Website Performance&amp;url=http://www.ericmobley.net/social-media-share-buttons-impact-on-performance/&amp;via=eric_mobley" class="button twittergradient">Twitter</a></li>
-    <li><a target="_Blank" onclick="ga('send', 'event', { eventCategory: 'Share', eventAction: 'Click', eventLabel: 'Facebook'});" rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=http://www.ericmobley.net/social-media-share-buttons-impact-on-performance/" class="button facebookgradient">Facebook</a></li>
-    <li><a target="_Blank" onclick="ga('send', 'event', { eventCategory: 'Share', eventAction: 'Click', eventLabel: 'Email'});" rel="nofollow" href="mailto:?subject=Social Media Share Buttons’ Impact on Website Performance&amp;body=Check out this post: http://www.ericmobley.net/social-media-share-buttons-impact-on-performance/" class="button emailgradient">Email</a></li>
-</ul>
