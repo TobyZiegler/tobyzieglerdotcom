@@ -3,11 +3,9 @@ $(document).ready(function () {
     $(window).click(function () { $('.messages.status').fadeOut(); });
 });
 
-var mainApp = angular.module("mainApp", []);
-	    mainApp.controller('myController', function($scope, $timeout) {
-	      	$scope.myText = "This is for example";
-	      	$scope.isCheck = false;
-
-
+var fadeApp = angular.module("fadeApp", []);
+	    fadeApp.controller('fadeController', function($scope, $timeout) {
+			$scope.isCheck = false;
+			$scope.testFadeMessage = 'fade is working';
 	      	$timeout(function () { $scope.isCheck = true; }, 4000);
 	    });

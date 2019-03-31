@@ -5,14 +5,15 @@
     </div>
     <!-- Richard Schiff / Toby Ziegler card -->
     <script src="/homeapp/home/fadecard.js"></script>
-    <section onclick="fadecard('schiffcard')">
+    <section ng-app="fadeApp" ng-controller="fadeController" onclick="fadecard('schiffcard')">
         <div class="w3-display-topright w3-margin w3-hide-small" id="schiffcard">
             <div class="w3-card-4 w3-padding w3-light-gray" style="width: 18rem">
                 <a href="#!WestWing"><img class="w3-image w3-left w3-margin" src="images/thumbnails/RichardSchiff2009thumb.png"
                         width="100" height="100" alt="Richard Schiff"></a>
                 <p>If you're here looking for Toby Ziegler from the West Wing television series played by
                     Richard Schiff, I have a <a href="#!WestWing">Tobias Zachary "Toby" Ziegler page</a> of links to
-                    help you out! </p>
+                    help you out!</p>
+                    <p>Working? {{ testFadeMessage }}</p>
             </div>
         </div>
     </section>
@@ -27,6 +28,7 @@
         <p>Instead of having everything open in a long scrolling list of fascinating information to glaze your eyes
             immediately, I've chosen to start with just the categories and let you click what sounds most interesting.
             Enjoy your visit!</p>
+            <p>Working? {{ testCollapseMessage }}</p>
 
             <button onclick="collapsible('collapseHome01')" class="w3-button w3-block w3-left-align">
             <h5>Hi! I'm Toby Ziegler.</h5>
@@ -52,6 +54,7 @@
                     <p>You will find a fraction of my work here. I have taken every photo and composed every phrase. I
                         coded these pages, working out how to deliver a complete product.</p>
                     <p>I have put this site together for your enjoyment. I hope you have a great visit.</p>
+                    <p>Working? {{ testCollapseMessage }}</p>
                 </section>
             </div>
         </div>
