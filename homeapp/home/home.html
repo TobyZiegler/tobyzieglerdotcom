@@ -30,10 +30,10 @@
             Enjoy your visit!</p>
             <p>Working? {{ testCollapseMessage }}</p>
 
-            <button onclick="collapsible('collapseHome01')" class="w3-button w3-block w3-left-align">
+            <button ngclick="collapse('collapseHome01')" class="w3-button w3-block w3-left-align">
             <h5>Hi! I'm Toby Ziegler.</h5>
         </button>
-        <div id="collapseHome01" class="w3-hide w3-animate-opacity">
+        <div id="collapseHome01" class="w3-hide w3-animate-opacity collapsible">
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
                     <p>Welcome to my pages.</p>
@@ -59,10 +59,10 @@
             </div>
         </div>
 
-        <button onclick="collapsible('collapseHome02')" class="w3-button w3-block w3-left-align">
+        <button onclick="collapse('collapseHome02')" class="w3-button w3-block w3-left-align">
             <h5>About these pages...</h5>
         </button>
-        <div id="collapseHome02" class="w3-hide w3-animate-opacity">
+        <div id="collapseHome02" class="w3-hide w3-animate-opacity collapsible">
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
                     <p>This section is mostly for the geeky among us. If you don't care about how web pages are built,
