@@ -6,6 +6,7 @@
     <!-- Richard Schiff / Toby Ziegler card -->
     <script src="/homeapp/home/fadecard.js"></script>
     <section ng-app="fadeApp" ng-controller="fadeController" onclick="fadecard('schiffcard')">
+            <!-- <section ng-app="fadeApp" ng-controller="fadeController" onclick="fadecard('schiffcard')"> -->
         <div class="w3-display-topright w3-margin w3-hide-small" id="schiffcard">
             <div class="w3-card-4 w3-padding w3-light-gray" style="width: 18rem">
                 <a href="#!WestWing"><img class="w3-image w3-left w3-margin" src="images/thumbnails/RichardSchiff2009thumb.png"
@@ -30,12 +31,23 @@
             Enjoy your visit!</p>
             <p>Working? {{ testCollapseMessage }}</p>
 
-            <button ngclick="collapse('collapseHome01')" class="w3-button w3-block w3-left-align">
+            <!-- <button ng-click="showBox = !showBox">Toggle Box</button> -->
+            <!-- <div ng-show="showBox" class="box"></div> -->
+
+            <!-- <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button> -->
+            <!-- <hr> -->
+            <!-- <div collapse="isCollapsed"> -->
+                <!-- <div class="well well-lg">Some content</div>  -->
+            <!-- </div> -->
+        
+        
+            <button ng-click="collapse('collapseHome01')" class="w3-button w3-block w3-left-align">
             <h5>Hi! I'm Toby Ziegler.</h5>
         </button>
         <div id="collapseHome01" class="w3-hide w3-animate-opacity collapsible">
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
+                    <p>Working? {{ showPiece }}</p>
                     <p>Welcome to my pages.</p>
                     <p>Here is where I practice and learn.</p>
                 </section>
@@ -105,7 +117,7 @@
 
 <!-- <p><strong>Test variable:</strong><em> {{ sayHello }}</em></p> -->
 
-<div ng-controller="LocationController" class="w3-hide">
+<div ng-controller="LocationController" class="w3-show">
     <!-- <div ng-address-bar></div><br><br> -->
     <div>
         $location.protocol() = <span ng-bind="$location.protocol()"></span><br>
@@ -118,23 +130,19 @@
 </div>
 
 <div ng-controller="aboutController">
-    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
-    <div ng-include="'homeapp/about/about.html'"></div>
+    <div title-bar></div>
+    <p>{{ test }}</p>
+    <div aboutpage></div>
 </div>
 <div ng-controller="portfolioController">
-    <div ng-include="'homeapp/home/titlebar.html'"></div>
-    <div ng-include="'homeapp/portfolio/portfolio.html'"></div>
-</div>
+        <div title-bar></div>
+        <div portfoliopage></div>
+    </div>
 <div ng-controller="resumeController">
-    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
-    <div ng-include="'homeapp/resume/resume.html'"></div>
+        <div title-bar></div>
+        <div resumepage></div>
 </div>
 <div ng-controller="contactController">
-    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
-    <div ng-include="'homeapp/contact/contact.html'"></div>
+        <div title-bar></div>
+        <div contactpage></div>
 </div>
-<script src="/homeapp/about/about.controller.js"></script>
-<script src="/homeapp/about/about.directive.js"></script>
-<script src="/homeapp/portfolio/portfolio.controller.js"></script>
-<script src="/homeapp/resume/resume.controller.js"></script>
-<script src="/homeapp/contact/contact.controller.js"></script>

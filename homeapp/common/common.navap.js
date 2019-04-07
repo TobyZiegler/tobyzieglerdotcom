@@ -39,3 +39,42 @@ app.config(function ($routeProvider) {
             redirectTo: '/Home'
         })
 });
+
+app.directive('titleBar', function() {
+    return {
+      templateUrl: '/homeapp/home/titlebar.home.html' 
+    };
+  });
+
+app.directive('aboutpage', function() {
+    return {
+      templateUrl: '/homeapp/about/about.html' 
+    };
+  });
+
+  app.directive('portfoliopage', function() {
+    return {
+      templateUrl: '/homeapp/portfolio/portfolio.html' 
+    };
+  });
+
+  app.directive('resumepage', function() {
+    return {
+      templateUrl: '/homeapp/resume/resume.html' 
+    };
+  });
+
+  app.directive('contactpage', function() {
+    return {
+      templateUrl: '/homeapp/contact/contact.html' 
+    };
+  });
+
+// $scope.onClick=function(index,row){
+//     $scope.div_[index+'_'+row]=true;
+
+//     $scope.toggle = function() {
+//         $scope.collapsible = ! $scope.collapsible;
+//     };
+//     // Default the blocks to be visible.
+//     $scope.isVisible = true;

@@ -1,6 +1,5 @@
-var app = angular.module("myApp", []);
-app.directive("titleBar", function() {
+angular.module('navApp').directive('titleBar', function() {
   return {
-    template : "<h1>Made by a directive!</h1>"
+    templateUrl: '/homeapp/home/titlebar.home.html' 
   };
 });
