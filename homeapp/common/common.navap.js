@@ -40,7 +40,7 @@ app.config(function ($routeProvider) {
         })
 });
 
-app.directive('titleBar', function() {
+app.directive('titlebar', function() {
     return {
       templateUrl: '/homeapp/home/titlebar.home.html' 
     };

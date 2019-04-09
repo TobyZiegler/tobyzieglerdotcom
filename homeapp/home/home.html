@@ -19,6 +19,8 @@
         </div>
     </section>
 </div>
+<p>{{ test }}</p>
+
 
 <!-- Main home content -->
 <div class="w3-content w3-container w3-padding">
@@ -117,7 +119,7 @@
 
 <!-- <p><strong>Test variable:</strong><em> {{ sayHello }}</em></p> -->
 
-<div ng-controller="LocationController" class="w3-show">
+<div ng-controller="locationController" class="w3-show">
     <!-- <div ng-address-bar></div><br><br> -->
     <div>
         $location.protocol() = <span ng-bind="$location.protocol()"></span><br>
@@ -128,21 +130,25 @@
         $location.hash() = <span ng-bind="$location.hash()"></span><br>
     </div>
 </div>
+<p>{{ test }}</p>
 
 <div ng-controller="aboutController">
-    <div title-bar></div>
+    <div titlebar></div>
     <p>{{ test }}</p>
     <div aboutpage></div>
 </div>
 <div ng-controller="portfolioController">
-        <div title-bar></div>
+        <div titlebar></div>
+        <p>{{ test }}</p>
         <div portfoliopage></div>
     </div>
 <div ng-controller="resumeController">
-        <div title-bar></div>
+        <div titlebar></div>
+        <p>{{ test }}</p>
         <div resumepage></div>
 </div>
 <div ng-controller="contactController">
-        <div title-bar></div>
+        <div titlebar></div>
+        <p>{{ test }}</p>
         <div contactpage></div>
 </div>

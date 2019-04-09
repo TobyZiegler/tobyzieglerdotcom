@@ -3,6 +3,7 @@ app.controller('pageController', function ($scope) {
     $scope.sayHello = 'pageController says, "Hello World."'
     $scope.shortName = "Toby's Pages"
     $scope.plusName = "Welcome to "
+    $scope.test = "confirm page"
     console.log("Page Controller reporting for duty.");
 });
 
