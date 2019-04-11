@@ -14,17 +14,17 @@ app.controller('pageController', function ($scope) {
 
 app.controller('aboutController', function ($scope) {
     $scope.subpart = {
-        id : "about",
+        id: "about",
         toggle: true,
         title: "About Me",
         clickmsg: "click each to "
     };
-        $scope.test = "confirm about";
+    $scope.test = "confirm about";
 });
 
 app.controller('portfolioController', function ($scope) {
     $scope.subpart = {
-        id : "portfolio",
+        id: "portfolio",
         toggle: true,
         title: "Portfolio",
         clickmsg: "click each to "
@@ -34,7 +34,7 @@ app.controller('portfolioController', function ($scope) {
 
 app.controller('resumeController', function ($scope) {
     $scope.subpart = {
-        id : "resume",
+        id: "resume",
         toggle: true,
         title: "Resume",
         clickmsg: "click each to "
@@ -44,10 +44,30 @@ app.controller('resumeController', function ($scope) {
 
 app.controller('contactController', function ($scope) {
     $scope.subpart = {
-        id : "contact",
+        id: "contact",
         toggle: true,
         title: "Contact",
         clickmsg: "click here to "
     };
     $scope.test = "confirm contact";
+});
+
+app.controller('fadeController', function ($scope) {
+    $scope.subpart = {
+        id: "fade",
+        toggle: true,
+        title: "Fade",
+        clickmsg: "click here to "
+    };
+    $scope.test = "confirm fade";
+});
+
+app.controller('locationController', function ($scope, $location) {
+    $scope.$location = {};
+    angular.forEach('protocol host port path search hash'.split(' '), function (method) {
+        $scope.$location[method] = function () {
+            var result = $location[method]();
+            return angular.isObject(result) ? angular.toJson(result) : result;
+        };
+    });
 });
