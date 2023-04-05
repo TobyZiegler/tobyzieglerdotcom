@@ -70,9 +70,9 @@ app.directive('contactpage', function () {
   };
 });
 
-app.directive('collapse', function(collapsible) {
-    showPiece = collapsible;
-    $scope.showPiece = ! $scope.showPiece;
+app.directive('collapse', function (collapsible) {
+  showPiece = collapsible;
+  $scope.showPiece = !$scope.showPiece;
 });
 
 // $scope.onClick=function(index,row){
