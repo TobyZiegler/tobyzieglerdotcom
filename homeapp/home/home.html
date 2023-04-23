@@ -6,14 +6,16 @@
     <!-- Richard Schiff / Toby Ziegler card -->
     <script src="/homeapp/home/fadecard.js"></script>
     <section ng-app="fadeApp" ng-controller="fadeController" onclick="fadecard('schiffcard')">
+        <!-- <section ng-app="fadeApp" ng-controller="fadeController" onclick="fadecard('schiffcard')"> -->
         <div class="w3-display-topright w3-margin w3-hide-small" id="schiffcard">
             <div class="w3-card-4 w3-padding w3-light-gray" style="width: 18rem">
-                <a href="#!WestWing"><img class="w3-image w3-left w3-margin" src="images/thumbnails/RichardSchiff2009thumb.png"
-                        width="100" height="100" alt="Richard Schiff"></a>
+                <a href="#!WestWing"><img class="w3-image w3-left w3-margin"
+                        src="images/thumbnails/RichardSchiff2009thumb.png" width="100" height="100"
+                        alt="Richard Schiff"></a>
                 <p>If you're here looking for Toby Ziegler from the West Wing television series played by
                     Richard Schiff, I have a <a href="#!WestWing">Tobias Zachary "Toby" Ziegler page</a> of links to
                     help you out!</p>
-                    <p>Working? {{ testFadeMessage }}</p>
+                <p>Working? {{ testFadeMessage }}</p>
             </div>
         </div>
     </section>
@@ -23,19 +25,32 @@
 <div class="w3-content w3-container w3-padding">
     <article class="w3-container textbox" id="home">
         <h3>Toby's Home on the Web</h3>
-        <p>I'm a software developer, project manager, graphic designer, husband, father, student and a bunch of other names and titles.</p>
+        <p>I'm a software developer, project manager, graphic designer, husband, father, student and a bunch of other
+            names and titles.</p>
         <p>After recently earning my fourth degree, I am beginning my third career and looking for </p>
         <p>Instead of having everything open in a long scrolling list of fascinating information to glaze your eyes
             immediately, I've chosen to start with just the categories and let you click what sounds most interesting.
             Enjoy your visit!</p>
-            <p>Working? {{ testCollapseMessage }}</p>
+        <p>Working? {{ testCollapseMessage }}</p>
 
-            <button onclick="collapsible('collapseHome01')" class="w3-button w3-block w3-left-align">
+        <!-- <button ng-click="showBox = !showBox">Toggle Box</button> -->
+        <!-- <div ng-show="showBox" class="box"></div> -->
+
+        <!-- <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button> -->
+        <!-- <hr> -->
+        <!-- <div collapse="isCollapsed"> -->
+        <!-- <div class="well well-lg">Some content</div>  -->
+        <!-- </div> -->
+
+        <!-- <button ng-click="(collapseHome01.toggle = !collapseHome01.toggle)" class="w3-display-container w3-button w3-block" style="min-height: 5rem;"> -->
+
+        <button ng-click="collapse('collapseHome01')" class="w3-button w3-block w3-left-align">
             <h5>Hi! I'm Toby Ziegler.</h5>
         </button>
         <div id="collapseHome01" class="w3-hide w3-animate-opacity">
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
+                    <p>Working? {{ showPiece }}</p>
                     <p>Welcome to my pages.</p>
                     <p>Here is where I practice and learn.</p>
                 </section>
@@ -59,10 +74,10 @@
             </div>
         </div>
 
-        <button onclick="collapsible('collapseHome02')" class="w3-button w3-block w3-left-align">
+        <button onclick="collapse('collapseHome02')" class="w3-button w3-block w3-left-align">
             <h5>About these pages...</h5>
         </button>
-        <div id="collapseHome02" class="w3-hide w3-animate-opacity">
+        <div id="collapseHome02" class="w3-hide w3-animate-opacity collapsible">
             <div class="w3-row-padding">
                 <section class="w3-col l3 m6">
                     <p>This section is mostly for the geeky among us. If you don't care about how web pages are built,
@@ -83,7 +98,8 @@
                 </section>
                 <section class="w3-col l3 m6">
                     <p>Once upon a time, I carefully hand-crafted every line of code. No dependencies. Everything from
-                        scratch. Often inspired by others, but always worked out and implemented by me, myself and I.</p>
+                        scratch. Often inspired by others, but always worked out and implemented by me, myself and I.
+                    </p>
                     <p>I can be silly sometimes.</p>
                     <p>There are trade-offs to using the latest fancy buzz-word flavors. CSS frameworks like Bootstrap
                         and w3.CSS have major advantages in the speed of developing pages, for example, but clutter up
@@ -95,7 +111,8 @@
                         <span class="w3-black w3-text-green">&nbsp;code snippets,&nbsp;</span>&nbsp;almost no one is
                         going to be able to appreciate them but the
                         afore-mentioned me, myself and I. I don't need anyone else's approval, explicit or otherwise,
-                        but life is about balance. I am just looking to stay a happy, healthy, well-balanced developer.</p>
+                        but life is about balance. I am just looking to stay a happy, healthy, well-balanced developer.
+                    </p>
                 </section>
             </div>
         </div>
@@ -103,38 +120,19 @@
 </div>
 <!-- right column shifts to bottom at sm -->
 
-<!-- <p><strong>Test variable:</strong><em> {{ sayHello }}</em></p> -->
-
-<div ng-controller="LocationController" class="w3-hide">
-    <!-- <div ng-address-bar></div><br><br> -->
-    <div>
-        $location.protocol() = <span ng-bind="$location.protocol()"></span><br>
-        $location.host() = <span ng-bind="$location.host()"></span><br>
-        $location.port() = <span ng-bind="$location.port()"></span><br>
-        $location.path() = <span ng-bind="$location.path()"></span><br>
-        $location.search() = <span ng-bind="$location.search()"></span><br>
-        $location.hash() = <span ng-bind="$location.hash()"></span><br>
-    </div>
-</div>
-
 <div ng-controller="aboutController">
-    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
-    <div ng-include="'homeapp/about/about.html'"></div>
+    <div titlebar></div>
+    <div aboutpage></div>
 </div>
 <div ng-controller="portfolioController">
-    <div ng-include="'homeapp/home/titlebar.html'"></div>
-    <div ng-include="'homeapp/portfolio/portfolio.html'"></div>
+    <div titlebar></div>
+    <div portfoliopage></div>
 </div>
 <div ng-controller="resumeController">
-    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
-    <div ng-include="'homeapp/resume/resume.html'"></div>
+    <div titlebar></div>
+    <div resumepage></div>
 </div>
 <div ng-controller="contactController">
-    <div ng-include="'homeapp/home/titlebar.home.html'"></div>
-    <div ng-include="'homeapp/contact/contact.html'"></div>
+    <div titlebar></div>
+    <div contactpage></div>
 </div>
-<script src="/homeapp/about/about.controller.js"></script>
-<script src="/homeapp/about/about.directive.js"></script>
-<script src="/homeapp/portfolio/portfolio.controller.js"></script>
-<script src="/homeapp/resume/resume.controller.js"></script>
-<script src="/homeapp/contact/contact.controller.js"></script>
