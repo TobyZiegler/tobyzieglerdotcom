@@ -71,11 +71,12 @@
                 <?php include("pages/templates/socialicons.php");?>
             </div>
             <?php include("pages/templates/footer.php");?>
-                <div class="third attribution">
-                    <p>Background photo: 170120-O-ZZ999-018</p>
-                    <p>The U.S. Air Force’s 45th Space Wing supported United Launch Alliance&#8217s successful launch of the third Space Based Infrared Systems Geosynchronous Earth Orbit spacecraft aboard an Atlas V rocket from Launch Complex 41 here Jan. 20 at 7:42 p.m. ET. The launch is the first major launch operation of 2017 on the Eastern Range and kicks off what is predicted to be a busy year on the Eastern Range. (Courtesy photo by United Launch Alliance)
-                        <br/> <a href="http://www.dvidshub.net/">www.dvidshub.net</a> - <a href="https://www.flickr.com/photos/39955793@N07/">US DOD flickr feed</a></p>
-                </div>
+            <div class="third attribution">
+                <p>Background photo: 170120-O-ZZ999-018</p>
+                <p>The U.S. Air Force"U+2019"s 45th Space Wing supported United Launch Alliance&#8217s successful launch of the third Space Based Infrared Systems Geosynchronous Earth Orbit spacecraft aboard an Atlas V rocket from Launch Complex 41 here
+                    Jan. 20 at 7:42 p.m. ET. The launch is the first major launch operation of 2017 on the Eastern Range and kicks off what is predicted to be a busy year on the Eastern Range. (Courtesy photo by United Launch Alliance)
+                    <br/> <a href="http://www.dvidshub.net/">www.dvidshub.net</a> - <a href="https://www.flickr.com/photos/39955793@N07/">US DOD flickr feed</a></p>
+            </div>
         </footer>
     </div>
 </body>
