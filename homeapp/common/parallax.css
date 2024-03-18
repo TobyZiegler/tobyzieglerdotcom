@@ -20,7 +20,7 @@
             transform: translateZ(0);
         }
         .parallaxLayerBack {
-            transform: translateZ(-12px) scale(25);
+            transform: translateZ(-24px) scale(25);
         }
         .parallaxbackground {
             background-image: url('/homeapp/common/images_common/cloudscape.jpg');
