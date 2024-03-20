@@ -1,59 +1,698 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="keywords" content="Toby, Ziegler, Toby Ziegler, TobyZiegler, designer, developer, programmer, graphic, graphics, manager, project manager, technology manager, parallax">
-  <meta name="author" content="Toby Ziegler">
-  <meta name="description" content="The home page for Toby Zieger's personal site, done in angularJS style.">
+    <meta charset="utf-8">
 
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-    crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Favicons courtesy freefavicon, https://www.freefavicon.com/freefavicons/food/iconinfo/green-apple-152-238164.html -->
-  <link rel="icon" href="/homeapp/common/images_common/greenapple/favicon.ico">
+    <meta name="description" content="Index page for TobyZiegler.com">
+    <meta name="author" content="Toby Ziegler">
 
-  <!-- css styling -->
-  <link rel="stylesheet" href="/homeapp/common/common.css">
-  <link rel="stylesheet" href="/homeapp/common/parallax.css">
 
-  <title>Toby's Home</title>
+    <!-- Favicons courtesy freefavicon, https://www.freefavicon.com/freefavicons/food/iconinfo/green-apple-152-238164.html -->
+    <link rel="icon" href="homeapp/common/images_common/greenapple/favicon.ico">
 
-<!-- load angular -->
-  <script src="/assets/js/angular-1.7.6/angular.js"></script>
-  <script src="/assets/js/angular-1.7.6/angular-route.js"></script>
-  <script src="/assets/js/angular-1.7.6/angular-animate.js"></script>
+    <title>Toby's Home on the Web</title>
 
-<!-- common scripts -->
-<!-- <script src="/homeapp/common/app.js"></script> -->
-<script src="/homeapp/common/common.navap.js"></script>
-<script src="/homeapp/common/common.location.controller.js"></script>
-<script src="/homeapp/common/common.page.controller.js"></script>
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+    <!-- Fontawesome support -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/brands.css">
+    <link rel="stylesheet" href="assets/css/regular.css">
+    <link rel="stylesheet" href="assets/css/solid.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/templatemo-festava-live.css" rel="stylesheet">
+
+    <!--
+
+        This page was modified starting with a template from themewagon.com:
+
+TemplateMo 583 Festava Live
+
+https://templatemo.com/tm-583-festava-live
+
+-->
 </head>
 
-<body ng-app="navApp">
+<body>
 
-  <div class="parallax">
-    <div class="parallaxLayer parallaxLayerBack parallaxbackground"></div>
-    <div class="parallaxLayer parallaxLayerBase">
+    <main>
 
-      <div class="outerwrapper">
-        <!-- Navigation -->
-        <div ng-include="'/homeapp/navbar/navbar.html'"></div>
+        <header class="site-header">
+            <div class="container">
+                <div class="row">
 
-        <!-- homepage content -->
-        <div id="main" class="innermain w3-padding">
-          <div ng-view></div>
+                    <div class="col-lg-12 col-12 d-flex flex-wrap">
+                        <p class="d-flex me-4 mb-0">
+                            <i class="bi-person custom-icon me-2"></i>
+                            <strong class="text-dark">Welcome to Toby's Home on the Web</strong>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    Toby's Pages
+                </a>
+
+                <!-- This button only shows when the viewing screen is narrow. 
+                <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a>
+                -->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_2">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_3">Photos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_4">Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_5">Resumé</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_6">Contact</a>
+                        </li>
+                    </ul>
+
+                    <!--
+                        I really like this button, but disabling until I have a good idea of what to use it for.
+                        Maybe use something here to point at the West Wing page?
+                    <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
+                    -->
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="hero-section" id="section_1">
+            <div class="section-overlay"></div>
+
+            <div class="container d-flex justify-content-center align-items-center">
+                <div class="row">
+
+                    <div class="col-12 mt-auto mb-5 text-center">
+                        <small>Welcome to the personal pages of</small>
+
+                        <h1 class="w3-text-white mb-5">Toby Ziegler</h1>
+
+                        <!--
+                            Disabling button to jump to another section.
+                        <a class="btn custom-btn smoothscroll" href="#section_2">Let's begin</a>
+                        -->
+                    </div>
+
+                    <!--
+                        Entire section may need to be deleted.
+                    <div class="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
+                        <div class="date-wrap">
+                            <h5 class="w3-text-white">
+                                <i class="custom-icon bi-clock me-2"></i>
+                                10 - 12<sup>th</sup>, Dec 2023
+                            </h5>
+                        </div>
+
+                        <div class="location-wrap mx-auto py-3 py-lg-0">
+                            <h5 class="w3-text-white">
+                                <i class="custom-icon bi-geo-alt me-2"></i>
+                                National Center, United States
+                            </h5>
+                        </div>
+
+                        <div class="social-share">
+                            <ul class="social-icon d-flex align-items-center justify-content-center">
+                                <span class="w3-text-white me-3">Share:</span>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link">
+                                        <span class="bi-facebook"></span>
+                                    </a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link">
+                                        <span class="bi-twitter"></span>
+                                    </a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link">
+                                        <span class="bi-instagram"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <div class="video-wrap">
+                <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                    <source src="video/canyoncruise-carlsbad.mov" type="video/mp4">
+
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+
+        <section class="about-section section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
+                        <div class="services-info">
+                            <h2 class="w3-text-white mb-4">A bit about this guy...</h2>
+
+                            <p class="w3-text-white">I started as an Aerospace Engineer.</p>
+
+                            <p class="w3-text-white">While still young and full of doubts, I changed my career and
+                                became a
+                                Graphic Designer. I've stuck with that path for quite a while now.</p>
+
+                            <h6 class="w3-text-white mt-4">I did a lot of school.</h6>
+
+                            <p class="w3-text-white">I eventually ended up with degrees in Engineering, Computer
+                                Science,
+                                Technology Management, and half a Master's.</p>
+
+                            <h6 class="w3-text-white mt-4">I am big on friends.</h6>
+
+                            <p class="w3-text-white">Most of my favorite activities include time with my friends.
+                                Sharing dinner, movies, drinks or excursions usually involves one or more of our
+                                friends.
+                                Life is good that way.
+
+                            <h6 class="w3-text-white mt-4">I am a geek.</h6>
+
+                            <p class="w3-text-white">I try to be the social, friendly, not-offputting kind of geek,
+                                but I am unapologetically geek, through and through.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="about-text-wrap">
+                            <img src="images/artphotos/pinewoodsurfboard.jpg" class="about-image img-fluid">
+
+                            <!-- interesting overlay, but in the way for now.
+
+                            <div class="about-text-info d-flex">
+                                <div class="d-flex">
+                                    <i class="about-text-icon bi-person"></i>
+                                </div>
+
+                                <div class="ms-4">
+                                    <h5>a happy moment</h5>
+
+                                    <p class="mb-0">my son definitely enjoys traveling</p>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="w3-container section-padding" id="section_3">
+            <div class="w3-container">
+
+                <div class="w3-container w3-center">
+                    <h2>Meet the Photos</h1>
+                        <h5>All taken by yours truly.</h5>
+                        <p>Holdover for descriptions, if you'd like.</p>
+                </div>
+
+                <div class="w3-cell-row w3-center">
+                    <div class="w3-container w3-cell w3-mobile">
+                        <img class="w3-image w3-round-large w3-margin"
+                            src="images/artphotos/atriumceiling2015-07-01.jpg">
+
+                        <div class="artists-hover">
+                            <p>
+                                How often do you just look straight up?<br>
+                                Here is an atrium on a cruise ship I found fascinating.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w3-container w3-cell w3-mobile">
+                        <img class="w3-image w3-round-large w3-margin" src="images/artphotos/sunshineray2015-07-09.jpg">
+
+                        <div class="artists-hover">
+                            <p>
+                                Random rays of sunshine can be beautiful.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-cell-row w3-center">
+                    <div class="w3-container w3-cell w3-mobile">
+                        <img class="w3-image w3-round-large w3-margin" src="images/artphotos/luaufire2007-10-30.jpg">
+
+                        <div class="artists-hover">
+                            <p>
+                                It was dark. I wasn't sure how it would come out. I think it did pretty well.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="w3-container bg-dark section-padding" id="section_4">
+            <div class="row w3-padding">
+
+                <div class="w3-center">
+                    <h2 class="w3-text-white">Projects</h1>
+                        <h5 class="w3-text-gray">Some of my work</h5>
+                        <p>Here are some examples of work I can actually share with the world, since most of it I
+                            cannot.</p>
+
+                        <div class="w3-cell-row">
+                            <div class="w3-container w3-cell w3-mobile">
+                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
+                                    <h6 class="w3-center w3-text-white">jQuery Mobile Demo</h6>
+                                    <img class="w3-round"
+                                        src="images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png" alt="">
+                                </a>
+                            </div>
+                            <div class="w3-container w3-cell w3-mobile">
+                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
+                                    <h6 class="w3-center w3-text-white">Periodic Table Exercise</h6>
+                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/periodictablethumb.png"
+                                        alt="">
+                                </a>
+                            </div>
+                            <div class="w3-container w3-cell w3-mobile">
+                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
+                                    <h6 class="w3-center w3-text-white">The Children of the Checks</h6>
+                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png"
+                                        alt="">
+                                </a>
+                            </div>
+                            <div class="w3-container w3-cell w3-mobile">
+                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
+                                    <h6 class="w3-center w3-text-white">Print Pieces</h6>
+                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png"
+                                        alt="">
+                                </a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="w3-container section-padding" id="section_5">
+            <div class="w3-container w3-padding-large">
+                <div class="row">
+                    <h2 class="w3-center">Résumé</h2>
+                </div>
+
+                <div class="w3-container">
+                    <h3 class="w3-padding-16">Toby Ziegler</h3>
+                    <p>My aim is to provide world class customer service in everything I do.</p>
+                    <p>Simple as that.</p>
+                </div>
+
+                <div class="w3-container">
+                    <h3 class="w3-padding-16">Languages</h3>
+                    <p>I have used all of these in past projects. I'll have to re-learn most of them to use them again.
+                        [sigh]</p>
+
+                    <div class="w3-cell-row">
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>Java</p>
+                            <p>C#</p>
+                            <p>PHP</p>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>Python</p>
+                            <p>.NET</p>
+                            <p>SQL</p>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>JavaScript</p>
+                            <p>AngularJS</p>
+                            <p>jQuery</p>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>CSS3</p>
+                            <p>Bootstrap</p>
+                            <p>w3.CSS</p>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>HTML5</p>
+                            <p>XML</p>
+                            <p>Shell</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-container">
+                    <h3 class="w3-padding-16">Skills</h3>
+
+                    <div class="w3-cell-row">
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>Concept development</p>
+                            <p>Interface design</p>
+                            <p>Print, vector and rastor design</p>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>Project planning</p>
+                            <p>Experience design</p>
+                            <p>Communication and presentation</p>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <p>Procedure analysis</p>
+                            <p>Information gathering</p>
+                            <p>Task and decision optimization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-container">
+                    <h3 class="w3-padding-16">Education</h3>
+
+                    <p>
+                        <strong>Missouri State University,</strong> <em>Springfield, Missouri</em>
+                    </p>
+                    <ul>
+                        <li>MS.PM - Master of Science in Project Management, <em>Incomplete</em></li>
+                        <li>BAS.TM - Bachelor of Applied Science in Technology Management, <em>December 2018</em></li>
+                        <ul>
+                            <li>Minor in Computer Science, <em>21 Credit Hours</em></li>
+                            <li>Minor in Web Application Development, <em>18 Credit Hours</em></li>
+                        </ul>
+                    </ul>
+                    <p>
+                        <strong>Ozarks Technical Community College,</strong> <em>Springfield, Missouri</em>
+                    </p>
+                    <ul>
+                        <li>AAS.CIS - Associate in Applied Science in Computer Information Science, <em>December
+                                2015</em></li>
+                        <li>AS.EGR - Associate of Science in Engineering, Mechanical and Electrical,<em>May 2015</em>
+                        </li>
+                        <li>AA - Associate of Arts, <em>May 2018</em></li>
+                        <li>CT.SP.CP - Certificate of Specialization in Computer Programming, <em>August 2015</em></li>
+                        <li>CT.CIS - Certificate of Achievement in Computer Information Science, <em>December 2015</em>
+                        </li>
+                        <li>CT.EGR - Certificate of Achievement in Engineering, <em>December 2015</em></li>
+                    </ul>
+                    <p class="indent">
+                        Capstone Project: &nbsp;Provide OTC campus with customized Raspberry Pi digital signs using
+                        locally cached, network driven content,<em>&nbsp;Fall 2015</em>
+                    </p>
+                    <p class="indent">
+                        Computer Information Science Department Intern,<em>&nbsp;Fall 2015</em>
+                    </p>
+                </div>
+
+                <div class="w3-container">
+                    <h3 class="w3-padding-16">Experience</h3>
+
+                    <p>
+                        Graphic Designer and Document Manager, CoxHealth, <em>&nbsp;February 2001 thru Present</em>
+                    </p>
+                    <ul>
+                        <li>Chair of Document Control Oversight Committee</li>
+                        <li>Years of intimate knowledge in documention, forms and medical records</li>
+                        <!-- <li>Lead of Document Management</li> -->
+                        <!-- <li>Created Document Management policy for entire organization</li> -->
+                        <li>Coordinated projects across over 300 departments, plus vendors and contractors</li>
+                        <li>Tracked, maintained and managed over 10,000 active files</li>
+                        <li>Spearheaded transition from fully analog to all-digital workflow</li>
+                        <li>10+ years developing software for internal projects</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="w3-container w3-pale-green section-padding" id="section_6">
+            <!-- Container (Contact Section) -->
+            <div class="w3-content w3-container w3-padding l12 m12 s12" id="contact" ng-hide="subpart.toggle">
+                <h3 class="w3-center">Where I am.</h3>
+                <p class="w3-center"><em>I welcome your feedback!</em></p>
+
+                <div class="w3-row w3-padding-32 w3-section">
+                    <div class="w3-col m7 w3-container">
+                        <div class="mapouter w3-right">
+                            <div class="gmap_canvas">
+                                <iframe width="100%" height="500" id="gmap_canvas"
+                                    src="https://maps.google.com/maps?q=springfield%2C%20missouri&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                </iframe>
+                                <a href="https://www.crocothemes.net">crocothemes.net</a>
+                            </div>
+                            <style>
+                                .mapouter {
+                                    height: 500px;
+                                    width: 100%;
+                                }
+
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none !important;
+                                    height: 500px;
+                                    width: 100%;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                    <div class="w3-col m5 w3-panel">
+                        <div class="w3-large w3-margin-bottom">
+                            <i
+                                class="fa-solid fa-map-location-dot fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                            Springfield, Missouri<br>
+                            <i class="fa-regular fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                            Email: notyet@mail.com<br>
+                            <span></span>
+                        </div>
+                        <p>Send me a note!</p>
+                        <form action="/action_page.php" target="_blank">
+                            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                                <div class="w3-half">
+                                    <input class="w3-input w3-border" type="text" placeholder="Name" required
+                                        name="Name">
+                                </div>
+                                <div class="w3-half">
+                                    <input class="w3-input w3-border" type="text" placeholder="Email" required
+                                        name="Email">
+                                </div>
+                            </div>
+                            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                            <button class="w3-button w3-black w3-right w3-section" type="submit">
+                                <i class="fa-regular fa-paper-plane w3-text-white"></i> SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="site-footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12">
+                        <h2 class="w3-text-white mb-lg-0">The End</h2>
+                    </div>
+
+                    <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
+                        <ul class="social-icon d-flex justify-content-lg-end">
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-twitter"></span>
+                                </a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-apple"></span>
+                                </a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-instagram"></span>
+                                </a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-youtube"></span>
+                                </a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-pinterest"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- footer -->
-        <div ng-include="'/homeapp/footer/footer.html'"></div>
-      </div>
-    </div>
-  </div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12 mb-4 pb-2">
+                    <h5 class="site-footer-title mb-3">Links</h5>
+
+                    <ul class="site-footer-links">
+                        <li class="site-footer-link-item">
+                            <a href="#section_1" class="site-footer-link">Home</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_2" class="site-footer-link">About</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_3" class="site-footer-link">Photos</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_4" class="site-footer-link">Projects</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_5" class="site-footer-link">Resumé</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_6" class="site-footer-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <h5 class="site-footer-title mb-3">Have a question?</h5>
+
+                    <p class="w3-text-white d-flex mb-1">
+                        <a href="tel: 090-080-0760" class="site-footer-link">
+                            090-080-0760
+                        </a>
+                    </p>
+
+                    <p class="w3-text-white d-flex">
+                        <a href="mailto:hello@company.com" class="site-footer-link">
+                            hello@company.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
+                    <h5 class="site-footer-title mb-3">Location</h5>
+
+                    <p class="w3-text-white d-flex mt-3 mb-2">
+                        Silang Junction South, Tagaytay, Cavite, Philippines</p>
+
+                    <a class="link-fx-1 color-contrast-higher mt-3" href="#">
+                        <span>Our Maps</span>
+                        <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="16" cy="16" r="15.5"></circle>
+                                <line x1="10" y1="18" x2="16" y2="12"></line>
+                                <line x1="16" y1="12" x2="22" y2="18"></line>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mt-5">
+                        <p class="copyright-text">Copyright © 2024</p>
+                        <p class="copyright-text">Base code courtesy: <a href="https://themewagon.com">ThemeWagon</a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-8 col-12 mt-lg-5">
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Terms &amp; Conditions</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Privacy Policy</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Your Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--
+
+T e m p l a t e M o
+
+-->
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/custom.js"></script>
+
 
 </body>
 
