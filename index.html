@@ -16,25 +16,23 @@
     <title>Toby's Home on the Web</title>
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="assets/css/sitestyles.css">
 
-    <!-- Fontawesome support -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/brands.css">
-    <link rel="stylesheet" href="assets/css/regular.css">
-    <link rel="stylesheet" href="assets/css/solid.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="css/templatemo-festava-live.css" rel="stylesheet">
+    <link href="assets/css/templatemo-festava-live.css" rel="stylesheet">
 
     <!--
 
@@ -57,7 +55,9 @@ https://templatemo.com/tm-583-festava-live
 
                     <div class="col-lg-12 col-12 d-flex flex-wrap">
                         <p class="d-flex me-4 mb-0">
-                            <i class="bi-person custom-icon me-2"></i>
+                            <span class="material-symbols-outlined">
+                                emoji_people
+                            </span>
                             <strong class="text-dark">Welcome to Toby's Home on the Web</strong>
                         </p>
                     </div>
@@ -109,11 +109,11 @@ https://templatemo.com/tm-583-festava-live
                         </li>
                     </ul>
 
-                    <!--
-                        I really like this button, but disabling until I have a good idea of what to use it for.
-                        Maybe use something here to point at the West Wing page?
-                    <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
-                    -->
+
+                    If you're here for the character played by Richard Schiff, here's a page of links for you:
+                    <a href="homeapp/westwing/westwing.html" target="_blank"
+                        class="btn custom-btn d-lg-block d-none">West Wing</a>
+
                 </div>
             </div>
         </nav>
@@ -136,21 +136,22 @@ https://templatemo.com/tm-583-festava-live
                         -->
                     </div>
 
-                    <!--
-                        Entire section may need to be deleted.
                     <div class="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
                         <div class="date-wrap">
-                            <h5 class="w3-text-white">
+                            <!-- <h5 class="w3-text-white">
                                 <i class="custom-icon bi-clock me-2"></i>
                                 10 - 12<sup>th</sup>, Dec 2023
-                            </h5>
+                            </h5> -->
                         </div>
 
                         <div class="location-wrap mx-auto py-3 py-lg-0">
-                            <h5 class="w3-text-white">
-                                <i class="custom-icon bi-geo-alt me-2"></i>
-                                National Center, United States
-                            </h5>
+                            <a href="https://www.nps.gov/cave/" target="_blank">
+                                <p class="w3-text-white">
+                                    <span class="material-symbols-outlined">
+                                        travel_explore
+                                    </span> Leaving Carlsbad Caverns National Park
+                                </p>
+                            </a>
                         </div>
 
                         <div class="social-share">
@@ -177,7 +178,6 @@ https://templatemo.com/tm-583-festava-live
                             </ul>
                         </div>
                     </div>
-                    -->
                 </div>
             </div>
 
@@ -202,21 +202,19 @@ https://templatemo.com/tm-583-festava-live
                             <p class="w3-text-white">I started as an Aerospace Engineer.</p>
 
                             <p class="w3-text-white">While still young and full of doubts, I changed my career and
-                                became a
-                                Graphic Designer. I've stuck with that path for quite a while now.</p>
+                                became a Graphic Designer. I've followed that path for quite a while now.</p>
 
                             <h6 class="w3-text-white mt-4">I did a lot of school.</h6>
 
                             <p class="w3-text-white">I eventually ended up with degrees in Engineering, Computer
-                                Science,
-                                Technology Management, and half a Master's.</p>
+                                Science, Technology Management, and half a Master's.</p>
 
                             <h6 class="w3-text-white mt-4">I am big on friends.</h6>
 
                             <p class="w3-text-white">Most of my favorite activities include time with my friends.
                                 Sharing dinner, movies, drinks or excursions usually involves one or more of our
-                                friends.
-                                Life is good that way.
+                                friends.</p>
+                            <p class="w3-text-white">Life is good that way.</p>
 
                             <h6 class="w3-text-white mt-4">I am a geek.</h6>
 
@@ -252,12 +250,12 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="w3-container section-padding" id="section_3">
+        <section class="ticket-section section-padding" id="section_3">
             <div class="w3-container">
 
                 <div class="w3-container w3-center">
                     <h2>Meet the Photos</h1>
-                        <h5>All taken by yours truly.</h5>
+                        <h6>Just some photos I snapped and felt worth sharing.</h6>
                         <p>Holdover for descriptions, if you'd like.</p>
                 </div>
 
@@ -301,13 +299,14 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="w3-container bg-dark section-padding" id="section_4">
+        <section class="schedule-section bg-dark section-padding" id="section_4">
             <div class="row w3-padding">
 
                 <div class="w3-center">
                     <h2 class="w3-text-white">Projects</h1>
-                        <h5 class="w3-text-gray">Some of my work</h5>
-                        <p>Here are some examples of work I can actually share with the world, since most of it I
+                        <h5 class="w3-text-white">Some of my work</h5>
+                        <p class="w3-text-white">Here are some examples of work I can actually share with the world,
+                            since most of it I
                             cannot.</p>
 
                         <div class="w3-cell-row">
@@ -397,7 +396,7 @@ https://templatemo.com/tm-583-festava-live
                     <div class="w3-cell-row">
                         <div class="w3-container w3-cell w3-mobile">
                             <p>Concept development</p>
-                            <p>Interface design</p>
+                            <p>User Interface design (UX)</p>
                             <p>Print, vector and rastor design</p>
                         </div>
                         <div class="w3-container w3-cell w3-mobile">
@@ -420,33 +419,30 @@ https://templatemo.com/tm-583-festava-live
                         <strong>Missouri State University,</strong> <em>Springfield, Missouri</em>
                     </p>
                     <ul>
-                        <li>MS.PM - Master of Science in Project Management, <em>Incomplete</em></li>
-                        <li>BAS.TM - Bachelor of Applied Science in Technology Management, <em>December 2018</em></li>
+                        <li>MS.PM - Master of Science in Project Management, <em>In Progress</em></li>
+                        <li>BAS.TM - Bachelor of Applied Science in Technology Management</li>
                         <ul>
-                            <li>Minor in Computer Science, <em>21 Credit Hours</em></li>
-                            <li>Minor in Web Application Development, <em>18 Credit Hours</em></li>
+                            <li>Minor in Computer Science</li>
+                            <li>Minor in Web Application Development</li>
                         </ul>
                     </ul>
                     <p>
                         <strong>Ozarks Technical Community College,</strong> <em>Springfield, Missouri</em>
                     </p>
                     <ul>
-                        <li>AAS.CIS - Associate in Applied Science in Computer Information Science, <em>December
-                                2015</em></li>
-                        <li>AS.EGR - Associate of Science in Engineering, Mechanical and Electrical,<em>May 2015</em>
-                        </li>
-                        <li>AA - Associate of Arts, <em>May 2018</em></li>
-                        <li>CT.SP.CP - Certificate of Specialization in Computer Programming, <em>August 2015</em></li>
-                        <li>CT.CIS - Certificate of Achievement in Computer Information Science, <em>December 2015</em>
-                        </li>
-                        <li>CT.EGR - Certificate of Achievement in Engineering, <em>December 2015</em></li>
+                        <li>AAS.CIS - Associate in Applied Science in Computer Information Science</li>
+                        <li>AS.EGR - Associate of Science in Engineering, Mechanical and Electrical</li>
+                        <li>AA - Associate of Arts</li>
+                        <li>CT.SP.CP - Certificate of Specialization in Computer Programming</li>
+                        <li>CT.CIS - Certificate of Achievement in Computer Information Science</li>
+                        <li>CT.EGR - Certificate of Achievement in Engineering</li>
                     </ul>
                     <p class="indent">
                         Capstone Project: &nbsp;Provide OTC campus with customized Raspberry Pi digital signs using
-                        locally cached, network driven content,<em>&nbsp;Fall 2015</em>
+                        locally cached, network driven content
                     </p>
                     <p class="indent">
-                        Computer Information Science Department Intern,<em>&nbsp;Fall 2015</em>
+                        Computer Information Science Department Intern
                     </p>
                 </div>
 
@@ -461,10 +457,55 @@ https://templatemo.com/tm-583-festava-live
                         <li>Years of intimate knowledge in documention, forms and medical records</li>
                         <!-- <li>Lead of Document Management</li> -->
                         <!-- <li>Created Document Management policy for entire organization</li> -->
+                        <li>Sole document builder for Addressograph / Patientworks system</li>
                         <li>Coordinated projects across over 300 departments, plus vendors and contractors</li>
                         <li>Tracked, maintained and managed over 10,000 active files</li>
                         <li>Spearheaded transition from fully analog to all-digital workflow</li>
                         <li>10+ years developing software for internal projects</li>
+                    </ul>
+                    <p>
+                        Co-Owner, DirectBuy of Springfield
+                    </p>
+                    <ul>
+                        <li>Managed direct sales to potential new members</li>
+                        <li>Coordinated with telemarketing for followup contacts</li>
+                        <li>Supervised receiving crew to process incoming product for member delivery</li>
+                        <li>Maintained product catalog library</li>
+                    </ul>
+                    <p>
+                        Artist, Sweetheart Cup Company
+                    </p>
+                    <ul>
+                        <li>Managed company-wide template library of Freehand, Illustrator and Photoshop design
+                            templates</li>
+                        <li>Produced thousands of individual designs for cups, tubs and containers every year</li>
+                        <li>Coordinated complete process from customer contact through final production for each project
+                        </li>
+                    </ul>
+                    <p>
+                        Design Manager, Christian County Headliner News
+                    </p>
+                    <ul>
+                        <li>Managed all digital production for entire newspaper</li>
+                        <li>Coordinated with news team for article placement and lengths</li>
+                        <li>Created most special article infographics</li>
+                        <li>Created or supervised all advertising artwork</li>
+                    </ul>
+                    <p>
+                        Supervisor, Branson Daily News
+                    </p>
+                    <ul>
+                        <li>Supervised digital production crew</li>
+                        <li>Supervised artists and advertising production staff</li>
+                        <li>Responsible for all daily pre-press processes</li>
+                    </ul>
+                    <p>
+                        Designer, Springfield News-Leader
+                    </p>
+                    <ul>
+                        <li>Created speculative advertising for customers</li>
+                        <li>Produced digital artwork and layouts for paid advertising</li>
+                        <li>Responsible for all aspects of preproduction until production plates for press</li>
                     </ul>
                 </div>
             </div>
@@ -504,12 +545,18 @@ https://templatemo.com/tm-583-festava-live
                     </div>
                     <div class="w3-col m5 w3-panel">
                         <div class="w3-large w3-margin-bottom">
-                            <i
-                                class="fa-solid fa-map-location-dot fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                            <span class="material-symbols-outlined">
+                                map
+                            </span>
                             Springfield, Missouri<br>
-                            <i class="fa-regular fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
-                            Email: notyet@mail.com<br>
-                            <span></span>
+                            <span class="email dark">
+                                <script>document.write('<a href="mailto:' + 'T' + 'o' + 'b' + 'y' + '@' + 'T' + 'o' + 'b' + 'y' + 'Z' + 'i' + 'e' + 'g' + 'l' + 'e' + 'r' + '.' + 'c' + 'o' + 'm' + '">');</script>
+                                <span class="material-symbols-outlined">
+                                    mail
+                                </span>
+                                Email: Toby<b>Don't</b>@<b>Scrape</b>TobyZiegler<b>Mail</b>.com<br>
+                                </a>
+                            </span>
                         </div>
                         <p>Send me a note!</p>
                         <form action="/action_page.php" target="_blank">
@@ -616,28 +663,27 @@ https://templatemo.com/tm-583-festava-live
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <h5 class="site-footer-title mb-3">Have a question?</h5>
+                    <p>
+                        <span class="email light">
+                            <script>document.write('<a href="mailto:' + 'T' + 'o' + 'b' + 'y' + '@' + 'T' + 'o' + 'b' + 'y' + 'Z' + 'i' + 'e' + 'g' + 'l' + 'e' + 'r' + '.' + 'c' + 'o' + 'm' + '">');</script>
+                            <span class="material-symbols-outlined">
+                                mail
+                            </span>
+                            Email: Toby<b>Don't</b>@<b>Scrape</b>TobyZiegler<b>Mail</b>.com<br>
+                            </a>
 
-                    <p class="w3-text-white d-flex mb-1">
-                        <a href="tel: 090-080-0760" class="site-footer-link">
-                            090-080-0760
-                        </a>
-                    </p>
-
-                    <p class="w3-text-white d-flex">
-                        <a href="mailto:hello@company.com" class="site-footer-link">
-                            hello@company.com
-                        </a>
+                        </span>
                     </p>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
-                    <h5 class="site-footer-title mb-3">Location</h5>
+                    <!-- <h5 class="site-footer-title mb-3">Location</h5> -->
 
                     <p class="w3-text-white d-flex mt-3 mb-2">
-                        Silang Junction South, Tagaytay, Cavite, Philippines</p>
+                        Thanks for visiting!</p>
 
                     <a class="link-fx-1 color-contrast-higher mt-3" href="#">
-                        <span>Our Maps</span>
+                        <span>Back to the top.</span>
                         <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="16" cy="16" r="15.5"></circle>
