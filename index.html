@@ -16,7 +16,6 @@
     <title>Toby's Home on the Web</title>
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="assets/css/sitestyles.css">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -33,6 +32,8 @@
     <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 
     <link href="assets/css/templatemo-festava-live.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/sitestyles.css">
 
     <!--
 
@@ -70,7 +71,7 @@ https://templatemo.com/tm-583-festava-live
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    Toby's Pages
+                    <h5>Toby's Pages</h5>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -81,54 +82,58 @@ https://templatemo.com/tm-583-festava-live
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            <a class="nav-link click-scroll" href="#">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_2">About</a>
+                            <a class="nav-link click-scroll" href="#section_about">About</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">Photos</a>
+                            <a class="nav-link click-scroll" href="#section_photos">Photos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_4">Projects</a>
+                            <a class="nav-link click-scroll" href="#section_projects">Projects</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_5">Resumé</a>
+                            <a class="nav-link click-scroll" href="#section_resume">Résumé</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_6">Contact</a>
+                            <a class="nav-link click-scroll" href="#section_contact">Contact</a>
                         </li>
                     </ul>
 
-
-                    If you're here for the character played by Richard Schiff, here's a page of links for you:
-                    <a href="homeapp/westwing/westwing.html" target="_blank"
-                        class="btn custom-btn d-lg-block d-none">West Wing</a>
+                    <a href="homeapp/westwing/westwing.html" target="_blank">
+                        <span class="smallertext">If you're here for the character played by Richard Schiff, here's a
+                            page of links to help you find him:
+                        </span>
+                    </a>
+                    <a href="homeapp/westwing/westwing.html" target="_blank" class="btn custom-btn d-lg-block d-none">
+                        West Wing
+                    </a>
 
                 </div>
             </div>
         </nav>
 
 
-        <section class="hero-section" id="section_1">
+        <section class="hero-section section-padding" id="section_home">
             <div class="section-overlay"></div>
 
             <div class="container d-flex justify-content-center align-items-center">
                 <div class="row">
 
-                    <div class="col-12 mt-auto mb-5 text-center">
+                    <div class="col-12 mt-auto mb-5 text-center w3-text-white">
                         <small>Welcome to the personal pages of</small>
 
                         <h1 class="w3-text-white mb-5">Toby Ziegler</h1>
 
                         <!--
                             Disabling button to jump to another section.
-                        <a class="btn custom-btn smoothscroll" href="#section_2">Let's begin</a>
+                        <a class="btn custom-btn smoothscroll" href="#section_about">Let's begin</a>
                         -->
                     </div>
 
@@ -142,36 +147,17 @@ https://templatemo.com/tm-583-festava-live
 
                         <div class="location-wrap mx-auto py-3 py-lg-0">
                             <a href="https://www.nps.gov/cave/" target="_blank">
-                                <p class="w3-text-white">
-                                    <span class="material-symbols-outlined">
-                                        travel_explore
-                                    </span> Leaving Carlsbad Caverns National Park
+                                <p>
+                                    <span class="material-symbols-outlined">travel_explore</span>
+                                    Leaving Carlsbad Caverns National Park
                                 </p>
                             </a>
                         </div>
 
-                        <div class="social-share w3-hide">
-                            <ul class="social-icon d-flex align-items-center justify-content-center">
-                                <span class="w3-text-white me-3">Share:</span>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link">
-                                        <span class="bi-facebook"></span>
-                                    </a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link">
-                                        <span class="bi-twitter"></span>
-                                    </a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link">
-                                        <span class="bi-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="social-share">
+                            <a href="#section_about">
+                                <span>Wait! There's more! </span>
+                                <span class="material-symbols-outlined largetext lowtext">south</span> </a>
                         </div>
                     </div>
                 </div>
@@ -187,34 +173,35 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="about-section section-padding" id="section_2">
+        <section class="about-section section-padding" id="section_about">
+            <div class="about-section-overlay"></div>
             <div class="container">
                 <div class="row">
 
                     <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
-                        <div class="services-info">
-                            <h2 class="w3-text-white mb-4">A bit about this guy...</h2>
+                        <div class="services-info w3-text-white">
+                            <h2>A bit about this guy...</h2>
 
-                            <p class="w3-text-white">I started as an Aerospace Engineer.</p>
+                            <p>I started as an Aerospace Engineer.</p>
 
-                            <p class="w3-text-white">While still young and full of doubts, I changed my career and
+                            <p>While still young and full of doubts, I changed my career and
                                 became a Graphic Designer. I've followed that path for quite a while now.</p>
 
-                            <h6 class="w3-text-white mt-4">I did a lot of school.</h6>
+                            <h5>I did a lot of school.</h5>
 
-                            <p class="w3-text-white">I eventually ended up with degrees in Engineering, Computer
+                            <p>I eventually ended up with degrees in Engineering, Computer
                                 Science, Technology Management, and half a Master's.</p>
 
-                            <h6 class="w3-text-white mt-4">I am big on friends.</h6>
+                            <h5>I am big on friends.</h5>
 
-                            <p class="w3-text-white">Most of my favorite activities include time with my friends.
+                            <p>Most of my favorite activities include time with my friends.
                                 Sharing dinner, movies, drinks or excursions usually involves one or more of our
                                 friends.</p>
-                            <p class="w3-text-white">Life is good that way.</p>
+                            <p>Life is good that way.</p>
 
-                            <h6 class="w3-text-white mt-4">I am a geek.</h6>
+                            <h5>I am a geek.</h5>
 
-                            <p class="w3-text-white">I try to be the social, friendly, not-offputting kind of geek,
+                            <p>I try to be the social, friendly, not-offputting kind of geek,
                                 but I am unapologetically geek, through and through.</p>
 
                         </div>
@@ -246,7 +233,7 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="ticket-section section-padding" id="section_3">
+        <section class="ticket-section section-padding" id="section_photos">
             <div class="w3-container">
 
                 <div class="w3-container w3-center">
@@ -295,7 +282,7 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="schedule-section bg-dark section-padding" id="section_4">
+        <section class="schedule-section bg-dark section-padding" id="section_projects">
             <div class="row w3-padding">
 
                 <div class="w3-center">
@@ -340,7 +327,7 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="w3-container section-padding" id="section_5">
+        <section class="w3-container section-padding" id="section_resume">
             <div class="w3-container w3-padding-large">
                 <div class="row">
                     <h2 class="w3-center">Résumé</h2>
@@ -508,7 +495,7 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="w3-container w3-pale-green section-padding" id="section_6">
+        <section class="w3-container w3-pale-green section-padding" id="section_contact">
             <!-- Container (Contact Section) -->
             <div class="w3-content w3-container w3-padding l12 m12 s12" id="contact" ng-hide="subpart.toggle">
                 <h3 class="w3-center">Where in the world . . .</h3>
@@ -600,27 +587,27 @@ https://templatemo.com/tm-583-festava-live
 
                     <ul class="site-footer-links">
                         <li class="site-footer-link-item">
-                            <a href="#section_1" class="site-footer-link">Home</a>
+                            <a href="#" class="site-footer-link">Home</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_2" class="site-footer-link">About</a>
+                            <a href="#section_about" class="site-footer-link">About</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_3" class="site-footer-link">Photos</a>
+                            <a href="#section_photos" class="site-footer-link">Photos</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_4" class="site-footer-link">Projects</a>
+                            <a href="#section_projects" class="site-footer-link">Projects</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_5" class="site-footer-link">Resumé</a>
+                            <a href="#section_resume" class="site-footer-link">Resumé</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_6" class="site-footer-link">Contact</a>
+                            <a href="#section_contact" class="site-footer-link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -646,6 +633,7 @@ https://templatemo.com/tm-583-festava-live
                     <p class="w3-text-white d-flex mt-3 mb-2">
                         Thanks for visiting!</p>
 
+                    <!-- examine festava link classes for hover, sizing issues, etc. --top and bottom now -->
                     <a class="link-fx-1 color-contrast-higher mt-3" href="#">
                         <span>Back to the top.</span>
                         <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">

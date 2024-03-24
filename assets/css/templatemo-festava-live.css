@@ -43,17 +43,17 @@ https://templatemo.com/tm-583-festava-live
   --font-weight-bold: 700;
 }
 
-body {
+/* body {
   background-color: var(--white-color);
   font-family: var(--body-font-family);
-}
+} */
 
 
 /*---------------------------------------
   TYPOGRAPHY               
 -----------------------------------------*/
 
-h2,
+/* h2,
 h3,
 h4,
 h5,
@@ -92,21 +92,22 @@ h5 {
 
 h6 {
   font-size: var(--h6-font-size);
-}
+} */
 
-p {
+/* p {
   color: var(--p-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-light);
 }
+*/
 
-ul li {
+/* ul li {
   color: var(--p-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-light);
-}
+} */
 
-a,
+/* a,
 button {
   touch-action: manipulation;
   transition: all 0.3s;
@@ -122,12 +123,13 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-b,
+*/
+/* b,
 strong {
   font-weight: var(--font-weight-bold);
-}
+} */
 
-.link-fx-1 {
+/* .link-fx-1 {
   color: var(--white-color);
   position: relative;
   display: inline-flex;
@@ -206,22 +208,22 @@ strong {
 
 .link-fx-1 .icon line:last-child {
   transform-origin: 19px 15px;
-}
+} */
 
 
 /*---------------------------------------
   SECTION               
 -----------------------------------------*/
-.section-padding {
+/* .section-padding {
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
 .section-bg {
   background-color: var(--section-bg-color);
-}
+} */
 
-.section-overlay {
+/* .section-overlay {
   background-color: var(--dark-color);
   position: absolute;
   top: 0;
@@ -235,8 +237,9 @@ strong {
 .section-overlay+.container {
   position: relative;
 }
+*/
 
-.tab-content {
+/* .tab-content {
   background-color: var(--white-color);
   border-radius: var(--border-radius-medium);
   padding: 45px;
@@ -278,21 +281,21 @@ strong {
 .nav-tabs .nav-link:focus h5,
 .nav-tabs .nav-link:hover h5 {
   color: var(--primary-color);
-}
+} */
 
 
 /*---------------------------------------
   CUSTOM ICON COLOR               
 -----------------------------------------*/
-.custom-icon {
+/* .custom-icon {
   color: var(--secondary-color);
-}
+} */
 
 
 /*---------------------------------------
   CUSTOM BUTTON               
 -----------------------------------------*/
-.custom-btn {
+/* .custom-btn {
   background: var(--custom-btn-bg-color);
   border: 2px solid transparent;
   border-radius: var(--border-radius-large);
@@ -325,13 +328,13 @@ strong {
 .custom-btn-bg-white {
   border-color: var(--white-color);
   color: var(--white-color);
-}
+} */
 
 
 /*---------------------------------------
   VIDEO              
 -----------------------------------------*/
-.video-wrap {
+/* .video-wrap {
   z-index: -100;
 }
 
@@ -342,23 +345,23 @@ strong {
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
+} */
 
 
 /*---------------------------------------
   SITE HEADER              
 -----------------------------------------*/
-.site-header {
+/* .site-header {
   background-color: var(--primary-color);
   padding-top: 12px;
   padding-bottom: 12px;
-}
+} */
 
 
 /*---------------------------------------
   NAVIGATION              
 -----------------------------------------*/
-.sticky-wrapper {
+/* .sticky-wrapper {
   position: absolute;
   top: 0;
   right: 0;
@@ -467,13 +470,13 @@ strong {
 
 .navbar-toggler .navbar-toggler-icon::after {
   top: 8px;
-}
+} */
 
 
 /*---------------------------------------
   HERO        
 -----------------------------------------*/
-.hero-section {
+/* .hero-section {
   position: relative;
   overflow: hidden;
   padding-top: 100px;
@@ -499,13 +502,13 @@ strong {
 
 .hero-section .container .row {
   height: 100%;
-}
+} */
 
 
 /*---------------------------------------
   ABOUT              
 -----------------------------------------*/
-.about-section {
+/* .about-section {
   background-image: url('../images/backgrounds/valentine2018flowersblurred.jpg');
   background-color: #704010;
   background-repeat: no-repeat;
@@ -544,7 +547,7 @@ strong {
   left: 0;
   margin: 20px;
   padding: 35px;
-}
+} */
 
 
 /*---------------------------------------

@@ -7,7 +7,7 @@ body {
     background-color: #f0f0f0;
     color: #383D43;
     font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 1rem;
 }
 
 table {
@@ -16,107 +16,372 @@ table {
     height: 100%;
 }
 
-.mainContainer {
-    width: 780px;
-    margin: 0 auto;
+h1 {
+    font-weight: bolder;
 }
 
-.mainContainer td {
-    vertical-align: middle;
-    width: 780px;
-    text-align: left
-}
-
-#wrapper {
-    border: 0px solid #f6f6f6;
-}
-
-#wrapper .curveT {
-    background: transparent url(../images/curve-top.gif) no-repeat left top;
-    height: 7px;
-}
-
-#wrapper .curveB {
-    background: transparent url(../images/curve-bot.gif) no-repeat left top;
-    height: 7px;
-}
-
-#wrapper .header {
-    clear: both;
-    width: 100%;
-    height: 51px;
-    vertical-align: middle;
-    padding-top: 12px;
-    background: #ffffff;
-}
-
-#wrapper .description {
-    clear: both;
-    margin: 0px;
-    padding: 0px 10px 4px;
-    background: #ffffff;
-}
-
-#wrapper .welcome {
-    padding: 10px;
-    background: #EEEEFF;
-    font-size: 15px;
-}
-
-#wrapper .description .links {
-    margin-top: 10px;
-    padding: 10px;
-    background: #EEEEFF;
-}
-
-#wrapper .links ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    float: left;
-    width: 48%;
-}
-
-#wrapper .links ul li {
-    margin: 0;
-    padding: 0px 0px 0px 12px;
-    line-height: 25px;
-}
-
-#wrapper .links ul li a {
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: bold;
-    color: #003399;
+}
+
+p,
+ul,
+li,
+    {
+    color: dimgray;
+}
+
+.smallertext {
+    font-size: 0.6rem;
+}
+
+.largetext {
+    /* font-size: 1.5rem; */
+}
+
+.lowtext {
+    line-height: normal;
+}
+
+/*---------------------------------------
+  Link Styling
+-----------------------------------------*/
+
+a,
+button {
+    touch-action: manipulation;
+    transition: all 0.3s;
+}
+
+a {
+    display: inline-block;
+    color: dimgray;
     text-decoration: none;
-    vertical-align: middle;
 }
 
-#wrapper .links ul li a img {
-    padding-right: 7px;
-    margin-top: -7px;
+a:hover {
+    color: orangered;
 }
 
-div.clear {
-    clear: both;
-    height: 1px;
+/*---------------------------------------
+  Navigation Styling
+-----------------------------------------*/
+
+/* This section was brought in from the festava template, and I don not yet fully understand it. */
+
+.sticky-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-top: 3.0rem;
 }
 
-.leftDiv {
-    float: left;
+.sticky-wrapper.is-sticky .navbar {
+    background-color: black;
 }
 
-.rightDiv {
-    float: right;
-    padding: 8px 25px 0px 0px;
+.navbar {
+    background: transparent;
+    z-index: 9;
 }
+
+.navbar-brand,
+.navbar-brand:hover {
+    color: white;
+    /* font-size: var(--h5-font-size); */
+    /* font-weight: var(--font-weight-bold); */
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    border-radius: 5.0rem;
+    margin: 0.2rem;
+    padding: 0.2rem 0.4rem;
+}
+
+.navbar-nav .nav-link {
+    display: inline-block;
+    color: white;
+    /* font-size: var(--p-font-size); */
+    /* font-weight: var(--font-weight-normal); */
+    position: relative;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    color: orangered;
+}
+
+.navbar-toggler {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    width: 1.5rem;
+    height: 1.8rem;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transition: top 300ms 50ms ease, -webkit-transform 300ms 350ms ease;
+    transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+    transition: top 300ms 50ms ease, transform 300ms 350ms ease, -webkit-transform 300ms 350ms ease;
+    top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transform: rotate(-45deg);
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background: var(--white-color);
+    transition: background 10ms 300ms ease;
+    display: block;
+    width: 1.5rem;
+    height: 0.1rem;
+    position: relative;
+}
+
+.navbar-toggler .navbar-toggler-icon:before,
+.navbar-toggler .navbar-toggler-icon:after {
+    transition: top 300ms 350ms ease, -webkit-transform 300ms 50ms ease;
+    transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+    transition: top 300ms 350ms ease, transform 300ms 50ms ease, -webkit-transform 300ms 50ms ease;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: var(--white-color);
+    width: 1.5rem;
+    height: 0.1rem;
+    content: '';
+}
+
+.navbar-toggler .navbar-toggler-icon::before {
+    top: -0.5rem;
+}
+
+.navbar-toggler .navbar-toggler-icon::after {
+    top: 0.5rem;
+}
+
+/*---------------------------------------
+  Header Styling
+-----------------------------------------*/
+
+.site-header {
+    background-color: goldenrod;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+/*---------------------------------------
+  Section Styling
+-----------------------------------------*/
+
+.section-padding {
+    padding-top: 5.0rem;
+    padding-bottom: 5.0rem;
+}
+
+.section-overlay {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+}
+
+.section-overlay+.container {
+    position: relative;
+}
+
+
+/*---------------------------------------
+  Hero Section
+-----------------------------------------*/
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+    height: calc(100vh - 2.0rem);
+}
+
+/* .hero-section small {
+    color: var(--white-color);
+    text-transform: uppercase;
+} */
+
+.hero-section .section-overlay {
+    z-index: 2;
+    opacity: 0.45;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.hero-section .container .row {
+    height: 100%;
+}
+
+/*---------------------------------------
+  About Section
+-----------------------------------------*/
+
+.about-section {
+    background-image: url('/images/backgrounds/valentine2018flowersblurred.jpg');
+    background-color: palegoldenrod;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.about-section-overlay {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.10;
+}
+
+
+.about-image {
+    border-radius: var(--border-radius-medium);
+    display: block;
+}
+
+.about-text-wrap {
+    position: relative;
+}
+
+.about-text-icon {
+    background: var(--primary-color);
+    border-radius: 100%;
+    font-size: var(--h3-font-size);
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.about-text-info {
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 20px;
+    padding: 35px;
+}
+
+/*---------------------------------------
+  Photo Section
+-----------------------------------------*/
+
+
+/*---------------------------------------
+  Project Section
+-----------------------------------------*/
+
+
+/*---------------------------------------
+  Resume Section
+-----------------------------------------*/
+
+
+/*---------------------------------------
+  Contact Section
+-----------------------------------------*/
+
+
+/*---------------------------------------
+  Footer Section
+-----------------------------------------*/
+
+
+/*---------------------------------------
+  Button Styling
+-----------------------------------------*/
+
+.custom-btn {
+    background: gray;
+    border: 0.1rem solid transparent;
+    border-radius: 5.0rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: normal;
+    transition: all 0.3s;
+    padding: 0.1rem 1.0rem;
+}
+
+.custom-btn:hover {
+    background: white;
+    color: orangered;
+}
+
+/*---------------------------------------
+  Video Styling
+-----------------------------------------*/
+
+.video-wrap {
+    z-index: -100;
+}
+
+.custom-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/*---------------------------------------
+  Obfuscated Email Styling
+-----------------------------------------*/
 
 span.email b {
     display: none;
 }
 
 span.email.dark a {
-    color: #000;
+    color: #black;
 }
 
 span.email.light a {
-    color: #fff;
+    color: #white;
 }
