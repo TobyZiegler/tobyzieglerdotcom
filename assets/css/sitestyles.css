@@ -199,12 +199,19 @@ a:hover {
   Section Styling
 -----------------------------------------*/
 
-.section-padding {
+section {
     padding-top: 5.0rem;
     padding-bottom: 5.0rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
-.section-overlay {
+section+.container {
+    z-index: 2;
+}
+
+.section-overlay-dark {
     background-color: black;
     position: absolute;
     top: 0;
@@ -213,6 +220,19 @@ a:hover {
     width: 100%;
     height: 100%;
     opacity: 0.65;
+    z-index: 1;
+}
+
+.section-overlay-light {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.10;
+    z-index: 1;
 }
 
 .section-overlay+.container {
@@ -227,7 +247,7 @@ a:hover {
 .hero-section {
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 3.0rem;
     height: calc(100vh - 2.0rem);
 }
 
@@ -236,10 +256,10 @@ a:hover {
     text-transform: uppercase;
 } */
 
-.hero-section .section-overlay {
+/* .hero-section .section-overlay {
     z-index: 2;
     opacity: 0.45;
-}
+} */
 
 .hero-section .container {
     position: relative;
@@ -259,33 +279,18 @@ a:hover {
 .about-section {
     background-image: url('/images/backgrounds/valentine2018flowersblurred.jpg');
     background-color: palegoldenrod;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
 }
-
-.about-section-overlay {
-    background-color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    width: 100%;
-    height: 100%;
-    opacity: 0.10;
-}
-
 
 .about-image {
-    border-radius: var(--border-radius-medium);
+    border-radius: 1rem;
     display: block;
 }
 
-.about-text-wrap {
+/* .about-text-wrap {
     position: relative;
-}
+} */
 
-.about-text-icon {
+/* .about-text-icon {
     background: var(--primary-color);
     border-radius: 100%;
     font-size: var(--h3-font-size);
@@ -294,8 +299,9 @@ a:hover {
     line-height: 70px;
     text-align: center;
 }
+*/
 
-.about-text-info {
+/* .about-text-info {
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
@@ -307,12 +313,42 @@ a:hover {
     left: 0;
     margin: 20px;
     padding: 35px;
-}
+} */
 
 /*---------------------------------------
   Photo Section
 -----------------------------------------*/
 
+.photo-section {
+    background-image: url('/images/backgrounds/greenhousestatesunsetblurred.jpg');
+    padding: 4rem 2rem;
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top: 130px; */
+}
+
+/* .mySlides {
+    display: none;
+} */
+
+.w3-left,
+.w3-right,
+.w3-badge {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.w3-left,
+.w3-right {
+    font-size: 3rem;
+}
+
+.w3-badge {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0;
+}
 
 /*---------------------------------------
   Project Section
@@ -333,6 +369,33 @@ a:hover {
   Footer Section
 -----------------------------------------*/
 
+
+/*---------------------------------------
+  Caption Styling
+-----------------------------------------*/
+
+figure {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+figure img {
+    border-radius: 1rem;
+    max-width: 100%;
+    /* min-width: 25rem; */
+}
+
+figcaption {
+    background-color: white;
+    border: 0.3rem solid transparent;
+    border-radius: 1.0rem;
+    padding: 0.2rem 1rem;
+    margin: 1rem 3rem;
+    font-size: 0.8rem;
+    text-align: center;
+    opacity: 0.7;
+}
 
 /*---------------------------------------
   Button Styling

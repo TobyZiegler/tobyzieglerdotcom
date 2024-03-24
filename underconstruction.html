@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Under Construction Notice</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/sitestyles.css">
+    <!--
+
+TemplateMo 583 Festava Live
+
+https://templatemo.com/tm-583-festava-live
+
+-->
+
+    <link rel="stylesheet" href="css/mdb.min.css" />
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <h5>Toby's Pages</h5>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_about">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_photos">Photos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_projects">Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_resume">Résumé</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_contact">Contact</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+        <!-- Background image -->
+        <section class="hero-section section-padding" id="section_underconstruction">
+            <div class="section-overlay-light"></div>
+
+            <div style="background-image: url('images/backgrounds/drivecircuitboards.jpg');">
+                <div id="intro" class="p-5 text-center bg-image shadow-1-strong">
+                    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+                        <div class="d-flex justify-content-center align-items-center h-100">
+                            <div class="text-white px-4" data-mdb-theme="dark">
+                                <h1 class="mb-3">Coming Soon!</h1>
+
+                                <!-- Time Counter -->
+                                <h3 id="time-counter" class="border border-light my-4 p-4"></h3>
+
+                                <p>We're working hard to finish the development of this site.</p>
+
+                                <p>Until then have a look at our Free Bootstrap 5 tutorials</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Background image -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <!--Main layout-->
+
+    <!--Footer-->
+    <footer class="bg-light text-lg-start">
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!--Footer-->
+
+    <!-- Time Counter -->
+    <script type="text/javascript">
+        // Set the date we're counting down to
+        var countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 30);
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById('time-counter').innerHTML =
+                days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById('time-counter').innerHTML = 'EXPIRED';
+            }
+        }, 1000);
+    </script>
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.umd.min.js"></script>
+</body>
+
+</html>

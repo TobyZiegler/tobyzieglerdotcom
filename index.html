@@ -56,17 +56,13 @@ https://templatemo.com/tm-583-festava-live
 
                     <div class="col-lg-12 col-12 d-flex flex-wrap justify-content-between">
                         <p class="d-flex me-4 mb-0">
-                            <span class="material-symbols-outlined">
-                                emoji_people
-                            </span>
-                            <strong class="text-dark">Welcome to Toby's Home on the Web</strong>
+                            <span class="material-symbols-outlined">emoji_people</span>
+                            <strong>Welcome to Toby's Home on the Web</strong>
                         </p>
                         <div class="d-flex">
                             <a href="homeapp/westwing/westwing.html" target="_blank">
                                 <span class="smallertext">If you're here for the character played by Richard Schiff,
-                                    here's
-                                    a
-                                    page of links to help you find him:
+                                    here's a page of links to help you find him:
                                 </span>
                             </a>
                             <a href="homeapp/westwing/westwing.html" target="_blank"
@@ -103,7 +99,7 @@ https://templatemo.com/tm-583-festava-live
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_photos">Photos</a>
+                            <a class="nav-link click-scroll" href="#section_photo">Photos</a>
                         </li>
 
                         <li class="nav-item">
@@ -126,7 +122,7 @@ https://templatemo.com/tm-583-festava-live
 
 
         <section class="hero-section section-padding" id="section_home">
-            <div class="section-overlay"></div>
+            <div class="section-overlay-dark"></div>
 
             <div class="container d-flex justify-content-center align-items-center">
                 <div class="row">
@@ -179,7 +175,8 @@ https://templatemo.com/tm-583-festava-live
 
 
         <section class="about-section section-padding" id="section_about">
-            <div class="about-section-overlay"></div>
+            <!-- style="background-image: url('images/backgrounds/valentine2018flowersblurred.jpg');"> -->
+            <div class="section-overlay-light"></div>
             <div class="container">
                 <div class="row">
 
@@ -213,8 +210,10 @@ https://templatemo.com/tm-583-festava-live
                     </div>
 
                     <div class="col-lg-6 col-12">
-                        <div class="about-text-wrap">
+                        <div class="about-text-wrap" style="z-index: 9;">
                             <img src="images/artphotos/pinewoodsurfboard.jpg" class="about-image img-fluid">
+                            <figcaption>The aerodynamic nature of this surfboard Pinewood Derby entry might not be
+                                completely coincidental.</figcaption>
 
                             <!-- interesting overlay, but in the way for now.
 
@@ -237,97 +236,97 @@ https://templatemo.com/tm-583-festava-live
             </div>
         </section>
 
-
-        <section class="ticket-section section-padding" id="section_photos">
-            <div class="w3-container">
-
-                <div class="w3-container w3-center">
-                    <h2>Meet the Photos</h1>
-                        <h6>Just some photos I snapped and felt worth sharing.</h6>
-                        <p>Holdover for descriptions, if you'd like.</p>
-                </div>
-
-                <div class="w3-cell-row w3-center">
-                    <div class="w3-container w3-cell w3-mobile">
-                        <img class="w3-image w3-round-large w3-margin"
-                            src="images/artphotos/atriumceiling2015-07-01.jpg">
-
-                        <div class="artists-hover">
-                            <p>
-                                How often do you just look straight up?<br>
-                                Here is an atrium on a cruise ship I found fascinating.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="w3-container w3-cell w3-mobile">
-                        <img class="w3-image w3-round-large w3-margin" src="images/artphotos/sunshineray2015-07-09.jpg">
-
-                        <div class="artists-hover">
-                            <p>
-                                Random rays of sunshine can be beautiful.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w3-cell-row w3-center">
-                    <div class="w3-container w3-cell w3-mobile">
-                        <img class="w3-image w3-round-large w3-margin" src="images/artphotos/luaufire2007-10-30.jpg">
-
-                        <div class="artists-hover">
-                            <p>
-                                It was dark. I wasn't sure how it would come out. I think it did pretty well.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+        <section class="photo-section" id="section_photo">
+            <div class="w3-container w3-center w3-text-white">
+                <h2>Meet the Photos</h1>
+                    <p>Just some photos I snapped and felt worth sharing.</p>
             </div>
+
+            <div class="w3-content w3-display-container w3-center">
+                <figure class="mySlides"><img src="images/artphotos/luaufire2007-10-30.jpg" style="min-width: 100%;">
+                    <figcaption>Fire in the dark has a beauty all its own.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/artphotos/atriumceiling2015-07-01.jpg" style="width:100%;">
+                    <figcaption>A cruise ship's atrium can be fascinating.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/artphotos/sunshineray2015-07-09.jpg" style="width:100%;">
+                    <figcaption>Random rays of sunshine are often beautiful.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/cardinalstarwarsnite.jpg" style="width:100%;">
+                    <figcaption>Star Wars night at Busch Stadium.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/eveningcloudscape.jpg" style="width:100%;">
+                    <figcaption>Even from a parking lot, interesting scenery abounds.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/greenhousestatesunset.jpg" style="width:100%;">
+                    <figcaption>Sunset sky in woods surrounded by an unseen city.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/valentine2018flowers.jpg" style="width:100%;">
+                    <figcaption>Valentine's Day. 'Nuff said.</figcaption>
+                </figure>
+
+                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+                    style="width:100%">
+                    <div class="w3-left w3-hover-text-khaki" onclick="plusPhotos(-1)">&#10094;</div>
+                    <div class="w3-right w3-hover-text-khaki" onclick="plusPhotos(1)">&#10095;</div>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(1)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(2)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(3)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(4)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(5)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(6)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(7)"></span>
+                </div>
+            </div>
+
+
         </section>
 
-
         <section class="schedule-section bg-dark section-padding" id="section_projects">
-            <div class="row w3-padding">
+            <!-- <div class="row w3-padding"> -->
 
-                <div class="w3-center">
-                    <h2 class="w3-text-white">Projects</h1>
-                        <h5 class="w3-text-white">Some of my work</h5>
-                        <p class="w3-text-white">Here are some examples of work I can actually share with the world,
-                            since most of it I
-                            cannot.</p>
+            <div class="w3-center">
+                <h2 class="w3-text-white">Projects</h1>
+                    <h5 class="w3-text-white">Some of my work</h5>
+                    <p class="w3-text-white">Here are some examples of work I can actually share with the world,
+                        since most of it I cannot.</p>
 
-                        <div class="w3-cell-row">
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">jQuery Mobile Demo</h6>
-                                    <img class="w3-round"
-                                        src="images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png" alt="">
-                                </a>
-                            </div>
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">Periodic Table Exercise</h6>
-                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/periodictablethumb.png"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">The Children of the Checks</h6>
-                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">Print Pieces</h6>
-                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png"
-                                        alt="">
-                                </a>
-                            </div>
+                    <div class="w3-cell-row">
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">jQuery Mobile Demo</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png"
+                                    alt="">
+                            </a>
                         </div>
-                </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">Periodic Table Exercise</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/periodictablethumb.png"
+                                    alt="">
+                            </a>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">The Children of the Checks</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png" alt="">
+                            </a>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">Print Pieces</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+            </div>
             </div>
         </section>
 
@@ -600,7 +599,7 @@ https://templatemo.com/tm-583-festava-live
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_photos" class="site-footer-link">Photos</a>
+                            <a href="#section_photo" class="site-footer-link">Photos</a>
                         </li>
 
                         <li class="site-footer-link-item">
@@ -678,6 +677,37 @@ https://templatemo.com/tm-583-festava-live
 T e m p l a t e M o
 
 -->
+
+    <!-- Javascripts -->
+
+    <script>
+        var slideIndex = 1;
+        showPhotos(slideIndex);
+
+        function plusPhotos(n) {
+            showPhotos(slideIndex += n);
+        }
+
+        function currentPhoto(n) {
+            showPhotos(slideIndex = n);
+        }
+
+        function showPhotos(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
 
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
