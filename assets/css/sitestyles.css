@@ -381,7 +381,46 @@ footer {
     background-color: black;
     overflow: hidden;
     position: relative;
+    padding-bottom: 1.5rem;
 }
+
+.site-footer-top {
+    background-color: orange;
+    margin-bottom: 4rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: bolder;
+}
+
+.site-footer-bottom {
+    border-top: 2px solid #1f1c1c;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+}
+
+.site-footer-title {
+    color: goldenrod;
+}
+
+.site-footer-link,
+.copyright-text {
+    color: white;
+}
+
+.site-footer-links {
+    padding-left: 0;
+}
+
+.site-footer-link-item {
+    list-style: none;
+    display: inline-block;
+    margin-right: 0.8rem;
+}
+
+.copyright-text {
+    font-size: 0.7rem;
+}
+
 
 /*---------------------------------------
   Under Construction Section
