@@ -16,7 +16,6 @@
     <title>Toby's Home on the Web</title>
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="assets/css/sitestyles.css">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -32,7 +31,9 @@
 
     <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="assets/css/templatemo-festava-live.css" rel="stylesheet">
+    <!-- <link href="assets/css/templatemo-festava-live.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="assets/css/sitestyles.css">
 
     <!--
 
@@ -53,13 +54,22 @@ https://templatemo.com/tm-583-festava-live
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-12 col-12 d-flex flex-wrap">
+                    <div class="col-lg-12 col-12 d-flex flex-wrap justify-content-between">
                         <p class="d-flex me-4 mb-0">
-                            <span class="material-symbols-outlined">
-                                emoji_people
-                            </span>
-                            <strong class="text-dark">Welcome to Toby's Home on the Web</strong>
+                            <span class="material-symbols-outlined">emoji_people</span>
+                            <strong>Welcome to Toby's Home on the Web</strong>
                         </p>
+                        <div class="d-flex">
+                            <a href="homeapp/westwing/westwing.html" target="_blank">
+                                <span class="smallertext">If you're here for the character played by Richard Schiff,
+                                    here's a page of links to help you find him:
+                                </span>
+                            </a>
+                            <a href="homeapp/westwing/westwing.html" target="_blank"
+                                class="btn custom-btn d-lg-block d-none">
+                                West Wing
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -70,12 +80,8 @@ https://templatemo.com/tm-583-festava-live
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    Toby's Pages
+                    <h5>Toby's Pages</h5>
                 </a>
-
-                <!-- This button only shows when the viewing screen is narrow. 
-                <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a>
-                -->
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,54 +91,50 @@ https://templatemo.com/tm-583-festava-live
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            <a class="nav-link click-scroll" href="#">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_2">About</a>
+                            <a class="nav-link click-scroll" href="#section_about">About</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">Photos</a>
+                            <a class="nav-link click-scroll" href="#section_photo">Photos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_4">Projects</a>
+                            <a class="nav-link click-scroll" href="#section_projects">Projects</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_5">Resumé</a>
+                            <a class="nav-link click-scroll" href="#section_resume">Résumé</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_6">Contact</a>
+                            <a class="nav-link click-scroll" href="#section_contact">Contact</a>
                         </li>
                     </ul>
 
-
-                    If you're here for the character played by Richard Schiff, here's a page of links for you:
-                    <a href="homeapp/westwing/westwing.html" target="_blank"
-                        class="btn custom-btn d-lg-block d-none">West Wing</a>
 
                 </div>
             </div>
         </nav>
 
 
-        <section class="hero-section" id="section_1">
-            <div class="section-overlay"></div>
+        <section class="hero-section section-padding" id="section_home">
+            <div class="section-overlay-dark"></div>
 
             <div class="container d-flex justify-content-center align-items-center">
                 <div class="row">
 
-                    <div class="col-12 mt-auto mb-5 text-center">
+                    <div class="col-12 mt-auto mb-5 text-center w3-text-white">
                         <small>Welcome to the personal pages of</small>
 
                         <h1 class="w3-text-white mb-5">Toby Ziegler</h1>
 
                         <!--
                             Disabling button to jump to another section.
-                        <a class="btn custom-btn smoothscroll" href="#section_2">Let's begin</a>
+                        <a class="btn custom-btn smoothscroll" href="#section_about">Let's begin</a>
                         -->
                     </div>
 
@@ -146,36 +148,17 @@ https://templatemo.com/tm-583-festava-live
 
                         <div class="location-wrap mx-auto py-3 py-lg-0">
                             <a href="https://www.nps.gov/cave/" target="_blank">
-                                <p class="w3-text-white">
-                                    <span class="material-symbols-outlined">
-                                        travel_explore
-                                    </span> Leaving Carlsbad Caverns National Park
+                                <p>
+                                    <span class="material-symbols-outlined">travel_explore</span>
+                                    Leaving Carlsbad Caverns National Park
                                 </p>
                             </a>
                         </div>
 
                         <div class="social-share">
-                            <ul class="social-icon d-flex align-items-center justify-content-center">
-                                <span class="w3-text-white me-3">Share:</span>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link">
-                                        <span class="bi-facebook"></span>
-                                    </a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link">
-                                        <span class="bi-twitter"></span>
-                                    </a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link">
-                                        <span class="bi-instagram"></span>
-                                    </a>
-                                </li>
-                            </ul>
+                            <a href="#section_about">
+                                <span>Wait! There's more! </span>
+                                <span class="material-symbols-outlined largetext lowtext">south</span> </a>
                         </div>
                     </div>
                 </div>
@@ -191,42 +174,46 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="about-section section-padding" id="section_2">
+        <section class="about-section section-padding" id="section_about">
+            <!-- style="background-image: url('images/backgrounds/valentine2018flowersblurred.jpg');"> -->
+            <div class="section-overlay-light"></div>
             <div class="container">
                 <div class="row">
 
                     <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
-                        <div class="services-info">
-                            <h2 class="w3-text-white mb-4">A bit about this guy...</h2>
+                        <div class="services-info w3-text-white">
+                            <h2>A bit about this guy...</h2>
 
-                            <p class="w3-text-white">I started as an Aerospace Engineer.</p>
+                            <p>I started as an Aerospace Engineer.</p>
 
-                            <p class="w3-text-white">While still young and full of doubts, I changed my career and
+                            <p>While still young and full of doubts, I changed my career and
                                 became a Graphic Designer. I've followed that path for quite a while now.</p>
 
-                            <h6 class="w3-text-white mt-4">I did a lot of school.</h6>
+                            <h5>I did a lot of school.</h5>
 
-                            <p class="w3-text-white">I eventually ended up with degrees in Engineering, Computer
+                            <p>I eventually ended up with degrees in Engineering, Computer
                                 Science, Technology Management, and half a Master's.</p>
 
-                            <h6 class="w3-text-white mt-4">I am big on friends.</h6>
+                            <h5>I am big on friends.</h5>
 
-                            <p class="w3-text-white">Most of my favorite activities include time with my friends.
+                            <p>Most of my favorite activities include time with my friends.
                                 Sharing dinner, movies, drinks or excursions usually involves one or more of our
                                 friends.</p>
-                            <p class="w3-text-white">Life is good that way.</p>
+                            <p>Life is good that way.</p>
 
-                            <h6 class="w3-text-white mt-4">I am a geek.</h6>
+                            <h5>I am a geek.</h5>
 
-                            <p class="w3-text-white">I try to be the social, friendly, not-offputting kind of geek,
+                            <p>I try to be the social, friendly, not-offputting kind of geek,
                                 but I am unapologetically geek, through and through.</p>
 
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-12">
-                        <div class="about-text-wrap">
+                        <div class="about-text-wrap" style="z-index: 9;">
                             <img src="images/artphotos/pinewoodsurfboard.jpg" class="about-image img-fluid">
+                            <figcaption>The aerodynamic nature of this surfboard Pinewood Derby entry might not be
+                                completely coincidental.</figcaption>
 
                             <!-- interesting overlay, but in the way for now.
 
@@ -249,102 +236,102 @@ https://templatemo.com/tm-583-festava-live
             </div>
         </section>
 
+        <section class="photo-section" id="section_photo">
+            <div class="w3-container w3-center w3-text-white">
+                <h2>Meet the Photos</h1>
+                    <p>Just some photos I snapped and felt worth sharing.</p>
+            </div>
 
-        <section class="ticket-section section-padding" id="section_3">
-            <div class="w3-container">
+            <div class="w3-content w3-display-container w3-center">
+                <figure class="mySlides"><img src="images/artphotos/luaufire2007-10-30.jpg" style="min-width: 100%;">
+                    <figcaption>Fire in the dark has a beauty all its own.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/artphotos/atriumceiling2015-07-01.jpg" style="width:100%;">
+                    <figcaption>A cruise ship's atrium can be fascinating.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/artphotos/sunshineray2015-07-09.jpg" style="width:100%;">
+                    <figcaption>Random rays of sunshine are often beautiful.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/cardinalstarwarsnite.jpg" style="width:100%;">
+                    <figcaption>Star Wars night at Busch Stadium.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/eveningcloudscape.jpg" style="width:100%;">
+                    <figcaption>Even from a parking lot, interesting scenery abounds.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/greenhousestatesunset.jpg" style="width:100%;">
+                    <figcaption>Sunset sky in woods surrounded by an unseen city.</figcaption>
+                </figure>
+                <figure class="mySlides"><img src="images/backgrounds/valentine2018flowers.jpg" style="width:100%;">
+                    <figcaption>Valentine's Day. 'Nuff said.</figcaption>
+                </figure>
 
-                <div class="w3-container w3-center">
-                    <h2>Meet the Photos</h1>
-                        <h6>Just some photos I snapped and felt worth sharing.</h6>
-                        <p>Holdover for descriptions, if you'd like.</p>
+                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+                    style="width:100%">
+                    <div class="w3-left w3-hover-text-khaki" onclick="plusPhotos(-1)">&#10094;</div>
+                    <div class="w3-right w3-hover-text-khaki" onclick="plusPhotos(1)">&#10095;</div>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(1)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(2)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(3)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(4)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(5)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(6)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                        onclick="currentPhoto(7)"></span>
                 </div>
+            </div>
 
-                <div class="w3-cell-row w3-center">
-                    <div class="w3-container w3-cell w3-mobile">
-                        <img class="w3-image w3-round-large w3-margin"
-                            src="images/artphotos/atriumceiling2015-07-01.jpg">
 
-                        <div class="artists-hover">
-                            <p>
-                                How often do you just look straight up?<br>
-                                Here is an atrium on a cruise ship I found fascinating.
-                            </p>
+        </section>
+
+        <section class="schedule-section bg-dark section-padding" id="section_projects">
+            <!-- <div class="row w3-padding"> -->
+
+            <div class="w3-center">
+                <h2 class="w3-text-white">Projects</h1>
+                    <h5 class="w3-text-white">Some of my work</h5>
+                    <p class="w3-text-white">Here are some examples of work I can actually share with the world,
+                        since most of it I cannot.</p>
+
+                    <div class="w3-cell-row">
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">jQuery Mobile Demo</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png"
+                                    alt="">
+                            </a>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">Periodic Table Exercise</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/periodictablethumb.png"
+                                    alt="">
+                            </a>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">The Children of the Checks</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png" alt="">
+                            </a>
+                        </div>
+                        <div class="w3-container w3-cell w3-mobile">
+                            <a href="underconstruction.html" target="_blank">
+                                <h6 class="w3-center w3-text-white">Print Pieces</h6>
+                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png" alt="">
+                            </a>
                         </div>
                     </div>
-
-                    <div class="w3-container w3-cell w3-mobile">
-                        <img class="w3-image w3-round-large w3-margin" src="images/artphotos/sunshineray2015-07-09.jpg">
-
-                        <div class="artists-hover">
-                            <p>
-                                Random rays of sunshine can be beautiful.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w3-cell-row w3-center">
-                    <div class="w3-container w3-cell w3-mobile">
-                        <img class="w3-image w3-round-large w3-margin" src="images/artphotos/luaufire2007-10-30.jpg">
-
-                        <div class="artists-hover">
-                            <p>
-                                It was dark. I wasn't sure how it would come out. I think it did pretty well.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+            </div>
             </div>
         </section>
 
 
-        <section class="schedule-section bg-dark section-padding" id="section_4">
-            <div class="row w3-padding">
-
-                <div class="w3-center">
-                    <h2 class="w3-text-white">Projects</h1>
-                        <h5 class="w3-text-white">Some of my work</h5>
-                        <p class="w3-text-white">Here are some examples of work I can actually share with the world,
-                            since most of it I
-                            cannot.</p>
-
-                        <div class="w3-cell-row">
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">jQuery Mobile Demo</h6>
-                                    <img class="w3-round"
-                                        src="images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png" alt="">
-                                </a>
-                            </div>
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">Periodic Table Exercise</h6>
-                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/periodictablethumb.png"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">The Children of the Checks</h6>
-                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="w3-container w3-cell w3-mobile">
-                                <a href="homeapp/underconstruction/inprogresspage.html" target="_blank">
-                                    <h6 class="w3-center w3-text-white">Print Pieces</h6>
-                                    <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png"
-                                        alt="">
-                                </a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="w3-container section-padding" id="section_5">
+        <section class="w3-container section-padding" id="section_resume">
             <div class="w3-container w3-padding-large">
                 <div class="row">
                     <h2 class="w3-center">Résumé</h2>
@@ -512,11 +499,11 @@ https://templatemo.com/tm-583-festava-live
         </section>
 
 
-        <section class="w3-container w3-pale-green section-padding" id="section_6">
+        <section class="w3-container w3-pale-green section-padding" id="section_contact">
             <!-- Container (Contact Section) -->
             <div class="w3-content w3-container w3-padding l12 m12 s12" id="contact" ng-hide="subpart.toggle">
-                <h3 class="w3-center">Where I am.</h3>
-                <p class="w3-center"><em>I welcome your feedback!</em></p>
+                <h3 class="w3-center">Where in the world . . .</h3>
+                <!-- <p class="w3-center"><em>I welcome your feedback!</em></p> -->
 
                 <div class="w3-row w3-padding-32 w3-section">
                     <div class="w3-col m7 w3-container">
@@ -558,7 +545,8 @@ https://templatemo.com/tm-583-festava-live
                                 </a>
                             </span>
                         </div>
-                        <p>Send me a note!</p>
+
+                        <!-- <p>Send me a note!</p>
                         <form action="/action_page.php" target="_blank">
                             <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                                 <div class="w3-half">
@@ -574,7 +562,7 @@ https://templatemo.com/tm-583-festava-live
                             <button class="w3-button w3-black w3-right w3-section" type="submit">
                                 <i class="fa-regular fa-paper-plane w3-text-white"></i> SEND MESSAGE
                             </button>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>
@@ -582,7 +570,7 @@ https://templatemo.com/tm-583-festava-live
     </main>
 
 
-    <footer class="site-footer">
+    <footer>
         <div class="site-footer-top">
             <div class="container">
                 <div class="row">
@@ -591,39 +579,6 @@ https://templatemo.com/tm-583-festava-live
                         <h2 class="w3-text-white mb-lg-0">The End</h2>
                     </div>
 
-                    <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
-                        <ul class="social-icon d-flex justify-content-lg-end">
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link">
-                                    <span class="bi-twitter"></span>
-                                </a>
-                            </li>
-
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link">
-                                    <span class="bi-apple"></span>
-                                </a>
-                            </li>
-
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link">
-                                    <span class="bi-instagram"></span>
-                                </a>
-                            </li>
-
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link">
-                                    <span class="bi-youtube"></span>
-                                </a>
-                            </li>
-
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link">
-                                    <span class="bi-pinterest"></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -636,27 +591,27 @@ https://templatemo.com/tm-583-festava-live
 
                     <ul class="site-footer-links">
                         <li class="site-footer-link-item">
-                            <a href="#section_1" class="site-footer-link">Home</a>
+                            <a href="#" class="site-footer-link">Home</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_2" class="site-footer-link">About</a>
+                            <a href="#section_about" class="site-footer-link">About</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_3" class="site-footer-link">Photos</a>
+                            <a href="#section_photo" class="site-footer-link">Photos</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_4" class="site-footer-link">Projects</a>
+                            <a href="#section_projects" class="site-footer-link">Projects</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_5" class="site-footer-link">Resumé</a>
+                            <a href="#section_resume" class="site-footer-link">Resumé</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#section_6" class="site-footer-link">Contact</a>
+                            <a href="#section_contact" class="site-footer-link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -682,45 +637,38 @@ https://templatemo.com/tm-583-festava-live
                     <p class="w3-text-white d-flex mt-3 mb-2">
                         Thanks for visiting!</p>
 
+                    <!-- examine festava link classes for hover, sizing issues, etc. --top and bottom now -->
                     <a class="link-fx-1 color-contrast-higher mt-3" href="#">
                         <span>Back to the top.</span>
-                        <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
+                        <span class="material-symbols-outlined largetext lowtext">input_circle</span>
+
+                        <!-- <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="16" cy="16" r="15.5"></circle>
                                 <line x1="10" y1="18" x2="16" y2="12"></line>
                                 <line x1="16" y1="12" x2="22" y2="18"></line>
                             </g>
-                        </svg>
+                        </svg> -->
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="site-footer-bottom">
-            <div class="container">
-                <div class="row">
+            <div class="w3-container w3-cell-row w3-middle">
 
-                    <div class="col-lg-3 col-12 mt-5">
-                        <p class="copyright-text">Copyright © 2024</p>
-                        <p class="copyright-text">Base code courtesy: <a href="https://themewagon.com">ThemeWagon</a>
-                        </p>
-                    </div>
+                <!-- <div class="col-lg-3 col-12 mt-5"> -->
+                <div class="w3-container w3-cell">
+                    <p class="copyright-text">Copyright © 2024</p>
+                </div>
 
-                    <div class="col-lg-8 col-12 mt-lg-5">
-                        <ul class="site-footer-links">
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Terms &amp; Conditions</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Privacy Policy</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Your Feedback</a>
-                            </li>
-                        </ul>
-                    </div>
+                <!-- <div class="col-lg-8 col-12 mt-lg-5"> -->
+                <div class="w3-container w3-cell w3-center">
+                    <h6 class="w3-text-gray">Under Construction</h6 class="w3-text-white">
+                </div>
+                <div class="w3-container w3-cell w3-right-align">
+                    <p class="copyright-text">Base code courtesy: <a href="https://themewagon.com">ThemeWagon</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -731,6 +679,37 @@ https://templatemo.com/tm-583-festava-live
 T e m p l a t e M o
 
 -->
+
+    <!-- Javascripts -->
+
+    <script>
+        var slideIndex = 1;
+        showPhotos(slideIndex);
+
+        function plusPhotos(n) {
+            showPhotos(slideIndex += n);
+        }
+
+        function currentPhoto(n) {
+            showPhotos(slideIndex = n);
+        }
+
+        function showPhotos(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
 
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
