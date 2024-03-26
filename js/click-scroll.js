@@ -1,7 +1,7 @@
 //jquery-click-scroll
 //by syamsul'isul' Arifin
 
-var sectionArray = [1, 2, 3, 4, 5, 6];
+var sectionArray = [home, about, photos, projects, resume, contact];
 
 $.each(sectionArray, function(index, value){
           
