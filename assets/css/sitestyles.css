@@ -5,7 +5,7 @@ body {
     padding: 0;
     width: 100%;
     background-color: #f0f0f0;
-    color: #383D43;
+    color: #292929;
     font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
@@ -32,7 +32,7 @@ h6 {
 p,
 ul,
 li {
-    color: dimgray;
+    color: #292929;
 }
 
 .smallertext {
@@ -154,7 +154,7 @@ a:hover {
 }
 
 .navbar-toggler .navbar-toggler-icon {
-    background: var(--white-color);
+    background: white;
     transition: background 10ms 300ms ease;
     display: block;
     width: 1.5rem;
@@ -170,7 +170,7 @@ a:hover {
     position: absolute;
     right: 0;
     left: 0;
-    background: var(--white-color);
+    background: white;
     width: 1.5rem;
     height: 0.1rem;
     content: '';
@@ -206,7 +206,8 @@ section {
     position: relative;
 }
 
-section+.container {
+section+.container,
+section+.w3-container {
     z-index: 2;
 }
 
@@ -218,7 +219,7 @@ section+.container {
     pointer-events: none;
     width: 100%;
     height: 100%;
-    opacity: 0.65;
+    opacity: 0.35;
     z-index: 1;
 }
 
@@ -230,8 +231,8 @@ section+.container {
     pointer-events: none;
     width: 100%;
     height: 100%;
-    opacity: 0.10;
-    z-index: 1;
+    opacity: 0.30;
+    z-index: -1;
 }
 
 .section-overlay+.container {
@@ -284,6 +285,7 @@ section+.container {
 .about-section {
     background-image: url('/images/backgrounds/valentine2018flowersblurred.jpg');
     background-color: palegoldenrod;
+    z-index: -9;
 }
 
 .about-image {
@@ -336,6 +338,13 @@ section+.container {
   Resume Section
 -----------------------------------------*/
 
+.resume-section {
+    padding: 5rem 3rem;
+}
+
+.resume-section li {
+    margin-bottom: 1rem;
+}
 
 /*---------------------------------------
   Contact Section
