@@ -92,9 +92,9 @@ svg.material-icons:not(:last-child) {
     border: 3px solid #eee;
     background-color: #fafafa;
     height: 2rem;
-    width: 10rem;
+    width: 13rem;
     margin: 0 0.5rem 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -109,7 +109,7 @@ svg.material-icons:not(:last-child) {
 
 .card.card-small {
     height: 1rem;
-    width: 8.5rem;
+    width: 11rem;
 }
 
 .card-container .card:not(.highlight-card) {
@@ -140,10 +140,10 @@ svg.material-icons:not(:last-child) {
 }
 
 svg#rocket {
-    width: 4rem;
+    width: 3.5rem;
     position: absolute;
     left: -1rem;
-    top: -1rem;
+    top: -1.5rem;
 }
 
 svg#rocket-smoke {
