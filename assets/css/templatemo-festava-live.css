@@ -824,7 +824,7 @@ strong {
 /*---------------------------------------
   SITE FOOTER              
 -----------------------------------------*/
-.site-footer {
+/* .site-footer {
   background-color: var(--dark-color);
   position: relative;
   overflow: hidden;
@@ -866,7 +866,7 @@ strong {
 
 .copyright-text {
   font-size: var(--copyright-font-size);
-}
+} */
 
 
 /*---------------------------------------
