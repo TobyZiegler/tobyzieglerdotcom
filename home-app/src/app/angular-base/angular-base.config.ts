@@ -3,6 +3,6 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './angular-base.routes';
 
-export const appConfig: ApplicationConfig = {
+export const angularbaseConfig: ApplicationConfig = {
   providers: [provideRouter(routes)]
 };
