@@ -7,6 +7,8 @@ struct TobyZieglerSite: Website {
     enum SectionID: String, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
         case posts
+        case about
+        case dadabase
     }
 
     struct ItemMetadata: WebsiteItemMetadata {
@@ -19,6 +21,17 @@ struct TobyZieglerSite: Website {
     var description = "An experiment in web development using Swift"
     var language: Language { .english }
     var imagePath: Path? { nil }
+}
+// Theme definition here
+public extension Theme {
+    /// The default "Foundation" theme that Publish ships with, a very
+    /// basic theme mostly implemented for demonstration purposes.
+    static var foundation: Self {
+        Theme(
+            htmlFactory: TobyThemeHTMLFactory(),
+            resourcePaths: ["Resources/FoundationTheme/styles.css"]
+        )
+    }
 }
 
 // This will generate your website using the built-in Foundation theme:
