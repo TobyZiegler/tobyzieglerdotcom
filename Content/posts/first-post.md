@@ -5,6 +5,6 @@ tags: first, article
 ---
 # My first post
 
-My first post's text.
+A way to say "Hello".
 
 Hello world.

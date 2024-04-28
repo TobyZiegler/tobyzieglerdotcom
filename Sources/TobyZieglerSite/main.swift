@@ -1,3 +1,9 @@
+/**
+*  Page by Toby Ziegler
+*  Created 2024-04-25
+*  Updated 2024-04-26
+*/
+
 import Foundation
 import Publish
 import Plot
@@ -22,17 +28,6 @@ struct TobyZieglerSite: Website {
     var language: Language { .english }
     var imagePath: Path? { nil }
 }
-// Theme definition here
-public extension Theme {
-    /// The default "Foundation" theme that Publish ships with, a very
-    /// basic theme mostly implemented for demonstration purposes.
-    static var foundation: Self {
-        Theme(
-            htmlFactory: TobyThemeHTMLFactory(),
-            resourcePaths: ["Resources/FoundationTheme/styles.css"]
-        )
-    }
-}
 
-// This will generate your website using the built-in Foundation theme:
-try TobyZieglerSite().publish(withTheme: .foundation)
+// This uses Publish to generate the website:
+try TobyZieglerSite().publish(withTheme: .tobyTheme)
