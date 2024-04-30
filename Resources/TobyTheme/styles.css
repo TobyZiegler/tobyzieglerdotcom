@@ -6,7 +6,7 @@
 
 * {
     margin: 0;
-/*    padding: 0;*/
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    margin-bottom: 0.7rem;
+    margin-bottom: 1rem;
 }
 
 a {
@@ -83,14 +83,16 @@ a {
 
 ul, ol {
     margin-bottom: 1.5rem;
+    padding: 0.5rem;
 }
 
 li {
     margin: 0.5rem;
+    padding: 0 0.5rem;
 }
 
 .description {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .item-list > li {
@@ -123,9 +125,9 @@ li {
     display: inline-block;
     background-color: #020;
     color: #0b0;
-    padding: 0.2rem 0.2rem;
+    padding: 0.2rem 0.4rem;
     border-radius: 0.2rem;
-    margin-right: 0.2rem;
+    margin-right: 0.3rem;
 }
 
 .tag-list a,
@@ -147,7 +149,7 @@ li {
 }
 
 .all-tags li {
-    font-size: 1.4em;
+/*    font-size: 1.4em;*/
     margin-right: 0.7rem;
     padding: 0.4rem 0.7rem;
 }
