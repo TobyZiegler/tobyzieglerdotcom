@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search Dad Jokes</h2>
+<form method="POST">
+    <input type="text" name="query" placeholder="Enter keyword..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+{% if query %}
+<h3>Results for "{{ query }}":</h3>
+{% if results %}
+{% for joke in results %}
+<div class="joke-box">
+    <p>{{ joke.text }}</p>
+    <small>— {{ joke.author }}</small>
+</div>
+{% endfor %}
+{% else %}
+<p>No jokes found.</p>
+{% endif %}
+{% endif %}
+{% endblock %}

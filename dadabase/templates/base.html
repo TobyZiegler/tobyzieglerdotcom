@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Dad-a-Base{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Dad-a-Base of Dad Jokes</h1>
+        <nav>
+            <a href="/dadabase/templates/home.html">Home</a> |
+            <a href="/dadabase/templates/browse.html">Browse Jokes</a> |
+            <a href="/dadabase/templates/submit.html">Submit a Joke</a> |
+            <a href="/dadabase/templates/search.html">Search</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p><small>© {{ 2025 }} Dad-a-Base. Powered by bad puns.</small></p>
+    </footer>
+</body>
+
+</html>

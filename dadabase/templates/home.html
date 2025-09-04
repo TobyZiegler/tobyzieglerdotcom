@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Dad-a-Base{% endblock %}
+
+{% block content %}
+<h3>Welcome to the</h3>
+<h1>Dad-a-Base</h1>
+<h4>of Dad Jokes!</h4>
+<div class="joke-box">
+    <h2>{{ joke }}</h2>
+    <p>— {{ author }}</p>
+    <button onclick="window.location.reload()">Another Joke</button>
+</div>
+{% endblock %}
