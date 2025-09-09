@@ -24,7 +24,7 @@ class Joke(db.Model):
 # ROUTES
 # -----------------------------
 @app.route("/")
-def home():
+def index():
     jokes = Joke.query.all()
     if not jokes:
         return render_template("index.html", joke="No jokes in the Dad-a-Base yet!", author="System")
@@ -32,13 +32,22 @@ def home():
     return render_template("index.html", joke=joke.text, author=joke.author)
 
 
-@app.route("/browse")
+@app.route("/dadabase/")
+def home():
+    jokes = Joke.query.all()
+    if not jokes:
+        return render_template("home.html", joke="No jokes in the Dad-a-Base yet!", author="System")
+    joke = random.choice(jokes)
+    return render_template("home.html", joke=joke.text, author=joke.author)
+
+
+@app.route("/dadabase/browse")
 def browse():
     jokes = Joke.query.order_by(Joke.id.desc()).all()
     return render_template("browse.html", jokes=jokes)
 
 
-@app.route("/search", methods=["GET", "POST"])
+@app.route("/dadabase/search", methods=["GET", "POST"])
 def search():
     results = []
     query = ""
@@ -48,7 +57,7 @@ def search():
     return render_template("search.html", results=results, query=query)
 
 
-@app.route("/submit", methods=["GET", "POST"])
+@app.route("/dadabase/submit", methods=["GET", "POST"])
 def submit():
     if request.method == "POST":
         text = request.form["text"]
@@ -61,7 +70,7 @@ def submit():
     return render_template("submit.html")
 
 
-@app.route("/about")
+@app.route("/dadabase/about")
 def about():
     return render_template("about.html")
 
