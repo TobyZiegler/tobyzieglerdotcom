@@ -25,17 +25,17 @@ def init_db():
         models.db.create_all()
     print("Initialized the database.")
 
-    @app.cli.command("seed-db")
+@app.cli.command("seed-db")
 def seed_db():
     with app.app_context():
         """"Seed the database with starter jokes."""
         from dadabase.models import Joke, db
         jokes = [
-            {"I'm afraid for the calendar. Its days are numbered", "author": "Seeder Dad"},
-            {"I only know 25 letters of the alphabet. I don't know y.", "author": "Seeder Dad"},
-            {"What do a tick and the Eiffel Tower have in common? They're both Paris sites.", "author": "Seeder Dad"},
-            {"Why don't eggs tell jokes? They'd crack each other up.", "author": "Seeder Dad"},
-            {"What do you call fake spaghetti? An impasta.", "author": "Seeder Dad"}
+            {"I'm afraid for the calendar. Its days are numbered", "Seeder Dad"},
+            {"I only know 25 letters of the alphabet. I don't know y.", "Seeder Dad"},
+            {"What do a tick and the Eiffel Tower have in common? They're both Paris sites.", "Seeder Dad"},
+            {"Why don't eggs tell jokes? They'd crack each other up.", "Seeder Dad"},
+            {"What do you call fake spaghetti? An impasta.", "Seeder Dad"}
         ]
         for line in jokes:
             if not Joke.query.filter_by(content=line).first():
