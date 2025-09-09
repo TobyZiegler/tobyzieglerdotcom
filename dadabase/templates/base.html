@@ -10,10 +10,11 @@
     <header>
         <h1>Dad-a-Base of Dad Jokes</h1>
         <nav>
-            <a href="/dadabase/templates/home.html">Home</a> |
-            <a href="/dadabase/templates/browse.html">Browse Jokes</a> |
-            <a href="/dadabase/templates/submit.html">Submit a Joke</a> |
-            <a href="/dadabase/templates/search.html">Search</a>
+            <a href="{{ url_for('dadabase.home') }}">Home</a> |
+            <a href="{{ url_for('dadabase.browse') }}">Browse Jokes</a> |
+            <a href="{{ url_for('dadabase.submit') }}">Submit a Joke</a> |
+            <a href="{{ url_for('dadabase.search') }}">Search</a>
+            <a href="{{ url_for('dadabase.about') }}">About</a>
         </nav>
     </header>
 
