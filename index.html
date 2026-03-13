@@ -1,723 +1,1495 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toby Ziegler — Designer, Director, Builder</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..500&display=swap"
+        rel="stylesheet" />
 
-    <meta name="description" content="Index page for TobyZiegler.com">
-    <meta name="author" content="Toby Ziegler">
+    <style>
+        /* ─── CSS Variables ─────────────────────────────────── */
+        :root {
+            --bg: #F5F0E8;
+            /* warm parchment */
+            --bg-dark: #1C1712;
+            /* near-black, warm undertone */
+            --text: #2C1F14;
+            /* deep espresso */
+            --text-muted: #6B5744;
+            /* mid-brown */
+            --accent-green: #3A5C3B;
+            /* forest green */
+            --accent-burg: #7B2D3A;
+            /* burgundy / oxblood */
+            --white-soft: #FAF7F2;
+            /* breathing room */
+            --rule: rgba(44, 31, 20, 0.15);
+
+            --font-display: 'Fraunces', serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        /* ─── Reset & Base ──────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── Noise Texture Overlay ─────────────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+        }
+
+        /* ─── Nav ───────────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.4rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            transition: background 0.4s ease, backdrop-filter 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(245, 240, 232, 0.88);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.2s forwards;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.4s forwards;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        /* ─── Hero ──────────────────────────────────────────── */
+        #hero {
+            position: relative;
+            min-height: 100svh;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            padding: 0 3rem;
+            overflow: hidden;
+        }
+
+        /* Large decorative "T" watermark */
+        .hero-watermark {
+            position: absolute;
+            top: -0.15em;
+            right: -0.08em;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 800;
+            font-size: clamp(32rem, 60vw, 80rem);
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(44, 31, 20, 0.13);
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Thin horizontal rule — top of hero content area */
+        .hero-rule-top {
+            position: absolute;
+            top: 50%;
+            left: 3rem;
+            right: 3rem;
+            height: 1px;
+            background: var(--rule);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: scaleIn 1s ease 0.8s forwards;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 12vh;
+            padding-bottom: 4vh;
+            max-width: 900px;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.5s forwards;
+        }
+
+        .hero-eyebrow-line {
+            width: 2.5rem;
+            height: 1.5px;
+            background: var(--accent-green);
+            flex-shrink: 0;
+        }
+
+        .hero-eyebrow-text {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 6.5vw, 6rem);
+            line-height: 1.08;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 2rem;
+        }
+
+        /* Each word-group fades up in sequence */
+        .hero-headline .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-headline .line-inner {
+            display: block;
+            opacity: 0;
+            transform: translateY(1.2em);
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-headline .line:nth-child(1) .line-inner {
+            animation-delay: 0.65s;
+        }
+
+        .hero-headline .line:nth-child(2) .line-inner {
+            animation-delay: 0.82s;
+        }
+
+        .hero-headline .line:nth-child(3) .line-inner {
+            animation-delay: 0.99s;
+        }
+
+        .hero-headline .line:nth-child(4) .line-inner {
+            animation-delay: 1.16s;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--accent-green);
+        }
+
+        .hero-headline .mark-burg {
+            font-style: italic;
+            color: var(--accent-burg);
+        }
+
+        .hero-sub {
+            max-width: 560px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.45s forwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.5s forwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.9rem;
+            background: var(--accent-green);
+            color: var(--white-soft);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border: 2px solid var(--accent-green);
+            border-radius: 6px;
+            transition: background 0.22s, color 0.22s, transform 0.18s;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.9rem;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border: 2px solid var(--rule);
+            border-radius: 6px;
+            transition: border-color 0.22s, color 0.22s, transform 0.18s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-burg);
+            color: var(--accent-burg);
+            transform: translateY(-2px);
+        }
+
+        .btn-arrow {
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:hover .btn-arrow,
+        .btn-secondary:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ─── Hero Footer Bar ───────────────────────────────── */
+        .hero-footer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 2.2rem;
+            border-top: 1px solid var(--rule);
+            padding-top: 1.4rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.7s forwards;
+        }
+
+        .hero-footer-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .hero-scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scroll-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            writing-mode: vertical-rl;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 3rem;
+            background: linear-gradient(to bottom, var(--accent-green), transparent);
+            animation: scrollPulse 2.2s ease-in-out infinite 2s;
+        }
+
+        /* ─── Accent bracket decoration ────────────────────── */
+        .hero-bracket {
+            position: absolute;
+            top: 50%;
+            right: 3rem;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.8s forwards;
+            z-index: 1;
+        }
+
+        .bracket-item {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            opacity: 0.6;
+            text-align: right;
+        }
+
+        .bracket-item.active {
+            color: var(--accent-burg);
+            opacity: 1;
+        }
+
+        .bracket-rule {
+            width: 1.5rem;
+            height: 1.5px;
+            background: var(--accent-burg);
+            margin-left: auto;
+        }
+
+        /* ─── Keyframes ─────────────────────────────────────── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(1.2em);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scaleX(0);
+            }
+
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes scrollPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+
+            50% {
+                opacity: 0.3;
+                transform: scaleY(0.6);
+            }
+        }
+
+        /* ─── About Section ─────────────────────────────────── */
+        #about {
+            position: relative;
+            padding: 9rem 3rem;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        /* Large decorative numeral */
+        .about-watermark {
+            position: absolute;
+            bottom: -0.25em;
+            left: -0.05em;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 800;
+            font-size: clamp(18rem, 35vw, 48rem);
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(44, 31, 20, 0.06);
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .about-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 6rem;
+            max-width: 1100px;
+        }
+
+        /* Left column — label + decorative element */
+        .about-label-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-top: 0.4rem;
+        }
+
+        .about-section-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .about-section-tag .tag-line {
+            width: 2.5rem;
+            height: 1.5px;
+            background: var(--accent-burg);
+            flex-shrink: 0;
+        }
+
+        .about-section-tag .tag-text {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-burg);
+        }
+
+        .about-heading-aside {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        .about-heading-aside em {
+            font-style: italic;
+            color: var(--accent-green);
+        }
+
+        /* Vertical decorative rule */
+        .about-vert-rule {
+            width: 1.5px;
+            height: 5rem;
+            background: linear-gradient(to bottom, var(--accent-burg), transparent);
+            margin-top: auto;
+        }
+
+        /* Right column — content */
+        .about-content-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+        }
+
+        .about-lede {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+            font-weight: 300;
+            line-height: 1.45;
+            letter-spacing: -0.015em;
+            color: var(--text);
+        }
+
+        .about-lede em {
+            font-style: italic;
+            color: var(--accent-green);
+        }
+
+        .about-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .about-body p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+        }
+
+        .about-body p strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Pull quote */
+        .about-pullquote {
+            border-left: 3px solid var(--accent-green);
+            padding: 0.8rem 0 0.8rem 1.8rem;
+            margin: 0.5rem 0;
+        }
+
+        .about-pullquote p {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text) !important;
+        }
+
+        /* Credentials strip */
+        .about-credentials {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 1rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .credential {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .credential-value {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1;
+            color: var(--text);
+        }
+
+        .credential-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ─── Placeholder sections (to be built) ───────────── */
+        .section-placeholder {
+            padding: 8rem 3rem;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .section-placeholder::before {
+            content: '';
+            width: 2rem;
+            height: 1.5px;
+            background: var(--rule);
+            flex-shrink: 0;
+        }
+
+        /* ─── Projects Section ──────────────────────────────── */
+        #projects {
+            position: relative;
+            padding: 9rem 3rem;
+            background-color: #FFE4C4;
+            overflow: hidden;
+        }
+
+        /* No overlay on light background */
+        #projects::before {
+            display: none;
+        }
 
 
-    <!-- Favicons courtesy freefavicon, https://www.freefavicon.com/freefavicons/food/iconinfo/green-apple-152-238164.html -->
-    <link rel="icon" href="homeapp/common/images_common/greenapple/favicon.ico">
+        .projects-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(44, 31, 20, 0.12);
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
 
-    <title>Toby's Home on the Web</title>
+        .projects-header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
 
-    <!-- CSS FILES -->
+        .projects-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        .projects-tag .tag-line {
+            width: 2.5rem;
+            height: 1.5px;
+            background: var(--accent-green);
+            flex-shrink: 0;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        .projects-tag .tag-text {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+        }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        .projects-heading {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--text);
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        .projects-count {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.9rem;
+            color: rgba(44, 31, 20, 0.45);
+            white-space: nowrap;
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+        /* ─── Live Joke Card — matches .joke-spotlight on Dad-a-Base ── */
+        .joke-card {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem;
+            background: transparent;
+        }
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        /* The spotlight card itself */
+        .joke-spotlight-embed {
+            background: #FFFEF9;
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(44, 31, 22, 0.25);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 440px;
+        }
 
-    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        /* Giant decorative quote mark — exact match */
+        .joke-spotlight-embed::before {
+            content: '\201C';
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 12rem;
+            line-height: 0.7;
+            color: #E8DFD0;
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            pointer-events: none;
+        }
 
-    <!-- <link href="assets/css/templatemo-festava-live.css" rel="stylesheet"> -->
+        .joke-spotlight-embed .spotlight-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #5C4D3C;
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-    <link rel="stylesheet" href="assets/css/sitestyles.css">
+        .joke-spotlight-embed .joke-setup-text {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0F0804;
+            margin-bottom: 16px;
+            position: relative;
+            min-height: 64px;
+        }
 
-    <!--
+        .joke-spotlight-embed .joke-punchline-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            color: #2E1F12;
+            font-style: italic;
+            font-weight: 400;
+            position: relative;
+            min-height: 48px;
+        }
 
-        This page was modified starting with a template from themewagon.com:
+        .joke-spotlight-embed .spotlight-footer {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-TemplateMo 583 Festava Live
+        .joke-spotlight-embed .vote-inline {
+            display: flex;
+            gap: 8px;
+        }
 
-https://templatemo.com/tm-583-festava-live
+        .joke-spotlight-embed .vote-btn-sm {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            border: 1px solid #C8BAA8;
+            background: #FAF7F2;
+            color: #2E1F12;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            cursor: default;
+            font-style: normal;
+        }
 
--->
+        .joke-spotlight-embed .next-joke-link {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            color: #5C4D3C;
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .joke-spotlight-embed .next-joke-link:hover {
+            color: #0F0804;
+            text-decoration: underline;
+        }
+
+        /* ─── Bookcase ───────────────────────────────────────── */
+        .bookcase {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2.8rem;
+        }
+
+        .bc-upright {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2.2rem;
+            background: linear-gradient(180deg, #C15A28 0%, #A84E22 50%, #8F3F18 100%);
+            border: 1px solid #1a0a00;
+            z-index: 2;
+        }
+
+        .bc-upright-left {
+            left: 0;
+        }
+
+        .bc-upright-right {
+            right: 0;
+        }
+
+        .bc-upright-left::after,
+        .bc-upright-right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(255, 200, 120, 0.18);
+        }
+
+        .bc-upright-left::after {
+            right: 0;
+        }
+
+        .bc-upright-right::after {
+            left: 0;
+        }
+
+        .bc-shelf {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bc-shelf-back {
+            background: #6B3A1F;
+            background-image: repeating-linear-gradient(180deg, transparent, transparent 4px,
+                    rgba(255, 180, 80, 0.04) 4px, rgba(255, 180, 80, 0.04) 5px);
+            border-left: 1px solid #1a0a00;
+            border-right: 1px solid #1a0a00;
+        }
+
+        .bc-shelf-live .bc-shelf-back {
+            min-height: 280px;
+        }
+
+        .bc-shelf-ghost .bc-shelf-back {
+            min-height: 90px;
+        }
+
+        .bc-shelf-ledge {
+            height: 18px;
+            background: linear-gradient(180deg, #D4782E 0%, #BF6929 30%, #A85820 70%, #8F4818 100%);
+            border: 1px solid #1a0a00;
+            border-top: none;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .bc-shelf-ledge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 220, 140, 0.45);
+        }
+
+        .bc-shelf-ledge::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent);
+            pointer-events: none;
+        }
+
+        /* Top ledge — shadow falls down INTO the shelf, no upward shadow */
+        .bc-shelf-ledge-top {
+            border-top: 1px solid #1a0a00;
+            border-bottom: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .bc-shelf-ledge-top::after {
+            bottom: auto;
+            top: 100%;
+        }
+
+        .bc-base {
+            height: 32px;
+            background: linear-gradient(180deg, #A84E22 0%, #8F3F18 35%, #6B2E10 70%, #4A1E08 100%);
+            border: 1px solid #1a0a00;
+            border-top: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 2px 0 rgba(255, 200, 120, 0.15);
+        }
+
+        /* Live shelf content */
+        .bc-shelf-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+        }
+
+        .bc-joke-panel {
+            padding: 2rem 2rem 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .bc-project-panel {
+            padding: 2rem 1.5rem 2rem 2rem;
+            border-right: 1px solid rgba(255, 180, 80, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .bc-project-number {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.78rem;
+            color: #C15A28;
+            letter-spacing: 0.08em;
+        }
+
+        .bc-project-name {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--white-soft);
+        }
+
+        .bc-project-desc {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: rgba(250, 247, 242, 0.82);
+        }
+
+        .bc-project-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .bc-stack-tag {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(250, 247, 242, 0.65);
+            border: 1px solid rgba(250, 247, 242, 0.25);
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+        }
+
+        .bc-project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            background: var(--accent-green);
+            color: var(--white-soft);
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border: 2px solid var(--accent-green);
+            border-radius: 6px;
+            align-self: flex-start;
+            transition: background 0.22s, color 0.22s, transform 0.18s;
+        }
+
+        .bc-project-link:hover {
+            background: transparent;
+            color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        /* Live dot */
+        .live-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #5dba5f;
+            box-shadow: 0 0 0 0 rgba(93, 186, 95, 0.5);
+            animation: livePulse 2.4s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes livePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(93, 186, 95, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 5px rgba(93, 186, 95, 0);
+            }
+        }
+
+        /* Ghost shelf content */
+        .bc-shelf-ghost-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0 2rem;
+            height: 100%;
+            opacity: 0.45;
+        }
+
+        .bc-ghost-number {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(250, 247, 242, 0.4);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .bc-ghost-label {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(250, 247, 242, 0.35);
+        }
+
+        /* ─── Responsive ────────────────────────────────────── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.2rem 1.5rem;
+            }
+
+            #hero {
+                padding: 0 1.5rem;
+            }
+
+            .hero-rule-top {
+                left: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .hero-bracket {
+                display: none;
+            }
+
+            .hero-watermark {
+                font-size: 60vw;
+                right: -0.1em;
+            }
+
+            .hero-footer {
+                flex-wrap: wrap;
+                gap: 1.2rem;
+            }
+
+            #about {
+                padding: 6rem 1.5rem;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-vert-rule {
+                display: none;
+            }
+
+            .about-credentials {
+                gap: 1.5rem;
+            }
+
+            #projects {
+                padding: 6rem 1.5rem;
+            }
+
+            .bookcase {
+                padding: 0 1.8rem;
+            }
+
+            .bc-shelf-content {
+                grid-template-columns: 1fr;
+            }
+
+            .bc-joke-panel {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 180, 80, 0.12);
+            }
+
+            .bc-shelf-live .bc-shelf-back {
+                min-height: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <main>
+    <!-- ─── Navigation ─────────────────────────────────────── -->
+    <nav id="main-nav">
+        <a href="/" class="nav-logo">Toby's Study</a>
+        <ul class="nav-links">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <header class="site-header">
-            <div class="container">
-                <div class="row">
+    <!-- ─── Hero ───────────────────────────────────────────── -->
+    <section id="hero">
 
-                    <div class="col-lg-12 col-12 d-flex flex-wrap justify-content-between">
-                        <p class="d-flex me-4 mb-0">
-                            <span class="material-symbols-outlined">emoji_people</span>
-                            <strong>Welcome to Toby's Home on the Web</strong>
-                        </p>
-                        <div class="d-flex">
-                            <a href="homeapp/westwing/westwing.html" target="_blank">
-                                <span class="smallertext">If you're here for the character played by Richard Schiff,
-                                    here's a page of links to help you find him:
-                                </span>
-                            </a>
-                            <a href="homeapp/westwing/westwing.html" target="_blank"
-                                class="btn custom-btn d-lg-block d-none">
-                                West Wing
-                            </a>
-                        </div>
-                    </div>
+        <!-- Watermark -->
+        <span class="hero-watermark" aria-hidden="true">T</span>
 
-                </div>
+        <!-- Horizontal accent rule -->
+        <div class="hero-rule-top" aria-hidden="true"></div>
+
+        <!-- Right-side discipline tags -->
+        <div class="hero-bracket" aria-hidden="true">
+            <span class="bracket-item">Graphic Design</span>
+            <span class="bracket-item">Document Management</span>
+            <span class="bracket-item">Project Management</span>
+            <div class="bracket-rule"></div>
+            <span class="bracket-item active">AI-Directed Engineering</span>
+        </div>
+
+        <!-- Main content -->
+        <div class="hero-content">
+
+            <div class="hero-eyebrow">
+                <span class="hero-eyebrow-line"></span>
+                <span class="hero-eyebrow-text">Toby Ziegler — Designer &amp; Builder</span>
             </div>
-        </header>
 
+            <h1 class="hero-headline">
+                <span class="line"><span class="line-inner">Like a conductor</span></span>
+                <span class="line"><span class="line-inner">with an orchestra,</span></span>
+                <span class="line"><span class="line-inner">I am directing AI to</span></span>
+                <span class="line"><span class="line-inner"><span class="mark-burg">build software</span> with
+                        me.</span></span>
+            </h1>
 
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <h5>Toby's Pages</h5>
+            <p class="hero-sub">
+                Thirty years of design thinking. A precise hand on the baton.<br>
+                Come see what that looks like.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">
+                    See the work <span class="btn-arrow">→</span>
                 </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_about">About</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_photo">Photos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_projects">Projects</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_resume">Résumé</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_contact">Contact</a>
-                        </li>
-                    </ul>
-
-
-                </div>
-            </div>
-        </nav>
-
-
-        <section class="hero-section" id="section_home">
-            <div class="section-overlay-dark"></div>
-
-            <div class="container d-flex justify-content-center align-items-center">
-                <div class="row">
-
-                    <div class="col-12 mt-auto mb-5 text-center w3-text-white">
-                        <small>Welcome to the personal pages of</small>
-
-                        <h1 class="w3-text-white mb-5">Toby Ziegler</h1>
-
-                        <!--
-                            Disabling button to jump to another section.
-                        <a class="btn custom-btn smoothscroll" href="#section_about">Let's begin</a>
-                        -->
-                    </div>
-
-                    <div class="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
-                        <div class="date-wrap">
-                            <!-- <h5 class="w3-text-white">
-                                <i class="custom-icon bi-clock me-2"></i>
-                                10 - 12<sup>th</sup>, Dec 2023
-                            </h5> -->
-                        </div>
-
-                        <div class="location-wrap mx-auto py-3 py-lg-0">
-                            <a href="https://www.nps.gov/cave/" target="_blank">
-                                <p>
-                                    <span class="material-symbols-outlined">travel_explore</span>
-                                    Leaving Carlsbad Caverns National Park
-                                </p>
-                            </a>
-                        </div>
-
-                        <div>
-                            <a class="w3-text-white" href="#section_about">
-                                <span>Wait! There's more! </span>
-                                <span class="material-symbols-outlined largetext lowtext">south</span> </a>
-                        </div>
-                    </div>
-                </div>
+                <a href="#process" class="btn-secondary">
+                    How it's made <span class="btn-arrow">→</span>
+                </a>
             </div>
 
-            <div class="video-wrap">
-                <video autoplay="" loop="" muted="" class="custom-video" poster="">
-                    <source src="video/canyoncruise-carlsbad.mov" type="video/mp4">
+        </div>
 
-                    Your browser does not support the video tag.
-                </video>
+        <!-- Footer bar -->
+        <div class="hero-footer">
+            <div class="hero-footer-stat">
+                <span class="stat-label">Current project</span>
+                <span class="stat-value">Dad-a-Base — live now</span>
             </div>
-        </section>
-
-
-        <section class="about-section" id="section_about">
-            <!-- style="background-image: url('images/backgrounds/valentine2018flowersblurred.jpg');"> -->
-            <div class="section-overlay-light"></div>
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
-                        <div class="services-info w3-text-white">
-                            <h2>A bit about this guy...</h2>
-
-                            <p>I started as an Aerospace Engineer.</p>
-
-                            <p>While still young and full of doubts, I changed my career and
-                                became a Graphic Designer. I've followed that path for quite a while now.</p>
-
-                            <h5>I did a lot of school.</h5>
-
-                            <p>I eventually ended up with degrees in Engineering, Computer
-                                Science, Technology Management, and half a Master's.</p>
-
-                            <h5>I am big on friends.</h5>
-
-                            <p>Most of my favorite activities include time with my friends.
-                                Sharing dinner, movies, drinks or excursions usually involves one or more of our
-                                friends.</p>
-                            <p>Life is good that way.</p>
-
-                            <h5>I am a geek.</h5>
-
-                            <p>I try to be the social, friendly, not-offputting kind of geek,
-                                but I am unapologetically geek, through and through.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-12">
-                        <div class="about-text-wrap" style="z-index: 9;">
-                            <img src="images/artphotos/pinewoodsurfboard.jpg" class="about-image img-fluid">
-                            <figcaption>The aerodynamic nature of this surfboard Pinewood Derby entry might not be
-                                completely coincidental.</figcaption>
-
-                            <!-- interesting overlay, but in the way for now.
-
-                            <div class="about-text-info d-flex">
-                                <div class="d-flex">
-                                    <i class="about-text-icon bi-person"></i>
-                                </div>
-
-                                <div class="ms-4">
-                                    <h5>a happy moment</h5>
-
-                                    <p class="mb-0">my son definitely enjoys traveling</p>
-                                </div>
-                            </div>
-                            -->
-                        </div>
-                    </div>
-
-                </div>
+            <div class="hero-footer-stat">
+                <span class="stat-label">Stack</span>
+                <span class="stat-value">PHP · MySQL · Vanilla JS</span>
             </div>
-        </section>
-
-        <section class="photo-section" id="section_photo">
-            <div class="w3-container w3-center w3-text-white">
-                <h2>Meet the Photos</h1>
-                    <p>Just some photos I snapped and felt worth sharing.</p>
+            <div class="hero-footer-stat">
+                <span class="stat-label">Method</span>
+                <span class="stat-value">AI-directed, human-judged</span>
             </div>
-
-            <div class="w3-content w3-display-container w3-center">
-                <figure class="mySlides"><img src="images/artphotos/luaufire2007-10-30.jpg" style="min-width: 100%;">
-                    <figcaption>Fire in the dark has a beauty all its own.</figcaption>
-                </figure>
-                <figure class="mySlides"><img src="images/artphotos/atriumceiling2015-07-01.jpg" style="width:100%;">
-                    <figcaption>A cruise ship's atrium can be fascinating.</figcaption>
-                </figure>
-                <figure class="mySlides"><img src="images/artphotos/sunshineray2015-07-09.jpg" style="width:100%;">
-                    <figcaption>Random rays of sunshine are often beautiful.</figcaption>
-                </figure>
-                <figure class="mySlides"><img src="images/backgrounds/cardinalstarwarsnite.jpg" style="width:100%;">
-                    <figcaption>Star Wars night at Busch Stadium.</figcaption>
-                </figure>
-                <figure class="mySlides"><img src="images/backgrounds/eveningcloudscape.jpg" style="width:100%;">
-                    <figcaption>Even from a parking lot, interesting scenery abounds.</figcaption>
-                </figure>
-                <figure class="mySlides"><img src="images/backgrounds/greenhousestatesunset.jpg" style="width:100%;">
-                    <figcaption>Sunset sky in woods surrounded by an unseen city.</figcaption>
-                </figure>
-                <figure class="mySlides"><img src="images/backgrounds/valentine2018flowers.jpg" style="width:100%;">
-                    <figcaption>Valentine's Day. 'Nuff said.</figcaption>
-                </figure>
-
-                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
-                    style="width:100%">
-                    <div class="w3-left w3-hover-text-khaki" onclick="plusPhotos(-1)">&#10094;</div>
-                    <div class="w3-right w3-hover-text-khaki" onclick="plusPhotos(1)">&#10095;</div>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
-                        onclick="currentPhoto(1)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
-                        onclick="currentPhoto(2)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
-                        onclick="currentPhoto(3)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
-                        onclick="currentPhoto(4)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
-                        onclick="currentPhoto(5)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
-                        onclick="currentPhoto(6)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white"
-                        onclick="currentPhoto(7)"></span>
-                </div>
-            </div>
-
-
-        </section>
-
-        <section class="projects-section bg-dark" id="section_projects">
-            <!-- <div class="row w3-padding"> -->
-
-            <div class="w3-center">
-                <h2 class="w3-text-white">Projects</h1>
-                    <h5 class="w3-text-white">Some of my work</h5>
-                    <p class="w3-text-white">Here are some examples of work I can actually share with the world.</p>
-
-                    <div class="w3-cell-row">
-                        <div class="w3-container w3-cell w3-mobile">
-                            <a href="underconstruction.html" target="_blank">
-                                <h6 class="w3-center w3-text-white">jQuery Mobile Demo</h6>
-                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/jQueryMobileDemothumb.png"
-                                    alt="">
-                            </a>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <a href="underconstruction.html" target="_blank">
-                                <h6 class="w3-center w3-text-white">Periodic Table Exercise</h6>
-                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/periodictablethumb.png"
-                                    alt="">
-                            </a>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <a href="underconstruction.html" target="_blank">
-                                <h6 class="w3-center w3-text-white">The Children of the Checks</h6>
-                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png" alt="">
-                            </a>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <a href="underconstruction.html" target="_blank">
-                                <h6 class="w3-center w3-text-white">Print Pieces</h6>
-                                <img class="w3-round" src="images/thumbnails/portfoliothumbs/ComingSoonToo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-            </div>
-            </div>
-        </section>
-
-
-        <section class="resume-section w3-container" id="section_resume">
-            <div class="w3-container w3-padding-large">
-                <div class="row">
-                    <h2 class="w3-center">Résumé</h2>
-                </div>
-
-                <div class="w3-container">
-                    <h3 class="w3-padding-16">Toby Ziegler</h3>
-                    <p>My aim is to provide world class customer service in everything I do.</p>
-                    <p>Simple as that.</p>
-                </div>
-
-                <div class="w3-container">
-                    <h3 class="w3-padding-16">Languages</h3>
-                    <p>I have used all of these in past projects. I'll have to re-learn most of them to use them again.
-                        [sigh]</p>
-
-                    <div class="w3-cell-row">
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>Java</p>
-                            <p>C#</p>
-                            <p>PHP</p>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>Python</p>
-                            <p>.NET</p>
-                            <p>SQL</p>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>JavaScript</p>
-                            <p>AngularJS</p>
-                            <p>jQuery</p>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>CSS3</p>
-                            <p>Bootstrap</p>
-                            <p>w3.CSS</p>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>HTML5</p>
-                            <p>XML</p>
-                            <p>Shell</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w3-container">
-                    <h3 class="w3-padding-16">Skills</h3>
-
-                    <div class="w3-cell-row">
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>Concept development</p>
-                            <p>User Interface design (UX)</p>
-                            <p>Print, vector and rastor design</p>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>Project planning</p>
-                            <p>Experience design</p>
-                            <p>Communication and presentation</p>
-                        </div>
-                        <div class="w3-container w3-cell w3-mobile">
-                            <p>Procedure analysis</p>
-                            <p>Information gathering</p>
-                            <p>Task and decision optimization</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w3-container">
-                    <h3 class="w3-padding-16">Education</h3>
-
-                    <p>
-                        <strong>Missouri State University,</strong> <em>Springfield, Missouri</em>
-                    </p>
-                    <ul>
-                        <li>MS.PM - Master of Science in Project Management, <em>In Progress</em></li>
-                        <li>BAS.TM - Bachelor of Applied Science in Technology Management</li>
-                        <ul>
-                            <li>Minor in Computer Science</li>
-                            <li>Minor in Web Application Development</li>
-                        </ul>
-                    </ul>
-                    <p>
-                        <strong>Ozarks Technical Community College,</strong> <em>Springfield, Missouri</em>
-                    </p>
-                    <ul>
-                        <li>AAS.CIS - Associate in Applied Science in Computer Information Science</li>
-                        <li>AS.EGR - Associate of Science in Engineering, Mechanical and Electrical</li>
-                        <li>AA - Associate of Arts</li>
-                        <li>CT.SP.CP - Certificate of Specialization in Computer Programming</li>
-                        <li>CT.CIS - Certificate of Achievement in Computer Information Science</li>
-                        <li>CT.EGR - Certificate of Achievement in Engineering</li>
-                    </ul>
-                    <p class="indent">
-                        Capstone Project: &nbsp;Provide OTC campus with customized Raspberry Pi digital signs using
-                        locally cached, network driven content
-                    </p>
-                    <p class="indent">
-                        Computer Information Science Department Intern
-                    </p>
-                </div>
-
-                <div class="w3-container">
-                    <h3 class="w3-padding-16">Experience</h3>
-
-                    <p>
-                        <strong>Graphic Designer and Document Manager, CoxHealth,</strong> <em>&nbsp;February 2001 thru
-                            Present</em>
-                    </p>
-                    <ul>
-                        <li>Chair of Document Control Oversight Committee</li>
-                        <li>Years of intimate knowledge in documention, forms and medical records</li>
-                        <!-- <li>Lead of Document Management</li> -->
-                        <!-- <li>Created Document Management policy for entire organization</li> -->
-                        <li>Sole document builder for Addressograph / Patientworks system</li>
-                        <li>Coordinated projects across over 300 departments, plus vendors and contractors</li>
-                        <li>Tracked, maintained and managed over 10,000 active files</li>
-                        <li>Spearheaded transition from fully analog to all-digital workflow</li>
-                        <li>10+ years developing software for internal projects</li>
-                    </ul>
-                    <p>
-                        <strong>Co-Owner, DirectBuy of Springfield</strong>
-                    </p>
-                    <ul>
-                        <li>Managed direct sales to potential new members</li>
-                        <li>Coordinated with telemarketing for followup contacts</li>
-                        <li>Supervised receiving crew to process incoming product for member delivery</li>
-                        <li>Maintained product catalog library</li>
-                    </ul>
-                    <p>
-                        <strong>Artist, Sweetheart Cup Company</strong>
-                    </p>
-                    <ul>
-                        <li>Managed company-wide template library of Freehand, Illustrator and Photoshop design
-                            templates</li>
-                        <li>Produced thousands of individual designs for cups, tubs and containers every year</li>
-                        <li>Coordinated complete process from customer contact through final production for each project
-                        </li>
-                    </ul>
-                    <p>
-                        <strong>Design Manager, Christian County Headliner News</strong>
-                    </p>
-                    <ul>
-                        <li>Managed all digital production for entire newspaper</li>
-                        <li>Coordinated with news team for article placement and lengths</li>
-                        <li>Created most special article infographics</li>
-                        <li>Created or supervised all advertising artwork</li>
-                    </ul>
-                    <p>
-                        <strong>Supervisor, Branson Daily News</strong>
-                    </p>
-                    <ul>
-                        <li>Supervised digital production crew</li>
-                        <li>Supervised artists and advertising production staff</li>
-                        <li>Responsible for all daily pre-press processes</li>
-                    </ul>
-                    <p>
-                        <strong>Designer, Springfield News-Leader</strong>
-                    </p>
-                    <ul>
-                        <li>Created speculative advertising for customers</li>
-                        <li>Produced digital artwork and layouts for paid advertising</li>
-                        <li>Responsible for all aspects of preproduction until production plates for press</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="w3-container w3-pale-green" id="section_contact">
-            <!-- Container (Contact Section) -->
-            <div class="w3-content w3-container w3-padding l12 m12 s12" id="contact" ng-hide="subpart.toggle">
-                <h3 class="w3-center">Where in the world . . .</h3>
-                <!-- <p class="w3-center"><em>I welcome your feedback!</em></p> -->
-
-                <div class="w3-row w3-padding-32 w3-section">
-                    <div class="w3-col m7 w3-container">
-                        <div class="mapouter w3-right">
-                            <div class="gmap_canvas">
-                                <iframe width="100%" height="500" id="gmap_canvas"
-                                    src="https://maps.google.com/maps?q=springfield%2C%20missouri&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                                </iframe>
-                                <a href="https://www.crocothemes.net">crocothemes.net</a>
-                            </div>
-                            <style>
-                                .mapouter {
-                                    height: 500px;
-                                    width: 100%;
-                                }
-
-                                .gmap_canvas {
-                                    overflow: hidden;
-                                    background: none !important;
-                                    height: 500px;
-                                    width: 100%;
-                                }
-                            </style>
-                        </div>
-                    </div>
-                    <div class="w3-col m5 w3-panel">
-                        <div class="w3-large w3-margin-bottom">
-                            <span class="material-symbols-outlined">
-                                map
-                            </span>
-                            Springfield, Missouri<br>
-                            <span class="email dark">
-                                <script>document.write('<a href="mailto:' + 'T' + 'o' + 'b' + 'y' + '@' + 'T' + 'o' + 'b' + 'y' + 'Z' + 'i' + 'e' + 'g' + 'l' + 'e' + 'r' + '.' + 'c' + 'o' + 'm' + '">');</script>
-                                <span class="material-symbols-outlined">
-                                    mail
-                                </span>
-                                Email: Toby<b>Don't</b>@<b>Scrape</b>TobyZiegler<b>Mail</b>.com<br>
-                                </a>
-                            </span>
-                        </div>
-
-                        <!-- <p>Send me a note!</p>
-                        <form action="/action_page.php" target="_blank">
-                            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                                <div class="w3-half">
-                                    <input class="w3-input w3-border" type="text" placeholder="Name" required
-                                        name="Name">
-                                </div>
-                                <div class="w3-half">
-                                    <input class="w3-input w3-border" type="text" placeholder="Email" required
-                                        name="Email">
-                                </div>
-                            </div>
-                            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-                            <button class="w3-button w3-black w3-right w3-section" type="submit">
-                                <i class="fa-regular fa-paper-plane w3-text-white"></i> SEND MESSAGE
-                            </button>
-                        </form> -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-
-    <footer>
-        <div class="site-footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-6 col-12">
-                        <h2 class="w3-text-white mb-lg-0">The End</h2>
-                    </div>
-
-                </div>
+            <div class="hero-scroll-indicator" aria-hidden="true">
+                <div class="scroll-line"></div>
+                <span class="scroll-label">Scroll</span>
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
+    </section>
 
-                <div class="col-lg-6 col-12 mb-4 pb-2">
-                    <h5 class="site-footer-title mb-3">Links</h5>
+    <!-- ─── Placeholder sections ───────────────────────────── -->
+    <!-- ─── Projects — The Bookcase ──────────────────────── -->
+    <section id="projects">
 
-                    <ul class="site-footer-links">
-                        <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">Home</a>
-                        </li>
-
-                        <li class="site-footer-link-item">
-                            <a href="#section_about" class="site-footer-link">About</a>
-                        </li>
-
-                        <li class="site-footer-link-item">
-                            <a href="#section_photo" class="site-footer-link">Photos</a>
-                        </li>
-
-                        <li class="site-footer-link-item">
-                            <a href="#section_projects" class="site-footer-link">Projects</a>
-                        </li>
-
-                        <li class="site-footer-link-item">
-                            <a href="#section_resume" class="site-footer-link">Resumé</a>
-                        </li>
-
-                        <li class="site-footer-link-item">
-                            <a href="#section_contact" class="site-footer-link">Contact</a>
-                        </li>
-                    </ul>
+        <div class="projects-header">
+            <div class="projects-header-left">
+                <div class="projects-tag">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">The Work</span>
                 </div>
+            </div>
+            <span class="projects-count">1 of 6 live</span>
+        </div>
 
-                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                    <h5 class="site-footer-title mb-3">Have a question?</h5>
-                    <p>
-                        <span class="email light">
-                            <script>document.write('<a href="mailto:' + 'T' + 'o' + 'b' + 'y' + '@' + 'T' + 'o' + 'b' + 'y' + 'Z' + 'i' + 'e' + 'g' + 'l' + 'e' + 'r' + '.' + 'c' + 'o' + 'm' + '">');</script>
-                            <span class="material-symbols-outlined">
-                                mail
-                            </span>
-                            Email: Toby<b>Don't</b>@<b>Scrape</b>TobyZiegler<b>Mail</b>.com<br>
+        <!-- ── The Bookcase ──────────────────────────────────── -->
+        <div class="bookcase">
+
+            <!-- Left upright -->
+            <div class="bc-upright bc-upright-left"></div>
+            <!-- Right upright -->
+            <div class="bc-upright bc-upright-right"></div>
+
+            <!-- ── Shelf 1 — Dad-a-Base (live) ───────────────── -->
+            <div class="bc-shelf bc-shelf-live">
+                <div class="bc-shelf-ledge bc-shelf-ledge-top"></div>
+                <div class="bc-shelf-back">
+                    <div class="bc-shelf-content">
+
+                        <!-- Project info — left half -->
+                        <div class="bc-project-panel">
+                            <span class="bc-project-number">01</span>
+                            <h3 class="bc-project-name">Dad-a-Base</h3>
+                            <p class="bc-project-desc">A full-stack joke database — because the world needed one.
+                                Browse, submit, and rate dad jokes, built on PHP & MySQL.</p>
+                            <div class="bc-project-stack">
+                                <span class="bc-stack-tag">PHP 8.1</span>
+                                <span class="bc-stack-tag">MySQL</span>
+                                <span class="bc-stack-tag">Vanilla JS</span>
+                            </div>
+                            <a href="https://dadabase.tobyziegler.com" target="_blank" rel="noopener"
+                                class="bc-project-link">
+                                <span class="live-dot"></span> Visit the site →
                             </a>
+                        </div>
 
-                        </span>
+                        <!-- Joke spotlight — right half -->
+                        <div class="bc-joke-panel" aria-live="polite">
+                            <div class="joke-spotlight-embed" id="joke-card-inner">
+                                <div class="spotlight-label">Joke of the Moment</div>
+                                <div class="joke-setup-text" id="joke-setup">Why don't scientists trust atoms?</div>
+                                <div class="joke-punchline-text" id="joke-punchline">Because they make up everything.
+                                </div>
+                                <div class="spotlight-footer">
+                                    <div class="vote-inline">
+                                        <span class="vote-btn-sm">😄 Ha!</span>
+                                        <span class="vote-btn-sm">😩 Groan</span>
+                                    </div>
+                                    <a href="https://dadabase.tobyziegler.com" target="_blank" rel="noopener"
+                                        class="next-joke-link">More →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="bc-shelf-ledge"></div>
+            </div>
+
+            <!-- ── Shelf 2 ─────────────────────────────────────── -->
+            <div class="bc-shelf bc-shelf-ghost">
+                <div class="bc-shelf-back">
+                    <div class="bc-shelf-ghost-content">
+                        <span class="bc-ghost-number">02</span>
+                        <span class="bc-ghost-label">Next project — In development</span>
+                    </div>
+                </div>
+                <div class="bc-shelf-ledge"></div>
+            </div>
+
+            <!-- ── Shelf 3 ─────────────────────────────────────── -->
+            <div class="bc-shelf bc-shelf-ghost">
+                <div class="bc-shelf-back">
+                    <div class="bc-shelf-ghost-content">
+                        <span class="bc-ghost-number">03</span>
+                        <span class="bc-ghost-label">Project 03 — Coming soon</span>
+                    </div>
+                </div>
+                <div class="bc-shelf-ledge"></div>
+            </div>
+
+            <!-- ── Shelf 4 ─────────────────────────────────────── -->
+            <div class="bc-shelf bc-shelf-ghost">
+                <div class="bc-shelf-back">
+                    <div class="bc-shelf-ghost-content">
+                        <span class="bc-ghost-number">04</span>
+                        <span class="bc-ghost-label">Project 04 — Coming soon</span>
+                    </div>
+                </div>
+                <div class="bc-shelf-ledge"></div>
+            </div>
+
+            <!-- ── Shelf 5 ─────────────────────────────────────── -->
+            <div class="bc-shelf bc-shelf-ghost">
+                <div class="bc-shelf-back">
+                    <div class="bc-shelf-ghost-content">
+                        <span class="bc-ghost-number">05</span>
+                        <span class="bc-ghost-label">Project 05 — Coming soon</span>
+                    </div>
+                </div>
+                <div class="bc-shelf-ledge"></div>
+            </div>
+
+            <!-- ── Shelf 6 ─────────────────────────────────────── -->
+            <div class="bc-shelf bc-shelf-ghost">
+                <div class="bc-shelf-back">
+                    <div class="bc-shelf-ghost-content">
+                        <span class="bc-ghost-number">06</span>
+                        <span class="bc-ghost-label">Project 06 — Coming soon</span>
+                    </div>
+                </div>
+                <div class="bc-shelf-ledge"></div>
+            </div>
+
+            <!-- Heavy base -->
+            <div class="bc-base"></div>
+
+        </div><!-- /.bookcase -->
+
+    </section>
+
+    <!-- ─── About / The Argument ──────────────────────────── -->
+    <section id="about">
+
+        <span class="about-watermark" aria-hidden="true">30</span>
+
+        <div class="about-inner">
+
+            <!-- Left: label + heading + rule -->
+            <div class="about-label-col">
+                <div class="about-section-tag">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">The Philosophy</span>
+                </div>
+                <h2 class="about-heading-aside">
+                    Design thinking<br>meets the <em>new tools.</em>
+                </h2>
+                <div class="about-vert-rule"></div>
+            </div>
+
+            <!-- Right: content -->
+            <div class="about-content-col">
+
+                <p class="about-lede">
+                    I've spent a lifetime making things look right,
+                    work right, and <em>mean something.</em>
+                    Then AI changed what "building software" could mean — and I paid attention.
+                </p>
+
+                <div class="about-body">
+                    <p>
+                        My background is in graphic design, document management, and project management.
+                        That's a career built on <strong>systems thinking, visual judgment, and knowing
+                            how to get a complex thing across a finish line.</strong> I've also been writing code
+                        for most of that time — PHP, HTML, CSS, and a handful of other languages — so I
+                        know what good software looks like from the inside.
+                    </p>
+
+                    <div class="about-pullquote">
+                        <p>
+                            A conductor doesn't play every instrument. They know the score,
+                            they hear what's off, and they know exactly how to get what they want from the ensemble.
+                        </p>
+                    </div>
+
+                    <p>
+                        That's how I build now. I could write this code myself —
+                        I have, many times — but AI does it faster and with fewer mistakes than I ever could alone.
+                        So I direct: <strong>precise instructions, informed by design principles and domain
+                            knowledge,</strong>
+                        with a clear picture of what good looks like. The AI handles execution.
+                        I decide if it's right.
+                    </p>
+
+                    <p>
+                        The projects on this site are the proof of concept — production-grade software
+                        built the way I think more software should be built.
+                        <strong>Taste and judgment aren't soft skills. They're the whole job.</strong>
                     </p>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
-                    <!-- <h5 class="site-footer-title mb-3">Location</h5> -->
-
-                    <p class="w3-text-white d-flex mt-3 mb-2">
-                        Thanks for visiting!</p>
-
-                    <!-- examine festava link classes for hover, sizing issues, etc. --top and bottom now -->
-                    <a class="link-fx-1 color-contrast-higher mt-3" href="#">
-                        <span>Back to the top.</span>
-                        <span class="material-symbols-outlined largetext lowtext">input_circle</span>
-
-                        <!-- <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
-                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="16" cy="16" r="15.5"></circle>
-                                <line x1="10" y1="18" x2="16" y2="12"></line>
-                                <line x1="16" y1="12" x2="22" y2="18"></line>
-                            </g>
-                        </svg> -->
-                    </a>
-                </div>
             </div>
         </div>
+    </section>
+    <div class="section-placeholder" id="process">Process — coming next</div>
+    <div class="section-placeholder" id="contact">Contact — coming next</div>
 
-        <div class="site-footer-bottom">
-            <div class="w3-container w3-cell-row w3-middle">
-
-                <!-- <div class="col-lg-3 col-12 mt-5"> -->
-                <div class="w3-container w3-cell">
-                    <p class="copyright-text">Copyright © 2024</p>
-                </div>
-
-                <!-- <div class="col-lg-8 col-12 mt-lg-5"> -->
-                <div class="w3-container w3-cell w3-center">
-                    <h6 class="w3-text-gray">Under Construction</h6 class="w3-text-white">
-                </div>
-                <div class="w3-container w3-cell w3-right-align">
-                    <p class="copyright-text">Base code courtesy: <a href="https://themewagon.com">ThemeWagon</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!--
-
-T e m p l a t e M o
-
--->
-
-    <!-- Javascripts -->
-
+    <!-- ─── Scripts ────────────────────────────────────────── -->
     <script>
-        var slideIndex = 1;
-        showPhotos(slideIndex);
+        // Sticky nav on scroll
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        }, { passive: true });
 
-        function plusPhotos(n) {
-            showPhotos(slideIndex += n);
-        }
+        // Live joke from Dad-a-Base — replaces placeholder if fetch succeeds
+        (async function loadJoke() {
+            try {
+                const res = await fetch('https://dadabase.tobyziegler.com/random.php');
+                if (!res.ok) throw new Error('fetch failed');
+                const joke = await res.json();
+                if (!joke.setup || !joke.punchline) throw new Error('bad data');
 
-        function currentPhoto(n) {
-            showPhotos(slideIndex = n);
-        }
+                const inner = document.getElementById('joke-card-inner');
+                inner.style.transition = 'opacity 0.3s ease';
+                inner.style.opacity = '0';
 
-        function showPhotos(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            if (n > x.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = x.length }
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+                setTimeout(() => {
+                    document.getElementById('joke-setup').textContent = joke.setup;
+                    document.getElementById('joke-punchline').textContent = joke.punchline;
+                    inner.style.opacity = '1';
+                }, 300);
+            } catch (e) {
+                // Placeholder stays — no visible failure
             }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" w3-white", "");
-            }
-            x[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " w3-white";
-        }
+        })();
     </script>
-
-    <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/click-scroll.js"></script>
-    <script src="js/custom.js"></script>
-
 
 </body>
 

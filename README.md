@@ -44,7 +44,7 @@ The site should feel like it was made by someone interesting. Visitors should le
 - Warm, human, confident
 - Dry wit — present but not performed
 - Self-aware without being precious
-- Tells the truth about how things were built
+- Tells the truth about how things were built — including that Toby is an experienced coder who *chooses* to direct AI because it's faster, not because he can't
 - Does not oversell or use corporate language
 - Sounds like the Dad-a-Base "about" page — that's the benchmark
 
@@ -62,37 +62,28 @@ The site should feel like it was made by someone interesting. Visitors should le
 - **Body / UI:** DM Sans
 - These are non-negotiable. They are the thread connecting all rooms.
 
+### Color Palette — Settled
+
+| Role | Variable | Hex | Feel |
+|---|---|---|---|
+| Page background | `--bg` | `#F5F0E8` | Warm parchment — the walls |
+| Dark surface | `--bg-dark` | `#1C1712` | Near-black warm — shelves, footer |
+| Primary text | `--text` | `#2C1F14` | Deep espresso |
+| Muted text | `--text-muted` | varies | Secondary copy |
+| Primary accent | `--accent-green` | `#3A5C3B` | Forest green — the leather chair |
+| Secondary accent | `--accent-burg` | `#7B2D3A` | Burgundy — the lamp, the book spine |
+| Soft white | `--white-soft` | `#FAF7F2` | Breathing room |
+| Rule / divider | `--rule` | subtle warm | Structural lines |
+
 ### Components
 - Box, button, and card treatment carries over from Dad-a-Base
 - Generous spacing, restrained motion
 - Personality in the details — subtle, not shouty
 
-### Color — Classic Study Palette
-
-The palette evokes a well-loved personal study — comfortable, inviting, classy. Warm but not folksy. Traditional but not stale.
-
-| Role | Color | Feel |
-|---|---|---|
-| Background | Warm parchment / aged linen | The walls |
-| Primary text | Deep espresso brown | Readable, grounded |
-| Primary accent | Forest green | The leather chair |
-| Secondary accent | Burgundy / oxblood | The lamp, the spine of a book |
-| Highlight | Soft warm white | Breathing room |
-| Dark surface | Near-black with warm undertone | Shelves, footer |
-
-The greens and burgundies carry the personality. The parchment and espresso do the heavy lifting. Nothing cold, nothing corporate.
-
-More modern and non-traditional palettes are reserved for other rooms (Workshop, future projects). The Study is the welcoming, classic home base.
-
 ### Decorative Elements
 - Fewer than Dad-a-Base, but not eliminated
 - No emoji overload — use sparingly and with intention
 - Small graphic accents are fine; nothing cutesy
-
-### Video Background
-- Conceptually appealing for the hero section
-- Tabled for now due to reliability/UX concerns
-- Revisit once core site is stable
 
 ---
 
@@ -101,57 +92,96 @@ More modern and non-traditional palettes are reserved for other rooms (Workshop,
 ### Phase 1 — Single Page
 The initial build is a **single scrolling page**, architected to grow into multi-page navigation without a rebuild.
 
-**Proposed sections (order TBD):**
+**Sections (in order):**
 1. **Hero** — Name, thesis statement, immediate sense of who this is
-2. **About / The Argument** — The story: 30 years of design, the AI engineering turn, why it matters
-3. **Projects** — Scrolling gallery of showcase projects, hero-style cards; Dad-a-Base is first
-4. **Process** — How this work gets made; show the method, not just the output
-5. **Contact** — Human, not a buried form
+2. **Projects — The Bookcase** — The showcase; Dad-a-Base is live, five shelves reserved
+3. **About / The Philosophy** — The story: a lifetime of design thinking, the AI engineering turn, why it matters
+4. **Process** — How this work gets made; show the method, not just the output *(not yet built)*
+5. **Contact** — Human, not a buried form *(not yet built)*
 
 ### Navigation
+- Fixed nav bar, transparent → frosted glass on scroll
 - Not prominent in Phase 1 (single page, scroll-based)
-- Architecture should support a nav bar appearing as pages are added
+- Architecture supports a full nav bar as pages are added
 - No map widget — ever
 
 ### Resume
 - Open question: dedicated page, or integrated into the main page?
-- The uploaded resume (TobyZiegler_Resume2026.docx) is the current version
 
 ---
 
-## The Projects Gallery
+## Settled Copy
 
-Projects are the heart of the site. Each card in the gallery should convey:
-- What it is (name, one-line description)
-- What it demonstrates (the skill or method on display)
-- A link to the live project
-- A link to the case study / "how this was built" page
+### Hero Headline (4 lines, exact)
+```
+Like a conductor
+with an orchestra,
+I am directing AI to
+build software with me.
+```
 
-**Current projects:**
-- ✅ **Dad-a-Base** — dadabase.tobyziegler.com — full-stack joke database; PHP 8.1, MySQL, vanilla JS
+- Line 4 (*"build software"*) is italic burgundy
+- Lines animate in with staggered slide-up on load
 
-**Planned:**
-- 5–6 additional showcase projects (TBD)
+### Hero Subhead
+> Thirty years of design thinking. A precise hand on the baton.
+> Come see what that looks like.
+
+### Discipline Tags (right side, vertical)
+- Graphic Design
+- Document Management
+- Project Management
+- *(rule)*
+- AI-Directed Engineering *(burgundy, active)*
+
+### About Section
+- Section tag: **"THE PHILOSOPHY"**
+- Heading: *Design thinking meets the new tools.*
+- Key framing: Toby is an experienced coder (PHP, HTML/CSS, and more — has built full sites). He directs AI because it's faster and better, not because he can't write code himself. "I could write this code myself — I have, many times — but AI does it faster."
+- Pull quote: *"A conductor doesn't play every instrument. They know the score..."*
+- Closing line: *"Taste and judgment aren't soft skills. They're the whole job."*
+
+---
+
+## The Projects Section — The Bookcase
+
+The projects section is built as a **literal bookcase** — a single unified structure where each shelf is a project card. The SVG bookcase geometry (uprights, shelf ledges, back panels, heavy base) forms the structural UI. Content lives inside each shelf bay.
+
+### Structure
+- **Section background:** `#FFE4C4` (warm bisque — lighter than parchment, evokes a lit room)
+- **Uprights:** CSS-rendered wood-grain columns, left and right
+- **Shelf back panels:** Warm dark brown (`#6B3A1F`) — lightened to read as wood, not void
+- **Shelf ledges:** Horizontal wood planks with highlight line and drop shadow; top ledge added above Shelf 1
+- **Heavy base:** At the bottom of all shelves
+
+### Shelf 1 — Dad-a-Base (live)
+- **Left half:** Project title, description, stack tags, "Visit the site →" button with pulsing live dot
+- **Right half:** Live joke spotlight — exact replica of the `.joke-spotlight` component from Dad-a-Base
+  - Fetches from `https://dadabase.tobyziegler.com/random.php`
+  - Placeholder joke shown on load; replaced silently if CORS allows
+  - ⚠️ `random.php` needs `header('Access-Control-Allow-Origin: *');` for cross-subdomain fetch to work
+
+### Shelves 2–6 (ghost)
+- Empty shelves with faint number + label ("Project 02 — In development", etc.)
+- Opacity 0.45 — present but clearly reserved
+
+---
+
+## Dad-a-Base Reference
+
+- **Live:** dadabase.tobyziegler.com
+- **Repo:** github.com/TobyZiegler/dadabase
+- **Random joke endpoint:** `https://dadabase.tobyziegler.com/random.php`
+  - Returns JSON: `{id, setup, punchline, submitted_by, status, ha_count, groan_count, created_at}`
+- **Style variables:** `--cream: #FAF7F2`, `--warm-white: #FFFEF9`, `--espresso: #0F0804`, `--accent: #942E18`, `--accent-2: #1E4D44`, `--taupe: #5C4D3C`, `--brown: #2E1F12`
 
 ---
 
 ## The Thesis
 
-This is the argument the site makes, in plain language:
-
 > *A person with design judgment, systems thinking, and the ability to direct AI precisely can build real, production-grade software. Domain expertise and taste matter as much as syntax. Here is the proof.*
 
 The headline on the page doesn't have to say this verbatim — but everything on the page should add up to it.
-
----
-
-## Hero Headline
-
-The working headline direction:
-
-> *"Like a conductor with an orchestra, I direct AI to build software with me. Come see what that looks like."*
-
-The conductor metaphor is the core idea — it implies skill, authority, and collaboration without claiming to play every instrument. "Come see what that looks like" is an invitation, not a sales pitch. Exact wording to be refined during build.
 
 ---
 
@@ -167,14 +197,19 @@ The conductor metaphor is the core idea — it implies skill, authority, and col
 
 ## Open Decisions
 
-These are unresolved as of the last update. Resolve before or during build:
-
-- [x] Color palette — Classic Study (parchment, espresso, forest green, burgundy)
-- [x] Hero headline direction — conductor metaphor (exact wording to refine during build)
-- [ ] Section order and final names
+- [x] Color palette — settled (see above)
+- [x] Hero headline — settled (see above)
+- [x] Projects section approach — bookcase UI
+- [x] Section order — Hero → Projects → About → Process → Contact
+- [x] About section framing — Toby as experienced coder who *chooses* AI direction
+- [ ] Section final names (especially Process and Contact)
 - [ ] Resume placement (own page vs. integrated)
 - [ ] Contact approach (form, email link, something else)
 - [ ] Whether the Study metaphor is made explicit in the UI or just informs the design
+- [ ] Process section — not yet built
+- [ ] Contact section — not yet built
+- [ ] Screenshots for project cards (placeholder in place for Shelf 1)
+- [ ] CORS header in `random.php` — needed for live joke fetch across subdomains
 
 ---
 
@@ -185,6 +220,7 @@ These are unresolved as of the last update. Resolve before or during build:
 - **Stack:** PHP, HTML/CSS, vanilla JavaScript (no frameworks, no build step)
 - **SSL:** Recently resolved — monitor for full activation
 - **Source:** github.com/TobyZiegler/tobyzieglerdotcom
+- **Output:** Single `index.html` — all CSS and JS inline, no external dependencies except Google Fonts
 
 ---
 
@@ -194,4 +230,4 @@ At the start of any working session, paste this README into the conversation. Up
 
 ---
 
-*Last updated: March 2026 — palette and hero headline direction settled; ready to build*
+*Last updated: March 2026 — hero, about, and projects sections built; bookcase UI settled; copy finalized for built sections*
