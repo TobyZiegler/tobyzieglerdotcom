@@ -1,90 +1,92 @@
-from flask import Flask, render_template
-from flask_migrate import Migrate
-from dadabase import dadabase_bp, models
-from dadabase.models import db
+from flask import Flask
+from dadabase import dadabase_bp, db
+from dadabase.models import Joke
 
-app = Flask(__name__)
 
-# Configure SQLite (for now)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dadabase.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# ------------------------------------------------------------
+# Application Factory
+# ------------------------------------------------------------
+def create_app():
+    """Create and configure the Flask app."""
+    app = Flask(__name__)
 
-# Initialize DB
-db.init_app(app)
+    # Basic configuration
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dadabase.db"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.secret_key = "super_secret_key"  # replace later with env variable
 
-migrate = Migrate(app, db)
+    # Initialize extensions
+    db.init_app(app)
 
-# Register blueprint
-# app.register_blueprint(dadabase_bp, url_prefix="/dadabase")
-app.register_blueprint(dadabase_bp)
+    # Register blueprints
+    app.register_blueprint(dadabase_bp)
 
-# Root landing page
-@app.route("/")
-def index():
-    return render_template("index.html")
+    # Optional: Home route for index.html at the root
+    @app.route("/")
+    def index():
+        return app.send_static_file("index.html")
 
-# Utility: init database (run once to create dadabase.db)
-# @app.cli.command("init-db")
-# def init_db():
-#     with app.app_context():
-#         from dadabase.models import db
-#         models.db.drop_all()
-#         models.db.create_all()
-#     print("Database initialized.")
+    # Attach CLI commands (below)
+    register_cli_commands(app)
 
-@app.cli.command("seed-db")
-def seed_db():
-    # with app.app_context():
-    """"Seed the database with starter jokes."""
+    return app
 
-    # Check if jokes already exist
-    if Joke.query.first():
-        print("✅ Jokes already seeded. Skipping.")
-        return
-    else:
 
-        from dadabase.models import Joke, db
-        jokes = [
-            {"content": "I'm afraid for the calendar. Its days are numbered","author": "daDad"},
-            {"content": "I only know 25 letters of the alphabet. I don't know y.","author": "daDad"},
-            {"content": "What do a tick and the Eiffel Tower have in common? They're both Paris sites.","author": "daDad"},
-            {"content": "Why don't eggs tell jokes? They'd crack each other up.","author": "daDad"},
-            {"content": "What do you call fake spaghetti? An impasta.","author": "daDad"}
-        ]
-        for eachOne in jokes:
-            if not Joke.query.filter_by(content=eachOne["content"]).first():
-                db.session.add(Joke(content=eachOne["content"], author=eachOne["author"]))
-        db.session.commit()
-        print("Database seeded with starter jokes.")
+# ------------------------------------------------------------
+# CLI Commands
+# ------------------------------------------------------------
+def register_cli_commands(app):
+    """Register Flask CLI commands for database maintenance."""
 
-@app.cli.command("reset-db")
-def reset_db():
-    """Drop all tables, recreate them, and seed with jokes."""
-    import click
+    @app.cli.command("seed-db")
+    def seed_db():
+        """Seed the database with Dad Jokes (without duplicates)."""
+        with app.app_context():
+            seed_data()
+            print("🌱 Database seeded with Dad Jokes!")
 
-    # Ask for confirmation before dropping everything
-    if not click.confirm("⚠️  This will DROP all tables and recreate them. Continue?"):
-        print("❌ Reset aborted.")
-        return
+    @app.cli.command("reset-db")
+    def reset_db():
+        """Drop all tables, recreate them, and seed fresh data."""
+        import click
 
-    # Drop and recreate
-    db.drop_all()
-    db.create_all()
+        with app.app_context():
+            if not click.confirm("⚠️  This will DROP all tables and recreate them. Continue?"):
+                print("❌ Reset aborted.")
+                return
 
-    print("🗑️  Database dropped and recreated.")
-    
-    # Seed jokes right after reset
+            db.drop_all()
+            db.create_all()
+            seed_data()
+            print("🔄 Database reset and seeded with Dad Jokes!")
+
+
+# ------------------------------------------------------------
+# Helper Functions
+# ------------------------------------------------------------
+def seed_data():
+    """Insert seed jokes into the database, skipping duplicates."""
     jokes = [
-        {"content": "I'm afraid for the calendar. Its days are numbered", "author": "Seeder Dad"},
+        {"content": "I'm afraid for the calendar. Its days are numbered.", "author": "Seeder Dad"},
         {"content": "I only know 25 letters of the alphabet. I don't know y.", "author": "Seeder Dad"},
         {"content": "What do a tick and the Eiffel Tower have in common? They're both Paris sites.", "author": "Seeder Dad"},
         {"content": "Why don't eggs tell jokes? They'd crack each other up.", "author": "Seeder Dad"},
-        {"content": "What do you call fake spaghetti? An impasta.", "author": "Seeder Dad"}
+        {"content": "What do you call fake spaghetti? An impasta.", "author": "Seeder Dad"},
     ]
 
-    # for eachOne in jokes:
-    #         if not Joke.query.filter_by(content=eachOne["content"]).first():
-    #             db.session.add(Joke(content=eachOne["content"], author=eachOne["author"]))
-    # db.session.commit()
+    for data in jokes:
+        # Avoid inserting duplicates (by joke text)
+        existing = Joke.query.filter_by(content=data["content"]).first()
+        if not existing:
+            new_joke = Joke(content=data["content"], author=data["author"])
+            db.session.add(new_joke)
 
-    print("🌱 Database reset and seeded with dad jokes!")
+    db.session.commit()
+
+
+# ------------------------------------------------------------
+# Entry Point
+# ------------------------------------------------------------
+if __name__ == "__main__":
+    app = create_app()
+    app.run(debug=True)
