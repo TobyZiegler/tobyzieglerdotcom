@@ -67,10 +67,22 @@ The site should feel like it was made by someone interesting. Visitors should le
 - Generous spacing, restrained motion
 - Personality in the details — subtle, not shouty
 
-### Color
-- Dad-a-Base palette: cream, sand, espresso, terracotta — warm and organic
-- Main site palette: to be determined — cooler, more neutral, still warm enough to feel human
-- Decision pending; will be set before build begins
+### Color — Classic Study Palette
+
+The palette evokes a well-loved personal study — comfortable, inviting, classy. Warm but not folksy. Traditional but not stale.
+
+| Role | Color | Feel |
+|---|---|---|
+| Background | Warm parchment / aged linen | The walls |
+| Primary text | Deep espresso brown | Readable, grounded |
+| Primary accent | Forest green | The leather chair |
+| Secondary accent | Burgundy / oxblood | The lamp, the spine of a book |
+| Highlight | Soft warm white | Breathing room |
+| Dark surface | Near-black with warm undertone | Shelves, footer |
+
+The greens and burgundies carry the personality. The parchment and espresso do the heavy lifting. Nothing cold, nothing corporate.
+
+More modern and non-traditional palettes are reserved for other rooms (Workshop, future projects). The Study is the welcoming, classic home base.
 
 ### Decorative Elements
 - Fewer than Dad-a-Base, but not eliminated
@@ -133,6 +145,16 @@ The headline on the page doesn't have to say this verbatim — but everything on
 
 ---
 
+## Hero Headline
+
+The working headline direction:
+
+> *"Like a conductor with an orchestra, I direct AI to build software with me. Come see what that looks like."*
+
+The conductor metaphor is the core idea — it implies skill, authority, and collaboration without claiming to play every instrument. "Come see what that looks like" is an invitation, not a sales pitch. Exact wording to be refined during build.
+
+---
+
 ## What This Site Is Not
 
 - Not a traditional developer portfolio
@@ -147,9 +169,9 @@ The headline on the page doesn't have to say this verbatim — but everything on
 
 These are unresolved as of the last update. Resolve before or during build:
 
-- [ ] Exact color palette for the main site
-- [ ] Hero headline / thesis statement copy
-- [ ] Section order and names
+- [x] Color palette — Classic Study (parchment, espresso, forest green, burgundy)
+- [x] Hero headline direction — conductor metaphor (exact wording to refine during build)
+- [ ] Section order and final names
 - [ ] Resume placement (own page vs. integrated)
 - [ ] Contact approach (form, email link, something else)
 - [ ] Whether the Study metaphor is made explicit in the UI or just informs the design
@@ -172,4 +194,4 @@ At the start of any working session, paste this README into the conversation. Up
 
 ---
 
-*Last updated: March 2026 — initial brief drafted in collaboration with Claude (Anthropic)*
+*Last updated: March 2026 — palette and hero headline direction settled; ready to build*
