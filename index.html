@@ -251,6 +251,11 @@
             color: var(--accent-burg);
         }
 
+        .hero-headline .mark-green {
+            font-style: italic;
+            color: var(--accent-green);
+        }
+
         .hero-sub {
             max-width: 560px;
             font-size: 1.05rem;
@@ -282,7 +287,7 @@
             letter-spacing: 0.04em;
             text-decoration: none;
             border: 2px solid var(--accent-green);
-            border-radius: 6px;
+            border-radius: 100px;
             transition: background 0.22s, color 0.22s, transform 0.18s;
         }
 
@@ -305,7 +310,7 @@
             letter-spacing: 0.04em;
             text-decoration: none;
             border: 2px solid var(--rule);
-            border-radius: 6px;
+            border-radius: 100px;
             transition: border-color 0.22s, color 0.22s, transform 0.18s;
         }
 
@@ -651,6 +656,201 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-muted);
+        }
+
+        /* ─── Process Section ───────────────────────────────── */
+        #process {
+            position: relative;
+            padding: 9rem 3rem;
+            background: #EDE6D8;
+            overflow: hidden;
+        }
+
+        .process-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 6rem;
+            max-width: 1100px;
+        }
+
+        /* Reuse about-label-col structure */
+        .process-label-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-top: 0.4rem;
+        }
+
+        /* Override tag + heading colors for dark bg */
+        #process .about-section-tag .tag-line {
+            background: var(--accent-green);
+        }
+
+        #process .about-section-tag .tag-text {
+            color: var(--accent-green);
+        }
+
+        #process .about-heading-aside {
+            color: var(--text);
+        }
+
+        #process .about-heading-aside em {
+            color: var(--accent-green);
+        }
+
+        #process .about-vert-rule {
+            background: linear-gradient(to bottom, var(--accent-green), transparent);
+        }
+
+        #process .about-lede {
+            color: var(--text);
+        }
+
+        #process .about-lede em {
+            color: var(--accent-green);
+        }
+
+        #process .about-body p {
+            color: var(--text-muted);
+        }
+
+        #process .about-body p strong {
+            color: var(--text);
+        }
+
+        .process-content-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+        }
+
+        /* ── Expand button ── */
+        .process-expand-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: none;
+            border: 1.5px solid rgba(44, 31, 20, 0.25);
+            border-radius: 100px;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 0.75rem 1.4rem;
+            border-radius: 100px;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .process-expand-btn:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .process-expand-btn[aria-expanded="true"] .process-expand-label::after {
+            content: '';
+        }
+
+        .process-expand-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+
+        .process-expand-btn[aria-expanded="true"] .process-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* ── Expanded panel ── */
+        .process-expanded {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            overflow: hidden;
+        }
+
+        .process-expanded[hidden] {
+            display: none;
+        }
+
+        /* Animate open */
+        .process-expanded.is-opening {
+            display: flex;
+            animation: expandDown 0.4s ease forwards;
+        }
+
+        @keyframes expandDown {
+            from {
+                opacity: 0;
+                transform: translateY(-12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Content blocks inside expanded panel ── */
+        .process-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .process-block-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            padding-bottom: 0.5rem;
+        }
+
+        .process-block p {
+            font-size: 1rem;
+            line-height: 1.78;
+            color: var(--text-muted);
+        }
+
+        .process-block p strong {
+            color: var(--text);
+        }
+
+        /* ── Obstacle cards (reused pattern from Dad-a-Base) ── */
+        .obstacle-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .obstacle-card {
+            background: rgba(44, 31, 20, 0.03);
+            border: 1.5px solid rgba(44, 31, 20, 0.1);
+            border-radius: 8px;
+            padding: 1.4rem 1.6rem;
+        }
+
+        .obstacle-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .obstacle-desc {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+            line-height: 1.68;
         }
 
         /* ─── Placeholder sections (to be built) ───────────── */
@@ -1045,7 +1245,8 @@
             letter-spacing: 0.04em;
             text-decoration: none;
             border: 2px solid var(--accent-green);
-            border-radius: 6px;
+            border-radius: 100px;
+            font-size: 1rem;
             align-self: flex-start;
             transition: background 0.22s, color 0.22s, transform 0.18s;
         }
@@ -1155,6 +1356,15 @@
                 gap: 1.5rem;
             }
 
+            #process {
+                padding: 6rem 1.5rem;
+            }
+
+            .process-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
             #projects {
                 padding: 6rem 1.5rem;
             }
@@ -1221,14 +1431,15 @@
             <h1 class="hero-headline">
                 <span class="line"><span class="line-inner">Like a conductor</span></span>
                 <span class="line"><span class="line-inner">with an orchestra,</span></span>
-                <span class="line"><span class="line-inner">I am directing AI to</span></span>
+                <span class="line"><span class="line-inner">I am <em class="mark-green">directing</em> AI
+                        to</span></span>
                 <span class="line"><span class="line-inner"><span class="mark-burg">build software</span> with
                         me.</span></span>
             </h1>
 
             <p class="hero-sub">
                 Thirty years of design thinking. A precise hand on the baton.<br>
-                Come see what that looks like.
+                Let me share with you what that looks like for me.
             </p>
 
             <div class="hero-actions">
@@ -1457,12 +1668,208 @@
             </div>
         </div>
     </section>
-    <div class="section-placeholder" id="process">Process — coming next</div>
+    <!-- ─── Process — How It's Made ──────────────────────── -->
+    <section id="process">
+
+        <div class="process-inner">
+
+            <!-- Left: label + heading + rule -->
+            <div class="process-label-col">
+                <div class="about-section-tag">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">The Method</span>
+                </div>
+                <h2 class="about-heading-aside">
+                    The Madness<br>of <em>a Study.</em>
+                </h2>
+                <div class="about-vert-rule"></div>
+            </div>
+
+            <!-- Right: content -->
+            <div class="process-content-col">
+
+                <p class="about-lede">
+                    The idea was simple: <em>a comfortable place on the internet that feels like home.</em>
+                    Not a portfolio in the traditional sense. Not a resumé with scroll effects.
+                    Something more like a study — a room where work accumulates thoughtfully,
+                    where you can tell a real person lives here.
+                </p>
+
+                <div class="about-body">
+                    <p>
+                        From that room, other rooms branch off. Each project lives in its own space —
+                        its own subdomain, its own personality — but the same person is clearly at home
+                        in all of them. The Dad-a-Base is the first. More are on the way.
+                        The study is the hub. The work is the point.
+                    </p>
+                    <p>
+                        I wanted to make something that didn't try to look like everyone else's site,
+                        didn't hedge, and wasn't afraid to be a little bit itself. <strong>Real work,
+                            from a real person, built with real care.</strong> The method behind it —
+                        thirty years of design thinking combined with new tools used deliberately —
+                        is what the rest of this section is about.
+                    </p>
+                </div>
+
+                <!-- Expand toggle -->
+                <button class="process-expand-btn" id="process-toggle" aria-expanded="false"
+                    aria-controls="process-expanded">
+                    <span class="process-expand-label">See how it really works</span>
+                    <span class="process-expand-icon" aria-hidden="true">↓</span>
+                </button>
+
+                <!-- Expanded content -->
+                <div class="process-expanded" id="process-expanded" hidden>
+
+                    <!-- Origin of method -->
+                    <div class="process-block">
+                        <div class="process-block-label">The Approach</div>
+                        <p>
+                            The work happens in conversation with Claude — directed precisely,
+                            reviewed carefully, and iterated until it's right. That's not a workaround
+                            for anything. It's a different application of the same skills that make any
+                            complex creative project work: knowing what good looks like, being able to
+                            describe it clearly, and recognizing when you haven't got there yet.
+                        </p>
+                        <p>
+                            The coding background helps. PHP, HTML, CSS — years of it. Enough to read
+                            what comes back, catch something structurally off, and ask the right follow-up.
+                            <strong>Understanding the craft you're directing is part of directing it well.</strong>
+                        </p>
+                    </div>
+
+                    <!-- The workflow -->
+                    <div class="process-block">
+                        <div class="process-block-label">The Workflow</div>
+                        <p>
+                            Each working session begins with context-setting: the README goes in first,
+                            establishing the project state. Then I describe what I want — not in vague
+                            terms, but with specificity about layout, behavior, copy, and edge cases.
+                            The more precisely I can describe good, the less time we spend on wrong.
+                        </p>
+                        <p>
+                            Claude writes the code. I read it — not line by line, but well enough to
+                            catch something structurally off. I review the output in a browser. I note
+                            what's right and what isn't. Then we iterate. Most features take two or three
+                            passes. Some take more. A few come out nearly right the first time.
+                        </p>
+                        <p>
+                            When the session ends, the README gets updated. Decisions made, copy settled,
+                            open questions resolved or added. The document is the memory. Next session,
+                            we start clean and still know everything.
+                        </p>
+                    </div>
+
+                    <!-- The tools -->
+                    <div class="process-block">
+                        <div class="process-block-label">The Tools</div>
+                        <p>
+                            The primary tool is <strong>Claude</strong> (Anthropic) — specifically Claude's
+                            computer use and artifact capabilities, which allow working directly with files
+                            in a live environment rather than copying and pasting code back and forth.
+                            That changes the texture of the work significantly. It feels less like prompting
+                            and more like pairing.
+                        </p>
+                        <p>
+                            Everything else in the stack is deliberately minimal: PHP, HTML, CSS, vanilla
+                            JavaScript. No frameworks, no build step, no npm. Partly because the hosting
+                            environment is shared hosting and simplicity is a virtue. Partly because
+                            complexity you don't need is just places for things to break.
+                        </p>
+                    </div>
+
+                    <!-- Obstacles -->
+                    <div class="process-block">
+                        <div class="process-block-label">What Goes Wrong (And How It Gets Fixed)</div>
+                        <p>The process works well. It also fails in predictable ways. Three patterns come up often
+                            enough to be worth naming:</p>
+
+                        <div class="obstacle-list">
+                            <div class="obstacle-card">
+                                <div class="obstacle-label">Context Drift</div>
+                                <div class="obstacle-desc">
+                                    In a long session, earlier decisions can quietly get contradicted by later ones —
+                                    especially on copy and CSS. The README is the fix: decisions written down don't
+                                    drift.
+                                    Anything not in the document is an open question, whether it feels settled or not.
+                                </div>
+                            </div>
+                            <div class="obstacle-card">
+                                <div class="obstacle-label">Confident Wrong Answers</div>
+                                <div class="obstacle-desc">
+                                    AI is fluent in being wrong. The output looks right, reads right, and
+                                    quietly doesn't work — or works in the browser I tested but breaks somewhere else.
+                                    The defense is knowing enough to be suspicious, and reviewing outputs
+                                    rather than just trusting them. Experience is what tells you which answers to
+                                    double-check.
+                                </div>
+                            </div>
+                            <div class="obstacle-card">
+                                <div class="obstacle-label">Scope Creep in Both Directions</div>
+                                <div class="obstacle-desc">
+                                    Sometimes the AI adds features I didn't ask for and don't want.
+                                    Sometimes I ask for something vague and get something technically correct
+                                    but completely wrong in spirit. Precision in the brief is the only fix —
+                                    which, it turns out, is also the fix for scope creep in every other kind of project.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Why this matters -->
+                    <div class="process-block">
+                        <div class="process-block-label">Why This Matters</div>
+                        <p>
+                            The question I get — implicitly, in every conversation about this work —
+                            is whether it counts. Whether software built this way is real.
+                        </p>
+                        <p>
+                            The answer is yes, and the evidence is what ships. The Dad-a-Base is a
+                            fully functional web application with a database, a moderation system,
+                            live voting, and an admin panel. It runs on a real server. Real people use it.
+                            <strong>The method doesn't change what the thing is.</strong>
+                        </p>
+                        <p>
+                            A contractor who manages a build isn't less responsible for the house
+                            because they didn't swing every hammer. The judgment, the taste, the
+                            decisions about what to build and how it should work — that's the job.
+                            Execution is a detail.
+                        </p>
+                    </div>
+
+                </div><!-- /.process-expanded -->
+
+            </div><!-- /.process-content-col -->
+        </div><!-- /.process-inner -->
+
+    </section>
     <div class="section-placeholder" id="contact">Contact — coming next</div>
 
     <!-- ─── Scripts ────────────────────────────────────────── -->
     <script>
-        // Sticky nav on scroll
+        // Process expand/collapse
+        const processToggle = document.getElementById('process-toggle');
+        const processExpanded = document.getElementById('process-expanded');
+        if (processToggle && processExpanded) {
+            processToggle.addEventListener('click', () => {
+                const isOpen = processToggle.getAttribute('aria-expanded') === 'true';
+                if (isOpen) {
+                    processExpanded.hidden = true;
+                    processToggle.setAttribute('aria-expanded', 'false');
+                    processToggle.querySelector('.process-expand-label').textContent = 'See how it really works';
+                } else {
+                    processExpanded.hidden = false;
+                    processExpanded.classList.add('is-opening');
+                    processExpanded.addEventListener('animationend', () => {
+                        processExpanded.classList.remove('is-opening');
+                    }, { once: true });
+                    processToggle.setAttribute('aria-expanded', 'true');
+                    processToggle.querySelector('.process-expand-label').textContent = 'Show less';
+                }
+            });
+        }
+
+
         const nav = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 40);
