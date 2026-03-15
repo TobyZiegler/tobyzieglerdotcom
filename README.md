@@ -63,9 +63,12 @@ The site should feel like it was made by someone interesting. Visitors should le
 - These are non-negotiable. They are the thread connecting all rooms.
 
 ### Buttons
-- Pill-shaped: `border-radius: 100px`
-- Large text: `font-size: 1.05rem`
+- Pill-shaped: `border-radius: 1.2em`
+- Text: `font-size: 1.2em`, `border: 0.2em`
 - Applies to all buttons site-wide
+
+### Type Scale
+All font sizes are in `rem` (or `em` for contextual button sizing), with `clamp()` for fluid display sizes. The root font size is fluid: `clamp(16px, 1.25vw + 0.5rem, 26px)` — scales from ~16px on mobile to ~26px on large displays. All spacing, padding, and layout dimensions are in `rem` and scale with it. Pixels are reserved for hairline borders (1px, 1.5px, 2px), box-shadow offsets/blur, the media breakpoint (768px), and the root font size definition itself.
 
 ### Color Palette — Settled
 
@@ -85,9 +88,9 @@ The site should feel like it was made by someone interesting. Visitors should le
 | Section | Background | Notes |
 |---|---|---|
 | Hero | `#F5F0E8` | Base parchment |
-| Projects | `#FFE4C4` | Warm bisque — lighter, evokes a lit room |
+| Projects | `#EDE6D8` | Slightly darker parchment |
 | About | `#F5F0E8` | Base parchment |
-| Process | `#EDE6D8` | Barely darker than parchment — enough to read as distinct |
+| Process | `#EDE6D8` | Slightly darker parchment — matches Projects |
 | Contact | TBD | |
 | Footer | `#1C1712` | `--bg-dark` |
 
@@ -102,8 +105,6 @@ The site should feel like it was made by someone interesting. Visitors should le
 
 ### Phase 1 — Single Scrolling Page
 Architected to grow into multi-page navigation without a rebuild.
-
-**Sections in order:**
 
 | # | Section | Tag | Status |
 |---|---|---|---|
@@ -141,7 +142,7 @@ build software with me.
 ### Hero Subhead (exact)
 
 > Thirty years of design thinking. A precise hand on the baton.
-> Let me share with you what that looks like for me.
+> Let me share with you what that looks like for me…
 
 ### Discipline Tags (hero, right side, vertical)
 - Graphic Design
@@ -150,9 +151,10 @@ build software with me.
 - *(decorative rule)*
 - AI-Directed Engineering *(burgundy, styled as active)*
 
-### Hero Buttons
-- Primary: "See the work →" — green filled, links to `#projects`
-- Secondary: "How it's made →" — outline, links to `#process`
+### Hero Actions
+- Primary button: "See the work →" — green filled, links to `#projects`
+- Secondary button: "How it's made →" — outline, links to `#process`
+- Scroll indicator: pill buttons followed by scroll indicator pushed to far right via `margin-left: auto`
 
 ---
 
@@ -180,20 +182,20 @@ build software with me.
 3. **The Tools** — Claude (computer use / pairing model changes the texture of the work). Minimal stack: PHP, HTML, CSS, vanilla JS — simplicity is a virtue, complexity is places for things to break.
 4. **What Goes Wrong** — Three obstacle cards:
    - *Context Drift* — earlier decisions quietly contradicted by later ones; README is the fix
-   - *Confident Wrong Answers* — output looks right and quietly isn't; experience is what tells you which answers to double-check
-   - *Scope Creep in Both Directions* — AI adds unwanted features, or vague brief gets technically correct but wrong-in-spirit result; precision in the brief is the only fix
+   - *Confident Wrong Answers* — output looks right and quietly isn't; experience tells you which answers to double-check
+   - *Scope Creep in Both Directions* — AI adds unwanted features, or vague brief produces technically correct but wrong-in-spirit result; precision in the brief is the only fix
 5. **Why This Matters** — Answers "does it count?"; contractor analogy; the method doesn't change what the thing is.
 
 ---
 
 ## Projects Section — The Bookcase
 
-Built as a **literal bookcase** — one unified structure where each shelf is a project card.
+Built as a **literal bookcase** — one unified structure where each shelf is a project card. No max-width constraint — fills the available section width.
 
 ### Bookcase Anatomy
-- **Section background:** `#FFE4C4` — warm bisque; header text in espresso (dark on light)
-- **Uprights:** CSS-rendered wood-grain columns, absolutely positioned spanning full height
-- **Shelf back panels:** `#6B3A1F` — warm dark brown, reads as wood not void
+- **Section background:** `#EDE6D8`
+- **Uprights:** CSS-rendered wood columns, absolutely positioned spanning full height
+- **Shelf back panels:** `#6B3A1F` — warm dark brown
 - **Shelf ledges:** Horizontal planks with top highlight line and downward drop shadow
 - **Top ledge:** Present above Shelf 1 only
 - **Heavy base:** Bottom of the case
@@ -242,14 +244,16 @@ Everything on the page should add up to this, without saying it verbatim.
 ## Open Decisions
 
 - [x] Color palette — settled
-- [x] Section backgrounds — settled per section
-- [x] Button style — pill-shaped, large text
+- [x] Section backgrounds — settled; Projects and Process both `#EDE6D8`
+- [x] Button style — pill-shaped (`border-radius: 1.2em`), `font-size: 1.2em`
+- [x] Type scale — fluid root, all rem, scaled ~25–50% larger than initial build
 - [x] Hero headline — settled, exact wording and styling
-- [x] Hero subhead — settled
+- [x] Hero subhead — settled, ends with ellipsis
+- [x] Hero actions — buttons + scroll indicator pushed right via `margin-left: auto`
 - [x] Section order — Hero → Projects → About → Process → Contact
 - [x] About section — copy and framing settled
-- [x] Process section — built; expanded blocks settled; heading is working title
-- [x] Projects section — bookcase UI fully built
+- [x] Process section — built; all expanded blocks settled
+- [x] Projects section — bookcase UI fully built, no max-width constraint
 - [x] Rooms — five named and documented
 - [ ] Process heading — "The Madness of a Study" is working, not final
 - [ ] Contact section — not yet built
@@ -278,4 +282,4 @@ At the start of any working session, paste this README into the conversation. Up
 
 ---
 
-*Last updated: March 2026 — all four built sections complete; rooms expanded to five; buttons, copy, section backgrounds, and process section all settled*
+*Last updated: March 2026 — type scale enlarged and made fully fluid; all measurements in rem; bookcase unconstrained; Projects background updated to match Process; hero subhead finalised*

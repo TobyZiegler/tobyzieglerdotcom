@@ -52,7 +52,7 @@
             background: var(--bg);
             color: var(--text);
             font-family: var(--font-body);
-            font-size: 18px;
+            font-size: clamp(16px, 1.25vw + 0.5rem, 26px);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -87,14 +87,14 @@
 
         nav.scrolled {
             background: rgba(245, 240, 232, 0.88);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(0.625rem);
             border-bottom: 1px solid var(--rule);
         }
 
         .nav-logo {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 1.15rem;
+            font-size: 1.44rem;
             font-weight: 400;
             color: var(--text);
             text-decoration: none;
@@ -113,7 +113,7 @@
 
         .nav-links a {
             font-family: var(--font-body);
-            font-size: 0.85rem;
+            font-size: 1.19rem;
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -139,8 +139,8 @@
         /* Large decorative "T" watermark */
         .hero-watermark {
             position: absolute;
-            top: -0.15em;
-            right: -0.08em;
+            top: -0.13em;
+            right: 0.08em;
             font-family: var(--font-display);
             font-style: italic;
             font-weight: 800;
@@ -174,7 +174,6 @@
             justify-content: center;
             padding-top: 12vh;
             padding-bottom: 4vh;
-            max-width: 900px;
         }
 
         .hero-eyebrow {
@@ -195,7 +194,7 @@
 
         .hero-eyebrow-text {
             font-family: var(--font-body);
-            font-size: 0.8rem;
+            font-size: 1.12rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -204,7 +203,7 @@
 
         .hero-headline {
             font-family: var(--font-display);
-            font-size: clamp(2.8rem, 6.5vw, 6rem);
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
             line-height: 1.08;
             font-weight: 300;
             letter-spacing: -0.03em;
@@ -257,8 +256,8 @@
         }
 
         .hero-sub {
-            max-width: 560px;
-            font-size: 1.05rem;
+            max-width: 44rem;
+            font-size: 1.31rem;
             line-height: 1.7;
             color: var(--text-muted);
             margin-bottom: 3rem;
@@ -268,6 +267,7 @@
 
         .hero-actions {
             display: flex;
+            align-items: center;
             gap: 1.2rem;
             flex-wrap: wrap;
             opacity: 0;
@@ -278,16 +278,16 @@
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            padding: 0.85rem 1.9rem;
+            padding: 0.5rem 1.6rem;
             background: var(--accent-green);
             color: var(--white-soft);
             font-family: var(--font-body);
-            font-size: 0.88rem;
+            font-size: 1.2em;
             font-weight: 600;
             letter-spacing: 0.04em;
             text-decoration: none;
-            border: 2px solid var(--accent-green);
-            border-radius: 100px;
+            border: 0.2em solid var(--accent-green);
+            border-radius: 1.2em;
             transition: background 0.22s, color 0.22s, transform 0.18s;
         }
 
@@ -301,16 +301,16 @@
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            padding: 0.85rem 1.9rem;
+            padding: 0.5rem 1.6rem;
             background: transparent;
             color: var(--text);
             font-family: var(--font-body);
-            font-size: 0.88rem;
+            font-size: 1.2em;
             font-weight: 600;
             letter-spacing: 0.04em;
             text-decoration: none;
-            border: 2px solid var(--rule);
-            border-radius: 100px;
+            border: 0.2em solid var(--rule);
+            border-radius: 1.2em;
             transition: border-color 0.22s, color 0.22s, transform 0.18s;
         }
 
@@ -321,7 +321,7 @@
         }
 
         .btn-arrow {
-            font-size: 1rem;
+            font-size: 1.63rem;
             transition: transform 0.2s;
         }
 
@@ -351,7 +351,7 @@
         }
 
         .stat-label {
-            font-size: 0.72rem;
+            font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -361,7 +361,7 @@
         .stat-value {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 1rem;
+            font-size: 1.63rem;
             font-weight: 500;
             color: var(--text);
         }
@@ -374,7 +374,7 @@
         }
 
         .scroll-label {
-            font-size: 0.7rem;
+            font-size: 1.31rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -406,7 +406,7 @@
 
         .bracket-item {
             font-family: var(--font-body);
-            font-size: 0.72rem;
+            font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -431,7 +431,7 @@
         @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(18px);
+                transform: translateY(1.125rem);
             }
 
             to {
@@ -489,7 +489,7 @@
         /* ─── About Section ─────────────────────────────────── */
         #about {
             position: relative;
-            padding: 9rem 3rem;
+            padding: 9rem 4rem;
             background: var(--bg);
             overflow: hidden;
         }
@@ -516,8 +516,8 @@
             z-index: 1;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 6rem;
-            max-width: 1100px;
+            gap: 7rem;
+            max-width: 90rem;
         }
 
         /* Left column — label + decorative element */
@@ -542,7 +542,7 @@
         }
 
         .about-section-tag .tag-text {
-            font-size: 0.78rem;
+            font-size: 1.09rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -552,7 +552,7 @@
         .about-heading-aside {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-size: clamp(2.5rem, 4.25vw, 3.75rem);
             font-weight: 300;
             line-height: 1.15;
             letter-spacing: -0.02em;
@@ -581,7 +581,7 @@
 
         .about-lede {
             font-family: var(--font-display);
-            font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+            font-size: clamp(1.625rem, 2.75vw, 2.125rem);
             font-weight: 300;
             line-height: 1.45;
             letter-spacing: -0.015em;
@@ -600,7 +600,7 @@
         }
 
         .about-body p {
-            font-size: 1rem;
+            font-size: 1.63rem;
             line-height: 1.75;
             color: var(--text-muted);
         }
@@ -620,7 +620,7 @@
         .about-pullquote p {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 400;
             line-height: 1.5;
             color: var(--text) !important;
@@ -644,14 +644,14 @@
         .credential-value {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 1.6rem;
+            font-size: 2rem;
             font-weight: 500;
             line-height: 1;
             color: var(--text);
         }
 
         .credential-label {
-            font-size: 0.72rem;
+            font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -661,7 +661,7 @@
         /* ─── Process Section ───────────────────────────────── */
         #process {
             position: relative;
-            padding: 9rem 3rem;
+            padding: 9rem 4rem;
             background: #EDE6D8;
             overflow: hidden;
         }
@@ -671,8 +671,8 @@
             z-index: 1;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 6rem;
-            max-width: 1100px;
+            gap: 7rem;
+            max-width: 90rem;
         }
 
         /* Reuse about-label-col structure */
@@ -733,14 +733,14 @@
             gap: 0.75rem;
             background: none;
             border: 1.5px solid rgba(44, 31, 20, 0.25);
-            border-radius: 100px;
+            border-radius: 6.25rem;
             color: var(--text-muted);
             font-family: var(--font-body);
-            font-size: 1.05rem;
+            font-size: 1.31rem;
             font-weight: 600;
             letter-spacing: 0.05em;
             padding: 0.75rem 1.4rem;
-            border-radius: 100px;
+            border-radius: 6.25rem;
             cursor: pointer;
             align-self: flex-start;
             transition: border-color 0.2s, color 0.2s;
@@ -786,7 +786,7 @@
         @keyframes expandDown {
             from {
                 opacity: 0;
-                transform: translateY(-12px);
+                transform: translateY(-0.75rem);
             }
 
             to {
@@ -805,7 +805,7 @@
         }
 
         .process-block-label {
-            font-size: 0.72rem;
+            font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -814,7 +814,7 @@
         }
 
         .process-block p {
-            font-size: 1rem;
+            font-size: 1.63rem;
             line-height: 1.78;
             color: var(--text-muted);
         }
@@ -834,12 +834,12 @@
         .obstacle-card {
             background: rgba(44, 31, 20, 0.03);
             border: 1.5px solid rgba(44, 31, 20, 0.1);
-            border-radius: 8px;
+            border-radius: 0.5rem;
             padding: 1.4rem 1.6rem;
         }
 
         .obstacle-label {
-            font-size: 0.72rem;
+            font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -848,7 +848,7 @@
         }
 
         .obstacle-desc {
-            font-size: 0.93rem;
+            font-size: 1.21rem;
             color: var(--text-muted);
             line-height: 1.68;
         }
@@ -861,7 +861,7 @@
             align-items: center;
             gap: 1.5rem;
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 1.12rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             font-weight: 600;
@@ -878,8 +878,8 @@
         /* ─── Projects Section ──────────────────────────────── */
         #projects {
             position: relative;
-            padding: 9rem 3rem;
-            background-color: #FFE4C4;
+            padding: 9rem 4rem;
+            background-color: #EDE6D8;
             overflow: hidden;
         }
 
@@ -920,7 +920,7 @@
         }
 
         .projects-tag .tag-text {
-            font-size: 0.78rem;
+            font-size: 1.09rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -929,7 +929,7 @@
 
         .projects-heading {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-size: clamp(2.5rem, 4.25vw, 3.75rem);
             font-weight: 300;
             font-style: italic;
             letter-spacing: -0.02em;
@@ -940,7 +940,7 @@
         .projects-count {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 0.9rem;
+            font-size: 1.17rem;
             color: rgba(44, 31, 20, 0.45);
             white-space: nowrap;
         }
@@ -949,7 +949,7 @@
         .joke-card {
             width: 100%;
             height: 100%;
-            min-height: 420px;
+            min-height: 26.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -960,13 +960,13 @@
         /* The spotlight card itself */
         .joke-spotlight-embed {
             background: #FFFEF9;
-            border-radius: 28px;
-            padding: 40px;
+            border-radius: 1.75rem;
+            padding: 2.5rem;
             box-shadow: 0 20px 60px rgba(44, 31, 22, 0.25);
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 440px;
+            max-width: 34rem;
         }
 
         /* Giant decorative quote mark — exact match */
@@ -977,44 +977,44 @@
             line-height: 0.7;
             color: #E8DFD0;
             position: absolute;
-            top: 24px;
-            left: 24px;
+            top: 1.5rem;
+            left: 1.5rem;
             pointer-events: none;
         }
 
         .joke-spotlight-embed .spotlight-label {
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.7rem;
+            font-size: 1.31rem;
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: #5C4D3C;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             position: relative;
         }
 
         .joke-spotlight-embed .joke-setup-text {
             font-family: 'Fraunces', Georgia, serif;
-            font-size: 1.3rem;
+            font-size: 1.63rem;
             font-weight: 500;
             color: #0F0804;
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
             position: relative;
-            min-height: 64px;
+            min-height: 4rem;
         }
 
         .joke-spotlight-embed .joke-punchline-text {
             font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 1.63rem;
             color: #2E1F12;
             font-style: italic;
             font-weight: 400;
             position: relative;
-            min-height: 48px;
+            min-height: 3rem;
         }
 
         .joke-spotlight-embed .spotlight-footer {
-            margin-top: 20px;
+            margin-top: 1.25rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1022,25 +1022,25 @@
 
         .joke-spotlight-embed .vote-inline {
             display: flex;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
         .joke-spotlight-embed .vote-btn-sm {
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
+            font-size: 1.12rem;
             font-weight: 400;
             border: 1px solid #C8BAA8;
             background: #FAF7F2;
             color: #2E1F12;
-            padding: 6px 14px;
-            border-radius: 9999px;
+            padding: 0.375rem 0.875rem;
+            border-radius: 62.5rem;
             cursor: default;
             font-style: normal;
         }
 
         .joke-spotlight-embed .next-joke-link {
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
+            font-size: 1.12rem;
             color: #5C4D3C;
             text-decoration: none;
             transition: color 0.25s;
@@ -1054,7 +1054,6 @@
         /* ─── Bookcase ───────────────────────────────────────── */
         .bookcase {
             position: relative;
-            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2.8rem;
         }
@@ -1110,15 +1109,15 @@
         }
 
         .bc-shelf-live .bc-shelf-back {
-            min-height: 280px;
+            min-height: 17.5rem;
         }
 
         .bc-shelf-ghost .bc-shelf-back {
-            min-height: 90px;
+            min-height: 5.625rem;
         }
 
         .bc-shelf-ledge {
-            height: 18px;
+            height: 1.125rem;
             background: linear-gradient(180deg, #D4782E 0%, #BF6929 30%, #A85820 70%, #8F4818 100%);
             border: 1px solid #1a0a00;
             border-top: none;
@@ -1140,10 +1139,10 @@
         .bc-shelf-ledge::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -0.5rem;
             left: 0;
             right: 0;
-            height: 8px;
+            height: 0.5rem;
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent);
             pointer-events: none;
         }
@@ -1161,7 +1160,7 @@
         }
 
         .bc-base {
-            height: 32px;
+            height: 2rem;
             background: linear-gradient(180deg, #A84E22 0%, #8F3F18 35%, #6B2E10 70%, #4A1E08 100%);
             border: 1px solid #1a0a00;
             border-top: none;
@@ -1193,14 +1192,14 @@
         .bc-project-number {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 0.78rem;
+            font-size: 1.09rem;
             color: #C15A28;
             letter-spacing: 0.08em;
         }
 
         .bc-project-name {
             font-family: var(--font-display);
-            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            font-size: clamp(2rem, 3.125vw, 2.75rem);
             font-weight: 300;
             font-style: italic;
             letter-spacing: -0.02em;
@@ -1209,7 +1208,7 @@
         }
 
         .bc-project-desc {
-            font-size: 0.92rem;
+            font-size: 1.5rem;
             line-height: 1.65;
             color: rgba(250, 247, 242, 0.82);
         }
@@ -1221,7 +1220,7 @@
         }
 
         .bc-stack-tag {
-            font-size: 0.68rem;
+            font-size: 1.63rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1240,13 +1239,13 @@
             background: var(--accent-green);
             color: var(--white-soft);
             font-family: var(--font-body);
-            font-size: 0.82rem;
+            font-size: 1.44rem;
             font-weight: 600;
             letter-spacing: 0.04em;
             text-decoration: none;
             border: 2px solid var(--accent-green);
-            border-radius: 100px;
-            font-size: 1rem;
+            border-radius: 6.25rem;
+            font-size: 1.63rem;
             align-self: flex-start;
             transition: background 0.22s, color 0.22s, transform 0.18s;
         }
@@ -1260,8 +1259,8 @@
         /* Live dot */
         .live-dot {
             display: inline-block;
-            width: 7px;
-            height: 7px;
+            width: 0.4375rem;
+            height: 0.4375rem;
             border-radius: 50%;
             background: #5dba5f;
             box-shadow: 0 0 0 0 rgba(93, 186, 95, 0.5);
@@ -1294,7 +1293,7 @@
         .bc-ghost-number {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 1.4rem;
+            font-size: 1.75rem;
             font-weight: 300;
             color: rgba(250, 247, 242, 0.4);
             line-height: 1;
@@ -1303,7 +1302,7 @@
 
         .bc-ghost-label {
             font-family: var(--font-body);
-            font-size: 0.78rem;
+            font-size: 1.09rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -1409,7 +1408,6 @@
         <span class="hero-watermark" aria-hidden="true">T</span>
 
         <!-- Horizontal accent rule -->
-        <div class="hero-rule-top" aria-hidden="true"></div>
 
         <!-- Right-side discipline tags -->
         <div class="hero-bracket" aria-hidden="true">
@@ -1439,7 +1437,7 @@
 
             <p class="hero-sub">
                 Thirty years of design thinking. A precise hand on the baton.<br>
-                Let me share with you what that looks like for me.
+                Let me share with you what that looks like for me…
             </p>
 
             <div class="hero-actions">
@@ -1449,29 +1447,14 @@
                 <a href="#process" class="btn-secondary">
                     How it's made <span class="btn-arrow">→</span>
                 </a>
+                <div class="hero-scroll-indicator" aria-hidden="true" style="margin-left: auto;">
+                    <div class="scroll-line"></div>
+                    <span class="scroll-label">Scroll</span>
+                </div>
             </div>
 
         </div>
 
-        <!-- Footer bar -->
-        <div class="hero-footer">
-            <div class="hero-footer-stat">
-                <span class="stat-label">Current project</span>
-                <span class="stat-value">Dad-a-Base — live now</span>
-            </div>
-            <div class="hero-footer-stat">
-                <span class="stat-label">Stack</span>
-                <span class="stat-value">PHP · MySQL · Vanilla JS</span>
-            </div>
-            <div class="hero-footer-stat">
-                <span class="stat-label">Method</span>
-                <span class="stat-value">AI-directed, human-judged</span>
-            </div>
-            <div class="hero-scroll-indicator" aria-hidden="true">
-                <div class="scroll-line"></div>
-                <span class="scroll-label">Scroll</span>
-            </div>
-        </div>
 
     </section>
 
@@ -1486,7 +1469,6 @@
                     <span class="tag-text">The Work</span>
                 </div>
             </div>
-            <span class="projects-count">1 of 6 live</span>
         </div>
 
         <!-- ── The Bookcase ──────────────────────────────────── -->
