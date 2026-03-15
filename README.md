@@ -22,6 +22,7 @@ Subdomains extend the metaphor as natural "rooms." Each room has its own persona
 |---|---|---|---|
 | **The Study** | tobyziegler.com | Live | Main site — hub, identity, project showcase |
 | **Dad-a-Base** | dadabase.tobyziegler.com | Live | First showcase project — full-stack joke database |
+| **The Resume** | resume.tobyziegler.com | Planned | Professional résumé with AI job fit tool |
 | **The Workshop** | workshop.tobyziegler.com | Future | Smaller works — scripts, experiments, utilities, photos |
 | **The Children of the Checks** | treasury.tobyziegler.com | Future | The story and examples of how checks for the CMN telethon evolved |
 | **Toby's Food Faces** | pantry.tobyziegler.com | Future | The story and photos of the lunchtime unique faces endeavor |
@@ -90,8 +91,8 @@ All font sizes are in `rem` (or `em` for contextual button sizing), with `clamp(
 | Hero | `#F5F0E8` | Base parchment |
 | Projects | `#EDE6D8` | Slightly darker parchment |
 | About | `#F5F0E8` | Base parchment |
-| Process | `#EDE6D8` | Slightly darker parchment — matches Projects |
-| Contact | TBD | |
+| Process | `#EDE6D8` | Matches Projects |
+| Contact | `#F5F0E8` | Base parchment |
 | Footer | `#1C1712` | `--bg-dark` |
 
 ### Decorative Elements
@@ -112,15 +113,18 @@ Architected to grow into multi-page navigation without a rebuild.
 | 2 | Projects | The Bookcase | Built |
 | 3 | About | The Philosophy | Built |
 | 4 | Process | The Method | Built |
-| 5 | Contact | TBD | Not yet built |
+| 5 | Contact | Get in Touch | Built |
+| — | Footer | — | Built |
 
 ### Navigation
 - Fixed nav bar, transparent → frosted glass on scroll (`nav.scrolled`)
-- Minimal in Phase 1; architecture supports full nav as pages are added
+- `overflow: hidden` must NOT be set on `#hero` — it creates a stacking context that traps the fixed nav
 - No map widget — ever
 
 ### Resume
-- Open question: dedicated page, or integrated?
+- Separate subdomain: resume.tobyziegler.com (see README-resume.md)
+- Link from this page: nav bar + contextual placement near About section
+- Treatment: pill button with ↗, copy as invitation not label
 
 ---
 
@@ -138,6 +142,7 @@ build software with me.
 - "directing" — italic green (`--accent-green`)
 - "build software" — italic burgundy (`--accent-burg`)
 - All four lines animate in with staggered slide-up on load (delays: 0.65s / 0.82s / 0.99s / 1.16s)
+- `line-height: 1.2` — enough to clear descenders on Fraunces
 
 ### Hero Subhead (exact)
 
@@ -154,7 +159,8 @@ build software with me.
 ### Hero Actions
 - Primary button: "See the work →" — green filled, links to `#projects`
 - Secondary button: "How it's made →" — outline, links to `#process`
-- Scroll indicator: pill buttons followed by scroll indicator pushed to far right via `margin-left: auto`
+- Scroll indicator pushed to far right via `margin-left: auto` on the flex row
+- `align-items: center` on `.hero-actions` — prevents scroll indicator from stretching buttons
 
 ---
 
@@ -171,26 +177,22 @@ build software with me.
 ## Process Section — The Method
 
 - **Heading:** *The Madness of a Study.* *(working title — the method-within-madness theme is right)*
-- **Lede:** Origin story. The idea of a comfortable landing page, turned into a study, with rooms branching off. The place is intended to be welcoming, inviting, and from a real person. Key line: *"a comfortable place on the internet that feels like home."*
-- **Body (always visible):** Introduces the rooms concept; frames the work as thirty years of design thinking combined with new tools used deliberately.
+- **Lede:** Origin story. The idea of a comfortable landing page, turned into a study, with rooms branching off. Key line: *"a comfortable place on the internet that feels like home."*
 - **Expand button:** "See how it really works" ↔ "Show less"
 
 ### Expanded Blocks (in order)
 
-1. **The Approach** — AI direction as applied knowledge, not a workaround. Coding background makes the direction better. Key line: *"Understanding the craft you're directing is part of directing it well."*
-2. **The Workflow** — README-first sessions. Describe precisely, iterate, update README at end. The document is the memory.
-3. **The Tools** — Claude (computer use / pairing model changes the texture of the work). Minimal stack: PHP, HTML, CSS, vanilla JS — simplicity is a virtue, complexity is places for things to break.
-4. **What Goes Wrong** — Three obstacle cards:
-   - *Context Drift* — earlier decisions quietly contradicted by later ones; README is the fix
-   - *Confident Wrong Answers* — output looks right and quietly isn't; experience tells you which answers to double-check
-   - *Scope Creep in Both Directions* — AI adds unwanted features, or vague brief produces technically correct but wrong-in-spirit result; precision in the brief is the only fix
-5. **Why This Matters** — Answers "does it count?"; contractor analogy; the method doesn't change what the thing is.
+1. **The Approach** — AI direction as applied knowledge, not a workaround. Key line: *"Understanding the craft you're directing is part of directing it well."*
+2. **The Workflow** — README-first sessions. Describe precisely, iterate, update README at end.
+3. **The Tools** — Claude (pairing model). Minimal stack rationale.
+4. **What Goes Wrong** — Three obstacle cards: Context Drift, Confident Wrong Answers, Scope Creep in Both Directions
+5. **Why This Matters** — Contractor analogy. The method doesn't change what the thing is.
 
 ---
 
 ## Projects Section — The Bookcase
 
-Built as a **literal bookcase** — one unified structure where each shelf is a project card. No max-width constraint — fills the available section width.
+Built as a **literal bookcase** — one unified structure where each shelf is a project card. No max-width constraint — fills available section width.
 
 ### Bookcase Anatomy
 - **Section background:** `#EDE6D8`
@@ -210,6 +212,39 @@ Built as a **literal bookcase** — one unified structure where each shelf is a 
 ### Shelves 2–6 (ghost)
 - Faint number + label (e.g. "Project 02 — In development")
 - Opacity 0.45 — present but clearly reserved
+
+---
+
+## Contact Section — Get in Touch
+
+- **Heading:** *Let's talk about something real.*
+- **Lede:** "I'm not hard to find, and I'm not hard to talk to..."
+- **Tag / accent color:** Burgundy (`--accent-burg`)
+- **Email link:** Displayed as HTML entities, `mailto:` assembled at runtime via JS — never appears as plain text in source
+- **Form:** Minimal underline-only inputs; name + email side by side, message below; "Send it →" primary button
+- **Reassurance line:** "No newsletters. No follow-up sequences. Just a reply."
+- **Form action:** `contact.php` — ⚠️ **Action needed:** PHP mail handler required on server before form works
+- **Error fallback:** Points back to email address (also JS-assembled, unicode-escaped in source)
+
+---
+
+## Footer
+
+- **Background:** `--bg-dark`
+- **Three-column grid:** Wordmark + tagline left / page nav links centre / other rooms right
+- **Base bar:** Auto-updating copyright year (JS) + GitHub source link
+- **Wordmark:** Italic Fraunces, "Toby Ziegler"
+- **Tagline:** "Designer. Builder. Student of the craft."
+
+---
+
+## Email Obfuscation
+
+The contact email address (`toby@tobyziegler.com`) is protected by two layers:
+1. **Display** — rendered as numeric HTML entities in the HTML source
+2. **Link** — `mailto:` href assembled at runtime from split unicode-escaped JS strings; never appears as a complete address in source
+
+No plain `toby@` appears anywhere in the file.
 
 ---
 
@@ -241,27 +276,36 @@ Everything on the page should add up to this, without saying it verbatim.
 
 ---
 
+## Known Gotchas
+
+- **`overflow: hidden` on `#hero`** — do not add this back. It creates a stacking context that traps the fixed nav, causing it to not cover content on scroll.
+- **`</style>` tag** — must be present before `</head>`. Easy to lose during edits; always verify with `grep -c "</style>"`.
+- **CORS on `random.php`** — required for live joke fetch from tobyziegler.com to dadabase.tobyziegler.com.
+- **`contact.php`** — must be created manually on server; not in version control.
+- **Line numbers in VS Code** — word wrap causes visual line count to differ from actual. Toggle with `Option+Z`. True count: `wc -l index.html`.
+
+---
+
 ## Open Decisions
 
 - [x] Color palette — settled
-- [x] Section backgrounds — settled; Projects and Process both `#EDE6D8`
-- [x] Button style — pill-shaped (`border-radius: 1.2em`), `font-size: 1.2em`
-- [x] Type scale — fluid root, all rem, scaled ~25–50% larger than initial build
+- [x] Section backgrounds — settled
+- [x] Button style — pill-shaped, `border-radius: 1.2em`, `font-size: 1.2em`
+- [x] Type scale — fluid root, all rem, enlarged ~25–50%
 - [x] Hero headline — settled, exact wording and styling
-- [x] Hero subhead — settled, ends with ellipsis
-- [x] Hero actions — buttons + scroll indicator pushed right via `margin-left: auto`
-- [x] Section order — Hero → Projects → About → Process → Contact
-- [x] About section — copy and framing settled
-- [x] Process section — built; all expanded blocks settled
-- [x] Projects section — bookcase UI fully built, no max-width constraint
-- [x] Rooms — five named and documented
+- [x] Hero subhead — settled
+- [x] All five sections — built
+- [x] Footer — built
+- [x] Email obfuscation — entities + JS assembly
+- [x] Contact section — built (needs `contact.php` on server)
+- [x] Rooms — six named including resume subdomain
 - [ ] Process heading — "The Madness of a Study" is working, not final
-- [ ] Contact section — not yet built
-- [ ] Resume — own page vs. integrated
-- [ ] Contact approach — form, email link, or other
-- [ ] Study metaphor in UI — explicit or just informing the design?
+- [ ] Resume link placement — nav + contextual (not yet added to page)
+- [ ] Resume subdomain — not yet built (see README-resume.md)
 - [ ] Project shelf screenshots — placeholder in place for Shelf 1
-- [ ] CORS header in `random.php` — required for live joke fetch across subdomains
+- [ ] CORS header in `random.php`
+- [ ] `contact.php` mail handler on server
+- [ ] Study metaphor in UI — explicit or just informing the design?
 
 ---
 
@@ -282,4 +326,4 @@ At the start of any working session, paste this README into the conversation. Up
 
 ---
 
-*Last updated: March 2026 — type scale enlarged and made fully fluid; all measurements in rem; bookcase unconstrained; Projects background updated to match Process; hero subhead finalised*
+*Last updated: March 2026 — all sections complete including Contact and Footer; email obfuscated; nav stacking context bug documented; resume subdomain planned and briefed in README-resume.md*

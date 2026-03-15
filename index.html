@@ -133,7 +133,6 @@
             display: grid;
             grid-template-rows: 1fr auto;
             padding: 0 3rem;
-            overflow: hidden;
         }
 
         /* Large decorative "T" watermark */
@@ -204,7 +203,7 @@
         .hero-headline {
             font-family: var(--font-display);
             font-size: clamp(3.5rem, 8vw, 7.5rem);
-            line-height: 1.08;
+            line-height: 1.2;
             font-weight: 300;
             letter-spacing: -0.03em;
             color: var(--text);
@@ -853,26 +852,249 @@
             line-height: 1.68;
         }
 
-        /* ─── Placeholder sections (to be built) ───────────── */
-        .section-placeholder {
-            padding: 8rem 3rem;
-            border-top: 1px solid var(--rule);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            color: var(--text-muted);
-            font-size: 1.12rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 600;
+        /* ─── Contact Section ───────────────────────────────── */
+        #contact {
+            position: relative;
+            padding: 9rem 4rem;
+            background: var(--bg);
         }
 
-        .section-placeholder::before {
-            content: '';
-            width: 2rem;
-            height: 1.5px;
-            background: var(--rule);
-            flex-shrink: 0;
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 7rem;
+            max-width: 90rem;
+        }
+
+        .contact-label-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-top: 0.4rem;
+        }
+
+        #contact .about-section-tag .tag-line {
+            background: var(--accent-burg);
+        }
+
+        #contact .about-section-tag .tag-text {
+            color: var(--accent-burg);
+        }
+
+        #contact .about-heading-aside em {
+            color: var(--accent-burg);
+        }
+
+        #contact .about-vert-rule {
+            background: linear-gradient(to bottom, var(--accent-burg), transparent);
+        }
+
+        #contact .about-lede em {
+            color: var(--accent-burg);
+        }
+
+        .contact-content-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+        }
+
+        /* ── Direct email link ── */
+        .contact-email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            font-weight: 300;
+            color: var(--accent-burg);
+            text-decoration: none;
+            border-bottom: 1.5px solid rgba(123, 45, 58, 0.25);
+            padding-bottom: 0.2rem;
+            align-self: flex-start;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .contact-email-link:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .contact-email-icon {
+            font-style: normal;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        /* ── Form ── */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .contact-field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .contact-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-label {
+            font-size: 1.08rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .contact-input {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            color: var(--text);
+            background: transparent;
+            border: none;
+            border-bottom: 1.5px solid var(--rule);
+            padding: 0.6rem 0;
+            outline: none;
+            transition: border-color 0.2s;
+            width: 100%;
+        }
+
+        .contact-input::placeholder {
+            color: rgba(44, 31, 20, 0.3);
+        }
+
+        .contact-input:focus {
+            border-bottom-color: var(--accent-burg);
+        }
+
+        .contact-textarea {
+            resize: vertical;
+            min-height: 7rem;
+            line-height: 1.6;
+        }
+
+        .contact-form-footer {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-note {
+            font-size: 1.08rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .contact-feedback {
+            padding: 1rem 1.4rem;
+            border-radius: 0.5rem;
+            font-size: 1.17rem;
+            line-height: 1.6;
+        }
+
+        .contact-feedback.success {
+            background: rgba(58, 92, 59, 0.08);
+            border: 1.5px solid rgba(58, 92, 59, 0.25);
+            color: var(--accent-green);
+        }
+
+        .contact-feedback.error {
+            background: rgba(123, 45, 58, 0.07);
+            border: 1.5px solid rgba(123, 45, 58, 0.22);
+            color: var(--accent-burg);
+        }
+
+        /* ─── Footer ─────────────────────────────────────────── */
+        #site-footer {
+            background: var(--bg-dark);
+            padding: 4rem 4rem 2rem;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(250, 247, 242, 0.1);
+            max-width: 90rem;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-wordmark {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.75rem;
+            font-weight: 300;
+            color: var(--white-soft);
+            letter-spacing: -0.02em;
+        }
+
+        .footer-tagline {
+            font-size: 1.08rem;
+            color: rgba(250, 247, 242, 0.45);
+        }
+
+        .footer-nav,
+        .footer-rooms {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-top: 0.25rem;
+        }
+
+        .footer-rooms-label {
+            font-size: 1.08rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(250, 247, 242, 0.3);
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-link {
+            font-size: 1.09rem;
+            color: rgba(250, 247, 242, 0.55);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--white-soft);
+        }
+
+        .footer-base {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 90rem;
+        }
+
+        .footer-copy {
+            font-size: 1.08rem;
+            color: rgba(250, 247, 242, 0.3);
+        }
+
+        .footer-gh {
+            font-size: 1.08rem;
         }
 
         /* ─── Projects Section ──────────────────────────────── */
@@ -1384,6 +1606,28 @@
             .bc-shelf-live .bc-shelf-back {
                 min-height: auto;
             }
+
+            #contact {
+                padding: 6rem 1.5rem;
+            }
+
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-field-row {
+                grid-template-columns: 1fr;
+            }
+
+            #site-footer {
+                padding: 3rem 1.5rem 1.5rem;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -1825,9 +2069,122 @@
         </div><!-- /.process-inner -->
 
     </section>
-    <div class="section-placeholder" id="contact">Contact — coming next</div>
+    <!-- ─── Contact ───────────────────────────────────────── -->
+    <section id="contact">
+
+        <div class="contact-inner">
+
+            <!-- Left: label + heading + rule -->
+            <div class="contact-label-col">
+                <div class="about-section-tag">
+                    <span class="tag-line"></span>
+                    <span class="tag-text">Get in Touch</span>
+                </div>
+                <h2 class="about-heading-aside">
+                    Let's talk about<br><em>something real.</em>
+                </h2>
+                <div class="about-vert-rule"></div>
+            </div>
+
+            <!-- Right: content -->
+            <div class="contact-content-col">
+
+                <p class="about-lede">
+                    I'm not hard to find, and I'm not hard to talk to.
+                    If something here resonated — a project, an approach, an idea —
+                    <em>I'd genuinely like to hear from you.</em>
+                </p>
+
+                <div class="about-body">
+                    <p>
+                        Whether you're thinking about a collaboration, have a role that might fit,
+                        or just want to talk about what AI-directed engineering looks like in practice —
+                        reach out. <strong>Real conversations are how real things get started.</strong>
+                    </p>
+                </div>
+
+                <!-- Direct email — address assembled by JS, displayed as entities -->
+                <a href="#" class="contact-email-link" id="contact-email-link">
+                    <span class="contact-email-icon" aria-hidden="true">✉</span>
+                    <span>&#116;&#111;&#98;&#121;&#64;&#116;&#111;&#98;&#121;&#122;&#105;&#101;&#103;&#108;&#101;&#114;&#46;&#99;&#111;&#109;</span>
+                </a>
+
+                <!-- Form -->
+                <!-- NOTE FOR DEPLOYMENT: Point action to a PHP mail handler, e.g. contact.php -->
+                <form class="contact-form" id="contact-form" action="contact.php" method="POST" novalidate>
+
+                    <div class="contact-field-row">
+                        <div class="contact-field">
+                            <label class="contact-label" for="contact-name">Name</label>
+                            <input class="contact-input" type="text" id="contact-name" name="name"
+                                placeholder="Your name" autocomplete="name" required>
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-label" for="contact-email">Email</label>
+                            <input class="contact-input" type="email" id="contact-email" name="email"
+                                placeholder="your@email.com" autocomplete="email" required>
+                        </div>
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="contact-message">Message</label>
+                        <textarea class="contact-input contact-textarea" id="contact-message" name="message"
+                            placeholder="What's on your mind?" rows="5" required></textarea>
+                    </div>
+
+                    <div class="contact-form-footer">
+                        <button type="submit" class="btn-primary contact-submit">
+                            Send it <span class="btn-arrow">→</span>
+                        </button>
+                        <p class="contact-note">No newsletters. No follow-up sequences. Just a reply.</p>
+                    </div>
+
+                    <!-- Success / error states (shown via JS) -->
+                    <div class="contact-feedback" id="contact-feedback" hidden></div>
+
+                </form>
+
+            </div><!-- /.contact-content-col -->
+        </div><!-- /.contact-inner -->
+
+    </section>
+
+    <!-- ─── Footer ──────────────────────────────────────────── -->
+    <footer id="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-left">
+                <span class="footer-wordmark">Toby Ziegler</span>
+                <span class="footer-tagline">Designer. Builder. Student of the craft.</span>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="#projects" class="footer-link">The Work</a>
+                <a href="#about" class="footer-link">The Philosophy</a>
+                <a href="#process" class="footer-link">The Method</a>
+                <a href="#contact" class="footer-link">Get in Touch</a>
+            </nav>
+
+            <div class="footer-rooms">
+                <span class="footer-rooms-label">Other rooms</span>
+                <a href="https://dadabase.tobyziegler.com" target="_blank" rel="noopener"
+                    class="footer-link">Dad-a-Base</a>
+            </div>
+
+        </div>
+
+        <div class="footer-base">
+            <span class="footer-copy">&copy; <span id="footer-year"></span> Toby Ziegler. Made with care and
+                Claude.</span>
+            <a href="https://github.com/TobyZiegler/tobyzieglerdotcom" target="_blank" rel="noopener"
+                class="footer-link footer-gh">Source on GitHub</a>
+        </div>
+
+    </footer>
 
     <!-- ─── Scripts ────────────────────────────────────────── -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // Process expand/collapse
         const processToggle = document.getElementById('process-toggle');
@@ -1852,7 +2209,52 @@
         }
 
 
-        const nav = document.getElementById('main-nav');
+        // Email obfuscation — assemble mailto: at runtime, never in source
+        const emailLink = document.getElementById('contact-email-link');
+        if (emailLink) {
+            const u = '\u0074\u006f\u0062\u0079';
+            const d = '\u0074\u006f\u0062\u0079\u007a\u0069\u0065\u0067\u006c\u0065\u0072\u002e\u0063\u006f\u006d';
+            emailLink.href = 'mailto:' + u + '\u0040' + d;
+        }
+
+
+        const yearEl = document.getElementById('footer-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // Contact form — client-side feedback; real send requires contact.php on server
+        const contactForm = document.getElementById('contact-form');
+        const contactFeedback = document.getElementById('contact-feedback');
+        if (contactForm && contactFeedback) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = contactForm.querySelector('.contact-submit');
+                btn.textContent = 'Sending…';
+                btn.disabled = true;
+                try {
+                    const res = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm)
+                    });
+                    if (res.ok) {
+                        contactFeedback.className = 'contact-feedback success';
+                        contactFeedback.textContent = 'Message sent. I\'ll be in touch.';
+                        contactFeedback.hidden = false;
+                        contactForm.reset();
+                    } else {
+                        throw new Error('server error');
+                    }
+                } catch {
+                    contactFeedback.className = 'contact-feedback error';
+                    contactFeedback.textContent = 'Something didn\'t go through. Try emailing directly \u2014 \u0074\u006f\u0062\u0079\u0040\u0074\u006f\u0062\u0079\u007a\u0069\u0065\u0067\u006c\u0065\u0072\u002e\u0063\u006f\u006d';
+                    contactFeedback.hidden = false;
+                } finally {
+                    btn.textContent = 'Send it →';
+                    btn.disabled = false;
+                }
+            });
+        }
+
+
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 40);
         }, { passive: true });
@@ -1871,15 +2273,3 @@
 
                 setTimeout(() => {
                     document.getElementById('joke-setup').textContent = joke.setup;
-                    document.getElementById('joke-punchline').textContent = joke.punchline;
-                    inner.style.opacity = '1';
-                }, 300);
-            } catch (e) {
-                // Placeholder stays — no visible failure
-            }
-        })();
-    </script>
-
-</body>
-
-</html>
