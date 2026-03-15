@@ -223,8 +223,9 @@ Built as a **literal bookcase** — one unified structure where each shelf is a 
 - **Email link:** Displayed as HTML entities, `mailto:` assembled at runtime via JS — never appears as plain text in source
 - **Form:** Minimal underline-only inputs; name + email side by side, message below; "Send it →" primary button
 - **Reassurance line:** "No newsletters. No follow-up sequences. Just a reply."
-- **Form action:** `contact.php` — ⚠️ **Action needed:** PHP mail handler required on server before form works
+- **Form action:** `contact.php` — built and in outputs; upload to document root alongside index.html
 - **Error fallback:** Points back to email address (also JS-assembled, unicode-escaped in source)
+- **Honeypot:** CSS-positioned off-screen field named `website`; server silently accepts if filled (bot detection)
 
 ---
 
@@ -281,8 +282,10 @@ Everything on the page should add up to this, without saying it verbatim.
 - **`overflow: hidden` on `#hero`** — do not add this back. It creates a stacking context that traps the fixed nav, causing it to not cover content on scroll.
 - **`</style>` tag** — must be present before `</head>`. Easy to lose during edits; always verify with `grep -c "</style>"`.
 - **CORS on `random.php`** — required for live joke fetch from tobyziegler.com to dadabase.tobyziegler.com.
-- **`contact.php`** — must be created manually on server; not in version control.
+- **`contact.php`** — built; upload to document root alongside index.html. Not in version control (contains configuration).
 - **Line numbers in VS Code** — word wrap causes visual line count to differ from actual. Toggle with `Option+Z`. True count: `wc -l index.html`.
+- **VS Code format-on-save** — HTML formatter will reformat the file on save, changing line count from ~2065 to ~2300. Disable for HTML by adding `"[html]": { "editor.formatOnSave": false }` to User Settings JSON (`Cmd+Shift+P` → "Open User Settings JSON").
+- **File truncation** — if the file ever seems to end abruptly, check with `grep -c "</html>"`. Should return 1. The script block and closing `</body></html>` are the last lines.
 
 ---
 
@@ -297,14 +300,14 @@ Everything on the page should add up to this, without saying it verbatim.
 - [x] All five sections — built
 - [x] Footer — built
 - [x] Email obfuscation — entities + JS assembly
-- [x] Contact section — built (needs `contact.php` on server)
+- [x] Contact section — built including `contact.php` handler
 - [x] Rooms — six named including resume subdomain
 - [ ] Process heading — "The Madness of a Study" is working, not final
 - [ ] Resume link placement — nav + contextual (not yet added to page)
 - [ ] Resume subdomain — not yet built (see README-resume.md)
 - [ ] Project shelf screenshots — placeholder in place for Shelf 1
 - [ ] CORS header in `random.php`
-- [ ] `contact.php` mail handler on server
+- [x] `contact.php` — built; needs uploading to server document root
 - [ ] Study metaphor in UI — explicit or just informing the design?
 
 ---
@@ -326,4 +329,4 @@ At the start of any working session, paste this README into the conversation. Up
 
 ---
 
-*Last updated: March 2026 — all sections complete including Contact and Footer; email obfuscated; nav stacking context bug documented; resume subdomain planned and briefed in README-resume.md*
+*Last updated: March 2026 — all sections complete; contact.php built with honeypot and rate limiting; email obfuscated; VS Code formatter gotcha documented; resume subdomain planned and briefed in README-resume.md*

@@ -899,6 +899,16 @@
             gap: 2.4rem;
         }
 
+        /* Honeypot — visually hidden but not display:none (bots skip those) */
+        .contact-honeypot {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            pointer-events: none;
+            tab-index: -1;
+        }
+
         /* ── Direct email link ── */
         .contact-email-link {
             display: inline-flex;
@@ -2113,6 +2123,12 @@
                 <!-- NOTE FOR DEPLOYMENT: Point action to a PHP mail handler, e.g. contact.php -->
                 <form class="contact-form" id="contact-form" action="contact.php" method="POST" novalidate>
 
+                    <!-- Honeypot — hidden from humans via CSS, filled by bots -->
+                    <div class="contact-honeypot" aria-hidden="true">
+                        <label for="website">Leave this empty</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <div class="contact-field-row">
                         <div class="contact-field">
                             <label class="contact-label" for="contact-name">Name</label>
@@ -2273,3 +2289,15 @@
 
                 setTimeout(() => {
                     document.getElementById('joke-setup').textContent = joke.setup;
+                    document.getElementById('joke-punchline').textContent = joke.punchline;
+                    inner.style.opacity = '1';
+                }, 300);
+            } catch (e) {
+                // Placeholder stays — no visible failure
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
