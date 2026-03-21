@@ -48,6 +48,10 @@
             scroll-behavior: smooth;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             background: var(--bg);
             color: var(--text);
@@ -55,7 +59,6 @@
             font-size: clamp(16px, 1.25vw + 0.5rem, 26px);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
         /* ─── Noise Texture Overlay ─────────────────────────── */
@@ -71,7 +74,7 @@
         }
 
         /* ─── Nav ───────────────────────────────────────────── */
-        nav {
+        #main-nav {
             position: fixed;
             top: 0;
             left: 0;
@@ -82,13 +85,15 @@
             justify-content: space-between;
             align-items: center;
             background: transparent;
-            transition: background 0.4s ease, backdrop-filter 0.4s ease;
+            border-bottom: 1px solid transparent;
+            transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
         }
 
-        nav.scrolled {
+        #main-nav.scrolled {
             background: rgba(245, 240, 232, 0.88);
             backdrop-filter: blur(0.625rem);
-            border-bottom: 1px solid var(--rule);
+            -webkit-backdrop-filter: blur(0.625rem);
+            border-bottom-color: var(--rule);
         }
 
         .nav-logo {
@@ -491,6 +496,7 @@
             padding: 9rem 4rem;
             background: var(--bg);
             overflow: hidden;
+            scroll-margin-top: 5rem;
         }
 
         /* Large decorative numeral */
@@ -663,6 +669,7 @@
             padding: 9rem 4rem;
             background: #EDE6D8;
             overflow: hidden;
+            scroll-margin-top: 5rem;
         }
 
         .process-inner {
@@ -682,17 +689,16 @@
             padding-top: 0.4rem;
         }
 
-        /* Override tag + heading colors for dark bg */
+        #process .about-heading-aside {
+            color: var(--text);
+        }
+
         #process .about-section-tag .tag-line {
             background: var(--accent-green);
         }
 
         #process .about-section-tag .tag-text {
             color: var(--accent-green);
-        }
-
-        #process .about-heading-aside {
-            color: var(--text);
         }
 
         #process .about-heading-aside em {
@@ -857,6 +863,7 @@
             position: relative;
             padding: 9rem 4rem;
             background: var(--bg);
+            scroll-margin-top: 5rem;
         }
 
         .contact-inner {
@@ -873,15 +880,15 @@
             padding-top: 0.4rem;
         }
 
+        #contact .about-heading-aside em {
+            color: var(--accent-burg);
+        }
+
         #contact .about-section-tag .tag-line {
             background: var(--accent-burg);
         }
 
         #contact .about-section-tag .tag-text {
-            color: var(--accent-burg);
-        }
-
-        #contact .about-heading-aside em {
             color: var(--accent-burg);
         }
 
@@ -1027,7 +1034,7 @@
 
         /* ─── Footer ─────────────────────────────────────────── */
         #site-footer {
-            background: var(--bg-dark);
+            background: linear-gradient(180deg, #803300 0%, #5c2a10 35%, #3e1c08 70%, #2a1005 100%);
             padding: 4rem 4rem 2rem;
         }
 
@@ -1068,7 +1075,15 @@
             padding-top: 0.25rem;
         }
 
+        .footer-rooms {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem 1.5rem;
+        }
+
         .footer-rooms-label {
+            width: 100%;
             font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: 0.1em;
@@ -1113,6 +1128,7 @@
             padding: 9rem 4rem;
             background-color: #EDE6D8;
             overflow: hidden;
+            scroll-margin-top: 5rem;
         }
 
         /* No overlay on light background */
@@ -1121,6 +1137,7 @@
         }
 
 
+        /* ─── Projects section header + tag ────────────────── */
         .projects-header {
             display: flex;
             align-items: flex-end;
@@ -1157,24 +1174,6 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--accent-green);
-        }
-
-        .projects-heading {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 4.25vw, 3.75rem);
-            font-weight: 300;
-            font-style: italic;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            color: var(--text);
-        }
-
-        .projects-count {
-            font-family: var(--font-display);
-            font-style: italic;
-            font-size: 1.17rem;
-            color: rgba(44, 31, 20, 0.45);
-            white-space: nowrap;
         }
 
         /* ─── Live Joke Card — matches .joke-spotlight on Dad-a-Base ── */
@@ -1287,7 +1286,9 @@
         .bookcase {
             position: relative;
             margin: 0 auto;
-            padding: 0 2.8rem;
+            padding: 0;
+            /* Clip uprights so they never exceed the bookcase height */
+            overflow: hidden;
         }
 
         .bc-upright {
@@ -1295,19 +1296,23 @@
             top: 0;
             bottom: 0;
             width: 2.2rem;
-            background: linear-gradient(180deg, #C15A28 0%, #A84E22 50%, #8F3F18 100%);
-            border: 1px solid #1a0a00;
+            border: 1.5px solid #1a0a00;
             z-index: 2;
         }
 
+        /* Left upright: light on outer-left face, darkens toward the shelf interior */
         .bc-upright-left {
             left: 0;
+            background: linear-gradient(90deg, #996633 0%, #7a3b1a 35%, #4a1e00 100%);
         }
 
+        /* Right upright: dark toward shelf interior, lightens toward outer-right face */
         .bc-upright-right {
             right: 0;
+            background: linear-gradient(90deg, #4a1e00 0%, #7a3b1a 65%, #996633 100%);
         }
 
+        /* Inner highlight stripe — matches SVG light grain colour #cc8733 */
         .bc-upright-left::after,
         .bc-upright-right::after {
             content: '';
@@ -1315,7 +1320,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: rgba(255, 200, 120, 0.18);
+            background: rgba(204, 135, 51, 0.25);
         }
 
         .bc-upright-left::after {
@@ -1332,12 +1337,13 @@
             flex-direction: column;
         }
 
+        /* Shelf back panels — real wood plank texture from SVG tile */
         .bc-shelf-back {
-            background: #6B3A1F;
-            background-image: repeating-linear-gradient(180deg, transparent, transparent 4px,
-                    rgba(255, 180, 80, 0.04) 4px, rgba(255, 180, 80, 0.04) 5px);
-            border-left: 1px solid #1a0a00;
-            border-right: 1px solid #1a0a00;
+            background-color: #803300;
+            background-image: url('assets/WoodenPlanks.svg');
+            background-repeat: repeat;
+            background-size: 1152px auto;
+            /* No side borders — uprights cover those edges flush */
         }
 
         .bc-shelf-live .bc-shelf-back {
@@ -1348,16 +1354,18 @@
             min-height: 5.625rem;
         }
 
+        /* Shelf ledges — mid-tone from SVG (#803300 → #996600 highlight) */
         .bc-shelf-ledge {
             height: 1.125rem;
-            background: linear-gradient(180deg, #D4782E 0%, #BF6929 30%, #A85820 70%, #8F4818 100%);
-            border: 1px solid #1a0a00;
+            background: linear-gradient(180deg, #996600 0%, #803300 35%, #6b2a00 70%, #4a1e00 100%);
             border-top: none;
+            border-bottom: 1.5px solid #1a0a00;
             position: relative;
             z-index: 1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
         }
 
+        /* Top highlight line — SVG light grain colour #cc8733 */
         .bc-shelf-ledge::before {
             content: '';
             position: absolute;
@@ -1365,7 +1373,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: rgba(255, 220, 140, 0.45);
+            background: rgba(204, 135, 51, 0.5);
         }
 
         .bc-shelf-ledge::after {
@@ -1375,15 +1383,15 @@
             left: 0;
             right: 0;
             height: 0.5rem;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.38), transparent);
             pointer-events: none;
         }
 
         /* Top ledge — shadow falls down INTO the shelf, no upward shadow */
         .bc-shelf-ledge-top {
-            border-top: 1px solid #1a0a00;
+            border-top: 1.5px solid #1a0a00;
             border-bottom: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
         }
 
         .bc-shelf-ledge-top::after {
@@ -1391,12 +1399,13 @@
             top: 100%;
         }
 
+        /* Base — deepest SVG dark tone #503320 */
         .bc-base {
-            height: 2rem;
-            background: linear-gradient(180deg, #A84E22 0%, #8F3F18 35%, #6B2E10 70%, #4A1E08 100%);
-            border: 1px solid #1a0a00;
+            height: 3rem;
+            background: linear-gradient(180deg, #803300 0%, #5c2a10 35%, #3e1c08 70%, #2a1005 100%);
             border-top: none;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 2px 0 rgba(255, 200, 120, 0.15);
+            border-bottom: 1.5px solid #1a0a00;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), inset 0 2px 0 rgba(204, 135, 51, 0.18);
         }
 
         /* Live shelf content */
@@ -1407,13 +1416,14 @@
         }
 
         .bc-joke-panel {
-            padding: 2rem 2rem 2rem 1.5rem;
+            padding: 2rem 4rem 2rem 1.5rem;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
 
         .bc-project-panel {
-            padding: 2rem 1.5rem 2rem 2rem;
+            padding: 2rem 1.5rem 2rem 4rem;
             border-right: 1px solid rgba(255, 180, 80, 0.12);
             display: flex;
             flex-direction: column;
@@ -1432,7 +1442,7 @@
         .bc-project-name {
             font-family: var(--font-display);
             font-size: clamp(2rem, 3.125vw, 2.75rem);
-            font-weight: 300;
+            font-weight: 700;
             font-style: italic;
             letter-spacing: -0.02em;
             line-height: 1.1;
@@ -1442,7 +1452,7 @@
         .bc-project-desc {
             font-size: 1.5rem;
             line-height: 1.65;
-            color: rgba(250, 247, 242, 0.82);
+            color: rgba(250, 247, 242, 0.92);
         }
 
         .bc-project-stack {
@@ -1457,7 +1467,7 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: rgba(250, 247, 242, 0.65);
-            border: 1px solid rgba(250, 247, 242, 0.25);
+            border: 2px solid rgba(250, 247, 242, 0.4);
             padding: 0.25rem 0.6rem;
             border-radius: 3px;
         }
@@ -1543,7 +1553,7 @@
 
         /* ─── Responsive ────────────────────────────────────── */
         @media (max-width: 768px) {
-            nav {
+            #main-nav {
                 padding: 1.2rem 1.5rem;
             }
 
@@ -1601,7 +1611,7 @@
             }
 
             .bookcase {
-                padding: 0 1.8rem;
+                padding: 0;
             }
 
             .bc-shelf-content {
@@ -1648,10 +1658,10 @@
     <nav id="main-nav">
         <a href="/" class="nav-logo">Toby's Study</a>
         <ul class="nav-links">
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#projects">The Work</a></li>
+            <li><a href="#about">The Philosophy</a></li>
+            <li><a href="#process">The Method</a></li>
+            <li><a href="#contact">Get in Touch</a></li>
         </ul>
     </nav>
 
@@ -2186,6 +2196,8 @@
                 <span class="footer-rooms-label">Other rooms</span>
                 <a href="https://dadabase.tobyziegler.com" target="_blank" rel="noopener"
                     class="footer-link">Dad-a-Base</a>
+                <a href="https://resume.tobyziegler.com" target="_blank" rel="noopener" class="footer-link">The
+                    Resume</a>
             </div>
 
         </div>
@@ -2271,8 +2283,10 @@
         }
 
 
+        const nav = document.getElementById('main-nav');
+
         window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 40);
+            nav.classList.toggle('scrolled', window.scrollY > 0);
         }, { passive: true });
 
         // Live joke from Dad-a-Base — replaces placeholder if fetch succeeds
