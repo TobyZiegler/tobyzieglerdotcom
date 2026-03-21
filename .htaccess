@@ -1,2 +1,6 @@
-DirectoryIndex index.php index.html
+DirectoryIndex index.html index.php
 Options -Indexes
+ErrorDocument 404 /404.shtml
+ErrorDocument 502 /502.shtml
+ErrorDocument 504 /504.shtml
+ErrorDocument 508 /508.shtml

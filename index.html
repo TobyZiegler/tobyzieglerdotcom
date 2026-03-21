@@ -131,6 +131,46 @@
             color: var(--accent-green);
         }
 
+        /* ─── Hero Rewrite Notice ────────────────────────────── */
+        .hero-rewrite-notice {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.9rem 3rem 1.4rem;
+            border-top: 1px solid var(--rule);
+            opacity: 0;
+            animation: fadeUp 0.6s ease 2s forwards;
+        }
+
+        .rewrite-dot {
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 50%;
+            background: var(--accent-burg);
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .rewrite-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .rewrite-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .rewrite-link:hover {
+            color: var(--text);
+        }
+
         /* ─── Hero ──────────────────────────────────────────── */
         #hero {
             position: relative;
@@ -1719,6 +1759,12 @@
 
         </div>
 
+        <!-- Rewrite notice -->
+        <div class="hero-rewrite-notice">
+            <span class="rewrite-dot"></span>
+            <span class="rewrite-text">This site is in the middle of a complete rebuild — directed by Toby, built with
+                Claude. <a href="#process" class="rewrite-link">Here's how that works.</a></span>
+        </div>
 
     </section>
 
