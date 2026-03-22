@@ -1322,6 +1322,57 @@
             text-decoration: underline;
         }
 
+  /* ── Checks shelf image panel ── */
+  .bc-check-panel {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 180, 80, 0.12);
+  }
+
+  .bc-check-img-wrap {
+    width: 100%;
+    max-width: 32rem;
+    position: relative;
+  }
+
+  .bc-check-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.2rem;
+    box-shadow:
+      0 6px 28px rgba(0,0,0,0.55),
+      0 1px 4px rgba(0,0,0,0.3);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .bc-check-img-wrap img:hover {
+    box-shadow:
+      0 10px 40px rgba(0,0,0,0.65),
+      0 2px 8px rgba(0,0,0,0.35);
+    transform: translateY(-2px);
+  }
+
+  /* Right-side project info panel for checks shelf —
+     mirrors bc-project-panel but on the right */
+  .bc-checks-info {
+    padding: 2rem 4rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  /* Mobile: stack vertically, image on top */
+  @media (max-width: 768px) {
+    .bc-check-panel {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 180, 80, 0.12);
+    }
+  }
+
         /* ─── Bookcase ───────────────────────────────────────── */
         .bookcase {
             position: relative;
@@ -1836,15 +1887,42 @@
             </div>
 
             <!-- ── Shelf 2 ─────────────────────────────────────── -->
-            <div class="bc-shelf bc-shelf-ghost">
+            <div class="bc-shelf bc-shelf-live">
+                <div class="bc-shelf-ledge bc-shelf-ledge-top"></div>
                 <div class="bc-shelf-back">
-                    <div class="bc-shelf-ghost-content">
-                        <span class="bc-ghost-number">02</span>
-                        <span class="bc-ghost-label">Next project — In development</span>
+                    <div class="bc-shelf-content">
+            
+                        <!-- Check image — left half -->
+                        <div class="bc-check-panel">
+                            <div class="bc-check-img-wrap">
+                                <img src="assets/check-cole2-card.jpg"
+                                    alt="CMN display check featuring Cole Hill, 2005 — the year the children's stories were added to the memo field"
+                                    loading="lazy">
+                            </div>
+                        </div>
+            
+                        <!-- Project info — right half -->
+                        <div class="bc-checks-info">
+                            <span class="bc-project-number">02</span>
+                            <h3 class="bc-project-name">The Children<br>of the Checks</h3>
+                            <p class="bc-project-desc">Ten years of CMN telethon display checks — designed, printed, and iterated
+                                in-house. From two yellow sheets taped together to something worth keeping.</p>
+                            <div class="bc-project-stack">
+                                <span class="bc-stack-tag">Print Design</span>
+                                <span class="bc-stack-tag">2002–2013</span>
+                                <span class="bc-stack-tag">CoxHealth</span>
+                            </div>
+                            <a href="https://projects.tobyziegler.com/checks/" target="_blank" rel="noopener"
+                                class="bc-project-link">
+                                See the project →
+                            </a>
+                        </div>
+            
                     </div>
                 </div>
                 <div class="bc-shelf-ledge"></div>
             </div>
+            <!-- ── End Shelf 2 ─────────────────────────────────────────────── -->
 
             <!-- ── Shelf 3 ─────────────────────────────────────── -->
             <div class="bc-shelf bc-shelf-ghost">
