@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..500&display=swap"
         rel="stylesheet" />
 
     <style>
@@ -31,7 +31,7 @@
             /* breathing room */
             --rule: rgba(44, 31, 20, 0.15);
 
-            --font-display: 'Fraunces', serif;
+            --font-display: 'Lora', serif;
             --font-body: 'DM Sans', sans-serif;
         }
 
@@ -53,7 +53,10 @@
         }
 
         body {
-            background: var(--bg);
+            background-color: var(--bg);
+            background-image: url('assets/ParchmentPattern01.png');
+            background-repeat: repeat;
+            background-size: auto;
             color: var(--text);
             font-family: var(--font-body);
             font-size: clamp(16px, 1.25vw + 0.5rem, 26px);
@@ -331,7 +334,7 @@
             letter-spacing: 0.04em;
             text-decoration: none;
             border: 0.2em solid var(--accent-green);
-            border-radius: 1.2em;
+            border-radius: 1.25rem;
             transition: background 0.22s, color 0.22s, transform 0.18s;
         }
 
@@ -354,7 +357,7 @@
             letter-spacing: 0.04em;
             text-decoration: none;
             border: 0.2em solid var(--rule);
-            border-radius: 1.2em;
+            border-radius: 1.25rem;
             transition: border-color 0.22s, color 0.22s, transform 0.18s;
         }
 
@@ -534,7 +537,7 @@
         #about {
             position: relative;
             padding: 9rem 4rem;
-            background: var(--bg);
+            /* background: var(--bg); */
             overflow: hidden;
             scroll-margin-top: 5rem;
         }
@@ -707,7 +710,7 @@
         #process {
             position: relative;
             padding: 9rem 4rem;
-            background: #EDE6D8;
+            background: rgba(44, 31, 20, 0.1);
             overflow: hidden;
             scroll-margin-top: 5rem;
         }
@@ -778,14 +781,13 @@
             gap: 0.75rem;
             background: none;
             border: 1.5px solid rgba(44, 31, 20, 0.25);
-            border-radius: 6.25rem;
+            border-radius: 1.2rem;
             color: var(--text-muted);
             font-family: var(--font-body);
             font-size: 1.31rem;
             font-weight: 600;
             letter-spacing: 0.05em;
             padding: 0.75rem 1.4rem;
-            border-radius: 6.25rem;
             cursor: pointer;
             align-self: flex-start;
             transition: border-color 0.2s, color 0.2s;
@@ -1067,7 +1069,7 @@
         }
 
         .contact-feedback.error {
-            background: rgba(123, 45, 58, 0.07);
+            background: rgba(123, 45, 58, 0.1);
             border: 1.5px solid rgba(123, 45, 58, 0.22);
             color: var(--accent-burg);
         }
@@ -1166,15 +1168,11 @@
         #projects {
             position: relative;
             padding: 9rem 4rem;
-            background-color: #EDE6D8;
+            background: rgba(44, 31, 20, 0.1);
             overflow: hidden;
             scroll-margin-top: 5rem;
         }
 
-        /* No overlay on light background */
-        #projects::before {
-            display: none;
-        }
 
 
         /* ─── Projects section header + tag ────────────────── */
@@ -1243,7 +1241,7 @@
         /* Giant decorative quote mark — exact match */
         .joke-spotlight-embed::before {
             content: '\201C';
-            font-family: 'Fraunces', Georgia, serif;
+            font-family: 'Lora', Georgia, serif;
             font-size: 12rem;
             line-height: 0.7;
             color: #E8DFD0;
@@ -1265,7 +1263,7 @@
         }
 
         .joke-spotlight-embed .joke-setup-text {
-            font-family: 'Fraunces', Georgia, serif;
+            font-family: 'Lora', Georgia, serif;
             font-size: 1.63rem;
             font-weight: 500;
             color: #0F0804;
@@ -1322,56 +1320,56 @@
             text-decoration: underline;
         }
 
-  /* ── Checks shelf image panel ── */
-  .bc-check-panel {
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid rgba(255, 180, 80, 0.12);
-  }
+        /* ── Checks shelf image panel ── */
+        .bc-check-panel {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid rgba(255, 180, 80, 0.12);
+        }
 
-  .bc-check-img-wrap {
-    width: 100%;
-    max-width: 32rem;
-    position: relative;
-  }
+        .bc-check-img-wrap {
+            width: 100%;
+            max-width: 32rem;
+            position: relative;
+        }
 
-  .bc-check-img-wrap img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0.2rem;
-    box-shadow:
-      0 6px 28px rgba(0,0,0,0.55),
-      0 1px 4px rgba(0,0,0,0.3);
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-  }
+        .bc-check-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0.2rem;
+            box-shadow:
+                0 6px 28px rgba(0, 0, 0, 0.55),
+                0 1px 4px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
 
-  .bc-check-img-wrap img:hover {
-    box-shadow:
-      0 10px 40px rgba(0,0,0,0.65),
-      0 2px 8px rgba(0,0,0,0.35);
-    transform: translateY(-2px);
-  }
+        .bc-check-img-wrap img:hover {
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.65),
+                0 2px 8px rgba(0, 0, 0, 0.35);
+            transform: translateY(-2px);
+        }
 
-  /* Right-side project info panel for checks shelf —
+        /* Right-side project info panel for checks shelf —
      mirrors bc-project-panel but on the right */
-  .bc-checks-info {
-    padding: 2rem 4rem 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.75rem;
-  }
+        .bc-checks-info {
+            padding: 2rem 4rem 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+        }
 
-  /* Mobile: stack vertically, image on top */
-  @media (max-width: 768px) {
-    .bc-check-panel {
-      border-right: none;
-      border-bottom: 1px solid rgba(255, 180, 80, 0.12);
-    }
-  }
+        /* Mobile: stack vertically, image on top */
+        @media (max-width: 768px) {
+            .bc-check-panel {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 180, 80, 0.12);
+            }
+        }
 
         /* ─── Bookcase ───────────────────────────────────────── */
         .bookcase {
@@ -1532,7 +1530,7 @@
 
         .bc-project-name {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 3.125vw, 2.75rem);
+            font-size: clamp(1.6rem, 3.125vw, 2.75rem);
             font-weight: 700;
             font-style: italic;
             letter-spacing: -0.02em;
@@ -1577,7 +1575,7 @@
             letter-spacing: 0.04em;
             text-decoration: none;
             border: 2px solid var(--accent-green);
-            border-radius: 6.25rem;
+            border-radius: 1.25rem;
             font-size: 1.63rem;
             align-self: flex-start;
             transition: background 0.22s, color 0.22s, transform 0.18s;
@@ -1782,12 +1780,9 @@
             </div>
 
             <h1 class="hero-headline">
-                <span class="line"><span class="line-inner">Like a conductor</span></span>
-                <span class="line"><span class="line-inner">with an orchestra,</span></span>
-                <span class="line"><span class="line-inner">I am <em class="mark-green">directing</em> AI
-                        to</span></span>
-                <span class="line"><span class="line-inner"><span class="mark-burg">build software</span> with
-                        me.</span></span>
+                <span class="line">Like a conductor with an orchestra, I am <em class="mark-green">directing</em> AI
+                        to <span class="mark-burg">build software</span> with
+                        me.</span>
             </h1>
 
             <p class="hero-sub">
@@ -1891,21 +1886,22 @@
                 <div class="bc-shelf-ledge bc-shelf-ledge-top"></div>
                 <div class="bc-shelf-back">
                     <div class="bc-shelf-content">
-            
+
                         <!-- Check image — left half -->
                         <div class="bc-check-panel">
                             <div class="bc-check-img-wrap">
-                                <img src="assets/check-cole2-card.jpg"
+                                <img src="assets/check-series-card.png"
                                     alt="CMN display check featuring Cole Hill, 2005 — the year the children's stories were added to the memo field"
                                     loading="lazy">
                             </div>
                         </div>
-            
+
                         <!-- Project info — right half -->
                         <div class="bc-checks-info">
                             <span class="bc-project-number">02</span>
-                            <h3 class="bc-project-name">The Children<br>of the Checks</h3>
-                            <p class="bc-project-desc">Ten years of CMN telethon display checks — designed, printed, and iterated
+                            <h3 class="bc-project-name">The Children of the Checks</h3>
+                            <p class="bc-project-desc">Ten years of CMN telethon display checks — designed, printed, and
+                                iterated
                                 in-house. From two yellow sheets taped together to something worth keeping.</p>
                             <div class="bc-project-stack">
                                 <span class="bc-stack-tag">Print Design</span>
@@ -1917,7 +1913,7 @@
                                 See the project →
                             </a>
                         </div>
-            
+
                     </div>
                 </div>
                 <div class="bc-shelf-ledge"></div>
@@ -1975,7 +1971,7 @@
 
     </section>
 
-    <!-- ─── About / The Argument ──────────────────────────── -->
+    <!-- ─── About / The Philosophy ──────────────────────────── -->
     <section id="about">
 
         <span class="about-watermark" aria-hidden="true">30</span>
