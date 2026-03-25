@@ -338,7 +338,7 @@ Everything on the page should add up to this, without saying it verbatim.
 - **SSL:** Resolved — monitor for continued activation
 - **Source:** github.com/TobyZiegler/tobyzieglerdotcom
 - **Output:** Single `index.html` — all CSS and JS inline; external dependencies are Google Fonts only
-- **Assets:** `assets/WoodenPlanks.svg` — same directory level as `index.html`
+- **Assets:** `assets/WoodenPlanks.svg`, `assets/shared.css`, `assets/ParchmentPattern01.phg` — same directory level as `index.html`
 - **Error pages:** `404.shtml`, `502.shtml`, `504.shtml`, `508.shtml` — document root, referenced in `.htaccess`
 - **`.htaccess`:** `DirectoryIndex index.html` (index.php entry removed to prevent old site from loading)
 
