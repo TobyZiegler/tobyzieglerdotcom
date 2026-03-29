@@ -1,0 +1,1510 @@
+/*
+ * style.css — Toby's Study (tobyziegler.com)
+ * Page-specific styles for index.html
+ *
+ * Depends on: assets/shared.css (load first)
+ *
+ * Version: 1.0 — 2026-03-29
+ * Extracted from inline <style> block; class names and layout unchanged.
+ *
+ * What lives here:
+ *   — Fixed nav (#main-nav) and hero rewrite notice
+ *   — Hero section, headline animation, bracket decoration
+ *   — About, Process, Projects, Contact, and Footer sections
+ *   — Bookcase component (uprights, shelves, ledges, content panels)
+ *   — Joke spotlight card (embedded in bookcase shelf)
+ *   — Responsive overrides
+ *
+ * Shared-to-local class mapping (for future cleanup reference):
+ *   .about-section-tag / .tag-line / .tag-text  → .eyebrow / .eyebrow-line / .eyebrow-text
+ *   .footer-wordmark                             → .room-name
+ *   .footer-tagline                              → .tagline  (migrated in this file)
+ *   .mark-burg / .mark-green                     → .burg / .green (migrated in this file)
+ */
+
+
+/* ─── Nav ───────────────────────────────────────────── */
+
+#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+}
+
+#main-nav.scrolled {
+    background: rgba(245, 240, 232, 0.88);
+    backdrop-filter: blur(0.625rem);
+    -webkit-backdrop-filter: blur(0.625rem);
+    border-bottom-color: var(--rule);
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.44rem;
+    font-weight: 400;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.2s forwards;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.4s forwards;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-size: 1.19rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+
+/* ─── Hero Rewrite Notice ────────────────────────────── */
+
+.hero-rewrite-notice {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 3rem 1.4rem;
+    border-top: 1px solid var(--rule);
+    opacity: 0;
+    animation: fadeUp 0.6s ease 2s forwards;
+}
+
+.rewrite-dot {
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--burg);
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.rewrite-text {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.rewrite-link {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.rewrite-link:hover {
+    color: var(--text);
+}
+
+
+/* ─── Hero ──────────────────────────────────────────── */
+
+#hero {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0 3rem;
+}
+
+/* Large decorative "T" watermark */
+.hero-watermark {
+    position: absolute;
+    top: -0.13em;
+    right: 0.08em;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: clamp(32rem, 60vw, 80rem);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(44, 31, 20, 0.13);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Thin horizontal rule — top of hero content area */
+.hero-rule-top {
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    right: 3rem;
+    height: 1px;
+    background: var(--rule);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: scaleIn 1s ease 0.8s forwards;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 12vh;
+    padding-bottom: 4vh;
+}
+
+.hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+}
+
+.hero-eyebrow-line {
+    width: 2.5rem;
+    height: 1.5px;
+    background: var(--green);
+    flex-shrink: 0;
+}
+
+.hero-eyebrow-text {
+    font-family: var(--font-body);
+    font-size: 1.12rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+.hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    line-height: 1.3;
+    font-weight: 300;
+    letter-spacing: -0.2rem;
+    color: var(--text);
+    margin-bottom: 2rem;
+}
+
+/* Each word-group fades up in sequence */
+.hero-headline .line {
+    display: block;
+    overflow: hidden;
+}
+
+.hero-headline .line-inner {
+    display: block;
+    opacity: 0;
+    transform: translateY(1.2em);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-headline .line:nth-child(1) .line-inner { animation-delay: 0.65s; }
+.hero-headline .line:nth-child(2) .line-inner { animation-delay: 0.82s; }
+.hero-headline .line:nth-child(3) .line-inner { animation-delay: 0.99s; }
+.hero-headline .line:nth-child(4) .line-inner { animation-delay: 1.16s; }
+
+/* .burg and .green color helpers live in shared.css;
+   local em within the headline inherits italic from shared em selector */
+.hero-headline em {
+    font-style: italic;
+    color: var(--green);
+}
+
+.hero-sub {
+    max-width: 44rem;
+    font-size: 1.31rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 1.45s forwards;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 1.5s forwards;
+}
+
+
+/* ─── Hero Footer Bar ───────────────────────────────── */
+
+.hero-footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 2.2rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.4rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 1.7s forwards;
+}
+
+.hero-footer-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.stat-label {
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.63rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.hero-scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scroll-label {
+    font-size: 1.31rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, var(--green), transparent);
+    animation: scrollPulse 2.2s ease-in-out infinite 2s;
+}
+
+
+/* ─── Hero Accent Bracket Decoration ────────────────── */
+
+.hero-bracket {
+    position: absolute;
+    top: 50%;
+    right: 3rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.8s forwards;
+    z-index: 1;
+}
+
+.bracket-item {
+    font-family: var(--font-body);
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0.6;
+    text-align: right;
+}
+
+.bracket-item.active {
+    color: var(--burg);
+    opacity: 1;
+}
+
+.bracket-rule {
+    width: 1.5rem;
+    height: 1.5px;
+    background: var(--burg);
+    margin-left: auto;
+}
+
+
+/* ─── About Section ─────────────────────────────────── */
+
+#about {
+    position: relative;
+    padding: 9rem 4rem;
+    overflow: hidden;
+    scroll-margin-top: 5rem;
+}
+
+/* Large decorative numeral */
+.about-watermark {
+    position: absolute;
+    bottom: -0.25em;
+    left: -0.05em;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: clamp(18rem, 35vw, 48rem);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(44, 31, 20, 0.06);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 7rem;
+    max-width: 90rem;
+}
+
+/* Left column — label + decorative element */
+.about-label-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 0.4rem;
+}
+
+/* Section eyebrow tag — line + uppercase label.
+   Note: shared.css now defines .eyebrow / .eyebrow-line / .eyebrow-text
+   for this same pattern. These local names are kept for now; migrate
+   HTML class names in a future pass. */
+.about-section-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.about-section-tag .tag-line {
+    width: 2.5rem;
+    height: 1.5px;
+    background: var(--burg);
+    flex-shrink: 0;
+}
+
+.about-section-tag .tag-text {
+    font-size: 1.09rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--burg);
+}
+
+.about-heading-aside {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2.5rem, 4.25vw, 3.75rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+
+.about-heading-aside em {
+    font-style: italic;
+    color: var(--green);
+}
+
+/* Vertical decorative rule */
+.about-vert-rule {
+    width: 1.5px;
+    height: 5rem;
+    background: linear-gradient(to bottom, var(--burg), transparent);
+    margin-top: auto;
+}
+
+/* Right column — content */
+.about-content-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.about-lede {
+    font-family: var(--font-display);
+    font-size: clamp(1.625rem, 2.75vw, 2.125rem);
+    font-weight: 300;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+    color: var(--text);
+}
+
+.about-lede em {
+    font-style: italic;
+    color: var(--green);
+}
+
+.about-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.about-body p {
+    font-size: 1.63rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+}
+
+.about-body p strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* Pull quote */
+.about-pullquote {
+    border-left: 3px solid var(--green);
+    padding: 0.8rem 0 0.8rem 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.about-pullquote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text) !important;
+}
+
+/* Credentials strip */
+.about-credentials {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+}
+
+.credential {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.credential-value {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--text);
+}
+
+.credential-label {
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+
+/* ─── Process Section ───────────────────────────────── */
+
+#process {
+    position: relative;
+    padding: 9rem 4rem;
+    background: rgba(44, 31, 20, 0.1);
+    overflow: hidden;
+    scroll-margin-top: 5rem;
+}
+
+.process-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 7rem;
+    max-width: 90rem;
+}
+
+.process-label-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 0.4rem;
+}
+
+/* Process section reuses .about-* classes; color overrides here */
+#process .about-heading-aside       { color: var(--text); }
+#process .about-heading-aside em    { color: var(--green); }
+#process .about-section-tag .tag-line { background: var(--green); }
+#process .about-section-tag .tag-text { color: var(--green); }
+#process .about-vert-rule           { background: linear-gradient(to bottom, var(--green), transparent); }
+#process .about-lede                { color: var(--text); }
+#process .about-lede em             { color: var(--green); }
+#process .about-body p              { color: var(--text-muted); }
+#process .about-body p strong       { color: var(--text); }
+
+.process-content-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+/* ── Expand button ── */
+.process-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: none;
+    border: 1.5px solid rgba(44, 31, 20, 0.25);
+    border-radius: 1.2rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 1.31rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1.4rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.process-expand-btn:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.process-expand-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+.process-expand-btn[aria-expanded="true"] .process-expand-icon {
+    transform: rotate(180deg);
+}
+
+/* ── Expanded panel ── */
+.process-expanded {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    overflow: hidden;
+}
+
+.process-expanded[hidden] {
+    display: none;
+}
+
+/* Animate open — @keyframes expandDown lives in shared.css */
+.process-expanded.is-opening {
+    display: flex;
+    animation: expandDown 0.4s ease forwards;
+}
+
+/* ── Content blocks inside expanded panel ── */
+.process-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+}
+
+.process-block-label {
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green);
+    padding-bottom: 0.5rem;
+}
+
+.process-block p {
+    font-size: 1.63rem;
+    line-height: 1.78;
+    color: var(--text-muted);
+}
+
+.process-block p strong {
+    color: var(--text);
+}
+
+/* ── Obstacle cards ── */
+.obstacle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.obstacle-card {
+    background: rgba(44, 31, 20, 0.03);
+    border: 1.5px solid rgba(44, 31, 20, 0.1);
+    border-radius: 0.5rem;
+    padding: 1.4rem 1.6rem;
+}
+
+.obstacle-label {
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+}
+
+.obstacle-desc {
+    font-size: 1.21rem;
+    color: var(--text-muted);
+    line-height: 1.68;
+}
+
+
+/* ─── Projects Section ──────────────────────────────── */
+
+#projects {
+    position: relative;
+    padding: 9rem 4rem;
+    background: rgba(44, 31, 20, 0.1);
+    overflow: hidden;
+    scroll-margin-top: 5rem;
+}
+
+.projects-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(44, 31, 20, 0.12);
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.projects-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.projects-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.projects-tag .tag-line {
+    width: 2.5rem;
+    height: 1.5px;
+    background: var(--green);
+    flex-shrink: 0;
+}
+
+.projects-tag .tag-text {
+    font-size: 1.09rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+
+/* ─── Bookcase ───────────────────────────────────────── */
+
+.bookcase {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;   /* clips uprights to bookcase height */
+}
+
+.bc-upright {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2.2rem;
+    border: 1.5px solid #1a0a00;
+    z-index: 2;
+}
+
+/* Left upright: light on outer-left face, darkens toward the shelf interior */
+.bc-upright-left {
+    left: 0;
+    background: linear-gradient(90deg, #996633 0%, #7a3b1a 35%, #4a1e00 100%);
+}
+
+/* Right upright: dark toward shelf interior, lightens toward outer-right face */
+.bc-upright-right {
+    right: 0;
+    background: linear-gradient(90deg, #4a1e00 0%, #7a3b1a 65%, #996633 100%);
+}
+
+/* Inner highlight stripe — matches SVG light grain colour #cc8733 */
+.bc-upright-left::after,
+.bc-upright-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: rgba(204, 135, 51, 0.25);
+}
+
+.bc-upright-left::after  { right: 0; }
+.bc-upright-right::after { left: 0; }
+
+.bc-shelf {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Shelf back panels — real wood plank texture from SVG tile */
+.bc-shelf-back {
+    background-color: #803300;
+    background-image: url('assets/WoodenPlanks.svg');
+    background-repeat: repeat;
+    background-size: 1152px auto;
+}
+
+.bc-shelf-live .bc-shelf-back {
+    min-height: 17.5rem;
+}
+
+.bc-shelf-ghost .bc-shelf-back {
+    min-height: 5.625rem;
+}
+
+/* Shelf ledges — mid-tone from SVG (#803300 → #996600 highlight) */
+.bc-shelf-ledge {
+    height: 1.125rem;
+    background: linear-gradient(180deg, #996600 0%, #803300 35%, #6b2a00 70%, #4a1e00 100%);
+    border-top: none;
+    border-bottom: 1.5px solid #1a0a00;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Top highlight line — SVG light grain colour #cc8733 */
+.bc-shelf-ledge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(204, 135, 51, 0.5);
+}
+
+.bc-shelf-ledge::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.38), transparent);
+    pointer-events: none;
+}
+
+/* Top ledge — shadow falls down INTO the shelf, no upward shadow */
+.bc-shelf-ledge-top {
+    border-top: 1.5px solid #1a0a00;
+    border-bottom: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.bc-shelf-ledge-top::after {
+    bottom: auto;
+    top: 100%;
+}
+
+/* Base — deepest SVG dark tone #503320 */
+.bc-base {
+    height: 3rem;
+    background: linear-gradient(180deg, #803300 0%, #5c2a10 35%, #3e1c08 70%, #2a1005 100%);
+    border-top: none;
+    border-bottom: 1.5px solid #1a0a00;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), inset 0 2px 0 rgba(204, 135, 51, 0.18);
+}
+
+/* Live shelf content */
+.bc-shelf-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+
+.bc-joke-panel {
+    padding: 2rem 4rem 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bc-project-panel {
+    padding: 2rem 1.5rem 2rem 4rem;
+    border-right: 1px solid rgba(255, 180, 80, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.bc-project-number {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.09rem;
+    color: #C15A28;
+    letter-spacing: 0.08em;
+}
+
+.bc-project-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3.125vw, 2.75rem);
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--white-soft);
+}
+
+.bc-project-desc {
+    font-size: 1.5rem;
+    line-height: 1.65;
+    color: rgba(250, 247, 242, 0.92);
+}
+
+.bc-project-stack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.bc-stack-tag {
+    font-size: 1.63rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250, 247, 242, 0.65);
+    border: 2px solid rgba(250, 247, 242, 0.4);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+}
+
+.bc-project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    background: var(--green);
+    color: var(--white-soft);
+    font-family: var(--font-body);
+    font-size: 1.63rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 2px solid var(--green);
+    border-radius: 1.25rem;
+    align-self: flex-start;
+    transition: background 0.22s, color 0.22s, transform 0.18s;
+}
+
+.bc-project-link:hover {
+    background: transparent;
+    color: var(--green);
+    transform: translateY(-2px);
+}
+
+/* Live dot */
+.live-dot {
+    display: inline-block;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    background: #5dba5f;
+    flex-shrink: 0;
+}
+
+/* Ghost shelf content */
+.bc-shelf-ghost-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    height: 100%;
+    opacity: 0.45;
+}
+
+.bc-ghost-number {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: rgba(250, 247, 242, 0.4);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.bc-ghost-label {
+    font-family: var(--font-body);
+    font-size: 1.09rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(250, 247, 242, 0.35);
+}
+
+
+/* ─── Checks Shelf ───────────────────────────────────── */
+
+.bc-check-panel {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 180, 80, 0.12);
+}
+
+.bc-check-img-wrap {
+    width: 100%;
+    max-width: 32rem;
+    position: relative;
+}
+
+.bc-check-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.2rem;
+    box-shadow:
+        0 6px 28px rgba(0, 0, 0, 0.55),
+        0 1px 4px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.bc-check-img-wrap img:hover {
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.65),
+        0 2px 8px rgba(0, 0, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Right-side info panel for checks shelf */
+.bc-checks-info {
+    padding: 2rem 4rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+
+/* ─── Joke Spotlight Card ────────────────────────────── */
+/*
+ * Embedded in the bookcase shelf. Mirrors .joke-spotlight on Dad-a-Base.
+ * Font families use CSS variables rather than literal font names.
+ */
+
+.joke-card {
+    width: 100%;
+    height: 100%;
+    min-height: 26.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    background: transparent;
+}
+
+.joke-spotlight-embed {
+    background: #FFFEF9;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(44, 31, 22, 0.25);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 34rem;
+}
+
+/* Giant decorative quote mark */
+.joke-spotlight-embed::before {
+    content: '\201C';
+    font-family: var(--font-display);
+    font-size: 12rem;
+    line-height: 0.7;
+    color: #E8DFD0;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    pointer-events: none;
+}
+
+.joke-spotlight-embed .spotlight-label {
+    font-family: var(--font-body);
+    font-size: 1.31rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5C4D3C;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.joke-spotlight-embed .joke-setup-text {
+    font-family: var(--font-display);
+    font-size: 1.63rem;
+    font-weight: 500;
+    color: #0F0804;
+    margin-bottom: 1rem;
+    position: relative;
+    min-height: 4rem;
+}
+
+.joke-spotlight-embed .joke-punchline-text {
+    font-family: var(--font-body);
+    font-size: 1.63rem;
+    color: #2E1F12;
+    font-style: italic;
+    font-weight: 400;
+    position: relative;
+    min-height: 3rem;
+}
+
+.joke-spotlight-embed .spotlight-footer {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.joke-spotlight-embed .vote-inline {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.joke-spotlight-embed .vote-btn-sm {
+    font-family: var(--font-body);
+    font-size: 1.12rem;
+    font-weight: 400;
+    border: 1px solid #C8BAA8;
+    background: #FAF7F2;
+    color: #2E1F12;
+    padding: 0.375rem 0.875rem;
+    border-radius: 62.5rem;
+    cursor: default;
+    font-style: normal;
+}
+
+.joke-spotlight-embed .next-joke-link {
+    font-family: var(--font-body);
+    font-size: 1.12rem;
+    color: #5C4D3C;
+    text-decoration: none;
+    transition: color 0.25s;
+}
+
+.joke-spotlight-embed .next-joke-link:hover {
+    color: #0F0804;
+    text-decoration: underline;
+}
+
+
+/* ─── Contact Section ───────────────────────────────── */
+
+#contact {
+    position: relative;
+    padding: 9rem 4rem;
+    background: var(--bg);
+    scroll-margin-top: 5rem;
+}
+
+.contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 7rem;
+    max-width: 90rem;
+}
+
+.contact-label-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 0.4rem;
+}
+
+/* Contact section reuses .about-* classes; color overrides here */
+#contact .about-heading-aside em    { color: var(--burg); }
+#contact .about-section-tag .tag-line { background: var(--burg); }
+#contact .about-section-tag .tag-text { color: var(--burg); }
+#contact .about-vert-rule           { background: linear-gradient(to bottom, var(--burg), transparent); }
+#contact .about-lede em             { color: var(--burg); }
+
+.contact-content-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+/* Honeypot — visually hidden but not display:none (bots skip those) */
+.contact-honeypot {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    pointer-events: none;
+    tab-index: -1;
+}
+
+/* ── Direct email link ── */
+.contact-email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 300;
+    color: var(--burg);
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(123, 45, 58, 0.25);
+    padding-bottom: 0.2rem;
+    align-self: flex-start;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.contact-email-link:hover {
+    color: var(--text);
+    border-color: var(--text);
+}
+
+.contact-email-icon {
+    font-style: normal;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+/* ── Form ── */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+}
+
+.contact-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-label {
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.contact-input {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--rule);
+    padding: 0.6rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.contact-input::placeholder {
+    color: rgba(44, 31, 20, 0.3);
+}
+
+.contact-input:focus {
+    border-bottom-color: var(--burg);
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 7rem;
+    line-height: 1.6;
+}
+
+.contact-form-footer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-note {
+    font-size: 1.08rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.contact-feedback {
+    padding: 1rem 1.4rem;
+    border-radius: 0.5rem;
+    font-size: 1.17rem;
+    line-height: 1.6;
+}
+
+.contact-feedback.success {
+    background: rgba(58, 92, 59, 0.08);
+    border: 1.5px solid rgba(58, 92, 59, 0.25);
+    color: var(--green);
+}
+
+.contact-feedback.error {
+    background: rgba(123, 45, 58, 0.1);
+    border: 1.5px solid rgba(123, 45, 58, 0.22);
+    color: var(--burg);
+}
+
+
+/* ─── Footer ─────────────────────────────────────────── */
+/*
+ * The Study's footer uses a custom dark wood gradient rather than
+ * shared.css's .site-footer light chrome. It shares .footer-nav and
+ * .footer-link from shared.css but overrides their colors for the dark
+ * background.
+ */
+
+#site-footer {
+    background: linear-gradient(180deg, #803300 0%, #5c2a10 35%, #3e1c08 70%, #2a1005 100%);
+    padding: 4rem 4rem 2rem;
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(250, 247, 242, 0.1);
+    max-width: 90rem;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* .footer-wordmark shares visual intent with .room-name in shared.css.
+   Keeping the local name here; migrate in a future HTML pass. */
+.footer-wordmark {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--white-soft);
+    letter-spacing: -0.02em;
+}
+
+/* .tagline is defined in shared.css; override color for dark footer */
+#site-footer .tagline {
+    color: rgba(250, 247, 242, 0.45);
+}
+
+.footer-nav,
+.footer-rooms {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 0.25rem;
+}
+
+.footer-rooms {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1.5rem;
+}
+
+.footer-rooms-label {
+    width: 100%;
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250, 247, 242, 0.3);
+    margin-bottom: 0.25rem;
+}
+
+/* Override shared.css .footer-link for dark footer */
+#site-footer .footer-link {
+    font-size: 1.09rem;
+    color: rgba(250, 247, 242, 0.55);
+}
+
+#site-footer .footer-link:hover {
+    color: var(--white-soft);
+}
+
+.footer-base {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 90rem;
+}
+
+.footer-copy {
+    font-size: 1.08rem;
+    color: rgba(250, 247, 242, 0.3);
+}
+
+.footer-gh {
+    font-size: 1.08rem;
+}
+
+
+/* ─── Responsive ────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+    #main-nav {
+        padding: 1.2rem 1.5rem;
+    }
+
+    #hero {
+        padding: 0 1.5rem;
+    }
+
+    .hero-rule-top {
+        left: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .hero-bracket {
+        display: none;
+    }
+
+    .hero-watermark {
+        font-size: 60vw;
+        right: -0.1em;
+    }
+
+    .hero-footer {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+
+    #about {
+        padding: 6rem 1.5rem;
+    }
+
+    .about-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-vert-rule {
+        display: none;
+    }
+
+    .about-credentials {
+        gap: 1.5rem;
+    }
+
+    #process {
+        padding: 6rem 1.5rem;
+    }
+
+    .process-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    #projects {
+        padding: 6rem 1.5rem;
+    }
+
+    .bookcase {
+        padding: 0;
+    }
+
+    .bc-shelf-content {
+        grid-template-columns: 1fr;
+    }
+
+    .bc-joke-panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 180, 80, 0.12);
+    }
+
+    .bc-check-panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 180, 80, 0.12);
+    }
+
+    .bc-shelf-live .bc-shelf-back {
+        min-height: auto;
+    }
+
+    #contact {
+        padding: 6rem 1.5rem;
+    }
+
+    .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-field-row {
+        grid-template-columns: 1fr;
+    }
+
+    #site-footer {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
