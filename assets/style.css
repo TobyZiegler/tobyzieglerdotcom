@@ -23,6 +23,10 @@
  */
 
 
+.html {
+    font-size: 12px;
+}
+
 /* ─── Nav ───────────────────────────────────────────── */
 
 #main-nav {
@@ -50,7 +54,7 @@
 .nav-logo {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 1.44rem;
+    font-size: 2rem;
     font-weight: 400;
     color: var(--text);
     text-decoration: none;
@@ -61,7 +65,7 @@
 
 .nav-links {
     display: flex;
-    gap: 2.2rem;
+    gap: clamp(1rem, 2vw, 2.2rem);
     list-style: none;
     opacity: 0;
     animation: fadeUp 0.7s ease 0.4s forwards;
@@ -69,8 +73,8 @@
 
 .nav-links a {
     font-family: var(--font-body);
-    font-size: 1.19rem;
-    font-weight: 500;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -108,7 +112,7 @@
 }
 
 .rewrite-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     line-height: 1.5;
 }
@@ -155,7 +159,7 @@
 /* Thin horizontal rule — top of hero content area */
 .hero-rule-top {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 3rem;
     right: 3rem;
     height: 1px;
@@ -193,9 +197,9 @@
 
 .hero-eyebrow-text {
     font-family: var(--font-body);
-    font-size: 1.12rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--green);
 }
@@ -208,6 +212,7 @@
     letter-spacing: -0.2rem;
     color: var(--text);
     margin-bottom: 2rem;
+    margin-right: 20rem;
 }
 
 /* Each word-group fades up in sequence */
@@ -230,14 +235,14 @@
 
 /* .burg and .green color helpers live in shared.css;
    local em within the headline inherits italic from shared em selector */
-.hero-headline em {
+/* .hero-headline em {
     font-style: italic;
     color: var(--green);
-}
+} */
 
 .hero-sub {
     max-width: 44rem;
-    font-size: 1.31rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     line-height: 1.7;
     color: var(--text-muted);
     margin-bottom: 3rem;
@@ -320,7 +325,7 @@
 
 .hero-bracket {
     position: absolute;
-    top: 50%;
+    top: 60%;
     right: 3rem;
     transform: translateY(-50%);
     display: flex;
