@@ -1,29 +1,84 @@
 /*
  * shared.css — Toby's Study design system
+ * Version: 2.2 — 2026-03-31
+ *
  * Canonical source: tobyziegler.com/assets/shared.css
  * Deploy copies to: dadabase.tobyziegler.com/shared.css
  *                   resume.tobyziegler.com/shared.css
  *
- * When this file changes, update the version comment below and
- * redeploy all copies before pushing page-level changes.
+ * When this file changes:
+ *   1. Update the version comment above.
+ *   2. Redeploy all copies before pushing page-level changes.
+ *   3. Note the change in CHANGELOG or README.
  *
- * Version: 2.0 — 2026-03-26
+ * ─── AI SESSION START: READ THIS FIRST ──────────────────────────────────
  *
- * What lives here:
- *   — CSS custom properties (all tokens)
- *   — Reset
- *   — Base body (background, font, noise overlay)
+ * WHAT BELONGS HERE (define once; never redefine in page stylesheets):
+ *   — All CSS custom properties (tokens)
+ *   — Reset and base body (background, font, noise overlay)
  *   — Typographic element selectors: h1–h3, p, em, strong
  *   — Semantic utility classes: .room-name, .tagline, .burg, .green, .muted
- *   — Site chrome: .site-header, .site-footer and their children
+ *   — Site chrome: .site-header, .site-footer and all children
  *   — Button system: .btn, .btn-primary, .btn-secondary
- *   — Eyebrow label pattern
- *   — Keyframe animations
+ *   — Eyebrow label pattern: .eyebrow, .eyebrow-line, .eyebrow-text
+ *   — All @keyframes
  *
- * What does NOT live here:
+ * WHAT DOES NOT BELONG HERE:
  *   — Page layout (hero, sections, grids)
- *   — Component styles (cards, forms, search, pills)
+ *   — Component styles (cards, forms, search, category pills)
  *   — Page-specific overrides
+ *
+ * TOKEN QUICK REFERENCE — use these; do not invent raw values:
+ *
+ *   Type scale (rem, relative to fluid root ~16px–26px):
+ *     --text-xs    1.0rem   fine print, badges, table headers
+ *     --text-sm    1.1rem   eyebrows, labels, footer links, small UI
+ *     --text-base  1.3rem   nav, captions, inputs, secondary UI copy
+ *     --text-body  1.6rem   body paragraphs, h3, .room-name
+ *     --text-lg    2.0rem   pull quotes, credentials
+ *     --text-display  clamp(3.5rem, 8vw, 5rem)   large decorative watermarks,
+ *                          oversized numerals, hero glyphs
+ *
+ *   If you find yourself writing a raw rem value (0.85rem, 1.15rem, etc.),
+ *   stop. Round to the nearest token. If none fits, add a token here with
+ *   a comment, rather than adding a bespoke value to a page stylesheet.
+ *   If you must use a raw value for a genuine one-off, add an inline
+ *   comment: /* page-specific — no shared token applies *\/
+ *
+ *   Spacing: no token system — use rem freely. Padding tends generous.
+ *   Borders: 1px, 1.5px, 2px pixel values are correct and expected.
+ *   Box shadows: pixel values in shadow definitions are correct.
+ *   SVG geometry: px values inside viewBox are correct.
+ *
+ *   Heading weights: h1 and h2 are weight 300 (light display).
+ *     h3 is weight 500 (card/sub-section level). .room-name is weight 700.
+ *     Do not increase h1/h2 weight without a clear reason; weight 300 is
+ *     the intentional aesthetic choice for the Study's register.
+ *
+ *   Colors: always use the token. Never hardcode a hex that exists as a
+ *     variable. --green, --burg, --bg, --bg-alt, --bg-dark, --text,
+ *     --text-muted, --white-soft, --rule, --rule-strong.
+ *
+ * CLASS NAME REFERENCE:
+ *   .room-name   — the name of any room/site (header logo, footer, etc.)
+ *                  Lora bold italic. NOT a heading level — it's a proper noun.
+ *   .tagline     — one quiet supporting line beneath a .room-name or heading.
+ *   .burg        — applies var(--burg) color; inherits to children.
+ *   .green       — applies var(--green) color; inherits to children.
+ *   .muted       — applies var(--text-muted) color.
+ *   h2.italic    — full-phrase italic h2 (e.g. "Ready when you are.")
+ *   .eyebrow     — line + label pattern before a section heading.
+ *   .eyebrow--burg — burgundy variant of .eyebrow.
+ *
+ * MIGRATION NOTE (pages built before March 2026):
+ *   Old class → New class
+ *   .logo-text    → .room-name
+ *   .footer-brand → .room-name
+ *   .footer-tagline → .tagline
+ *   .footer-right → .footer-nav (change element to <nav>)
+ *   .site-name    → .room-name (transitional alias; now fully .room-name)
+ *
+ * ────────────────────────────────────────────────────────────────────────
  */
 
 
@@ -70,6 +125,7 @@
   --text-base:  1.3rem;   /* UI copy, captions, nav */
   --text-body:  1.6rem;   /* body paragraphs */
   --text-lg:    2.0rem;   /* credentials, pull quotes */
+  --text-display: clamp(3.5rem, 8vw, 5rem);   /* large decorative watermarks, oversized numerals */
 
   /* Elevation */
   --shadow-card: 0 2px 16px rgba(44, 31, 20, 0.08), 0 1px 3px rgba(44, 31, 20, 0.06);
@@ -159,7 +215,7 @@ body::before {
 h1 {
   font-family: var(--font-display);
   font-size: clamp(3rem, 5vw, 4.5rem);
-  font-weight: 500;
+  font-weight: 300;   /* light — display weight; bold reserved for .room-name and emphasis */
   letter-spacing: -0.03em;
   color: var(--text);
   line-height: 1.15;
@@ -169,7 +225,7 @@ h1 {
 h2 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 500;
+  font-weight: 300;   /* light — same reasoning as h1 */
   letter-spacing: -0.02em;
   color: var(--text);
   line-height: 1.25;
@@ -178,10 +234,21 @@ h2 {
 h3 {
   font-family: var(--font-display);
   font-size: var(--text-body);
-  font-weight: 500;
+  font-weight: 500;   /* medium — card and sub-section level; one step heavier than h1/h2 */
   letter-spacing: -0.01em;
   color: var(--text);
   line-height: 1.3;
+}
+
+/*
+ * h2.italic — display phrase modifier
+ * Use for decorative h2s: <h2 class="italic">Ready when you are.</h2>
+ * Sets italic + regular weight + tighter tracking. No color change.
+ */
+h2.italic {
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -543,4 +610,9 @@ em {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+@keyframes punchlineIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
