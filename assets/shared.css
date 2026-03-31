@@ -1,6 +1,6 @@
 /*
  * shared.css — Toby's Study design system
- * Version: 2.2 — 2026-03-31
+ * Version: 2.3 — 2026-03-31
  *
  * Canonical source: tobyziegler.com/assets/shared.css
  * Deploy copies to: dadabase.tobyziegler.com/shared.css
@@ -54,6 +54,9 @@
  *     h3 is weight 500 (card/sub-section level). .room-name is weight 700.
  *     Do not increase h1/h2 weight without a clear reason; weight 300 is
  *     the intentional aesthetic choice for the Study's register.
+ *
+ *   --pad-page   max(2rem, 5vw)   fluid horizontal page padding — use on sections
+ *                               and chrome instead of fixed padding values.
  *
  *   Colors: always use the token. Never hardcode a hex that exists as a
  *     variable. --green, --burg, --bg, --bg-alt, --bg-dark, --text,
@@ -139,6 +142,11 @@
 
   /* Motion */
   --transition:  0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --pad-page: max(2rem, 5vw);   /* fluid horizontal page padding — floors at 2rem, grows with viewport.
+                                    Use on every section and chrome element instead of fixed padding values.
+                                    At 2560px this yields ~128px per side; content never hits a hard wall. */
 }
 
 
