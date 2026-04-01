@@ -795,7 +795,7 @@
 /* Shelf back panels — real wood plank texture from SVG tile */
 .bc-shelf-back {
     background-color: #803300;
-    background-image: url('assets/WoodenPlanks.svg');
+    background-image: url('WoodenPlanks.svg');
     background-repeat: repeat;
     background-size: 1152px auto;
 }
@@ -1216,7 +1216,7 @@
 
 .contact-email-icon {
     font-style: normal;
-    font-size: 0.9em;
+    font-size: 2.5em;
     opacity: 0.7;
 }
 
