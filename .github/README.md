@@ -1,1 +1,1 @@
-README-study.md
+../README-study.md
