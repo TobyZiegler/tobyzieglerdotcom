@@ -2,13 +2,17 @@
  * shared.css — Toby's Study design system
  * Version: 2.4 — 2026-03-31
  *
- * Canonical source: tobyziegler.com/assets/shared.css
- * Deploy copies to: dadabase.tobyziegler.com/shared.css
- *                   resume.tobyziegler.com/shared.css
+ * Canonical source and single deploy location:
+ *   /home/tobyjhmw/public_html/assets/shared.css
+ *   → serves as tobyziegler.com/assets/shared.css
+ *
+ * All rooms reference this file directly via relative path — no copies:
+ *   Subdomains (dadabase, resume, etc.):  ../public_html/assets/shared.css
+ *   Project subdirectories (checks, etc.): ../../public_html/assets/shared.css
  *
  * When this file changes:
  *   1. Update the version comment above.
- *   2. Redeploy all copies before pushing page-level changes.
+ *   2. Edit in place — all rooms pick up changes immediately (no redeploy of copies needed).
  *   3. Note the change in CHANGELOG or README.
  *
  * ─── AI SESSION START: READ THIS FIRST ──────────────────────────────────
@@ -168,7 +172,7 @@ html {
 /* ─── Base Body ─────────────────────────────────────────────────────── */
 body {
   background-color: var(--bg);
-  background-image: url('ParchmentPattern01.png');
+  background-image: url('https://tobyziegler.com/assets/ParchmentPattern01.png');
   background-repeat: repeat;
   background-size: auto;
   color: var(--text);
@@ -179,11 +183,9 @@ body {
 }
 
 /*
- * ASSET PATH NOTE: The parchment background path is relative to each
- * page's location. All rooms currently keep assets/ at the same level
- * as their index file, so 'assets/ParchmentPattern01.png' works for
- * all of them. If a room moves its assets folder, override body
- * background-image locally in that room's stylesheet.
+ * ASSET PATH NOTE: The parchment image lives in public_html/assets/ alongside
+ * this CSS file. Its URL is absolute (tobyziegler.com/assets/...) so it resolves
+ * correctly no matter which room loads this stylesheet. No per-room override needed.
  */
 
 
