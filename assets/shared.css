@@ -7,8 +7,8 @@
  *   → serves as tobyziegler.com/assets/shared.css
  *
  * All rooms reference this file directly via relative path — no copies:
- *   Subdomains (dadabase, resume, etc.):  ../public_html/assets/shared.css
- *   Project subdirectories (checks, etc.): ../../public_html/assets/shared.css
+ *   Subdomains (dadabase, resume, etc.):  https://tobyziegler.com/assets/shared.css
+ *   Project subdirectories (checks, etc.): ../https://tobyziegler.com/assets/shared.css
  *
  * When this file changes:
  *   1. Update the version comment above.
