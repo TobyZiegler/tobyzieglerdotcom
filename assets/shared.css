@@ -92,14 +92,6 @@
 /* ─── Google Fonts ──────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..500&display=swap');
 
-/*
- * NOTE: The Study's index.html loads fonts via <link> tags in <head>
- * (faster — avoids @import render-blocking delay). The Dad-a-Base and
- * Resume load this file as a <link> from <head>, so @import is fine.
- * The Study should keep its own <link> tags and NOT import this file's
- * font section. Everything else applies to all rooms.
- */
-
 
 /* ─── CSS Custom Properties ─────────────────────────────────────────── */
 :root {
@@ -224,7 +216,7 @@ body {
 
 h1 {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(3.5rem, 5vw, 6rem);
   font-weight: 300;   /* light — display weight; bold reserved for .room-name and emphasis */
   letter-spacing: -0.03em;
   color: var(--text);
