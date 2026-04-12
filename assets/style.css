@@ -1028,6 +1028,32 @@
     transform: translateY(-2px);
 }
 
+/* SVG preview wrap — UserHome shelf (and future SVG-preview shelves).
+   Mirrors .bc-check-img-wrap but without max-width cap; SVG scales freely. */
+.bc-preview-img-wrap {
+    width: 100%;
+    position: relative;
+}
+
+.bc-preview-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.2rem;
+    box-shadow:
+        0 6px 28px rgba(0, 0, 0, 0.55),
+        0 1px 4px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+}
+
+.bc-preview-img-wrap img:hover {
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.65),
+        0 2px 8px rgba(0, 0, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+
 /* Right-side info panel for checks shelf */
 .bc-checks-info {
     padding: 2rem 4rem 2rem 1.5rem;
