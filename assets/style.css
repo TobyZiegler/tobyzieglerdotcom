@@ -1030,6 +1030,11 @@
 
 /* SVG preview wrap — UserHome shelf (and future SVG-preview shelves).
    Mirrors .bc-check-img-wrap but without max-width cap; SVG scales freely. */
+.bc-check-img-wrap a,
+.bc-preview-img-wrap a {
+    display: block;
+}
+
 .bc-preview-img-wrap {
     width: 100%;
     position: relative;
