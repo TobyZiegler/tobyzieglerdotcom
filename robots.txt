@@ -1,0 +1,96 @@
+# robots.txt — tobyziegler.com
+# Last updated: April 2026
+#
+# Strategy: Block AI training crawlers. Allow AI retrieval crawlers.
+# Portfolio content should appear in AI search answers; it should not
+# silently feed model training datasets.
+#
+# Review quarterly. New AI crawler agents appear regularly.
+# Reference: https://github.com/ai-robots-txt/ai.robots.txt
+
+
+# ---------------------------------------------------------------
+# Standard search engines — always allowed
+# ---------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+
+# ---------------------------------------------------------------
+# AI retrieval bots — ALLOWED
+# These power real-time AI search answers (ChatGPT search,
+# Perplexity, Claude.ai web fetch). Keeping these allows your
+# portfolio to surface when someone asks an AI about you.
+# ---------------------------------------------------------------
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+
+# ---------------------------------------------------------------
+# AI training crawlers — BLOCKED
+# These collect content for model training datasets, not search.
+# ---------------------------------------------------------------
+
+# OpenAI training crawler
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic training crawler
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI training (does not affect Googlebot / search ranking)
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl — primary pre-training dataset for most LLMs
+User-agent: CCBot
+Disallow: /
+
+# Meta training crawlers
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+# ByteDance / TikTok — has been observed ignoring robots.txt
+User-agent: Bytespider
+Disallow: /
+
+# Apple AI training
+User-agent: Applebot-Extended
+Disallow: /
+
+# Cohere training crawler
+User-agent: cohere-ai
+Disallow: /
+
+# Diffbot — commercial data extraction
+User-agent: Diffbot
+Disallow: /
+
+
+# ---------------------------------------------------------------
+# Catch-all: everything else gets normal access
+# ---------------------------------------------------------------
+User-agent: *
+Allow: /
