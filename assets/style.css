@@ -4,17 +4,12 @@
  *
  * Depends on: https://tobyziegler.com/assets/shared.css (load first)
  *
- * Version: 1.1 — April 2026
- * Migrated to shared.css v2.4 token system.
- *   — Removed erroneous .html { font-size } rule
- *   — All font-size values converted to --text-* tokens
- *   — All transitions converted to var(--transition) where appropriate
- *   — border-radius values converted to --radius-* tokens
- *   — Horizontal padding on sections uses var(--pad-page)
- *   — .footer-wordmark HTML class renamed to .room-name
- *   — .contact-submit btn base class added in HTML
- *   — Decorative oversized watermarks and bookcase wood tones kept as-is (intentional)
- *   — Mobile padding overrides kept at 1.5rem (intentionally tighter than --pad-page floor)
+ * Version: 1.2 — April 2026
+ * Eyebrow pattern migration complete.
+ *   — Removed dead .about-section-tag / .projects-tag / .tag-line / .tag-text rules;
+ *     HTML now uses canonical .eyebrow / .eyebrow-line / .eyebrow-text from shared.css
+ *   — Updated #process and #contact color overrides to use .eyebrow-line / .eyebrow-text
+ *   — Fixed .bc-shelf-back background-image to absolute URL (Cloudflare requirement)
  *
  * What lives here:
  *   — Fixed nav (#main-nav) and hero rewrite notice
@@ -406,30 +401,8 @@
     padding-top: 0.4rem;
 }
 
-/* Section eyebrow tag — line + uppercase label.
-   Note: shared.css now defines .eyebrow / .eyebrow-line / .eyebrow-text
-   for this same pattern. These local names are kept for now; migrate
-   HTML class names in a future pass. */
-.about-section-tag {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.about-section-tag .tag-line {
-    width: 2.5rem;
-    height: 1.5px;
-    background: var(--burg);
-    flex-shrink: 0;
-}
-
-.about-section-tag .tag-text {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--burg);
-}
+/* Section eyebrow uses canonical .eyebrow / .eyebrow-line / .eyebrow-text from shared.css.
+   Color overrides for each section are scoped below. */
 
 .about-heading-aside {
     font-family: var(--font-display);
@@ -570,8 +543,8 @@
 /* Process section reuses .about-* classes; color overrides here */
 #process .about-heading-aside       { color: var(--text); }
 #process .about-heading-aside em    { color: var(--green); }
-#process .about-section-tag .tag-line { background: var(--green); }
-#process .about-section-tag .tag-text { color: var(--green); }
+#process .eyebrow-line              { background: var(--green); }
+#process .eyebrow-text              { color: var(--green); }
 #process .about-vert-rule           { background: linear-gradient(to bottom, var(--green), transparent); }
 #process .about-lede                { color: var(--text); }
 #process .about-lede em             { color: var(--green); }
@@ -723,26 +696,7 @@
     gap: 1.2rem;
 }
 
-.projects-tag {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.projects-tag .tag-line {
-    width: 2.5rem;
-    height: 1.5px;
-    background: var(--green);
-    flex-shrink: 0;
-}
-
-.projects-tag .tag-text {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--green);
-}
+/* Projects eyebrow uses canonical .eyebrow from shared.css; color overrides below */
 
 
 /* ─── Bookcase ───────────────────────────────────────── */
@@ -798,7 +752,7 @@
 /* Shelf back panels — real wood plank texture from SVG tile */
 .bc-shelf-back {
     background-color: #803300;
-    background-image: url('WoodenPlanks.svg');
+    background-image: url('https://tobyziegler.com/assets/WoodenPlanks.svg');
     background-repeat: repeat;
     background-size: 1152px auto;
 }
@@ -1205,8 +1159,8 @@
 
 /* Contact section reuses .about-* classes; color overrides here */
 #contact .about-heading-aside em    { color: var(--burg); }
-#contact .about-section-tag .tag-line { background: var(--burg); }
-#contact .about-section-tag .tag-text { color: var(--burg); }
+#contact .eyebrow-line              { background: var(--burg); }
+#contact .eyebrow-text              { color: var(--burg); }
 #contact .about-vert-rule           { background: linear-gradient(to bottom, var(--burg), transparent); }
 #contact .about-lede em             { color: var(--burg); }
 
